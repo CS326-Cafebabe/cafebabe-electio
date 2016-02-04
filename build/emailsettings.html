@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Email Settings</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Email Settings</title>
 
-    <!-- Custom CSS goes here -->
-    <link href="css/emailsettings.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- Custom HTML goes here -->
-    Email settings go here!
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- App code -->
-    <script src="js/bundle.js"></script>
-  </body>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS goes here -->
+  <link href="css/emailsettings.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Custom HTML goes here -->
+  <div class="container">
+    <!-- The row that contains the three main columns of the website. -->
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <br />
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="media">
+                  <div class="media-left">
+                      <img src="img/bernie.jpg" width="100%"/>
+                  </div>
+                  <div class="media-body">
+                    Bernie Sanders, Democratic Party.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="btn-group switch" data-toggle="buttons">
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="on1" autocomplete="off"> On
+                  </label>
+                  <label class="btn btn-primary active">
+                    <input type="radio" name="options" id="off1" autocomplete="off" checked> Off
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- App code -->
+  <script src="js/bundle.js"></script>
+</body>
+
 </html>
