@@ -5,3 +5,23 @@
 body{
   margin-top: 5px;
 }
+
+.trending>hr {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #A9A9A9;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #A9A9A9;
+}
+
+.articles>ul{
+  list-style-type: decimal;
+}
+
+.articles>ul>li{
+  padding-bottom: 10px;
+}
