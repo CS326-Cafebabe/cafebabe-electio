@@ -1,8 +1,21 @@
 img{
-  width: 80px;
+  width: 70px;
 }
 
 .panel-body{
-  line-height: 50px;
+  line-height: 65px;
   font-size: 20px;
+}
+
+.btn-primary{
+  background-color: rgb(181, 241, 251);
+  border-color: rgb(161, 221, 231);
+}
+
+.btn-group > .active {
+  background-color: rgb(231, 231, 231);
+  color: rgb(0, 0, 0);
+  border-color: rgb(111, 111, 111);
+
+
 }
