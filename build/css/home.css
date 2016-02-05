@@ -84,7 +84,17 @@ The main section of the page
 
 
 /* Vote Now Button*/
+.vote-button-container {
 
+	/* To center this, we used col-md-offset-5 to push the div to the center using bootstrap's columns */
+
+	position: fixed;
+	bottom: 20px;
+	width: 22%;
+}
+
+.vote-button{
+}
 
 
 /* Thumbnail styles */
