@@ -12,7 +12,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS goes here -->
-  <link href="css/emailsettings.css" rel="stylesheet">
+  <link href="css/vote.css" rel="stylesheet">
 
 </head>
 
@@ -37,10 +37,61 @@
 
     <div class="row">
       <div class="col-md-2">
-        Sidebar
+        <!-- Sidebar -->
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active"><a href="#">Democrat</a></li>
+          <li role="presentation"><a href="#">Republican</a></li>
+          <li role="presentation"><a href="#">Independent</a></li>
+        </ul>
       </div>
       <div class="col-md-10">
-        Voting area
+        <div class="row">
+          <div class="col-sm-4 col-md-3">
+            <div class="thumbnail democrat-thumb">
+              <img src="img/bernieHead.jpg" width="100%">
+              <div class="caption">
+                <h3>Bernie Sanders</h3>
+                <!-- Split button -->
+                <div class="btn-group">
+                  <button type="button" class="btn long-btn">Vote</button>
+                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu pull-right">
+                    <li><a href="#">More Info</a></li>
+                    <li><a href="https://berniesanders.com/">Campaign Website</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-md-3">
+            <div class="thumbnail democrat-thumb">
+              <img src="img/clintonHead.jpg" width="100%">
+              <div class="caption">
+                <h3>Hillary Clinton</h3>
+                <!-- Split button -->
+                <div class="btn-group">
+                  <button type="button" class="btn long-btn">Vote</button>
+                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu pull-right">
+                    <li><a href="#">More Info</a></li>
+                    <li><a href="https://www.hillaryclinton.com/">Campaign Website</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+
+
       </div>
     </div>
 
