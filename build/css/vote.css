@@ -1,0 +1,36 @@
+.btn-default {
+  margin-top: 5px;
+}
+
+.col-md-12 {
+  text-align: center;
+}
+
+/* Thumbnail styles */
+/*Credit to Andrew*/
+.democrat-thumb {
+	background-color: #0090E0;
+}
+
+.republican-thumb {
+	background-color: #E00013;
+}
+
+.independant-thumb {
+	background-color: #805889;
+}
+
+.long-btn {
+  white-space: normal;
+  width:120px;
+}
+
+.caption > .btn-group > .btn {
+  background-color: rgb(229, 229, 229);
+  border-color: rgb(204,204,204);
+  text-align: center;
+}
+
+.caption {
+  text-align: center;
+}
