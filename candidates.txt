@@ -1,0 +1,25 @@
+Source: https://ballotpedia.org/Presidential_candidates,_2016
+
+#We have images for:
+Bernie Sanders (Dem)
+Hillary Clinton
+
+Ben Carson (Rep)
+Ted Cruz (Rep)
+Marco Rubio (Rep)
+Donald Trump (Rep)
+
+#We do not have images for
+Roque De La Fuente (Dem)
+
+Jeb Bush (Rep)
+Chris Christie (Rep)
+Carly Fiorina (Rep)
+Jim Gilmore (Rep)
+John Kasich (Rep)
+
+Gary Johnson (Libertarian - treated as ind)
+Jill Stein (Green - treated as ind)
+
+#Candidates to remove from page:
+JW Scroggie
