@@ -16,6 +16,13 @@ img{
   background-color: rgb(231, 231, 231);
   color: rgb(0, 0, 0);
   border-color: rgb(111, 111, 111);
+}
 
+.btn-default {
+  margin-top: 5px;
 
+}
+
+.col-md-12 {
+  text-align: center;
 }
