@@ -9,6 +9,11 @@
   width: 100%;
 }
 
+.calendar-format{
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
 .cafebabe-calendar .pull-right tr{
   width: 13%;
 }
@@ -48,4 +53,8 @@
 .calendar-fixed {
   margin-top: 20px;
   position: fixed;
+}
+
+.center {
+  padding-left: 50px;
 }
