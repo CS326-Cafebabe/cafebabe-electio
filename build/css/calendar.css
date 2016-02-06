@@ -21,13 +21,14 @@
 .key {
   width: inherit;
   position: fixed;
-  bottom: 50px;
+  top: 20px;
   right: 20px;
-
+  background-color: white;
   /* Applies the given border style to all sides. */
-  border: 1px solid lightgrey;
+  border: 2px solid black;
   /* Removes the border on the bottom. */
   border-radius: 3px;
+  text-align: center;
 }
 
 .green {
@@ -53,8 +54,18 @@
 .calendar-fixed {
   margin-top: 20px;
   position: fixed;
+  z-index: 10;
 }
 
 .center {
   padding-left: 50px;
+}
+
+[draggable=true] {
+  cursor: move;
+}
+
+.tight{
+  padding: 0px;
+  margin: 0px;
 }

@@ -2,6 +2,9 @@
   margin-top: 20px;
 }
 
+.center {
+  text-align: center;
+}
 /*.chat-box{
   height: 80vh;
   border: 1px solid lightgrey;
@@ -67,4 +70,8 @@ text-align: center;
 
 .hr-clas-low {
     border-top: 1px solid #C5C5C5;
+}
+
+body{
+  overflow-x: scroll;
 }
