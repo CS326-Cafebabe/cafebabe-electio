@@ -1,0 +1,44 @@
+.fill-height{
+    height: 100vh;
+}
+
+.cafebabe-calendar{
+  padding-top: 50px;
+  width: 100%;
+}
+
+.cafebabe-calendar .pull-right tr{
+  width: 13%;
+}
+
+.key {
+  width: inherit;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  
+  /* Applies the given border style to all sides. */
+  border: 1px solid lightgrey;
+  /* Removes the border on the bottom. */
+  border-radius: 3px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.brown {
+  color: brown;
+}
+
+.blue {
+  color: blue;
+}

@@ -10,6 +10,8 @@
 
   <!-- Bootstrap's CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/calendar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,29 +20,29 @@
     <!--  Left Space for potential key on bottom left to stay stickied -->
   </div>
   <div class="col-md-8">
-    <div class="jumbotron">
+    <div class="jumbotron fill-height">
       <h1>Calendar</h1>
       <p>Get Info about upcoming events!</p>
 
       <div class="well">
-        <table class="table-bordered table-hover">
+        <table class="active table-bordered cafebabe-calendar">
           <!-- Make the calendar as a table? -->
           <h4>
           <b>February</b>
-        </h4>
+          </h4>
           <thread>
-            <tr>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-              <th>Sunday</th>
+            <tr height="20">
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+              <th>SUN</th>
             </tr>
           </thread>
           <tbody>
-            <tr>
+            <tr height="80">
               <td></td>
               <td>1</td>
               <td>2</td>
@@ -49,16 +51,22 @@
               <td>5</td>
               <td>6</td>
             </tr>
-            <tr>
+            <tr height="80">
               <td>7</td>
               <td>8</td>
-              <td>9</td>
+              <td>
+                9
+                <br>
+                <span class = "blue">●</span> NH
+                <br />
+                <span class = "green">●</span> NH
+              </td>
               <td>10</td>
               <td>11</td>
               <td>12</td>
               <td>13</td>
             </tr>
-            <tr>
+            <tr height="80">
               <td>14</td>
               <td>15</td>
               <td>16</td>
@@ -67,7 +75,7 @@
               <td>19</td>
               <td>20</td>
             </tr>
-            <tr>
+            <tr height="80">
               <td>21</td>
               <td>22</td>
               <td>23</td>
@@ -76,7 +84,7 @@
               <td>26</td>
               <td>27</td>
             </tr>
-            <tr>
+            <tr height="80">
               <td>28</td>
               <td>1</td>
               <td>2</td>
@@ -94,6 +102,40 @@
   <div class="col-md-2">
     <!-- What to put on the right? -->
   </div>
+
+  <div class="panel-body key">
+    <div class="list-group">
+      <a href="#" class="list-group-item active">
+        <span class = "green">●</span>  Sanders Event
+      </a>
+      <a href="#" class="list-group-item">
+        <span class = "blue">●</span>  Clinton Event</a>
+      <a href="#" class="list-group-item">
+        <span class="brown">●</span>  Cruz Event</a>
+      <a href="#" class="list-group-item">
+        <span class="yellow">●</span> Trump Event</a>
+      <a href="#" class="list-group-item">
+        <span class="red">●</span>  Rubio Event</a>
+    </div>
+    <!-- <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <span class="green">●</span> Chat (32)
+        </div>
+        <div class="col-md-4">
+          <div class="btn-group pull-right" role="group">
+            <button type="button" class="btn btn-xs">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-xs">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery.min.js"></script>
