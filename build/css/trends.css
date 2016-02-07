@@ -3,6 +3,7 @@
 }
 
 body{
+  font-family: 'Raleway', sans-serif;
   margin-top: 5px;
   background-color: #ECECEC;
   color: #606060;
@@ -37,6 +38,7 @@ hr {
 }
 
 .btn-default{
+  margin-top: 5px;
   background-color: transparent;
   border: none;
 }
@@ -44,4 +46,8 @@ hr {
 .upper-graph{
   background-color: transparent;
   border: none;
+}
+
+h1, h2, h3{
+  font-family: 'Alegreya', serif;
 }
