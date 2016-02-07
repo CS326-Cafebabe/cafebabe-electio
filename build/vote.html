@@ -11,9 +11,13 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom CSS goes here -->
+  <!-- Custom CSS goes here : font-family: 'Alegreya', serif; -->
   <link href="css/vote.css" rel="stylesheet">
+  <!-- Header Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700" rel="stylesheet" type="text/css">
 
+  <!-- Regular text font : font-family: 'Raleway', sans-serif;-->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -23,44 +27,55 @@
 
 
     <div class="row">
-      <div class="col-md-12">
-        <button class="btn btn-default pull-left">
+      <div class="col-md-3">
+        <button class="btn btn-default pull-left top-row">
           <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
         </button>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6">
         <h1>Vote</h1>
 
       </div>
       <div class="col-md-3">
-        <div class="media">
+        <div class="media  top-row">
           <div class="media-left">
             <!-- If we want to link to a profile:
             <a href="#">
               <img class="media-object" src="img/userPlaceholder.png" width="50px">
             </a> -->
-            <img class="media-object" src="img/userPlaceholder.png" width="50px">
+            <img class="media-object  top-row" src="img/userPlaceholder.png" width="50px">
 
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">John Doe</h4> You voted for Bernie Sanders.
+          <div class="media-body  top-row">
+            <h4 class="media-heading  top-row">John Doe</h4> You voted for Bernie Sanders.
           </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-2">
-        <!-- Sidebar -->
+      <!-- <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="active"><a href="#">Democrat</a></li>
           <li role="presentation"><a href="#">Republican</a></li>
           <li role="presentation"><a href="#">Independent</a></li>
         </ul>
-      </div>
-      <div class="col-md-10">
+      </div> -->
+      <div class="col-md-12">
+        <div class="row">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active">
+              <a href="#">Democrat</a>
+            </li>
+            <li role="presentation">
+              <a href="#">Republican</a>
+            </li>
+            <li role="presentation">
+              <a href="#">Independent</a>
+            </li>
+          </ul>
+        </div>
+
         <div class="row">
           <div class="col-sm-4 col-md-3">
             <div class="thumbnail democrat-thumb">
