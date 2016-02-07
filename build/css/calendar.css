@@ -1,12 +1,12 @@
 body{
-  background-color: #606060;
+  background-color: #ECECEC;
   color: #606060 !important;
   font-family: "Raleway",serif;
 }
 
 h1, p, h2, h3, h4, h5{
   color: #606060 !important;
-  font-family: "Alegreya",serif;
+  font-family: "Montserrat",sans-serif;
 }
 
 div{
@@ -95,6 +95,7 @@ background-color: transparent;
 [draggable=true] {
   cursor: move;
 }
+
 
 .tight{
   padding: 0px;
