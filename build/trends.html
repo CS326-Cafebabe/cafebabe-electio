@@ -1,94 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Trends</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS goes here -->
-    <link href="css/trends.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- Custom HTML goes here -->
-    <div class="container-fluid">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Trends</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS goes here -->
+  <link href="css/trends.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Custom HTML goes here -->
+  <div class="container-fluid">
+    <div class="col-md-12 content">
       <div class="row">
         <!-- Header Section -->
-      <div class="col-md-12 trending">
-        <button class="btn btn-default">
-          <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
-        </button>
-        <h1>Trending</h1>
-        A one stop shop for political graphs!
-        <hr>
+        <div class="col-md-12 trending">
+          <button class="btn btn-default calendar-fixed">
+            <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+          </button>
+          <h1>Trending</h1> A one stop shop for political graphs!
+          <hr>
+        </div>
+      </div>
+      <!-- Header Section End -->
+
+
+      <div class="row">
+        <!-- Left Half of Page -->
+        <div class="col-md-5 articles">
+          <h2>Events</h2>
+          <hr>
+          <ul>
+            <li><a href="#">New Hampshire Primary</a></li>
+            <li><a href="#">Eighth Republican Debate is held in New Hampshire</a></li>
+            <li><a href="#">Fifth Democratic Debate is held in New Hampshire</a></li>
+            <li><a href="#">Iowa Caucus</a></li>
+            <li><a href="#">Seventh Republican Debate is held in Iowa</a></li>
+            <li class="media">
+              <div class="media-left media-top">
+                <span class="caret"></span>
+              </div>
+              <div class="media-body">
+                <a href="#">See More</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Left Half End -->
+
+        <!-- Right Half Begin -->
+        <div class="col-md-7 graphs">
+          <h2>Activity</h2>
+          <hr>
+          <!-- Right Half Upper -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default upper-graph">
+                <div class="panel-body">
+                  <img class="img-responsive" src="img/graphs/graph1.jpg" width="700px" />
+                </div>
+              </div>
+              <p>Info on Graph goes here</p>
+            </div>
+          </div>
+          <!-- Right Half Upper End -->
+          <hr>
+          <!-- Right Half Lower -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default upper-graph">
+                <div class="panel-body">
+                  GRAPH HERE
+                </div>
+              </div>
+              <p>Info on Graph goes here</p>
+            </div>
+          </div>
+          <!-- right Half Lower End -->
+        </div>
+        <!-- Right Half End -->
       </div>
     </div>
-    <!-- Header Section End -->
+  </div>
 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- App code -->
+  <script src="js/bundle.js"></script>
+</body>
 
-    <div class="row">
-      <!-- Left Half of Page -->
-      <div class="col-md-6 articles">
-        <h2>Articles</h2>
-        <hr>
-        <ul>
-          <li><a href="#">Trump rapidly gaining support with the motto "You can't stump the Trump"</a></li>
-          <li><a href="#">Could Trump's wall idea actually work?</a></li>
-          <li><a href="#">Bernie for Prez cuz free education</a></li>
-          <li><a href="#">"Universal Health Care is not a bad idea", says the World</a></li>
-          <li class="media">
-            <div class="media-left media-top">
-              <span class="caret"></span>
-            </div>
-            <div class="media-body">
-              <a href="#">See More</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- Left Half End -->
-
-      <!-- Right Half Begin -->
-      <div class="col-md-6 graphs">
-        <h2>Graphs</h2>
-        <hr>
-        <!-- Right Half Upper -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-default upper-graph">
-              <div class="panel-body">
-                <img class="img-responsive" src="img/graph1.jpg" width="700px"/>
-              </div>
-            </div>
-            <p>Info on Graph goes here</p>
-          </div>
-        </div>
-        <!-- Right Half Upper End -->
-        <hr>
-        <!-- Right Half Lower -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-default upper-graph">
-              <div class="panel-body">
-                GRAPH HERE
-              </div>
-            </div>
-            <p>Info on Graph goes here</p>
-          </div>
-        </div>
-        <!-- right Half Lower End -->
-      </div>
-      <!-- Right Half End -->
-    </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- App code -->
-    <script src="js/bundle.js"></script>
-  </body>
 </html>
