@@ -37,6 +37,13 @@ Democrats: #6194BC
 Republicans: #FF4E4D
 Independant: #805889
 
+button styling:
+.btn-default {
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
 # Font for HEADERS and TITLES
   # Add into <head> of html pages
 <link href='https://fonts.googleapis.com/css?family=Alegreya:700' rel='stylesheet' type='text/css'>
