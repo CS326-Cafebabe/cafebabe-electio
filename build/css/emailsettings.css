@@ -1,13 +1,11 @@
-img{
+img {
   width: 70px;
 }
-
-.panel-body{
-  line-height: 65px;
+.panel-body {
+  line-height: 67px;
   font-size: 20px;
 }
-
-.btn-primary{
+.btn-primary {
   background-color: rgb(181, 241, 251);
   border-color: rgb(161, 221, 231);
 }
@@ -19,10 +17,53 @@ img{
 }
 
 .btn-default {
-  margin-top: 5px;
-
+  border: none;
+  background-color: transparent;
+  margin-top: 20px;
 }
 
 .col-md-12 {
   text-align: center;
+}
+
+.dem-panel {
+  background-color: #6194BC;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+.rep-panel {
+  background-color: #FF4E4D;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+.indep-panel {
+  background-color: #805889;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+body {
+  background-color: #ECECEC;
+  color: #606060;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 70px;
+}
+
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #606060;
+}
+
+.panel-body > .row > .col-md-2 {
+  text-align: right;
 }
