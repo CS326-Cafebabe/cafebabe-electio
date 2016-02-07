@@ -25,10 +25,8 @@ body {
 
 .option-btn {
   margin-left: 35px;
+  background-color: #A5D1F3;
   border-color: #A5D1F3;
-  background-color: #FFFFFF;
-  border-width: medium;
-  border-radius: 0px;
 }
 
 h2{
@@ -59,6 +57,7 @@ p,h2,.btn {
 h1{
   font-family: 'Alegreya', serif;
   color: #FFFFFF;
+  font-size: 50pt;
 }
 
 .panel {
@@ -68,4 +67,12 @@ h1{
 .thumbnail {
   border-color: #FFFFFF;
   border-width: thick;
+}
+
+.top {
+  padding-top: 50px;
+}
+
+.info {
+  font-size: 15pt;
 }
