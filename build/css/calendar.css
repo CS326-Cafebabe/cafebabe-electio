@@ -1,12 +1,12 @@
 body{
   background-color: #606060;
   color: #606060 !important;
-  font-family: 'Raleway',serif;
+  font-family: "Raleway",serif;
 }
 
 h1, p, h2, h3, h4, h5{
   color: #606060 !important;
-  font-family: 'Algreya',serif;
+  font-family: "Alegreya",serif;
 }
 
 div{
@@ -48,14 +48,18 @@ background-color: transparent;
 }
 
 .key {
+  max-width: 200px;
   width: inherit;
   position: fixed;
   top: 20px;
   right: 20px;
   background-color: lightgrey;
   border-radius: 5px;
-  text-align: center;
   color: #606060 !important;
+}
+
+.key-header{
+  text-align: center;
 }
 
 .green {

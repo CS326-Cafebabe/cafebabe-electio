@@ -1,3 +1,133 @@
+body{
+  background-color: #606060;
+  color: #606060 !important;
+  font-family: "Raleway",serif;
+}
+
+h1, p, h2, h3, h4, h5{
+  color: #606060 !important;
+  font-family: "Alegreya",serif;
+}
+
+div{
+  color: #606060 !important;
+}
+
+a{
+  color: #606060 !important;
+}
+
+.btn-default {
+margin-top: 20px;
+border: none;
+background-color: transparent;
+}
+
+.fill-height{
+    height: 100vh;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.align{
+  margin-top: 20px;
+}
+
+.cafebabe-calendar{
+  padding-top: 50px;
+  width: 100%;
+}
+
+.calendar-format{
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
+.cafebabe-calendar .pull-right tr{
+  width: 13%;
+}
+
+.key {
+  width: inherit;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  text-align: center;
+  color: #606060 !important;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.brown {
+  color: brown;
+}
+
+.blue {
+  color: blue;
+}
+
+.calendar-fixed {
+  margin-top: 20px;
+  position: fixed;
+  z-index: 10;
+}
+
+.center {
+  padding-left: 50px;
+}
+
+[draggable=true] {
+  cursor: move;
+}
+
+.tight{
+  padding: 0px;
+  margin: 0px;
+}
+
+.bordered{
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  top: =20px;
+}
+
+.calendar-panel{
+  background-color: lightgrey;
+}
+
+.calendar-btn{
+  left: 2vw;
+}
+
+
+/*.bernie-event{
+  background-color: green;
+  border: 0px;
+  color: white;
+  text-align: center;
+}
+
+.clinton-event{
+  background-color: blue;
+  border: 0px;
+  color: white;
+  text-align: center;
+}*/
+
+
 .chat-box-alignment{
   margin-top: 20px;
 }
