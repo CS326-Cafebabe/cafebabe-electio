@@ -21,12 +21,14 @@ body {
 
 .quote {
   font-size: 13pt;
+  color: #FFFFFF;
 }
 
 .option-btn {
   margin-left: 35px;
   background-color: #A5D1F3;
   border-color: #A5D1F3;
+  border-radius: 5px;
 }
 
 h2{
@@ -38,16 +40,11 @@ h2{
   border-left: none;
   border-bottom: none;
   border-right: none;
-  background-color: #606060;
-  color: #FFFFFF;
+  background-color: #ECECEC;
 }
 
 .candidate-panel {
-  background-color: #606060;
-}
-
-p {
-  color: #FFFFFF;
+  background-color: #ECECEC;
 }
 
 p,h2,.btn {
@@ -55,13 +52,17 @@ p,h2,.btn {
 }
 
 h1{
-  font-family: 'Alegreya', serif;
-  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  color: #6194BC;
   font-size: 50pt;
 }
 
-.panel {
+.candidate-panel {
   border: none;
+}
+
+.panel-heading {
+  border-bottom: none;
 }
 
 .thumbnail {
@@ -74,5 +75,10 @@ h1{
 }
 
 .info {
-  font-size: 15pt;
+  font-size: 13pt;
+}
+
+.twitter-panel {
+  border-color: #FFFFFF;
+  border-width: thick;
 }
