@@ -3,6 +3,10 @@ This was modified from the bootstrap dashboard example:
 http://getbootstrap.com/examples/dashboard/
 */
 
+body {
+	background-color: #ECECEC;
+}
+
 .sidebar {
 	display: none;
 }
@@ -18,7 +22,7 @@ http://getbootstrap.com/examples/dashboard/
 	    padding: 0px;
 	    overflow-x: hidden;
 	    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-	    background-color: #f5f5f5;
+	    background-color: #e0e0e0;
 	    border-right: 1px solid #eee;
 	  }
 }
@@ -36,6 +40,7 @@ http://getbootstrap.com/examples/dashboard/
 .sidebar>hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
+	border-top: 1px solid #CCC;
 }
 
 /*Nav Side bar lists*/
@@ -54,8 +59,8 @@ http://getbootstrap.com/examples/dashboard/
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff;
-  background-color: #428bca;
+  color: gray;
+  background-color: #A5D1F3;
 }
 
 .nav-menu .active {
@@ -99,11 +104,11 @@ The main section of the page
 
 /* Thumbnail styles */
 .democrat-thumb {
-	background-color: #0090E0;
+	background-color: #6194BC;
 }
 
 .republican-thumb {
-	background-color: #E00013;
+	background-color: #E4001B;
 }
 
 .independant-thumb {
@@ -112,10 +117,10 @@ The main section of the page
 
 /* Colors */
 .democrat-blue {
-	color: #0090E0
+	color: #6194BC
 }
 .republican-red {
-	color: #E00013
+	color: #E4001B
 }
 .independant-purple {
 	/*color: #704879;*/
