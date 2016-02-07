@@ -25,4 +25,9 @@ Jill Stein (Green - treated as ind)
 JW Scroggie
 
 #Color Scheme:
-#6194BC #A5D1F3 #D0EAFF #E4001B #ECECEC #606060
+Democrat: #6194BC
+Buttons: #A5D1F3
+Buttons: #D0EAFF
+Republican: #E4001B
+Background: #ECECEC
+Text: #606060

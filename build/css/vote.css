@@ -2,6 +2,11 @@
   margin-top: 5px;
 }
 
+body {
+  background-color: #ECECEC;
+  color: #606060;
+}
+
 h1 {
   text-align: center;
 }
@@ -9,7 +14,9 @@ h1 {
 /* Thumbnail styles */
 /*Credit to Andrew*/
 .democrat-thumb {
-	background-color: #0090E0;
+	background-color: #6194BC;
+  color: #606060;
+
 }
 
 .republican-thumb {
@@ -30,6 +37,10 @@ h1 {
   border-color: rgb(204,204,204);
   text-align: center;
 }
+
+/*.nav {
+  background-color:  #D0EAFF;
+}*/
 
 .caption {
   text-align: center;
