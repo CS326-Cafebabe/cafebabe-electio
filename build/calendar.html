@@ -12,27 +12,43 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="css/calendar.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <!-- Our Calendar layout will go here. -->
   <div class="col-md-2">
     <!--  Left Space for potential key on bottom left to stay stickied -->
-    <button class="btn btn-default calendar-fixed">
-      <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+    <button class="btn btn-default">
+      <span class="glyphicon glyphicon-menu-hamburger"></span>
     </button>
   </div>
   <div class="col-md-8">
-    <div class="jumbotron fill-height">
+    <div class="calendar-panel panel align">
+      <div class="panel-heading">
       <h1>Calendar</h1>
       <p>Get Info about upcoming events!</p>
+    </div>
 
       <div class="well">
         <table class="active table-bordered cafebabe-calendar calendar-format">
           <!-- Make the calendar as a table? -->
-          <h4>
-          <b>February</b>
-          </h4>
+          <div class="row">
+            <div class="col-md-10">
+              <h3><b>February</b></h3>
+            </div>
+            <div class="col-md-2">
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default calendar-btn">
+                  <span class="glyphicon glyphicon-backward"></span>
+                </button>
+                <button type="button" class="btn btn-default calendar-btn">
+                  <span class="glyphicon glyphicon-forward"></span>
+                </button>
+              </div>
+          </div>
+        </div>
           <thread>
             <tr height="20">
               <th class="col-md-1">MON</th>
@@ -47,15 +63,7 @@
           <tbody>
             <tr height="80">
               <td></td>
-              <td>
-                <div class="media">
-                  <div class="media-body">
-                    <a href="#">
-                      1
-                    </a>
-                  </div>
-                </div>
-              </td>
+              <td>1</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -66,11 +74,11 @@
               <td>7</td>
               <td>8</td>
               <td>
-                <right class="pull-right bordered" top="-100">9</right>
+                9
                 <br>
                 <span class = "blue">●</span> NH
                 <br />
-                <button type="button" class = "bernie-event btn tight">NH</button>
+                <span class = "green">●</span> NH
               </td>
               <td>10</td>
               <td>11</td>
@@ -117,11 +125,11 @@
   <div class="panel-body key tight">
     <h4 class = "tight"> Key </h4>
     <div class="list-group tight">
-      <a href="#" class="list-group-item bernie-event">
-        Sanders Event
+      <a href="#" class="list-group-item">
+          <span class="green">●</span>Sanders Event
       </a>
-      <a href="#" class="list-group-item clinton-event">
-        Clinton Event</a>
+      <a href="#" class="list-group-item">
+          <span class="blue">●</span>Clinton Event</a>
       <a href="#" class="list-group-item">
         <span class="brown">●</span>  Cruz Event</a>
       <a href="#" class="list-group-item">
