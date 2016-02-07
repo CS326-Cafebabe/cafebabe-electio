@@ -46,10 +46,10 @@ button styling:
 
 # Font for HEADERS and TITLES
   # Add into <head> of html pages
-<link href='https://fonts.googleapis.com/css?family=Alegreya:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 
   # Add into css selectors
-font-family: 'Alegreya', serif;
+font-family: 'Montserrat', sans-serif;
 
 # Font for regular text
   # Add into <head> of html pages
