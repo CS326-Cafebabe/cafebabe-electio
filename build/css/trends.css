@@ -4,6 +4,8 @@
 
 body{
   margin-top: 5px;
+  background-color: #ECECEC;
+  color: #606060;
 }
 
 .trending>hr {
@@ -24,4 +26,22 @@ hr {
 
 .articles>ul>li{
   padding-bottom: 10px;
+}
+
+.sidebar{
+  padding: 0px;
+}
+
+.content{
+  padding: 0px;
+}
+
+.btn-default{
+  background-color: transparent;
+  border: none;
+}
+
+.upper-graph{
+  background-color: transparent;
+  border: none;
 }
