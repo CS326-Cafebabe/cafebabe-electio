@@ -69,3 +69,24 @@
   padding: 0px;
   margin: 0px;
 }
+
+.bordered{
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  top: =20px;
+}
+
+.bernie-event{
+  background-color: green;
+  border: 0px;
+  color: white;
+  text-align: center;
+}
+
+.clinton-event{
+  background-color: blue;
+  border: 0px;
+  color: white;
+  text-align: center;
+}
