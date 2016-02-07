@@ -2,72 +2,78 @@
   border: none;
   background-color: transparent;
 }
-
 .top-row {
   margin-top: 20px;
 }
 body {
-  background-color: #606060;
-  color: rgb(240, 240, 240);
+  background-color: #ECECEC;
+  color: #606060;
   font-family: 'Raleway', sans-serif;
 }
-
 h1 {
   text-align: center;
   font-size: 100px;
 }
-
 h2 {
   text-align: center;
 }
-
 h1, h2, h3, h4, h5 {
-  font-family: 'Alegreya', serif;
-  color: rgb(240, 240, 240);
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #606060;
 }
 
-.nav-pills > li.active > a {
-  background-color: #A5D1F3;
-}
 
 /* Thumbnail styles */
 /*Credit to Andrew*/
+
 .democrat-thumb {
-	background-color: #6194BC;
-  color: #606060;
-
+  background-color: #6194BC;
+  color: #FFFFFF;
 }
-
 .republican-thumb {
-	background-color: #E00013;
+  background-color: #FF4E4D;
 }
-
 .independant-thumb {
-	background-color: #805889;
+  background-color: #805889;
 }
-
 .long-btn {
   white-space: normal;
-  width:120px;
+  width: 120px;
+}
+hr{
+  color: #606060;
+  border-color: #606060;
+  background-color: #606060;
+
 }
 
 .caption > .btn-group > .btn {
   background-color: rgb(229, 229, 229);
-  border-color: rgb(204,204,204);
+  border-color: rgb(204, 204, 204);
   text-align: center;
 }
-
-.caption > h3{
+.caption > h3 {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: #FFFFFF;
 }
-
-.thumbnail{
+.thumbnail {
   margin-top: 20px;
   text-align: center;
   border-width: thick;
+  border-color: #FFFFFF;
+}
+.nav-tabs  {
+  /*border-left: 20px;*/
+  border-color: #606060;
+}
+.nav-tabs > li {
+  color: #606060;
+  border-color: #606060;
 }
 
-.nav-tabs {
-  border-left: 20px;
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #ECECEC;
+  border-color: #606060;
+  border-bottom: none;
 }
