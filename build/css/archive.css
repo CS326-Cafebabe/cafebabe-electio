@@ -1,7 +1,22 @@
+body {
+  background-color: #ECECEC;
+}
+
 h3 {
   font-family: 'Alegreya', serif;
 }
 
 div {
   font-family: 'Raleway', sans-serif;
+}
+
+.archive-body {
+  margin-top: 40px;
+}
+
+.menu-btn {
+  margin-top: 20px;
+  margin-left: 20px;
+  border: none;
+  background-color: transparent;
 }

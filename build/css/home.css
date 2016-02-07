@@ -112,7 +112,10 @@ The main section of the page
 	width: 22%;
 }
 
-.vote-button{
+#vote-button{
+	/* I don't like the look of either of these colours so I'm leaving it as default*/
+	/*background-color: #A5D1F3;*/
+	/*background-color: #D0EAFF;*/
 }
 
 
@@ -122,7 +125,7 @@ The main section of the page
 }
 
 .republican-thumb {
-	background-color: #E4001B;
+	background-color: #FF4E4D;
 }
 
 .independant-thumb {
