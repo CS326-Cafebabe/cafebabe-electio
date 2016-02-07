@@ -32,6 +32,11 @@ Republican: #E4001B
 Background: #ECECEC
 Text: #606060
 
+Colors for party-specific thumbnail boxes:
+Democrats: #6194BC
+Republicans: #FF4E4D
+Independant: #805889
+
 # Font for HEADERS and TITLES
   # Add into <head> of html pages
 <link href='https://fonts.googleapis.com/css?family=Alegreya:700' rel='stylesheet' type='text/css'>
