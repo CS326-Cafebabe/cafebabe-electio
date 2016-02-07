@@ -5,7 +5,17 @@ http://getbootstrap.com/examples/dashboard/
 
 body {
 	background-color: #ECECEC;
+	font-family: 'Raleway', sans-serif; 
 }
+
+body h1,
+body h2,
+body h3{
+
+	font-family: 'Alegreya', serif !important;
+
+}
+
 
 .sidebar {
 	display: none;
@@ -61,6 +71,10 @@ body {
 .nav-sidebar > .active > a:focus {
   color: gray;
   background-color: #A5D1F3;
+}
+
+.nav-sidebar > strong {
+	font-family: 'Alegreya', serif !important;
 }
 
 .nav-menu .active {
@@ -126,3 +140,15 @@ The main section of the page
 	/*color: #704879;*/
 	color: #805889;
 }
+
+
+
+/* The fonts: */
+
+/* Headings and Titles
+font-family: 'Alegreya', serif;
+*/
+
+/* General Text
+font-family: 'Raleway', sans-serif; 
+*/
