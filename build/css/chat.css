@@ -1,7 +1,154 @@
+body{
+  background-color: #ECECEC;
+  color: #606060 !important;
+  font-family: "Raleway",serif;
+}
+
+h1, p, h2, h3, h4, h5{
+  color: #606060 !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+div{
+  color: #606060 !important;
+}
+
+a{
+  color: #606060 !important;
+}
+
+.btn-default {
+margin-top: 20px;
+border: none;
+background-color: transparent;
+}
+
+.fill-height{
+    height: 100vh;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.align{
+  margin-top: 20px;
+}
+
+.cafebabe-calendar{
+  padding-top: 50px;
+  width: 100%;
+}
+
+.calendar-format{
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
+.cafebabe-calendar .pull-right tr{
+  width: 13%;
+}
+
+.key {
+  width: inherit;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  text-align: center;
+  color: #606060 !important;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.republican {
+  color: #FF443A;
+}
+
+.democrat {
+  color: #6194BC;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.brown {
+  color: brown;
+}
+
+.blue {
+  color: blue;
+}
+
+.calendar-fixed {
+  margin-top: 20px;
+  position: fixed;
+  z-index: 10;
+}
+
+.center {
+  padding-left: 50px;
+}
+
+[draggable=true] {
+  cursor: move;
+}
+
+.tight{
+  padding: 0px;
+  margin: 0px;
+}
+
+.bordered{
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  top: =20px;
+}
+
+.calendar-panel{
+  background-color: lightgrey;
+}
+
+.calendar-btn{
+  left: 2vw;
+}
+
+
+/*.bernie-event{
+  background-color: green;
+  border: 0px;
+  color: white;
+  text-align: center;
+}
+
+.clinton-event{
+  background-color: blue;
+  border: 0px;
+  color: white;
+  text-align: center;
+}*/
+
+
 .chat-box-alignment{
   margin-top: 20px;
 }
 
+.extra-right-pad{
+  padding-right: 30px;
+  padding-left: 0px;
+}
+
+.col-overflow{
+  max-height: 100vh;
+  overflow: hidden;
+}
 .center {
   text-align: center;
 }
@@ -11,14 +158,23 @@
 }*/
 
 .chat-box-main {
-    max-height:75vh;
+    height:75vh;
     overflow:auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.btn-chat{
+  background-color: transparent;
 }
 
 .hr-clas {
     border-top: 1px solid lightgrey;
 }
 
+.chat-head{
+  background-color: lightgrey;
+}
 .chat-box {
     width: 100%;
     height: 80vh;
@@ -27,25 +183,21 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     position: relative;
-    border: 1px solid lightgrey;
-    font-size:12px;
-}
+    font-size:16px;
+  }
 
-.chat-box-left {
+.chat-box-text {
     width: 100%;
+    padding-bottom: 8px;
     height: auto;
-    padding: 15px;
-    margin-bottom: 2px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     position: relative;
-    border: 1px solid #C5C5C5;
-    font-size:12px;
 }
 
 .chat-box-discussion {
-    max-height: 93vh;
+    max-height: 95.5vh;
     overflow:auto;
     padding-right: 0px;
 }
@@ -70,8 +222,4 @@ text-align: center;
 
 .hr-clas-low {
     border-top: 1px solid #C5C5C5;
-}
-
-body{
-  overflow-x: scroll;
 }

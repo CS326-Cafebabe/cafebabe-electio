@@ -1,7 +1,36 @@
+body{
+  background-color: #ECECEC;
+  color: #606060 !important;
+  font-family: "Raleway",serif;
+}
+
+h1, p, h2, h3, h4, h5{
+  color: #606060 !important;
+  font-family: "Montserrat",sans-serif;
+}
+
+div{
+  color: #606060 !important;
+}
+
+a{
+  color: #606060 !important;
+}
+
+.btn-default {
+margin-top: 20px;
+border: none;
+background-color: transparent;
+}
+
 .fill-height{
     height: 100vh;
     padding-bottom: 0px;
     margin-bottom: 0px;
+}
+
+.align{
+  margin-top: 20px;
 }
 
 .cafebabe-calendar{
@@ -19,15 +48,17 @@
 }
 
 .key {
+  max-width: 200px;
   width: inherit;
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: white;
-  /* Applies the given border style to all sides. */
-  border: 2px solid black;
-  /* Removes the border on the bottom. */
-  border-radius: 3px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  color: #606060 !important;
+}
+
+.key-header{
   text-align: center;
 }
 
@@ -65,6 +96,7 @@
   cursor: move;
 }
 
+
 .tight{
   padding: 0px;
   margin: 0px;
@@ -77,7 +109,16 @@
   top: =20px;
 }
 
-.bernie-event{
+.calendar-panel{
+  background-color: lightgrey;
+}
+
+.calendar-btn{
+  left: 2vw;
+}
+
+
+/*.bernie-event{
   background-color: green;
   border: 0px;
   color: white;
@@ -89,4 +130,4 @@
   border: 0px;
   color: white;
   text-align: center;
-}
+}*/

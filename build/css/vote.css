@@ -1,14 +1,33 @@
 .btn-default {
-  margin-top: 5px;
+  border: none;
+  background-color: transparent;
 }
 
+.top-row {
+  margin-top: 20px;
+}
 body {
-  background-color: #ECECEC;
-  color: #606060;
+  background-color: #606060;
+  color: rgb(240, 240, 240);
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
   text-align: center;
+  font-size: 100px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Alegreya', serif;
+  color: rgb(240, 240, 240);
+}
+
+.nav-pills > li.active > a {
+  background-color: #A5D1F3;
 }
 
 /* Thumbnail styles */
@@ -38,14 +57,17 @@ h1 {
   text-align: center;
 }
 
-/*.nav {
-  background-color:  #D0EAFF;
-}*/
-
-.caption {
+.caption > h3{
   text-align: center;
+  color: rgb(0, 0, 0);
 }
 
 .thumbnail{
+  margin-top: 20px;
   text-align: center;
+  border-width: thick;
+}
+
+.nav-tabs {
+  border-left: 20px;
 }
