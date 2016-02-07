@@ -23,3 +23,6 @@ Jill Stein (Green - treated as ind)
 
 #Candidates to remove from page:
 JW Scroggie
+
+#Color Scheme:
+#6194BC #A5D1F3 #D0EAFF #E4001B #ECECEC #606060
