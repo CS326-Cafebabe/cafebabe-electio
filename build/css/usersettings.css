@@ -1,0 +1,52 @@
+body {
+  background-color: #ECECEC;
+  color: #606060;
+  font-family: 'Raleway', sans-serif;
+}
+h1 {
+  text-align: center;
+  font-size: 70px;
+}
+h2 {
+  text-align: center;
+}
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #606060;
+}
+.col-md-3>.btn-default {
+  border: none;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+hr{
+  color: #606060;
+  border-color: #606060;
+  background-color: #606060;
+
+}
+
+.footer{
+  text-align: center;
+}
+.footer > .btn-default{
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  width: 500px;
+  border-color: #000000;
+  margin-bottom: 20px;
+}
+
+.form-control{
+  width: 200px !important;
+}
+
+.indent {
+  margin-left: 13px;
+}
+
+h6{
+  font-size: 20px;
+}

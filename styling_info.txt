@@ -26,25 +26,22 @@ JW Scroggie
 
 #Color Scheme:
 Democrat: #6194BC
-Buttons: #A5D1F3
-Buttons: #D0EAFF
-Republican: #E4001B
-Background: #ECECEC
-Text: #606060
-
-Colors for party-specific thumbnail boxes:
-Democrats: #6194BC
 Republicans: #FF4E4D
 Independant: #805889
 
-button styling:
+Button background: #A5D1F3
+Button text: white
+Background: #ECECEC
+Text: #606060
+
+# button styling
 .btn-default {
   border: none;
   background-color: transparent;
   border-radius: 5px;
 }
 
-# Font for HEADERS and TITLES
+# Font for HEADERS and TITLES; use all-caps
   # Add into <head> of html pages
 <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 
