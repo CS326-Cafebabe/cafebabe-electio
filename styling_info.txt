@@ -27,7 +27,7 @@ JW Scroggie
 #Color Scheme:
 Democrat: #6194BC
 Republicans: #FF4E4D
-Independant: #805889
+Independent: #805889
 
 Button background: #A5D1F3
 Button text: white
@@ -43,14 +43,14 @@ Text: #606060
 
 # Font for HEADERS and TITLES; use all-caps
   # Add into <head> of html pages
-<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet" type="text/css">
 
   # Add into css selectors
 font-family: 'Montserrat', sans-serif;
 
 # Font for regular text
   # Add into <head> of html pages
-<link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet" type="text/css">
 
   # Add into css selectors
 font-family: 'Raleway', sans-serif;

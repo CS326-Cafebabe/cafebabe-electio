@@ -9,6 +9,13 @@ body{
   color: #606060;
 }
 
+.menu-btn {
+  margin-top: 20px;
+  margin-left: 20px;
+  border: none;
+  background-color: transparent;
+}
+
 .trending>hr {
     margin-top: 15px;
     margin-bottom: 0px;
