@@ -1,13 +1,10 @@
 body {
   background-color: #ECECEC;
-}
-
-h3 {
-  font-family: 'Alegreya', serif;
-}
-
-div {
   font-family: 'Raleway', sans-serif;
+}
+
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .archive-body {
@@ -19,4 +16,19 @@ div {
   margin-left: 20px;
   border: none;
   background-color: transparent;
+}
+
+.panel-success > .panel-heading {
+  color: #fff;
+  background-color: #606060;
+}
+
+.panel-danger > .panel-heading {
+  color: #fff;
+  background-color: #FF4E4D;
+}
+
+.panel-info > .panel-heading {
+  color: #fff;
+  background-color: #6194BC;
 }
