@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>User Settings</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS goes here -->
+  <link href="css/usersettings.css" rel="stylesheet">
+  <!-- Header Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet" type="text/css">
+  <!-- Regular text font : font-family: 'Raleway', sans-serif;-->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <!-- Custom HTML goes here -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-default pull-left top-row">
+          <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+        </button>
+      </div>
+      <div class="col-md-6">
+        <h1>User Settings</h1>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <hr />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2">
+        <h3>Name</h3>
+        <h6 class="indent">Alex</h6>
+        <button class="btn btn-default footer indent">
+          Edit <span class="glyphicon glyphicon-edit"></span>
+        </button>
+
+        <h3>Gender</h3>
+        <form role="form">
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="gender">Male</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="gender">Female</label>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="radio" name="gender">
+            </span>
+            <input type="text" class="form-control" placeholder="Other">
+          </div>
+          <!-- /input-group -->
+
+        </form>
+
+        <h3>Party Affiliation</h3>
+        <form role="form">
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="party">Democrat</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="party">Republican</label>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="radio" name="party">
+            </span>
+            <input type="text" class="form-control" placeholder="Other">
+          </div>
+        </form>
+
+        <h3>Hispanic or Latino</h3>
+        <form role="form">
+
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">Hispanic/Latino</label>
+          </div>
+
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">Not Hispanic/Latino</label>
+          </div>
+        </form>
+
+        <h3>Race</h3>
+        <form role="form">
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">White</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">African American/Black</label>
+          </div>
+
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">Asian</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">Pacific Islander</label>
+
+          </div>
+
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="ethnicity">Native American/Alaskan</label>
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="radio" name="ethnicity">
+            </span>
+            <input type="text" class="form-control" placeholder="Other">
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="media">
+          <div class="media-left">
+            <!-- If we want to link to a profile:
+            <a href="#">
+              <img class="media-object" src="img/userPlaceholder.png" width="50px">
+            </a> -->
+
+            <img class="media-object" src="img/temp/userPlaceholder.png" width="100px">
+
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Your Photo</h4>
+            <button class="btn btn-default footer">
+              Edit <span class="glyphicon glyphicon-edit"></span>
+            </button>
+          </div>
+        </div>
+
+        <h3>Email and Password</h3>
+        <h6 class="indent">johndoe@cafebabe.com</h6>
+        <h6 class="indent">********</h6>
+        <button class="btn btn-default footer indent">
+          Edit <span class="glyphicon glyphicon-edit"></span>
+        </button>
+
+        <h3>Age Range</h3>
+        <form role="form">
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">Under 18</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">18-24</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">25-34</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">35-44</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">45-54</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">55-64</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="age">65+</label>
+          </div>
+        </form>
+
+        <h3>Are You Registered In Real Life?</h3>
+        <form role="form">
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="register">Yes</label>
+          </div>
+          <div class="radio indent">
+            <label>
+              <input type="radio" name="register">No</label>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 footer">
+        <button class="btn btn-default footer">
+          Save
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- App code -->
+  <script src="js/bundle.js"></script>
+</body>
+
+</html>
