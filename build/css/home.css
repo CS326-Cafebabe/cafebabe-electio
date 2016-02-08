@@ -10,9 +10,11 @@ body {
 
 body h1,
 body h2,
-body h3{
+body h3,
+.nav-sidebar > strong {
 
-	font-family: 'Alegreya', serif !important;
+	font-family: 'Montserrat', sans-serif !important;
+	text-transform: uppercase;
 
 }
 
@@ -73,9 +75,6 @@ body h3{
   background-color: #A5D1F3;
 }
 
-.nav-sidebar > strong {
-	font-family: 'Alegreya', serif !important;
-}
 
 .nav-menu .active {
 
