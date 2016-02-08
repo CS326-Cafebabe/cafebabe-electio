@@ -6,8 +6,8 @@ img {
   font-size: 20px;
 }
 .btn-primary {
-  background-color: rgb(181, 241, 251);
-  border-color: rgb(161, 221, 231);
+  background-color: #286090;
+  border-color: #286090;
 }
 
 .btn-group > .active {
