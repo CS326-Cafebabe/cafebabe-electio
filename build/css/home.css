@@ -13,7 +13,7 @@ body h2,
 body h3,
 .nav-sidebar > strong {
 
-	font-family: 'Montserrat', sans-serif !important;
+	font-family: 'Montseraat', sans-serif !important;
 	text-transform: uppercase;
 
 }
@@ -96,16 +96,15 @@ The main section of the page
     padding-left: 40px;
   }
 }
+
 .main .page-header {
   margin-top: 0;
 }
-
 
 /* Vote Now Button*/
 .vote-button-container {
 
 	/* To center this, we used col-md-offset-5 to push the div to the center using bootstrap's columns */
-
 	position: fixed;
 	bottom: 20px;
 	width: 22%;
