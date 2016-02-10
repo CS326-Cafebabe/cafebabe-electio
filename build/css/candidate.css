@@ -12,6 +12,8 @@ body {
   padding-top:30px;
   padding-left: 5px;
   padding-right: 5px;
+  border-color: #FFFFFF;
+  border-width: thick;
 }
 
 .twitter {
@@ -47,6 +49,7 @@ h2{
 
 .candidate-panel {
   background-color: #ECECEC;
+  border: none;
 }
 
 p,h2,.btn {
@@ -63,18 +66,10 @@ p {
   color: #606060;
 }
 
-.candidate-panel {
-  border: none;
-}
 
 .panel-heading {
   border-bottom: none;
   background-color: #A5D1F3!important;
-}
-
-.thumbnail {
-  border-color: #FFFFFF;
-  border-width: thick;
 }
 
 .top {
