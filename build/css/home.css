@@ -117,29 +117,34 @@ The main section of the page
 
 
 /* Thumbnail styles */
-.democrat-thumb {
-	background-color: #6194BC;
-	border-width: medium;
+.thumbnail {
+	border-width: thick;
 	border-color: white;
 }
-
-.democrat-thumb:hover {
-	
+.democrat-thumb {
+	background-color: #6194BC;
+}
+.democrat-thumb:hover,
+.democrat-thumb:focus {
+	border-color: #31648C !important;
 }
 
 .republican-thumb {
 	background-color: #FF4E4D;
-	border-width: medium;
-	border-color: white;
+}
+.republican-thumb:hover,
+.republican-thumb:focus {
+	border-color: #CF1E1D !important;
+
 }
 
 .independant-thumb {
 	background-color: #805889;
-	border-width: medium;
-	border-color: white;
 }
-
-
+.independant-thumb:hover,
+.independant-thumb:focus {
+	border-color: #502859 !important;
+}
 
 
 /* Colors */
