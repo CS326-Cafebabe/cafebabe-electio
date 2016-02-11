@@ -131,6 +131,19 @@ p {
   text-align: center;
 }
 
+.calendar-body>tr>td{
+
+  text-align: right;
+  vertical-align: top;
+
+}
+
+.calendar-body>tr>td>div {
+
+  margin-right: 10px !important;
+
+}
+
 /*.bernie-event{
   background-color: green;
   border: 0px;
