@@ -8,43 +8,61 @@ var startupName = "CAFEBABE";
 var initialData = {
   "candidates" : {
     "1": {
-      "picture": "",
-      "fullName": "Donald Trump",
+      "headImage": "/img/candidateHeads/clintonHead.jpg",
+      "logoImage": "img/candidateLogos/",
+      "fullName": "Hilary Rodham Clinton",
+      "partyName": "Democratic Party",
+      "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
       "links": ""
     },
     "2": {
-      "picture": "",
-      "fullName": "Donald Trump",
+      "headImage": "/img/candidateHeads/cruzHead.jpg",
+      "logoImage": "img/candidateLogos/",
+      "fullName": "Ted Cruz",
+      "partyName": "Republican Party",
+      "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
       "links": ""
     },
     "3": {
-      "picture": "",
-      "fullName": "Donald Trump",
+      "headImage": "/img/candidateHeads/delafuenteHead.jpg",
+      "logoImage": "img/candidateLogos/",
+      "fullName": "Roque De La Fuente",
+      "partyName": "Democratic Party",
+      "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
       "links": ""
     },
     "4": {
-      "picture": "",
-      "fullName": "Donald Trump",
+      "headImage": "/img/candidateHeads/rubioHead.jpg",
+      "logoImage": "img/candidateLogos/",
+      "fullName": "Marco Rubio",
+      "partyName": "Republican Party",
+      "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
       "links": ""
     },
     "5": {
-      "picture": "",
-      "fullName": "Donald Trump",
+      "headImage": "img/candidateHeads/sandersHead.jpg",
+      "logoImage": "img/candidateLogos/sandersLogo.png",
+      "fullName": "Bernie Sanders",
+      "partyName": "Democratic Party",
+      "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
       "links": ""
     },
     "6": {
-      "picture": "",
+      "headImage": "img/candidateHeads/trumpHead.jpg",
+      "logoImage": "img/candidateLogos/",
       "fullName": "Donald Trump",
+      "partyName": "Republican Party",
+      "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
       "links": ""
