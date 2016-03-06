@@ -13,7 +13,7 @@ export default class Archive extends React.Component {
             <li className="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
           </ul>
         </nav>
-
+        
         <Event />
       </div>
     );
