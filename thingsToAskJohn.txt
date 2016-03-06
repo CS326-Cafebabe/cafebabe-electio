@@ -1,0 +1,4 @@
+1. images in database? or paths?
+2. ER diagram changes
+3. WTF is up with routing?
+4. 
