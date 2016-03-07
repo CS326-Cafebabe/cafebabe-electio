@@ -9,7 +9,7 @@ var initialData = {
   "candidates" : {
     "1": {
       "headImage": "/img/candidateHeads/clintonHead.jpg",
-      "logoImage": "img/candidateLogos/",
+      "logoImage": "img/candidateLogos/clintonLogo.png",
       "fullName": "Hilary Rodham Clinton",
       "party": 1,
       "thumbType": "democrat-thumb",
@@ -22,7 +22,7 @@ var initialData = {
     },
     "2": {
       "headImage": "/img/candidateHeads/cruzHead.jpg",
-      "logoImage": "img/candidateLogos/",
+      "logoImage": "img/candidateLogos/cruzLogo.png",
       "fullName": "Ted Cruz",
       "party": 2,
       "thumbType": "republican-thumb",
@@ -35,7 +35,7 @@ var initialData = {
     },
     "3": {
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
-      "logoImage": "img/candidateLogos/",
+      "logoImage": "img/candidateLogos/delafuenteLogo.png",
       "fullName": "Roque De La Fuente",
       "party": 1,
       "thumbType": "democrat-thumb",
@@ -48,7 +48,7 @@ var initialData = {
     },
     "4": {
       "headImage": "/img/candidateHeads/rubioHead.jpg",
-      "logoImage": "img/candidateLogos/",
+      "logoImage": "img/candidateLogos/rubioLogo.png",
       "fullName": "Marco Rubio",
       "party": 2,
       "thumbType": "republican-thumb",
@@ -74,7 +74,7 @@ var initialData = {
     },
     "6": {
       "headImage": "img/candidateHeads/trumpHead.jpg",
-      "logoImage": "img/candidateLogos/",
+      "logoImage": "img/candidateLogos/trumpLogo.png",
       "fullName": "Donald Trump",
       "party": 2,
       "thumbType": "republican-thumb",
