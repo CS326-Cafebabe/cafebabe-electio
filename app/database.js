@@ -98,21 +98,124 @@ var initialData = {
       "name": "New Hampshire Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 4
+        },
+        {
+          "user": 5,
+          "candidate": 5
+        },
+        {
+          "user": 2,
+          "candidate": 6
+        }
+      ]
     },
     "2": {
       "date": "",
       "name": "Massachusetts Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        {
+          "user": 1,
+          "candidate": 1
+        },
+        {
+          "user": 2,
+          "candidate": 2
+        },
+        {
+          "user": 3,
+          "candidate": 3
+        }
+      ]
     },
     "3": {
       "date": "",
       "name": "Kansas Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+    }
+  },
+
+  "users":{
+    "1":{
+      "_id":1,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":2,
+      "Location":"Amherst, MA"
+    },
+    "2":{
+      "_id":2,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
+    },
+    "3":{
+      "_id":3,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":2,
+      "Location":"Amherst, MA"
+    },
+    "4":{
+      "_id":4,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
+    },
+    "5":{
+      "_id":5,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
     }
   }
 };

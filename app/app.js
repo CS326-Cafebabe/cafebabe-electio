@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router'
+import Home from './components/home';
 
 
 class VotePage extends React.Component {
@@ -15,7 +16,8 @@ class VotePage extends React.Component {
 class HomePage extends React.Component {
   render() {
     return (
-      <p>This is the home page.</p>
+      //<p>This is the home page.</p>
+      <Home/>
     );
   }
 }
