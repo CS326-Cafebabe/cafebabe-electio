@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router'
+import { IndexRoute, Router, Route, hashHistory } from 'react-router'
 import Home from './components/home';
 import {getUserName} from './server';
 
@@ -25,7 +25,7 @@ class HomePage extends React.Component {
 }
 
 
-/*
+
 class SettingsPage extends React.Component {
   render() {
     return (
@@ -57,7 +57,7 @@ class CalendarPage extends React.Component {
     );
   }
 }
-*/
+
 
 
 /**
@@ -104,11 +104,16 @@ class SidebarUsername extends React.Component {
 }
 
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
       {/* Show the Feed at / */}
       <IndexRoute component={HomePage} />
       <Route path="vote/:party" component={VotePage} />
+      <Route path="calendar" component={CalendarPage} />
+      <Route path="archive" component={ArchivePage} />
+      <Route path="trends" component={TrendPage} />
+      <Route path="settings" component={SettingsPage} />
+
     </Route>
   </Router>
 ),document.getElementById('renderPage'));
