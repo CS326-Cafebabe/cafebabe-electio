@@ -3,12 +3,13 @@ import React from 'react';
 export default class HomeThumbnail extends React.Component {
 
   render() {
+    var csstext = ('thumbnail ' + this.props.data.thumbType);
     return (
       <div className="col-xs-4 col-md-4">
 
-          <a href="#BenCarson" className="thumbnail republican-thumb" data-toggle="modal" data-target="#myModal">
+          <a href="#" className={csstext} data-toggle="modal" data-target="#myModal">
             <img className="img-responsive" src="img/candidateHeads/carsonHead.jpg" alt="Marco Rubio"/>
-            <div className="caption"><strong>Ben Carson</strong><br/>
+            <div className="caption"><strong>{this.props.data.fullName}</strong><br/>
               Republican Party
             </div>
           </a>

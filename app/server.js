@@ -37,17 +37,12 @@ export function getAllCandidates(cb) {
 
   var candidates = [];
 
-  for (var i = 0; i<numberOfCandidates; i++) {
+  for (var i = 1; i<=numberOfCandidates; i++) {
 
-    getCandidate(i, (candObj) => {
-      candidates.push(candObj);
-    }
+    candidates.push(readDocument('candidates', i));
 
-  )
+  }
 
   emulateServerReturn(candidates, cb);
 
   }
-
-
-}
