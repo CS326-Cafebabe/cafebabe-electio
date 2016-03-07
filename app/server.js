@@ -24,3 +24,9 @@ export function getUserName(userId, cb) {
 
   return emulateServerReturn(userData.fullName, cb);
 }
+
+export function getCandidates(candIndex, cb) {
+  var candidates = readDocument('candidates', candIndex);
+
+  emulateServerReturn(candidates, cb);
+}

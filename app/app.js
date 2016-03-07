@@ -16,6 +16,7 @@ class VotePage extends React.Component {
 
 class HomePage extends React.Component {
   render() {
+
     return (
       //<p>This is the home page.</p>
       <Home/>
