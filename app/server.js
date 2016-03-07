@@ -10,3 +10,8 @@ function emulateServerReturn(data, cb) {
   }, 4);
 }
 
+export function getCandidates(candIndex, cb) {
+  var candidates = readDocument('candidates', candIndex);
+
+  emulateServerReturn(candidates, cb);
+}

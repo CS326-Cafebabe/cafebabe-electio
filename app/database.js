@@ -6,8 +6,8 @@ var startupName = "CAFEBABE";
 
 // Put your mock objects here, as in Workshop 4
 var initialData = {
-  "candidates" : {
-    "1": {
+  "candidates" : [
+    {
       "headImage": "/img/candidateHeads/clintonHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Hilary Rodham Clinton",
@@ -20,7 +20,7 @@ var initialData = {
       "age": "68",
       "quote": "'Hillary for America.'"
     },
-    "2": {
+    {
       "headImage": "/img/candidateHeads/cruzHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Ted Cruz",
@@ -33,7 +33,7 @@ var initialData = {
       "age": "45",
       "quote": "'Reigniting the promise of America.'"
     },
-    "3": {
+    {
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Roque De La Fuente",
@@ -46,7 +46,7 @@ var initialData = {
       "age": "61",
       "quote": "'We the people need to take back our democracy.'"
     },
-    "4": {
+    {
       "headImage": "/img/candidateHeads/rubioHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Marco Rubio",
@@ -59,7 +59,7 @@ var initialData = {
       "age": "44",
       "quote": "'A new American century.'"
     },
-    "5": {
+    {
       "headImage": "img/candidateHeads/sandersHead.jpg",
       "logoImage": "img/candidateLogos/sandersLogo.png",
       "fullName": "Bernie Sanders",
@@ -72,7 +72,7 @@ var initialData = {
       "age": "74",
       "quote": "'A political revolution is coming.'"
     },
-    "6": {
+    {
       "headImage": "img/candidateHeads/trumpHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Donald Trump",
@@ -85,7 +85,7 @@ var initialData = {
       "age": "69",
       "quote": "'Make America great again.'"
     }
-  },
+  ],
 
   "parties": {
     "1": {
@@ -129,7 +129,7 @@ var initialData = {
         },
         {
           "user": 2,
-          "candidate": 6
+          "candidate": 0
         }
       ]
     },
