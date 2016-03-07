@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router'
 import Home from './components/home';
+import {getUserName} from './server';
 
 
 class VotePage extends React.Component {
@@ -74,6 +75,33 @@ class App extends React.Component {
   }
 }
 
+class SidebarUsername extends React.Component {
+
+  constructor(props) {
+    super(props);
+    // The FeedItem's initial state is what the Feed passed to us.
+    this.state = {
+      userName: ""
+    }
+    this.userNameFromID();
+  }
+
+
+// this function will set the state's var userName to the userName corresponding to
+// the userId passed to us.
+  userNameFromID() {
+    getUserName(this.props.userId, (returnedData) => {
+      this.setState({userName: returnedData})
+      })
+    }
+
+  render() {
+    return (
+      <div> <strong> {this.state.userName} </strong> </div>
+    )
+  }
+}
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
@@ -83,3 +111,11 @@ ReactDOM.render((
     </Route>
   </Router>
 ),document.getElementById('renderPage'));
+
+
+
+ReactDOM.render((
+
+  <SidebarUsername userId = {1} />
+
+),document.getElementById('sidebar-username'));
