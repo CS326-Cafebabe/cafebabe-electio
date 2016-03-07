@@ -42,7 +42,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div> {this.state.candidates.map((candidate, i) =>
-          <HomeThumbnail key={i} data={candidate}/>
+          <HomeThumbnail key={i} uid={i} data={candidate}/>
           )} </div>
     )
   }
