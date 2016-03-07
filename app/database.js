@@ -91,6 +91,32 @@ var initialData = {
       "summary": "",
       "party": ""
     }
+  },
+
+  "parties": {
+    "1": {
+      "name": "Democratic Party",
+      "color": "#6194BC",
+      "logo": "img/partyLogos/democraticParty.png"
+    },
+
+    "2": {
+      "name": "Republican Party",
+      "color": "#FF4E4D",
+      "logo": "img/partyLogos/republicanParty.png"
+    },
+
+    "3": {
+      "name": "Green Party",
+      "color": "#805889",
+      "logo": "img/partyLogos/republicanParty.png"
+    },
+
+    "4": {
+      "name": "Libertarian Party",
+      "color": "#805889",
+      "logo": "img/partyLogos/republicanParty.png"
+    }
   }
 };
 
