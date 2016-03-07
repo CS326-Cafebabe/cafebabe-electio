@@ -11,7 +11,7 @@ var initialData = {
       "headImage": "/img/candidateHeads/clintonHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Hilary Rodham Clinton",
-      "partyName": "Democratic Party",
+      "party": 1,
       "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
@@ -21,7 +21,7 @@ var initialData = {
       "headImage": "/img/candidateHeads/cruzHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Ted Cruz",
-      "partyName": "Republican Party",
+      "party": 2,
       "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
@@ -31,7 +31,7 @@ var initialData = {
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Roque De La Fuente",
-      "partyName": "Democratic Party",
+      "party": 1,
       "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
@@ -41,7 +41,7 @@ var initialData = {
       "headImage": "/img/candidateHeads/rubioHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Marco Rubio",
-      "partyName": "Republican Party",
+      "party": 2,
       "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
@@ -51,7 +51,7 @@ var initialData = {
       "headImage": "img/candidateHeads/sandersHead.jpg",
       "logoImage": "img/candidateLogos/sandersLogo.png",
       "fullName": "Bernie Sanders",
-      "partyName": "Democratic Party",
+      "party": 1,
       "thumbType": "democrat",
       "description": "",
       "twitterFeed": "",
@@ -61,7 +61,7 @@ var initialData = {
       "headImage": "img/candidateHeads/trumpHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Donald Trump",
-      "partyName": "Republican Party",
+      "party": 2,
       "thumbType": "republican",
       "description": "",
       "twitterFeed": "",
@@ -90,32 +90,6 @@ var initialData = {
       "location": "",
       "summary": "",
       "party": ""
-    }
-  },
-
-  "parties": {
-    "1": {
-      "name": "Democratic Party",
-      "color": "#6194BC",
-      "logo": "img/partyLogos/democraticParty.png"
-    },
-
-    "2": {
-      "name": "Republican Party",
-      "color": "#FF4E4D",
-      "logo": "img/partyLogos/republicanParty.png"
-    },
-
-    "3": {
-      "name": "Green Party",
-      "color": "#805889",
-      "logo": "img/partyLogos/republicanParty.png"
-    },
-
-    "4": {
-      "name": "Libertarian Party",
-      "color": "#805889",
-      "logo": "img/partyLogos/republicanParty.png"
     }
   }
 };
