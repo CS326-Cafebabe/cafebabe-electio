@@ -1,5 +1,7 @@
 import {readDocument, writeDocument, addDocument} from './database.js';
 
+var numberOfCandidates = 6;
+
 /**
  * Emulates how a REST call is *asynchronous* -- it calls your function back
  * some time in the future with data.
@@ -25,8 +27,27 @@ export function getUserName(userId, cb) {
   return emulateServerReturn(userData.fullName, cb);
 }
 
-export function getCandidates(candIndex, cb) {
-  var candidates = readDocument('candidates', candIndex);
+export function getCandidate(candIndex, cb) {
+  var candidate = readDocument('candidates', candIndex);
+
+  emulateServerReturn(candidate, cb);
+}
+
+export function getAllCandidates(cb) {
+
+  var candidates = [];
+
+  for (var i = 0; i<numberOfCandidates; i++) {
+
+    getCandidate(i, (candObj) => {
+      candidates.push(candObj);
+    }
+
+  )
 
   emulateServerReturn(candidates, cb);
+
+  }
+
+
 }

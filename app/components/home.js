@@ -2,7 +2,7 @@ import React from 'react';
 import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
-import {getCandidates} from '../server';
+import {getCandidate, getAllCandidates} from '../server';
 
 
 export default class Home extends React.Component {
@@ -16,11 +16,9 @@ export default class Home extends React.Component {
 
   refresh() {
     var c = [];
-    for(var i = 0; i < 6; i++){
-     getCandidates(i, (candidate) => {
-      //  console.log("here");
-       c.push(candidate);
-     });
+    getAllCandidates( (out) => {
+      c = out;
+    })
 
    }
    console.log(c);
