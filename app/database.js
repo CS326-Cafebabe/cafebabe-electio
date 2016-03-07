@@ -101,9 +101,18 @@ var initialData = {
       "party": "",
       //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
-        [4,1],
-        [1,3],
-        [2,5]
+        {
+          "user": 4,
+          "candidate": 4
+        },
+        {
+          "user": 5,
+          "candidate": 5
+        },
+        {
+          "user": 2,
+          "candidate": 6
+        }
       ]
     },
     "2": {
@@ -114,9 +123,18 @@ var initialData = {
       "party": "",
       //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
-        [5,2],
-        [1,5],
-        [2,5]
+        {
+          "user": 1,
+          "candidate": 1
+        },
+        {
+          "user": 2,
+          "candidate": 2
+        },
+        {
+          "user": 3,
+          "candidate": 3
+        }
       ]
     },
     "3": {
@@ -127,9 +145,18 @@ var initialData = {
       "party": "",
       //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
-        [1,1],
-        [4,4],
-        [3,5]
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
       ]
     }
   },
