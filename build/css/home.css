@@ -5,7 +5,7 @@ http://getbootstrap.com/examples/dashboard/
 
 body {
 	background-color: #ECECEC;
-	font-family: 'Raleway', sans-serif; 
+	font-family: 'Raleway', sans-serif;
 }
 
 body h1,
@@ -83,7 +83,7 @@ body h3,
 
 /*Main
 The main section of the page
-*/ 
+*/
 
 .main {
   padding: 20px;
@@ -160,6 +160,75 @@ The main section of the page
 }
 
 
+/*Candidate page CSS */
+.modal-header {
+	border-color: #ECECEC;
+	padding: 0px;
+}
+
+.modal-content {
+	padding: 20px;
+	background-color: #ECECEC;
+}
+
+.cand-pic {
+	border: 5px solid #6194BC;
+}
+.twitter {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.quote {
+  font-size: 13pt;
+  color: #31648C;
+}
+
+.option-btn {
+	padding-left: 20px;
+  color: #FFFFFF;
+  background-color: #31648C;
+  border-color: #31648C;
+  border-radius: 5px;
+}
+
+h4 {
+  color: #FFFFFF;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1.cand-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #6194BC;
+  font-size: 40pt;
+}
+
+p.info {
+  color: #606060;
+}
+
+
+.panel-heading {
+  border-bottom: none;
+  background-color: #31648C!important;
+}
+
+.top {
+  padding-top: 50px;
+}
+
+.info {
+  font-size: 13pt;
+}
+
+.twitter-panel {
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+
+
+
 
 /* The fonts: */
 
@@ -168,5 +237,5 @@ font-family: 'Alegreya', serif;
 */
 
 /* General Text
-font-family: 'Raleway', sans-serif; 
+font-family: 'Raleway', sans-serif;
 */
