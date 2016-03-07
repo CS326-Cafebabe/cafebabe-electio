@@ -6,8 +6,8 @@ var startupName = "CAFEBABE";
 
 // Put your mock objects here, as in Workshop 4
 var initialData = {
-  "candidates" : {
-    "1": {
+  "candidates" : [
+    {
       "headImage": "/img/candidateHeads/clintonHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Hilary Rodham Clinton",
@@ -17,7 +17,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     },
-    "2": {
+    {
       "headImage": "/img/candidateHeads/cruzHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Ted Cruz",
@@ -27,7 +27,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     },
-    "3": {
+    {
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Roque De La Fuente",
@@ -37,7 +37,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     },
-    "4": {
+    {
       "headImage": "/img/candidateHeads/rubioHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Marco Rubio",
@@ -47,7 +47,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     },
-    "5": {
+    {
       "headImage": "img/candidateHeads/sandersHead.jpg",
       "logoImage": "img/candidateLogos/sandersLogo.png",
       "fullName": "Bernie Sanders",
@@ -57,7 +57,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     },
-    "6": {
+    {
       "headImage": "img/candidateHeads/trumpHead.jpg",
       "logoImage": "img/candidateLogos/",
       "fullName": "Donald Trump",
@@ -67,7 +67,7 @@ var initialData = {
       "twitterFeed": "",
       "links": ""
     }
-  },
+  ],
 
   "parties": {
     "1": {
@@ -111,7 +111,7 @@ var initialData = {
         },
         {
           "user": 2,
-          "candidate": 6
+          "candidate": 0
         }
       ]
     },

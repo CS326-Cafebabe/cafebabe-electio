@@ -1,31 +1,50 @@
 import React from 'react';
-//import FeedItem from './feeditem';
+import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
+import {getCandidates} from '../server';
 
 
 export default class Home extends React.Component {
-  /*constructor(props) {
+
+  constructor(props) {
     super(props);
     this.state = {
-      contents: []
+      candidates: []
     };
   }
 
   refresh() {
-    // getFeedData(this.props.user, (feedData) => {
-    //   this.setState(feedData);
-    // });
+    var c = [];
+    for(var i = 0; i < 6; i++){
+     getCandidates(i, (candidate) => {
+      //  console.log("here");
+       c.push(candidate);
+     });
+
+   }
+   console.log(c);
+   this.setState(c);
   }
 
 
   componentDidMount() {
     this.refresh();
   }
-  */
+
 
   render() {
     return (
+      <div>
+      <div className="row">
+        {this.state.candidates.map((candidate) => {
+          return (
+            <HomeThumbnail data={candidate}/>
+          )
+        })}
+
+      </div>
+
       <div className ="row">
         <div className="col-xs-1 col-xs-offset-4 col-sm-1 col-sm-offset-4 col-md-1 col-md-offset-4">
           <div className="vote-button-container">
@@ -39,6 +58,7 @@ export default class Home extends React.Component {
             </div>
           </div>
         </div>
+      </div>
     )
   }
 }
