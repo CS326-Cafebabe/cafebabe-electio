@@ -98,21 +98,97 @@ var initialData = {
       "name": "New Hampshire Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        [4,1],
+        [1,3],
+        [2,5]
+      ]
     },
     "2": {
       "date": "",
       "name": "Massachusetts Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        [5,2],
+        [1,5],
+        [2,5]
+      ]
     },
     "3": {
       "date": "",
       "name": "Kansas Primary",
       "location": "",
       "summary": "",
-      "party": ""
+      "party": "",
+      //2D Array: First cell is user_id and second is candidate_id
+      "ballotBox": [
+        [1,1],
+        [4,4],
+        [3,5]
+      ]
+    }
+  },
+
+  "users":{
+    "1":{
+      "_id":1,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":2,
+      "Location":"Amherst, MA"
+    },
+    "2":{
+      "_id":2,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
+    },
+    "3":{
+      "_id":3,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":2,
+      "Location":"Amherst, MA"
+    },
+    "4":{
+      "_id":4,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
+    },
+    "5":{
+      "_id":5,
+      "Email":"generic@email.com",
+      "Password":"genericPass",
+      "fullName":"Generic Name",
+      "Gender":"Gender",
+      "Race/Ethnic":"SomeRace",
+      "Age":21,
+      "PoliticalAffiliation":1,
+      "Location":"Amherst, MA"
     }
   }
 };
