@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Router, Route, hashHistory } from 'react-router'
 import Home from './components/home';
+import Vote from './components/vote';
 import {getUserName} from './server';
 
 
 class VotePage extends React.Component {
   render() {
     return (
-      <p>This is the vote page for party {this.props.params.party}.</p>
+      <div>
+        <p>This is the vote page for party {this.props.params.party}.</p>
+        <Vote/>
+
+      </div>
+
     );
   }
 }
