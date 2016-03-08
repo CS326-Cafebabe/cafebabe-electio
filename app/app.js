@@ -12,10 +12,11 @@ import EmailSettings from './components/emailsettings';
 
 class VotePage extends React.Component {
   render() {
+      //<p>This is the vote page for party {this.props.params.party}.</p>
     return (
       <div>
-        <p>This is the vote page for party {this.props.params.party}.</p>
-        <Vote/>
+
+        <Vote party={this.props.params.party}/>
 
       </div>
 
