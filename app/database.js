@@ -235,7 +235,26 @@ var initialData = {
       "PoliticalAffiliation":1,
       "Location":"Amherst, MA"
     }
+  },
+
+  "chatBox":{
+    "1":{
+      "_id":1,
+      "fullName":"Clinton Debate",
+      "messages": [
+        {
+          "author": 1,
+          "contents": "Debate Hillary Here"
+        },
+        {
+          "author": 1,
+          "contents": "Test second message"
+        }
+      ],
+      "active": 1453668480000
+    }
   }
+
 };
 
 var data = JSON.parse(localStorage.getItem(startupName));
