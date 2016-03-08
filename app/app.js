@@ -6,6 +6,7 @@ import Vote from './components/vote';
 import Archive from './components/archive';
 import {getUserName} from './server';
 import Chat from './components/chat';
+import EmailSettings from './components/emailsettings';
 
 
 class VotePage extends React.Component {
@@ -74,6 +75,14 @@ class ChatPage extends React.Component {
   }
 }
 
+class EmailSettingsPage extends React.Component {
+  render() {
+    return (
+      <EmailSettings />
+    );
+  }
+}
+
 
 
 /**
@@ -130,6 +139,7 @@ ReactDOM.render((
       <Route path="trends" component={TrendPage} />
       <Route path="settings" component={SettingsPage} />
       <Route path="chat" component={ChatPage} />
+      <Route path="emailsettings" component={EmailSettingsPage}/>
 
     </Route>
   </Router>
