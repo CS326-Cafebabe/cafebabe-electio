@@ -61,7 +61,7 @@ var initialData = {
     },
     "5": {
       "headImage": "img/candidateHeads/sandersHead.jpg",
-      "logoImage": "img/candidateLogos/sanders_logo.png",
+      "logoImage": "img/candidateLogos/sandersLogo.png",
       "fullName": "Bernie Sanders",
       "party": 1,
       "thumbType": "democrat-thumb",

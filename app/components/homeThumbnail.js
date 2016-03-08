@@ -24,7 +24,8 @@ export default class HomeThumbnail extends React.Component {
 
 
   render() {
-    var csstext = ('thumbnail ' + this.props.data.thumbType);
+    var csstext = ('thumbnail ' + this.props.data.thumbType + "-home");
+    console.log(csstext);
     var headImageText = (this.props.data.headImage);
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
@@ -53,12 +54,8 @@ export default class HomeThumbnail extends React.Component {
                     <div className="col-md-4">
                         <img className="cand-pic" src={headImageText} width="100%" />
                         <hr/>
-                        <button className="btn btn-default option-btn">
-                          Campaign Website
-                        </button>
-                        <button className="btn btn-default option-btn">
-                          Wikipedia
-                        </button>
+                        <a className="btn btn-default option-btn" href={this.props.data.campaignWebsite} role="button">Campaign Website</a>
+                        <a className="btn btn-default option-btn" href={this.props.data.wikipedia} role="button">Wikipedia</a>
                     </div>
                     <div className="col-md-8">
                       <h1 className="text-center cand-name text-uppercase">{this.props.data.fullName}</h1>
