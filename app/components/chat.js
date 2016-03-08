@@ -20,9 +20,11 @@ export default class Chat extends React.Component {
   }
 
   refresh() {
+    console.log(this.state);
     getChat(1, (chatBox) => {
       this.setState(chatBox);
     })
+    console.log(this.state);
   }
 
   componentDidMount() {
@@ -61,6 +63,8 @@ export default class Chat extends React.Component {
                   })
                 }
                 </div>
+              </div>
+            </div>
                 <div className="panel-footer">
                   <div className="input-group">
                     <span className="input-group-btn">
@@ -75,8 +79,6 @@ export default class Chat extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
                   //     <div className="col-md-2 tight col-overflow">
                   //       <div className="chat-box-discussion-div">
                   //         <div className="chat-box-discussion-head">
