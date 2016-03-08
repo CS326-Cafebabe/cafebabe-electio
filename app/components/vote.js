@@ -1,34 +1,19 @@
 import React from 'react';
-import VoteThumbnail from './voteThumbnail';
+//import VoteThumbnail from './voteThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
-import {getAllCandidatesOfParty} from '../server';
+//import {getAllCandidatesOfParty} from '../server';
+import VoteDem from './voteDem';
+import VoteRep from './voteRep';
+import VoteInd from './voteInd';
 
 
 export default class Vote extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      candidates: [
-        {
-          "headImage": "",
-          "logoImage": "",
-          "fullName": "",
-          "party": 1,
-          "thumbType": "",
-          "description": "",
-          "twitterFeed": "",
-          "campaignWebsite": "",
-          "wikipedia": "",
-          "age": "",
-          "quote": ""
-        }
-      ]
-    };
-  }
 
-  refresh() {
+
+  render() {
+
     var partyId = -1;
     if(this.props.party === 'Democrat'){
       partyId = 1;
@@ -36,23 +21,36 @@ export default class Vote extends React.Component {
     else if(this.props.party === 'Republican'){
       partyId = 2;
     }
-    else if(this.props.party === '3'){
+    else if(this.props.party === 'Independent'){
       partyId = 3;
     }
-    getAllCandidatesOfParty(partyId, (out) => {
-      this.setState({candidates: out});
-    })
-   }
-
-  componentDidMount() {
-    this.refresh();
-  }
-
-  render() {
     //this.refresh();
-    console.log(this.state.candidates);
+    //console.log(this.state.candidates);
     //console.log(this.props.party);
-    if(this.props.party === 'Democrat'){
+    if(partyId === 1){
+      return (
+        <VoteDem/>
+      );
+    }
+
+    else if(partyId === 2){
+      return (
+        <VoteRep/>
+      );
+    }
+
+    else if(partyId === 3){
+      return (
+        <VoteInd/>
+      );
+    }
+
+    else{
+      return(
+        <p>{this.props.party} is not a recognized party</p>
+      );
+    }
+    /*if(this.props.party === 'Democrat'){
       return (
         <div>
           <h1>Vote</h1>
@@ -189,6 +187,6 @@ export default class Vote extends React.Component {
       return(
         <p>{this.props.party} is not a recognized party</p>
       );
-    }
+    } */
   }
 }
