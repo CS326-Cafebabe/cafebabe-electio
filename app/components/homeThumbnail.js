@@ -34,9 +34,8 @@ export default class HomeThumbnail extends React.Component {
 
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
-    var cssModal = (this.props.data.thumbType + "-modal");
 
-
+    var cssModal = (this.props.data.cssType + "-modal");
 
     return (
       <div className="col-xs-4 col-md-4">

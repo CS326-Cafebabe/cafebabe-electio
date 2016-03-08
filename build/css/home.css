@@ -175,32 +175,32 @@ The main section of the page
 }
 
  /*color for border of candidate pic(light form of party color)*/
-.democrat-thumb-modal > .cand-pic {
+.democrat-modal > .cand-pic {
 	border: 5px solid #6194BC;
 }
-.republican-thumb-modal > .cand-pic {
+.republican-modal > .cand-pic {
  border: 5px solid #FF4E4D;
 }
-.independent-thumb-modal > .cand-pic {
+.independent-modal > .cand-pic {
  border: 5px solid #805889;
 }
 
 /*color for buttons(dark form of party color)*/
-.democrat-thumb-modal > .option-btn {
+.democrat-modal > .option-btn {
 	padding-left: 20px;
   color: #FFFFFF;
   background-color: #31648C;
   border-color: #31648C;
   border-radius: 5px;
 }
-.republican-thumb-modal > .option-btn {
+.republican-modal > .option-btn {
 	padding-left: 20px;
   color: #FFFFFF;
   background-color: #CF1E1D;
   border-color: #CF1E1D;
   border-radius: 5px;
 }
-.independent-thumb-modal > .option-btn {
+.independent-modal > .option-btn {
 	padding-left: 20px;
   color: #FFFFFF;
   background-color: #502859;
@@ -209,32 +209,32 @@ The main section of the page
 }
 
 /*color for candidate name heading(light form of party color)*/
-.democrat-thumb-modal > h1.cand-name {
+.democrat-modal > h1.cand-name {
   font-family: 'Montserrat', sans-serif;
   color: #6194BC;
   font-size: 40pt;
 }
-.republican-thumb-modal > h1.cand-name {
+.republican-modal > h1.cand-name {
   font-family: 'Montserrat', sans-serif;
   color: #FF4E4D;
   font-size: 40pt;
 }
-.independent-thumb-modal > h1.cand-name {
+.independent-modal > h1.cand-name {
   font-family: 'Montserrat', sans-serif;
   color: #805889;
   font-size: 40pt;
 }
 
 /*color of twitter panel heading(dark form of party color)*/
-.democrat-thumb-modal > .twitter-panel > .panel-heading {
+.democrat-modal > .twitter-panel > .panel-heading {
   border-bottom: none;
   background-color: #31648C;
 }
-.republican-thumb-modal > .twitter-panel > .panel-heading {
+.republican-modal > .twitter-panel > .panel-heading {
   border-bottom: none;
   background-color: #CF1E1D;
 }
-.independent-thumb-modal > .twitter-panel > .panel-heading {
+.independent-modal > .twitter-panel > .panel-heading {
   border-bottom: none;
   background-color: #502859;
 }
