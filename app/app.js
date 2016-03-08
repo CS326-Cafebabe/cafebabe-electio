@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { IndexRoute, Router, Route, hashHistory } from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
+import Archive from './components/archive';
 import {getUserName} from './server';
 import Chat from './components/chat';
 
@@ -52,7 +53,7 @@ class TrendPage extends React.Component {
 class ArchivePage extends React.Component {
   render() {
     return (
-      <p>This is the archive page.</p>
+      <Archive />
     );
   }
 }

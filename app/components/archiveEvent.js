@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Event extends React.Component {
+export default class ArchiveEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.data;
@@ -12,15 +12,15 @@ export default class Event extends React.Component {
     if (check === "Republican") {
       panelType = "panel-danger";
     } else if (check === "Democrat") {
-      panelType = "panel-success";
-    } else {
       panelType = "panel-info";
+    } else {
+      panelType = "panel-success";
     }
     return panelType;
   }
 
   render() {
-    var panelType = "panel panel-default" + this.getPartyPanel();
+    var panelType = "panel panel-default " + this.getPartyPanel();
 
     return (
       <div className={panelType}>

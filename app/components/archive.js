@@ -1,5 +1,6 @@
 import React from 'react';
-import Event from './event';
+import Event from './archiveEvent';
+import {getAllEvents} from '../server';
 
 export default class Archive extends React.Component {
   constructor(props) {
@@ -14,6 +15,16 @@ export default class Archive extends React.Component {
         "ballotBox": []
       }]
     }
+  }
+
+  refresh() {
+    getAllEvents( (out) => {
+      this.setState({events: out});
+    })
+   }
+
+  componentDidMount() {
+    this.refresh();
   }
 
   render() {
