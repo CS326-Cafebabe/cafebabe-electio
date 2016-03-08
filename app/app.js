@@ -6,6 +6,7 @@ import Vote from './components/vote';
 import Archive from './components/archive';
 import Trend from './components/trends';
 import {getUserName} from './server';
+import Chat from './components/chat';
 
 
 class VotePage extends React.Component {
@@ -69,7 +70,7 @@ class CalendarPage extends React.Component {
 class ChatPage extends React.Component {
   render() {
     return (
-      <p>This is the Chat Page.</p>
+      <Chat />
     );
   }
 }

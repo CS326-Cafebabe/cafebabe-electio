@@ -1,5 +1,6 @@
 import React from 'react';
 import {getChat, postMessage} from '../server';
+import {messageEntry} from './messageEntry'
 // import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
@@ -20,9 +21,11 @@ export default class Chat extends React.Component {
   }
 
   refresh() {
-    getChat(1, (chatBox) => {
-      this.setState(chatBox);
+    console.log(this.state.chatBox);
+    getChat(1, (cBox) => {
+      this.setState({chatBox: cBox});
     })
+    console.log(this.state.chatBox);
   }
 
   componentDidMount() {
@@ -53,30 +56,19 @@ export default class Chat extends React.Component {
                   {this.state.chatBox.messages.map((message, i) => {
                     return (
                       <div className="chat-box-text">
-                        <b>User
-                          {this.state.chatBox.messages[i].author}:</b>
+                        <b>User {this.state.chatBox.messages[i].author}: </b>
                         {this.state.chatBox.messages[i].contents}
                       </div>
                     )
                   })
                 }
                 </div>
-                <div className="panel-footer">
-                  <div className="input-group">
-                    <span className="input-group-btn">
-                      <button className="btn btn-chat" type="button">
-                        <span classNameName="glyphicon glyphicon-pencil"></span>
-                      </button>
-                    </span>
-                    <input type="text" className="form-control" placeholder="Contribute to the Discussion...">
-                    </input>
-                    </div>
-                  </div>
+              </div>
+            </div>
+                <messageEntry />
                 </div>
               </div>
             </div>
-          </div>
-        </div>
                   //     <div className="col-md-2 tight col-overflow">
                   //       <div className="chat-box-discussion-div">
                   //         <div className="chat-box-discussion-head">
