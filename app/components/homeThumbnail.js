@@ -54,8 +54,9 @@ export default class HomeThumbnail extends React.Component {
                     <div className="col-md-4">
                         <img className="cand-pic" src={headImageText} width="100%" />
                         <hr/>
-                        <a className="btn btn-default option-btn" href={this.props.data.campaignWebsite} role="button">Campaign Website</a>
-                        <a className="btn btn-default option-btn" href={this.props.data.wikipedia} role="button">Wikipedia</a>
+                        <a className="btn btn-default option-btn pull-top" href={this.props.data.campaignWebsite} role="button">Campaign Website</a>
+                        <a className="btn btn-default option-btn pull-top pull-right" href={this.props.data.wikipedia} role="button">Wikipedia</a>
+                        <br />
                     </div>
                     <div className="col-md-8">
                       <h1 className="text-center cand-name text-uppercase">{this.props.data.fullName}</h1>
