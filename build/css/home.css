@@ -211,9 +211,9 @@ p.info {
 }
 
 
-.panel-heading {
+.twitter-panel > .panel-heading {
   border-bottom: none;
-  background-color: #31648C!important;
+  background-color: #31648C;
 }
 
 .top {
@@ -242,7 +242,7 @@ body {
   text-align: center;
   font-size: 100px;
 }
-h2 {
+.col-md-6 > h2 {
   text-align: center;
 }
 h1, h2, h3, h4.top-row, h5 {
@@ -309,8 +309,12 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-h2, h3 {
+h2 {
   font-family: 'Montserrat', sans-serif;
+}
+
+.panel-heading > h3 {
+	text-transform: capitalize;
 }
 
 .archive-body > hr {
