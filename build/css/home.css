@@ -3,9 +3,11 @@ This was modified from the bootstrap dashboard example:
 http://getbootstrap.com/examples/dashboard/
 */
 
+/*Home CSS*/
+
 body {
 	background-color: #ECECEC;
-	font-family: 'Raleway', sans-serif; 
+	font-family: 'Raleway', sans-serif;
 }
 
 body h1,
@@ -83,7 +85,7 @@ body h3,
 
 /*Main
 The main section of the page
-*/ 
+*/
 
 .main {
   padding: 20px;
@@ -120,29 +122,30 @@ The main section of the page
 .thumbnail {
 	border-width: thick;
 	border-color: white;
+	text-align: left;
 }
-.democrat-thumb {
+.democrat-thumb-home {
 	background-color: #6194BC;
 }
-.democrat-thumb:hover,
-.democrat-thumb:focus {
+.democrat-thumb-home:hover,
+.democrat-thumb-home:focus {
 	border-color: #31648C !important;
 }
 
-.republican-thumb {
+.republican-thumb-home {
 	background-color: #FF4E4D;
 }
-.republican-thumb:hover,
-.republican-thumb:focus {
+.republican-thumb-home:hover,
+.republican-thumb-home:focus {
 	border-color: #CF1E1D !important;
 
 }
 
-.independant-thumb {
+.independant-thumb-home {
 	background-color: #805889;
 }
-.independant-thumb:hover,
-.independant-thumb:focus {
+.independant-thumb-home:hover,
+.independant-thumb-home:focus {
 	border-color: #502859 !important;
 }
 
@@ -160,6 +163,148 @@ The main section of the page
 }
 
 
+/*Candidate page CSS */
+.modal-header {
+	border-color: #ECECEC;
+	padding: 0px;
+}
+
+.modal-content {
+	padding: 20px;
+	background-color: #ECECEC;
+}
+
+.cand-pic {
+	border: 5px solid #6194BC;
+}
+.twitter {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.quote {
+  font-size: 13pt;
+  color: #31648C;
+}
+
+.option-btn {
+	padding-left: 20px;
+  color: #FFFFFF;
+  background-color: #31648C;
+  border-color: #31648C;
+  border-radius: 5px;
+}
+
+h4 {
+  color: #FFFFFF;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1.cand-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #6194BC;
+  font-size: 40pt;
+}
+
+p.info {
+  color: #606060;
+}
+
+
+.panel-heading {
+  border-bottom: none;
+  background-color: #31648C!important;
+}
+
+.top {
+  padding-top: 50px;
+}
+
+.info {
+  font-size: 13pt;
+}
+
+.twitter-panel {
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+/*Vote page CSS*/
+.top-row {
+  margin-top: 20px;
+}
+body {
+  background-color: #ECECEC;
+  color: #606060;
+  font-family: 'Raleway', sans-serif;
+}
+.col-md-6>h1 {
+  text-align: center;
+  font-size: 100px;
+}
+h2 {
+  text-align: center;
+}
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #606060;
+}
+
+.democrat-thumb {
+  background-color: #6194BC;
+  color: #FFFFFF;
+}
+.republican-thumb {
+  background-color: #FF4E4D;
+}
+.independant-thumb {
+  background-color: #805889;
+}
+.long-btn {
+  white-space: normal;
+  width: 80px;
+}
+hr{
+  color: #606060;
+  border-color: #606060;
+  background-color: #606060;
+}
+
+.caption > .btn-group > .btn {
+  background-color: rgb(229, 229, 229);
+  border-color: rgb(204, 204, 204);
+  text-align: center;
+}
+.caption > h3 {
+  text-align: center;
+  color: #FFFFFF;
+}
+.thumbnail {
+  margin-top: 20px;
+  border-width: thick;
+  border-color: #FFFFFF;
+}
+.vote-thumbnail {
+	text-align: center;
+}
+.nav-tabs  {
+  /*border-left: 20px;*/
+  border-color: #606060;
+}
+.nav-tabs > li {
+  color: #606060;
+  border-color: #606060;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #ECECEC;
+  border-color: #606060;
+  border-bottom: none;
+}
+
+
+
 
 /* The fonts: */
 
@@ -168,5 +313,5 @@ font-family: 'Alegreya', serif;
 */
 
 /* General Text
-font-family: 'Raleway', sans-serif; 
+font-family: 'Raleway', sans-serif;
 */
