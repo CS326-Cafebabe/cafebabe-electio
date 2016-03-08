@@ -27,7 +27,7 @@ export default class Trends extends React.Component{
       return (
         <div>
           <div className="container-fluid">
-            <div className="col-md-7 col-md-offset-2 content">
+            <div className="col-md-11 content">
               <div className="row">
                 <div className="col-md-12 trending">
                   <h2>TRENDS <small>Graphical Information on Voting Patterns</small></h2>
@@ -36,7 +36,7 @@ export default class Trends extends React.Component{
               </div>
 
               <div className="row">
-                <div className="col-md-5 articles">
+                <div className="col-md-4 articles">
                   <h3>Events</h3>
                   <hr />
                   <ul>
@@ -54,12 +54,12 @@ export default class Trends extends React.Component{
                   </ul>
                 </div>
 
-                <div className="col-md-7 graphs">
+                <div className="col-md-8 graphs">
                   <h3>Activity</h3>
                   <hr />
                   <div className="row">
                     <div className="col-md-12">
-                      <div className="panel panel-default upper-graph" id='graph-1'>
+                      <div className="panel panel-default upper-graph">
                         <div className="panel-body">
                           <img className="img-responsive" src="img/graphs/graph1.png" width="700px" />
                         </div>
@@ -74,7 +74,7 @@ export default class Trends extends React.Component{
                   <hr />
                   <div classNameName="row">
                     <div className="col-md-12">
-                      <div className="panel panel-default upper-graph">
+                      <div className="panel panel-default mid-graph">
                         <div className="panel-body">
                           <img className="img-responsive" src="img/graphs/nhprimarygender.png" width="700px" />
                         </div>
