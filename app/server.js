@@ -48,3 +48,18 @@ export function getParty(partyId, cb) {
   var party = readDocument('parties', partyId);
   emulateServerReturn(party, cb)
 }
+
+export function postMessage(chatBoxId, author, message, cb){
+  var chatBox = readDocument('chatBox', chatBoxId);
+  chatBox.messages.push({
+    "author": author,
+    "contents": message
+  });
+  writeDocument('chatBox', chatBox);
+  emulateServerReturn(chatBox, cb);
+}
+
+export function getChat(chatId, cb) {
+  var chat = readDocument('chatBox', chatId);
+  emulateServerReturn(chat, cb)
+}

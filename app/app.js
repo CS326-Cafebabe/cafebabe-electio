@@ -65,6 +65,14 @@ class CalendarPage extends React.Component {
   }
 }
 
+class ChatPage extends React.Component {
+  render() {
+    return (
+      <p>This is the Chat Page.</p>
+    );
+  }
+}
+
 
 
 /**
@@ -120,6 +128,7 @@ ReactDOM.render((
       <Route path="archive" component={ArchivePage} />
       <Route path="trends" component={TrendPage} />
       <Route path="settings" component={SettingsPage} />
+      <Route path="chat" component={ChatPage} />
 
     </Route>
   </Router>
