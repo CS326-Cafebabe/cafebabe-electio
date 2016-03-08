@@ -112,11 +112,11 @@ var initialData = {
 
   "events": {
     "1": {
-      "date": "",
-      "name": "New Hampshire Primary",
-      "location": "",
-      "summary": "",
-      "party": "",
+      "date": "7. February 2016",
+      "name": "Eighth Republican Debate",
+      "location": "New Hampshire",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu commodo arcu, id volutpat diam. Suspendisse accumsan et ligula sed hendrerit. In volutpat ligula ut laoreet vulputate. Mauris a magna nec nisi scelerisque porta. Cras tellus lectus, bibendum eget enim id, consequat venenatis elit. Sed rutrum fermentum porttitor.",
+      "party": "Republican",
       //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
         {
@@ -134,12 +134,11 @@ var initialData = {
       ]
     },
     "2": {
-      "date": "",
-      "name": "Massachusetts Primary",
-      "location": "",
-      "summary": "",
-      "party": "",
-      //2D Array: First cell is user_id and second is candidate_id
+      "date": "4. February 2016",
+      "name": "Fifth Democratic Debate",
+      "location": "New Hampshire",
+      "summary": "Sed eu ligula eu enim rhoncus hendrerit eget nec dolor. Nunc imperdiet interdum dolor eu fringilla. Quisque luctus fermentum velit bibendum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce et dolor id tellus porttitor pretium ac non dolor. Fusce porta feugiat tellus, ut convallis ante varius a.",
+      "party": "Democrat",
       "ballotBox": [
         {
           "user": 1,
@@ -156,12 +155,11 @@ var initialData = {
       ]
     },
     "3": {
-      "date": "",
-      "name": "Kansas Primary",
-      "location": "",
-      "summary": "",
+      "date": "1. February 2016",
+      "name": "Iowa Caucus",
+      "location": "Iowa",
+      "summary": " Iowa Democratic Caucus is won by Hillary Clinton. Iowa Republican Caucus is won by Ted Cruz. Martin O'Malley drops out of the Democratic race. Mike Huckabee drops out of the Republican race.",
       "party": "",
-      //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
         {
           "user": 4,
