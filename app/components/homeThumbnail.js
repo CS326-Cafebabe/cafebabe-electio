@@ -24,9 +24,14 @@ export default class HomeThumbnail extends React.Component {
 
 
   render() {
-    var csstext = ('thumbnail ' + this.props.data.thumbType + "-home");
-    console.log(csstext);
+    //this.props.cssType contains:
+    // - democrat
+    // - republican
+    // - independent
+
+    var csstext = ('thumbnail ' + this.props.data.cssType + "-thumb-home");
     var headImageText = (this.props.data.headImage);
+
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
 
