@@ -6,14 +6,7 @@ export default class Archive extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "events": [{
-        "date": "",
-        "name": "",
-        "location": "",
-        "summary": "",
-        "party": "",
-        "ballotBox": []
-      }]
+      "events": []
     }
   }
 
