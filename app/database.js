@@ -18,7 +18,7 @@ var initialData = {
       "campaignWebsite": "https://www.hillaryclinton.com/",
       "wikipedia": "https://en.wikipedia.org/wiki/Hillary_Clinton",
       "age": "68",
-      "quote": "'Hillary for America.'"
+      "quote": "\"Hillary for America.\""
     },
     "2": {
       "headImage": "/img/candidateHeads/cruzHead.jpg",
@@ -31,7 +31,7 @@ var initialData = {
       "campaignWebsite": "https://www.tedcruz.org/",
       "wikipedia": "https://en.wikipedia.org/wiki/Ted_Cruz",
       "age": "45",
-      "quote": "'Reigniting the promise of America.'"
+      "quote": "\"Reigniting the promise of America.\""
     },
     "3": {
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
@@ -44,7 +44,7 @@ var initialData = {
       "campaignWebsite": "https://www.rocky2016.com/",
       "wikipedia": "https://en.wikipedia.org/wiki/Rocky_De_La_Fuente",
       "age": "61",
-      "quote": "'We the people need to take back our democracy.'"
+      "quote": "\"We the people need to take back our democracy.\""
     },
     "4": {
       "headImage": "/img/candidateHeads/rubioHead.jpg",
@@ -57,7 +57,7 @@ var initialData = {
       "campaignWebsite": "https://marcorubio.com/",
       "wikipedia": "https://en.wikipedia.org/wiki/Marco_Rubio",
       "age": "44",
-      "quote": "'A new American century.'"
+      "quote": "\"A new American century.\""
     },
     "5": {
       "headImage": "img/candidateHeads/sandersHead.jpg",
@@ -70,7 +70,7 @@ var initialData = {
       "campaignWebsite": "https://berniesanders.com/",
       "wikipedia": "https://en.wikipedia.org/wiki/Bernie_Sanders",
       "age": "74",
-      "quote": "'A political revolution is coming.'"
+      "quote": "\"A political revolution is coming.\""
     },
     "6": {
       "headImage": "img/candidateHeads/trumpHead.jpg",
@@ -83,7 +83,7 @@ var initialData = {
       "campaignWebsite": "https://www.donaldjtrump.com/",
       "wikipedia": "https://en.wikipedia.org/wiki/Donald_Trump",
       "age": "69",
-      "quote": "'Make America great again.'"
+      "quote": "\"Make America great again.\""
     }
   },
 
@@ -318,11 +318,11 @@ export function resetDatabase() {
 class ResetDatabase extends React.Component {
   render() {
     return (
-      <button className="btn btn-default" type="button" onClick={() => {
+      <a className="btn" type="button" onClick={() => {
         resetDatabase();
         window.alert("Database reset! Refreshing the page now...");
         document.location.reload(false);
-      }}>Reset Mock DB</button>
+      }}>Reset Mock DB <span className="glyphicon glyphicon-refresh sidebar-glyph"></span> </a>
     );
   }
 }

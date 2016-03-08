@@ -35,7 +35,7 @@ export default class HomeThumbnail extends React.Component {
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
 
-
+    var cssModal = (this.props.data.cssType + "-modal");
 
     return (
       <div className="col-xs-4 col-md-4">
@@ -56,14 +56,14 @@ export default class HomeThumbnail extends React.Component {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-4">
+                    <div className={"col-md-4 "+ cssModal}>
                         <img className="cand-pic" src={headImageText} width="100%" />
                         <hr/>
                         <a className="btn btn-default option-btn pull-top" href={this.props.data.campaignWebsite} role="button">Campaign Website</a>
                         <a className="btn btn-default option-btn pull-top pull-right" href={this.props.data.wikipedia} role="button">Wikipedia</a>
                         <br />
                     </div>
-                    <div className="col-md-8">
+                    <div className={"col-md-8 "+ cssModal}>
                       <h1 className="text-center cand-name text-uppercase">{this.props.data.fullName}</h1>
                       <p className="info">
                         <b className="quote"><i>{this.props.data.quote}</i></b>
@@ -76,10 +76,10 @@ export default class HomeThumbnail extends React.Component {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-md-4">
+                    <div className={"col-md-4 "+ cssModal}>
                       <img src={this.props.data.logoImage} width="100%" />
                     </div>
-                    <div className="col-md-8 twitter">
+                    <div className={"col-md-8 "+ cssModal + " twitter"}>
                       <div className="panel panel-default twitter-panel">
                         <div className="panel-heading text-center">
                           <h4><b>What people are saying about {this.props.data.fullName}</b></h4>

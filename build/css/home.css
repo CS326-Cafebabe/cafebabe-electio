@@ -174,25 +174,73 @@ The main section of the page
 	background-color: #ECECEC;
 }
 
-.cand-pic {
+ /*color for border of candidate pic(light form of party color)*/
+.democrat-modal > .cand-pic {
 	border: 5px solid #6194BC;
 }
-.twitter {
-  padding-left: 30px;
-  padding-right: 30px;
+.republican-modal > .cand-pic {
+ border: 5px solid #FF4E4D;
+}
+.independent-modal > .cand-pic {
+ border: 5px solid #805889;
 }
 
-.quote {
-  font-size: 13pt;
-  color: #31648C;
-}
-
-.option-btn {
+/*color for buttons(dark form of party color)*/
+.democrat-modal > .option-btn {
 	padding-left: 20px;
   color: #FFFFFF;
   background-color: #31648C;
   border-color: #31648C;
   border-radius: 5px;
+}
+.republican-modal > .option-btn {
+	padding-left: 20px;
+  color: #FFFFFF;
+  background-color: #CF1E1D;
+  border-color: #CF1E1D;
+  border-radius: 5px;
+}
+.independent-modal > .option-btn {
+	padding-left: 20px;
+  color: #FFFFFF;
+  background-color: #502859;
+  border-color: #502859;
+  border-radius: 5px;
+}
+
+/*color for candidate name heading(light form of party color)*/
+.democrat-modal > h1.cand-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #6194BC;
+  font-size: 40pt;
+}
+.republican-modal > h1.cand-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #FF4E4D;
+  font-size: 40pt;
+}
+.independent-modal > h1.cand-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #805889;
+  font-size: 40pt;
+}
+
+/*color of twitter panel heading(dark form of party color)*/
+.democrat-modal > .twitter-panel > .panel-heading {
+  border-bottom: none;
+  background-color: #31648C;
+}
+.republican-modal > .twitter-panel > .panel-heading {
+  border-bottom: none;
+  background-color: #CF1E1D;
+}
+.independent-modal > .twitter-panel > .panel-heading {
+  border-bottom: none;
+  background-color: #502859;
+}
+
+.quote {
+  font-size: 15pt;
 }
 
 .panel-heading > h4 {
@@ -200,20 +248,13 @@ The main section of the page
 	font-family: 'Raleway', sans-serif;
 }
 
-h1.cand-name {
-  font-family: 'Montserrat', sans-serif;
-  color: #6194BC;
-  font-size: 40pt;
+.twitter {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 p.info {
   color: #606060;
-}
-
-
-.twitter-panel > .panel-heading {
-  border-bottom: none;
-  background-color: #31648C;
 }
 
 .top {
