@@ -112,7 +112,70 @@ var initialData = {
 
   "events": {
     "1": {
-      "date": "7. February 2016",
+      "date": "27. February 2016",
+      "name": "South Carolina Primary",
+      "location": "South Carolina",
+      "summary": "Hillary Clinton won",
+      "party": "Democrat",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+    },
+    "2": {
+      "date": "20. February 2016",
+      "name": "South Carolina Primary",
+      "location": "South Caroline",
+      "summary": "asdkfjakls;djfa;lskjdf;alsjkdf",
+      "party": "Republican",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+    },
+    "3": {
+      "date": "13. February 2016",
+      "name": "Ninth Republican Debate",
+      "location": "South Carolina",
+      "summary": "asdkfjas;ldkfjas;lkjdfa;skjdfasl;jf",
+      "party": "Republican",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+    },
+    "4": {
+      "date": "6. February 2016",
       "name": "Eighth Republican Debate",
       "location": "New Hampshire",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu commodo arcu, id volutpat diam. Suspendisse accumsan et ligula sed hendrerit. In volutpat ligula ut laoreet vulputate. Mauris a magna nec nisi scelerisque porta. Cras tellus lectus, bibendum eget enim id, consequat venenatis elit. Sed rutrum fermentum porttitor.",
@@ -133,7 +196,7 @@ var initialData = {
         }
       ]
     },
-    "2": {
+    "5": {
       "date": "4. February 2016",
       "name": "Fifth Democratic Debate",
       "location": "New Hampshire",
@@ -154,7 +217,7 @@ var initialData = {
         }
       ]
     },
-    "3": {
+    "6": {
       "date": "1. February 2016",
       "name": "Iowa Caucus",
       "location": "Iowa",
