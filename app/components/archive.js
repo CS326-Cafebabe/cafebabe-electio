@@ -2,6 +2,20 @@ import React from 'react';
 import Event from './event';
 
 export default class Archive extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      "events": [{
+        "date": "",
+        "name": "",
+        "location": "",
+        "summary": "",
+        "party": "",
+        "ballotBox": []
+      }]
+    }
+  }
+
   render() {
     return (
       <div className="archive-body col-md-7 col-md-offset-2">
@@ -13,8 +27,10 @@ export default class Archive extends React.Component {
             <li className="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
           </ul>
         </nav>
-        
-        <Event />
+
+        {this.state.events.map((event, i) =>
+          <Event key={i} uid={i} data={event} />
+        )}
       </div>
     );
   }
