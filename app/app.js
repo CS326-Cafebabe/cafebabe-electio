@@ -4,6 +4,7 @@ import { IndexRoute, Router, Route, hashHistory } from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
 import Archive from './components/archive';
+import Trend from './components/trends';
 import {getUserName} from './server';
 
 
@@ -44,7 +45,7 @@ class SettingsPage extends React.Component {
 class TrendPage extends React.Component {
   render() {
     return (
-      <p>This is the trends page.</p>
+      <Trend />
     );
   }
 }
