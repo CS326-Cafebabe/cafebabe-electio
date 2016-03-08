@@ -2,12 +2,55 @@ import React from 'react';
 import VoteThumbnail from './voteThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
-//import {getCandidate, getAllCandidates} from '../server';
+import {getAllCandidatesOfParty} from '../server';
 
 
 export default class Vote extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      candidates: [
+        {
+          "headImage": "",
+          "logoImage": "",
+          "fullName": "",
+          "party": 1,
+          "thumbType": "",
+          "description": "",
+          "twitterFeed": "",
+          "campaignWebsite": "",
+          "wikipedia": "",
+          "age": "",
+          "quote": ""
+        }
+      ]
+    };
+  }
+
+  refresh() {
+    var partyId = -1;
+    if(this.props.party === 'Democrat'){
+      partyId = 1;
+    }
+    else if(this.props.party === 'Republican'){
+      partyId = 2;
+    }
+    else if(this.props.party === '3'){
+      partyId = 3;
+    }
+    getAllCandidatesOfParty(partyId, (out) => {
+      this.setState({candidates: out});
+    })
+   }
+
+  componentDidMount() {
+    this.refresh();
+  }
+
   render() {
+    //this.refresh();
+    console.log(this.state.candidates);
     //console.log(this.props.party);
     if(this.props.party === 'Democrat'){
       return (

@@ -44,6 +44,17 @@ export function getAllCandidates(cb) {
   emulateServerReturn(candidates, cb);
 }
 
+export function getAllCandidatesOfParty(partyId, cb) {
+  var candidates = [];
+  for (var i = 1; i<=numberOfCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if(partyId === candidate.party){
+      candidates.push(readDocument('candidates', i));
+    }
+  }
+  emulateServerReturn(candidates, cb);
+}
+
 export function getParty(partyId, cb) {
   var party = readDocument('parties', partyId);
   emulateServerReturn(party, cb)
