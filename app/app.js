@@ -56,7 +56,7 @@ class TrendPage extends React.Component {
 class ArchivePage extends React.Component {
   render() {
     return (
-      <Archive />
+      <Archive spec={this.props.params.spec}/>
     );
   }
 }
@@ -138,6 +138,7 @@ ReactDOM.render((
       <Route path="vote/:party" component={VotePage} />
       <Route path="calendar" component={CalendarPage} />
       <Route path="archive" component={ArchivePage} />
+      <Route path="archive/:spec" component={ArchivePage} />
       <Route path="trends" component={TrendPage} />
       <Route path="settings" component={SettingsPage} />
       <Route path="chat" component={ChatPage} />

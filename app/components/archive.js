@@ -1,6 +1,6 @@
 import React from 'react';
 import Event from './archiveEvent';
-import {getAllEvents} from '../server';
+import {getSomeEvents} from '../server';
 
 export default class Archive extends React.Component {
   constructor(props) {
@@ -11,9 +11,14 @@ export default class Archive extends React.Component {
   }
 
   refresh() {
-    getAllEvents( (out) => {
+    getSomeEvents(this.props.spec, (out) => {
       this.setState({events: out});
     })
+   }
+
+   clickclick(event) {
+     event.preventDefault();
+     this.refresh();
    }
 
   componentDidMount() {
@@ -27,8 +32,8 @@ export default class Archive extends React.Component {
         <hr />
         <nav>
           <ul className="pager">
-            <li className="previous disabled"><a><span aria-hidden="true">&larr;</span> Newer</a></li>
-            <li className="next"><a>Older <span aria-hidden="true">&rarr;</span></a></li>
+            <li className="previous"><a href="/#/archive/new"><span aria-hidden="true">&larr;</span> Newer</a></li>
+            <li className="next"><a href="/#/archive/old">Older <span aria-hidden="true">&rarr;</span></a></li>
           </ul>
         </nav>
 
