@@ -195,7 +195,7 @@ The main section of the page
   border-radius: 5px;
 }
 
-h4 {
+.panel-heading > h4 {
   color: #FFFFFF;
 	font-family: 'Raleway', sans-serif;
 }
@@ -245,7 +245,7 @@ body {
 h2 {
   text-align: center;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4.top-row, h5 {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   color: #606060;
@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5 {
   white-space: normal;
   width: 80px;
 }
-hr{
+.col-md-6 > hr{
   color: #606060;
   border-color: #606060;
   background-color: #606060;
@@ -301,6 +301,44 @@ hr{
   background-color: #ECECEC;
   border-color: #606060;
   border-bottom: none;
+}
+
+/*Archive page CSS*/
+body {
+  background-color: #ECECEC;
+  font-family: 'Raleway', sans-serif;
+}
+
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.archive-body > hr {
+  border: 0;
+  border-top: 1px solid #A9A9A9;
+}
+
+.archive-body {
+  margin-top: 40px;
+}
+
+.pager > li {
+  border-radius: 5px !important;
+}
+
+.panel-success > .panel-heading {
+  color: #fff;
+  background-color: #606060;
+}
+
+.panel-danger > .panel-heading {
+  color: #fff;
+  background-color: #FF4E4D;
+}
+
+.panel-info > .panel-heading {
+  color: #fff;
+  background-color: #6194BC;
 }
 
 
