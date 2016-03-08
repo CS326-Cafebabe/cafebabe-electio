@@ -245,7 +245,7 @@ body {
 .col-md-6 > h2 {
   text-align: center;
 }
-h1, h2, h3, h4.top-row, h5 {
+h1, h2, .caption > h3, h4.top-row, h5 {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   color: #606060;
@@ -396,13 +396,62 @@ body {
 
 h1, h2 {
   font-family: 'Montserrat', sans-serif;
-  color: black;
 }
 
 .trending > h2 {
 	text-transform: capitalize;
 }
 
+.articles > h3, .graphs > h3 {
+	font-family: 'Raleway', sans-serif!important;
+}
+
+/*User Settings page CSS*/
+body {
+  background-color: #ECECEC;
+  color: #606060;
+  font-family: 'Raleway', sans-serif;
+}
+.col-md-6 > h1 {
+  text-align: center;
+  font-size: 70px;
+}
+
+h1, h3, h4, {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #606060;
+}
+
+.col-md-8 > hr{
+  color: #606060;
+  border-color: #606060;
+  background-color: #606060;
+
+}
+
+.footer{
+  text-align: center;
+}
+.footer > .btn-default{
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  width: 500px;
+  border-color: #000000;
+  margin-bottom: 20px;
+}
+
+.form-control{
+  width: 200px !important;
+}
+
+.indent {
+  margin-left: 13px;
+}
+
+h6{
+  font-size: 20px;
+}
 
 
 
