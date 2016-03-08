@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Router, Route, hashHistory } from 'react-router'
+import { IndexRoute, Router, Route, hashHistory } from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
 import {getUserName} from './server';

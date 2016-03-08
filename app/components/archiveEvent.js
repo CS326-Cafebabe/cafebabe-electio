@@ -6,30 +6,30 @@ export default class Event extends React.Component {
     this.state = props.data;
   }
 
-  getParty() {
-    var party = "";
-    if (this.state.party === "Republican") {
-      party = "panel-danger";
-    } else if (this.state.party === "Democrat") {
-      party = "panel-success";
+  getPartyPanel() {
+    var panelType = "";
+    var check = this.state.party;
+    if (check === "Republican") {
+      panelType = "panel-danger";
+    } else if (check === "Democrat") {
+      panelType = "panel-success";
     } else {
-      party = "panel-info";
+      panelType = "panel-info";
     }
-    return party;
+    return panelType;
   }
 
   render() {
-    var panelType = getParty();
+    var panelType = "panel panel-default" + this.getPartyPanel();
 
     return (
-      <div className="panel panel-default {panelType}">
+      <div className={panelType}>
         <div className="panel-heading">
           <h3 className="panel-title">{this.state.name}</h3>
           {this.state.date}
         </div>
         <div className="panel-body">
           {this.state.summary}
-          {this.state.location}
         </div>
       </div>
     );

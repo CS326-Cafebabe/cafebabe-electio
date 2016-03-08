@@ -10,7 +10,7 @@ var initialData = {
     "1": {
       "headImage": "/img/candidateHeads/clintonHead.jpg",
       "logoImage": "img/candidateLogos/clintonLogo.png",
-      "fullName": "Hilary Clinton",
+      "fullName": "Hillary Clinton",
       "party": 1,
       "thumbType": "democrat-thumb",
       "description": "Hillary Diane Rodham Clinton (born October 26, 1947) is an American politician. She was the 67th United States Secretary of State from 2009 to 2013. From 2001 to 2009, Clinton served as a United States Senator from New York. She is the wife of the 42nd President of the United States Bill Clinton, and was First Lady of the United States during his tenure from 1993 to 2001. Since 2015, she is a candidate for the Democratic nomination for President of the United States in the 2016 election. As Secretary of State in the Obama administration from January 2009 to February 2013, Clinton was at the forefront of the U.S. response to the Arab Spring and advocated the U.S. military intervention in Libya. She took responsibility for security lapses related to the 2012 Benghazi attack, which resulted in the deaths of American consulate personnel, but defended her personal actions in regard to the matter. Clinton viewed 'smart power' as the strategy for asserting U.S. leadership and values, by combining military power with diplomacy and American capabilities in economics, technology, and other areas. She used social media to communicate the U.S. message abroad. Leaving office at the end of Obama's first term, she authored her fifth book and undertook speaking engagements before announcing her second run for the Democratic nomination in the 2016 presidential election in April 2015.",
@@ -61,7 +61,7 @@ var initialData = {
     },
     "5": {
       "headImage": "img/candidateHeads/sandersHead.jpg",
-      "logoImage": "img/candidateLogos/sandersLogo.jpg",
+      "logoImage": "img/candidateLogos/sanders_logo.png",
       "fullName": "Bernie Sanders",
       "party": 1,
       "thumbType": "democrat-thumb",
