@@ -2,7 +2,7 @@ import React from 'react';
 import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
-import {getCandidate, getAllCandidates} from '../server';
+import {getAllCandidates} from '../server';
 
 
 export default class Home extends React.Component {
@@ -15,7 +15,7 @@ export default class Home extends React.Component {
           "headImage": "",
           "logoImage": "",
           "fullName": "",
-          "party": 0,
+          "party": 1,
           "thumbType": "",
           "description": "",
           "twitterFeed": "",

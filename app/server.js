@@ -20,7 +20,6 @@ export function  getUserData(userId, cb) {
 
 }
 
-
 export function getUserName(userId, cb) {
   var userData = readDocument('users', userId);
 
@@ -29,7 +28,6 @@ export function getUserName(userId, cb) {
 
 export function getCandidate(candIndex, cb) {
   var candidate = readDocument('candidates', candIndex);
-
   emulateServerReturn(candidate, cb);
 }
 
@@ -44,5 +42,9 @@ export function getAllCandidates(cb) {
   }
 
   emulateServerReturn(candidates, cb);
-
   }
+
+export function getParty(partyId, cb) {
+  var party = readDocument('parties', partyId);
+  emulateServerReturn(party, cb)
+}

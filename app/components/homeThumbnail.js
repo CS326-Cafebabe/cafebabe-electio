@@ -1,19 +1,43 @@
 import React from 'react';
+import {getParty} from '../server'
 
 export default class HomeThumbnail extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      "name": "test",
+      "color": "",
+      "logo": ""
+    };
+  }
+
+  refresh() {
+    getParty(this.props.data.party, (returnData) => {
+      this.setState(returnData);
+    })
+   }
+
+  componentDidMount() {
+    this.refresh();
+  }
+
 
   render() {
     var csstext = ('thumbnail ' + this.props.data.thumbType);
     var headImageText = (this.props.data.headImage);
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
+
+
+
     return (
       <div className="col-xs-4 col-md-4">
 
           <a href="#" className={csstext} data-toggle="modal" data-target={modalIDTarget}>
-            <img className="img-responsive" src={headImageText} alt="Marco Rubio"/>
+            <img className="img-responsive" src={headImageText} alt={this.props.data.fullName}/>
             <div className="caption"><strong>{this.props.data.fullName}</strong><br/>
-              Republican Party
+              {this.state.name}
             </div>
           </a>
 
@@ -41,7 +65,7 @@ export default class HomeThumbnail extends React.Component {
                       <p className="info">
                         <b className="quote"><i>{this.props.data.quote}</i></b>
                         <br/><b>Age:</b> {this.props.data.age}
-                        <br/><b>Affiliation:</b> Democratic Party
+                        <br/><b>Affiliation:</b> {this.state.name}
                       </p>
                       <p>
                       {this.props.data.description}
@@ -50,12 +74,12 @@ export default class HomeThumbnail extends React.Component {
                   </div>
                   <div className="row">
                     <div className="col-md-4">
-                      <img src="img/candidateLogos/sandersLogo.jpg" width="100%" />
+                      <img src={this.props.data.logoImage} width="100%" />
                     </div>
                     <div className="col-md-8 twitter">
                       <div className="panel panel-default twitter-panel">
                         <div className="panel-heading text-center">
-                          <h4><b>What people are saying about Sanders</b></h4>
+                          <h4><b>What people are saying about {this.props.data.fullName}</b></h4>
                         </div>
                         <div className="panel-body">
                           <img src="img/temp/twitterFeed.jpg" width="100%" />
