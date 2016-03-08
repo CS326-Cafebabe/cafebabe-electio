@@ -1,7 +1,5 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
-//import StatusUpdateEntry from './statusupdateentry';
-//import {getFeedData, postStatusUpdate} from '../server';
 import {getAllCandidatesOfParty} from '../server';
 
 
@@ -76,7 +74,7 @@ export default class VoteDem extends React.Component {
             {this.state.candidates.map((candidate, i) =>
               <VoteThumbnail key={i} uid={i} data={candidate}/>
             )}
-          
+
         </div>
 
       );

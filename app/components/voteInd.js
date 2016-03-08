@@ -1,7 +1,5 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
-//import StatusUpdateEntry from './statusupdateentry';
-//import {getFeedData, postStatusUpdate} from '../server';
 import {getAllCandidatesOfParty} from '../server';
 
 
