@@ -115,7 +115,7 @@ var initialData = {
       "date": "27. February 2016",
       "name": "South Carolina Primary",
       "location": "South Carolina",
-      "summary": "Hillary Clinton won",
+      "summary": "Hillary Clinton won over Bernie Sanders with 73.5% of the votes.",
       "party": "Democrat",
       "ballotBox": [
         {
@@ -135,8 +135,8 @@ var initialData = {
     "2": {
       "date": "20. February 2016",
       "name": "South Carolina Primary",
-      "location": "South Caroline",
-      "summary": "asdkfjakls;djfa;lskjdf;alsjkdf",
+      "location": "South Carolina",
+      "summary": "Trump won over the other candidates with 32.5% of the votes.",
       "party": "Republican",
       "ballotBox": [
         {
@@ -157,7 +157,7 @@ var initialData = {
       "date": "13. February 2016",
       "name": "Ninth Republican Debate",
       "location": "South Carolina",
-      "summary": "asdkfjas;ldkfjas;lkjdfa;skjdfasl;jf",
+      "summary": "Aenean tempor faucibus mauris, nec porttitor nulla tincidunt at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas at libero quis libero accumsan interdum. Quisque nec ultrices eros, sed consequat nisl. Mauris efficitur velit id iaculis elementum. Integer condimentum, erat id rhoncus rutrum, erat quam pretium est, eu gravida urna dolor et erat. Pellentesque vulputate tortor quis magna faucibus, interdum hendrerit odio lobortis. Ut lacus nibh, auctor ac nulla a, auctor maximus tortor. Vivamus laoreet congue accumsan. Vivamus nec congue leo. Quisque id sollicitudin justo. Curabitur fringilla risus eget erat dignissim semper. Sed ipsum purus, sagittis vitae sapien non, lacinia pulvinar turpis. Ut aliquet dui libero, aliquam dignissim dolor dignissim at.",
       "party": "Republican",
       "ballotBox": [
         {

@@ -14,9 +14,9 @@ export default class Archive extends React.Component {
     getSomeEvents(this.props.spec, (out) => {
       this.setState({events: out});
     })
-   }
+  }
 
-   clickclick(event) {
+   handleClick(event) {
      event.preventDefault();
      this.refresh();
    }
@@ -32,8 +32,9 @@ export default class Archive extends React.Component {
         <hr />
         <nav>
           <ul className="pager">
-            <li className="previous"><a href="/#/archive/new"><span aria-hidden="true">&larr;</span> Newer</a></li>
-            <li className="next"><a href="/#/archive/old">Older <span aria-hidden="true">&rarr;</span></a></li>
+            // Note: Pagination currently only works when clicking on the pager button and then clicking the refresh db button
+            <li className="previous"><a href="/#/archive/new"><span aria-hidden="true" onClick={(e) => this.handleClick(e)}>&larr;</span>Newer</a></li>
+            <li className="next"><a href="/#/archive/old">Older <span aria-hidden="true" onClick={(e) => this.handleClick(e)}>&rarr;</span></a></li>
           </ul>
         </nav>
 
