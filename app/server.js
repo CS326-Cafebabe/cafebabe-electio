@@ -18,6 +18,11 @@ export function  getUserData(userId, cb) {
   return emulateServerReturn(userData, cb);
 }
 
+export function getUserPoliticalAffiliation(userId){
+  var userPolAff = readDocument('users', userId).PoliticalAffiliation;
+  return userPolAff;
+}
+
 export function getUserName(userId, cb) {
   var userData = readDocument('users', userId);
   return emulateServerReturn(userData.fullName, cb);
@@ -43,6 +48,10 @@ export function getAllCandidates(cb) {
   }
   emulateServerReturn(candidates, cb);
 }
+
+// export function getAllChat(){ 
+//
+// }
 
 
 export function getAllCandidatesOfParty(partyId, cb) {

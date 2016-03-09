@@ -1,6 +1,7 @@
 import React from 'react';
 import {getChat, postMessage} from '../server';
-import MessageEntry from './messageEntry'
+import MessageEntry from './messageEntry';
+import Messages from './messages';
 // import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
@@ -63,10 +64,8 @@ export default class Chat extends React.Component {
                 <div className="panel-body chat-box-main">
                   {this.state.chatBox.messages.map((message, i) => {
                     return (
-                      <div className="chat-box-text">
-                        <b>User {this.state.chatBox.messages[i].author}: </b>
-                        {this.state.chatBox.messages[i].contents}
-                      </div>
+
+                      <Messages key={i} author={1} contents={this.state.chatBox.messages[i].contents} />
                     )
                   })
                 }
