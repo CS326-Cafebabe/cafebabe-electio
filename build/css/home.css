@@ -141,11 +141,11 @@ The main section of the page
 
 }
 
-.independant-thumb-home {
+.independent-thumb-home {
 	background-color: #805889;
 }
-.independant-thumb-home:hover,
-.independant-thumb-home:focus {
+.independent-thumb-home:hover,
+.independent-thumb-home:focus {
 	border-color: #502859 !important;
 }
 
@@ -157,7 +157,7 @@ The main section of the page
 .republican-red {
 	color: #E4001B
 }
-.independant-purple {
+.independent-purple {
 	/*color: #704879;*/
 	color: #805889;
 }
@@ -302,7 +302,7 @@ h1, h2, .caption > h3, h4.top-row, h5 {
 .republican-thumb {
   background-color: #FF4E4D;
 }
-.independant-thumb {
+.independent-thumb {
   background-color: #805889;
 }
 .long-btn {

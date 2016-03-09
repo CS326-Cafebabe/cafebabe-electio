@@ -84,6 +84,45 @@ var initialData = {
       "wikipedia": "https://en.wikipedia.org/wiki/Donald_Trump",
       "age": "69",
       "quote": "\"Make America great again.\""
+    },
+    "7": {
+      "headImage": "img/candidateHeads/kasichHead.jpg",
+      "logoImage": "img/candidateLogos/kasichLogo.png",
+      "fullName": "John Kasich",
+      "party": 2,
+      "cssType": "republican",
+      "description": "John Richard Kasich (born May 13, 1952) is the Governor of Ohio, first elected in 2010 and re-elected in 2014. On July 21, 2015, he announced his candidacy for the 2016 Republican nomination for President of the United States. Kasich served nine terms as a member of the United States House of Representatives, representing Ohio's 12th congressional district from 1983 to 2001. His tenure in the House included 18 years on the House Armed Services Committee and six years as chairman of the House Budget Committee. He was a key figure in the passage of both welfare reform and the Balanced Budget Act of 1997. He was a commentator on Fox News Channel, hosting Heartland with John Kasich from 2001 to 2007. He also worked as an investment banker, a managing director of Lehman Brothers' Columbus, Ohio, office. In the 2010 Ohio gubernatorial election, Kasich defeated Democratic incumbent Ted Strickland. He was re-elected in 2014, defeating Democrat Ed FitzGerald by 30 percentage points.",
+      "twitterFeed": "",
+      "campaignWebsite": "https://johnkasich.com/",
+      "wikipedia": "https://en.wikipedia.org/wiki/John_Kasich",
+      "age": "63",
+      "quote": "\"K for US.\""
+    },
+    "8": {
+      "headImage": "img/candidateHeads/johnsonHead.jpg",
+      "logoImage": "img/candidateLogos/johnsonLogo.jpg",
+      "fullName": "Gary Johnson",
+      "party": 4,
+      "cssType": "independent",
+      "description": "Gary Earl Johnson (born January 1, 1953) is an American businessman and politician. He served as the 29th Governor of New Mexico from 1995 to 2003, as a member of the Republican Party, and was the Libertarian Party nominee for President of the United States in the 2012 election. He is a candidate for the Libertarian Party presidential nomination in the 2016 election. Johnson announced his candidacy for president on April 21, 2011, as a Republican, on a libertarian platform emphasizing the United States public debt and a balanced budget through a 43% reduction of all federal government spending, protection of civil liberties, an immediate end to the War in Afghanistan and his advocacy of the FairTax. On December 28, 2011, after being excluded from the majority of the Republican Party's presidential debates and failing to gain traction while campaigning for the New Hampshire primary, he withdrew his candidacy for the Republican nomination and announced that he would continue his presidential campaign as a candidate for the nomination of the Libertarian Party. He won the Libertarian Party nomination on May 5, 2012. His chosen running mate Judge James P. Gray of California won the vice-presidential nomination. The Johnson/Gray ticket received 0.99% of the popular vote, amounting to 1.27 million votes, more than all other minor candidates combined. This was the most successful result for a third party presidential candidacy since 2000. It was the best showing in the Libertarian Party's history by vote count. On January 6, 2016, Johnson announced his candidacy for the Libertarian nomination once again in 2016.",
+      "twitterFeed": "",
+      "campaignWebsite": "https://www.garyjohnson2016.com/",
+      "wikipedia": "https://en.wikipedia.org/wiki/Gary_Johnson",
+      "age": "63",
+      "quote": "\"Live free.\""
+    },
+    "9": {
+      "headImage": "img/candidateHeads/steinHead.jpg",
+      "logoImage": "img/candidateLogos/steinLogo.png",
+      "fullName": "Jill Stein",
+      "party": 3,
+      "cssType": "independent",
+      "description": "Jill Ellen Stein (born May 14, 1950) is an American physician and activist who was the nominee of the Green Party for President of the United States in the 2012 election. Stein was a candidate for Governor of Massachusetts in 2002 and 2010. Stein is a resident of Lexington, Massachusetts. She is a graduate of Harvard College (1973) and Harvard Medical School (1979). After receiving 456,169 votes in the 2012 election -- more than any other female general election candidate -- Stein announced the formation of an exploratory committee in February 2015 to seek the Green Party's 2016 presidential nomination. On June 22, 2015, during an appearance on Democracy Now!, Stein formally announced she would seek the Green Party's 2016 presidential nomination.",
+      "twitterFeed": "",
+      "campaignWebsite": "http://www.jill2016.com/",
+      "wikipedia": "https://en.wikipedia.org/wiki/Jill_Stein",
+      "age": "65",
+      "quote": "\"It's in our hands.\""
     }
   },
 
