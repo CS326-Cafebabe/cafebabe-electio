@@ -644,12 +644,8 @@ font-family: 'Raleway', sans-serif;
   width: 70px;
 }
 .panel-body {
-
-  /*line-height: 67px;*/
   font-size: 13px;
-
 }
-
 
 .btn-group > .btn-primary.active {
 	margin-top: 16px;
@@ -686,59 +682,25 @@ font-family: 'Raleway', sans-serif;
 }
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-    /* color: #fff; */
-    /* background-color: #204d74; */
     background-color: rgb(231, 231, 231);
     color: rgb(0, 0, 0);
     border-color: #122b40;
 }
 
 .btn-primary.democrat {
-	/*line-height: 67px;*/
 	margin-top: 16px;
   background-color: #31648C;
   border-color: #31648C;
 }
 
 .btn-primary.republican {
-	/*line-height: 67px;*/
 	margin-top: 16px;
   background-color: #CF1E1D;
   border-color: #CF1E1D;
 }
 
 .btn-primary.independent {
-	/*line-height: 67px;*/
 	margin-top: 16px;
   background-color: #502859;
   border-color: #502859;
 }
-/*
-.democrat-thumb-home:hover,
-.democrat-thumb-home:focus {
-	border-color: #31648C !important;
-}
-
-.republican-thumb-home {
-	background-color: #FF4E4D;
-}
-
-.republican-text {
-	color: #FF4E4D;
-}
-
-.republican-thumb-home:hover,
-.republican-thumb-home:focus {
-	border-color: #CF1E1D !important;
-
-}
-
-.independent-thumb-home {
-	background-color: #805889;
-}
-.independent-thumb-home:hover,
-.independent-thumb-home:focus {
-	border-color: #502859 !important;
-}
-
-*/
