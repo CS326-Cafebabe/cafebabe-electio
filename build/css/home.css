@@ -162,6 +162,9 @@ The main section of the page
 	color: #805889;
 }
 
+#sidebar-username {
+	padding-left: 15px;
+}
 
 /*Candidate page CSS */
 .modal-header {
@@ -614,6 +617,8 @@ text-align: center;
   text-align: center;
   color: #606060 !important;
 }
+
+
 
 
 /* The fonts: */
