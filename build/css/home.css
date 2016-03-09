@@ -462,10 +462,6 @@ body {
   color: #606060;
   font-family: 'Raleway', sans-serif;
 }
-.col-md-6 > h1 {
-  text-align: center;
-  font-size: 70px;
-}
 
 h1, h3, h4, {
   text-transform: uppercase;
@@ -473,21 +469,22 @@ h1, h3, h4, {
   color: #606060;
 }
 
-.col-md-8 > hr{
+hr{
   color: #606060;
   border-color: #606060;
   background-color: #606060;
 
 }
 
-.footer{
-  text-align: center;
+.input-group-addon {
+	width: 30px;
 }
-.footer > .btn-default{
+
+.save{
   margin-top: 20px;
   background-color: #FFFFFF;
-  width: 500px;
-  border-color: #000000;
+  width: 400px;
+  border-color: #606060;
   margin-bottom: 20px;
 }
 
