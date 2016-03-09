@@ -1,6 +1,6 @@
 import React from 'react';
 
- export default class messageEntry extends React.Component {
+ export default class MessageEntry extends React.Component {
    constructor(props) {
      super(props);
      this.state = {
@@ -8,11 +8,10 @@ import React from 'react';
      };
    }
 
-   handleChange(e) {
-     this.setState({ value: e.target.value });
-   }
+
 
    handleKeyUp(e) {
+     e.preventDefault();
      if (e.key === "Enter") {
        var comment = this.state.value.trim();
        if (comment !== "") {
@@ -21,6 +20,11 @@ import React from 'react';
          this.setState({ value: "" });
        }
      }
+   }
+
+   handleChange(e) {
+     e.preventDefault();
+     this.setState({ value: e.target.value });
    }
 
    render() {
@@ -34,7 +38,7 @@ import React from 'react';
                </button>
              </span>
              <input type="text" className="form-control" placeholder="Contribute to the Discussion..."
-              value={this.state.value} onChage={(e) => this.handleChange(e)}
+              value={this.state.value} onChange={(e) => this.handleChange(e)}
               onKeyUp={(e) => this.handleKeyUp(e)} />
              </div>
            </div>

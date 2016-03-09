@@ -1,6 +1,6 @@
 import React from 'react';
 import {getChat, postMessage} from '../server';
-import {messageEntry} from './messageEntry'
+import MessageEntry from './messageEntry'
 // import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
@@ -21,15 +21,23 @@ export default class Chat extends React.Component {
   }
 
   refresh() {
-    console.log(this.state.chatBox);
     getChat(1, (cBox) => {
       this.setState({chatBox: cBox});
     })
-    console.log(this.state.chatBox);
   }
 
   componentDidMount() {
     this.refresh();
+  }
+
+  onPost(postContents) {
+    // Send to server.
+    // We could use geolocation to get a location, but let's fix it to Amherst
+    // for now.
+    postMessage(1, 1, postContents, () => {
+      // Database is now updated. Refresh the feed.
+      this.refresh();
+    });
   }
 
   handleMessage(message) {
@@ -65,102 +73,99 @@ export default class Chat extends React.Component {
                 </div>
               </div>
             </div>
-                <messageEntry />
+            <div>
+                <MessageEntry onPost={(message) => this.onPost(message)} />
                 </div>
               </div>
             </div>
-                  //     <div className="col-md-2 tight col-overflow">
-                  //       <div className="chat-box-discussion-div">
-                  //         <div className="chat-box-discussion-head">
-                  //           Pick a Discussion Topic
-                  //         </div>
-                  //         <div className="chat-box-discussion">
-                  //           <div className="list-group tight">
-                  //             <a href="#" className="list-group-item">
-                  //               Sanders
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item active">
-                  //               Clinton
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Cruz
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Trump
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Rubio
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Sanders
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Clinton
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Cruz
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Trump
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Rubio
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Sanders
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Clinton
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Cruz
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Trump
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //             <a href="#" className="list-group-item">
-                  //               Rubio
-                  //               <br/>
-                  //               <small>Last Active: 2 mins</small>
-                  //             </a>
-                  //           </div>
-                  //         </div>
-                  //
-                  //       </div>
-                  //     </div>
-                  //   </div>
-                  // </div>
-        //     </div>
-        //   </div>
-        // </div>
+                      <div className="col-md-2 tight col-overflow">
+                        <div className="chat-box-discussion-div">
+                          <div className="chat-box-discussion-head">
+                            Pick a Discussion Topic
+                          </div>
+                          <div className="chat-box-discussion">
+                            <div className="list-group tight">
+                              <a href="#" className="list-group-item">
+                                Sanders
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item active">
+                                Clinton
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Cruz
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Trump
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Rubio
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Sanders
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Clinton
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Cruz
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Trump
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Rubio
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Sanders
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Clinton
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Cruz
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Trump
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                              <a href="#" className="list-group-item">
+                                Rubio
+                                <br/>
+                                <small>Last Active: 2 mins</small>
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
       )
     }
   }
