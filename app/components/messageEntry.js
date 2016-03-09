@@ -22,6 +22,16 @@ import React from 'react';
      }
    }
 
+   handleClick(e) {
+     e.preventDefault();
+     var comment = this.state.value.trim();
+     if (comment !== "") {
+       // Post comment
+       this.props.onPost(this.state.value);
+       this.setState({ value: "" });
+     }
+   }
+
    handleChange(e) {
      e.preventDefault();
      this.setState({ value: e.target.value });
@@ -33,8 +43,8 @@ import React from 'react';
          <div className="panel-footer">
            <div className="input-group">
              <span className="input-group-btn">
-               <button className="btn btn-chat" type="button">
-                 <span classNameName="glyphicon glyphicon-pencil"></span>
+               <button className="btn btn-chat" type="button" onClick={(e) => this.handleClick(e)}>
+                 <span className="glyphicon glyphicon-pencil"></span>
                </button>
              </span>
              <input type="text" className="form-control" placeholder="Contribute to the Discussion..."

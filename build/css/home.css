@@ -127,6 +127,11 @@ The main section of the page
 .democrat-thumb-home {
 	background-color: #6194BC;
 }
+
+.democrat-text {
+	color: #6194BC;
+}
+
 .democrat-thumb-home:hover,
 .democrat-thumb-home:focus {
 	border-color: #31648C !important;
@@ -135,6 +140,11 @@ The main section of the page
 .republican-thumb-home {
 	background-color: #FF4E4D;
 }
+
+.republican-text {
+	color: #FF4E4D;
+}
+
 .republican-thumb-home:hover,
 .republican-thumb-home:focus {
 	border-color: #CF1E1D !important;
