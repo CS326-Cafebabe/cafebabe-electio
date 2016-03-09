@@ -35,7 +35,19 @@ export function getCandidate(candIndex, cb) {
 
 export function getAllEvents(cb) {
   var events = [];
-  for (var i = 1; i <= numberOfEvents; i++) {
+  for (var i = 1; i <= 6; i++) {
+    events.push(readDocument('events', i));
+  }
+  emulateServerReturn(events, cb);
+}
+
+export function getSomeEvents(page, cb) {
+  var events = [];
+  var start = 0;
+  if (page === "2") {
+    start = 3;
+  }
+  for (var i = start + 1; i <= start + numberOfEvents; i++) {
     events.push(readDocument('events', i));
   }
   emulateServerReturn(events, cb);
