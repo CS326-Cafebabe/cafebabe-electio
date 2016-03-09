@@ -1,5 +1,5 @@
 import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
+// import moment from 'moment';
 import React from 'react';
 
 //http://intljusticemission.github.io/react-big-calendar/examples/index.html#intro
@@ -26,18 +26,18 @@ export default class Calendar extends React.Component {
 
 
 render(){
-BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
-
-moment().format('l');
-
-let MyCalendar = props => (
-  <div>
-    <BigCalendar
-      events={this.state.myEventsList}
-      startAccessor='startDate'
-      endAccessor='endDate'
-    />
-  </div>
-);
-}
+// BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
+//
+// moment().format('l');
+//
+// let MyCalendar = props => (
+//   <div>
+//     <BigCalendar
+//       events={this.state.myEventsList}
+//       startAccessor='startDate'
+//       endAccessor='endDate'
+//     />
+//   </div>
+// );
+// }
 }

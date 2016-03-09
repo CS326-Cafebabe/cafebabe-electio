@@ -8,7 +8,7 @@ import Trend from './components/trends';
 import {getUserName} from './server';
 import Chat from './components/chat';
 import EmailSettings from './components/emailsettings';
-import Calendar from './components/calendar';
+// import Calendar from './components/calendar';
 
 
 class VotePage extends React.Component {
@@ -63,7 +63,7 @@ class ArchivePage extends React.Component {
 class CalendarPage extends React.Component {
   render() {
     return (
-      <Calendar />
+      <p> Check the Calendar page please</p>
     );
   }
 }

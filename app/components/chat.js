@@ -1,6 +1,6 @@
 import React from 'react';
 import {getChat, postMessage} from '../server';
-import {MessageEntry} from './messageEntry'
+import MessageEntry from './messageEntry'
 // import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
