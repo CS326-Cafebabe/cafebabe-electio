@@ -56,6 +56,18 @@ export function getAllCandidatesOfParty(partyId, cb) {
   }
 }
 
+//need new function because there are 2 party types for independents.
+export function getIndCandidates(cb) {
+  var candidates = [];
+  for (var i = 1; i<=numberOfCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if(candidate.party === 3 || candidate.party === 4){
+      candidates.push(readDocument('candidates', i));
+    }
+    emulateServerReturn(candidates, cb);
+  }
+}
+
 
 export function getParty(partyId, cb) {
   var party = readDocument('parties', partyId);
