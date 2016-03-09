@@ -333,18 +333,14 @@ h1, h2, .caption > h3, h4.top-row, h5 {
 	text-align: center;
 }
 .nav-tabs  {
-  /*border-left: 20px;*/
-  border-color: #606060;
-}
-.nav-tabs > li {
-  color: #606060;
   border-color: #606060;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
   background-color: #ECECEC;
-  border-color: #606060;
-  border-bottom: none;
+	border-top-color: #606060;
+	border-left-color: #606060;
+	border-right-color: #606060;
 }
 
 /*Archive page CSS*/
