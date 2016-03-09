@@ -9,9 +9,21 @@ export default class EmailSettings extends React.Component {
 
   render() {
     return (
-      <div className="col-md-8 col-md-offset-2">
-        <h1>Email Settings</h1>
-        <CandidateSub/>
+      <div>
+
+        <div className="row">
+          <h1>Email Settings</h1> <hr/>
+
+        </div>
+
+        <div className="row">
+          <div className="col-md-8 col-md-offset-2">
+            <CandidateSub on={0}/>
+
+          </div>
+        </div>
+
+
       </div>
 
     );

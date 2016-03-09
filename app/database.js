@@ -288,7 +288,9 @@ var initialData = {
       "Race/Ethnic":"SomeRace",
       "Age":21,
       "PoliticalAffiliation":2,
-      "Location":"Amherst, MA"
+      "Location":"Amherst, MA",
+
+      "EmailSettings": []
     },
     "2":{
       "_id":2,
@@ -299,7 +301,9 @@ var initialData = {
       "Race/Ethnic":"SomeRace",
       "Age":21,
       "PoliticalAffiliation":1,
-      "Location":"Amherst, MA"
+      "Location":"Amherst, MA",
+
+      "EmailSettings": [2, 5, 6]
     },
     "3":{
       "_id":3,
@@ -310,7 +314,9 @@ var initialData = {
       "Race/Ethnic":"SomeRace",
       "Age":21,
       "PoliticalAffiliation":2,
-      "Location":"Amherst, MA"
+      "Location":"Amherst, MA",
+
+      "EmailSettings": [8,9]
     },
     "4":{
       "_id":4,
@@ -321,7 +327,9 @@ var initialData = {
       "Race/Ethnic":"SomeRace",
       "Age":21,
       "PoliticalAffiliation":1,
-      "Location":"Amherst, MA"
+      "Location":"Amherst, MA",
+
+      "EmailSettings": [4,2]
     },
     "5":{
       "_id":5,
@@ -332,7 +340,9 @@ var initialData = {
       "Race/Ethnic":"SomeRace",
       "Age":21,
       "PoliticalAffiliation":1,
-      "Location":"Amherst, MA"
+      "Location":"Amherst, MA",
+
+      "EmailSettings": [1]
     }
   },
 

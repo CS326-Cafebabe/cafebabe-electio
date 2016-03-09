@@ -626,3 +626,62 @@ font-family: 'Alegreya', serif;
 /* General Text
 font-family: 'Raleway', sans-serif;
 */
+
+
+/*Alex's Honors CSS!! Please do not cross if unavoidable!
+----------------------------------------------------------------------*/
+.candSubImg {
+  width: 70px;
+}
+.panel-body {
+
+  /*line-height: 67px;*/
+  font-size: 13px;
+
+}
+.btn-primary {
+	/*line-height: 67px;*/
+	margin-top: 16px;
+  background-color: #286090;
+  border-color: #286090;
+}
+
+.btn-group > .canSubActive {
+  background-color: rgb(231, 231, 231);
+  color: rgb(0, 0, 0);
+  border-color: rgb(111, 111, 111);
+
+}
+
+.dem-panel {
+  background-color: #6194BC;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+.rep-panel {
+  background-color: #FF4E4D;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+.indep-panel {
+  background-color: #805889;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+.panel-body > .row > .col-md-2 {
+  text-align: right;
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    /* color: #fff; */
+    /* background-color: #204d74; */
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 0, 0);
+    border-color: #122b40;
+}
