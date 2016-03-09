@@ -8,6 +8,7 @@ var startupName = "CAFEBABE";
 var initialData = {
   "candidates" : {
     "1": {
+      "_id": 1,
       "headImage": "/img/candidateHeads/clintonHead.jpg",
       "logoImage": "img/candidateLogos/clintonLogo.png",
       "fullName": "Hillary Clinton",
@@ -21,6 +22,7 @@ var initialData = {
       "quote": "\"Hillary for America.\""
     },
     "2": {
+      "_id": 2,
       "headImage": "/img/candidateHeads/cruzHead.jpg",
       "logoImage": "img/candidateLogos/cruzLogo.png",
       "fullName": "Ted Cruz",
@@ -34,6 +36,7 @@ var initialData = {
       "quote": "\"Reigniting the promise of America.\""
     },
     "3": {
+      "_id": 3,
       "headImage": "/img/candidateHeads/delafuenteHead.jpg",
       "logoImage": "img/candidateLogos/delafuenteLogo.png",
       "fullName": "Roque De La Fuente",
@@ -47,6 +50,7 @@ var initialData = {
       "quote": "\"We the people need to take back our democracy.\""
     },
     "4": {
+      "_id": 4,
       "headImage": "/img/candidateHeads/rubioHead.jpg",
       "logoImage": "img/candidateLogos/rubioLogo.png",
       "fullName": "Marco Rubio",
@@ -60,6 +64,7 @@ var initialData = {
       "quote": "\"A new American century.\""
     },
     "5": {
+      "_id": 5,
       "headImage": "img/candidateHeads/sandersHead.jpg",
       "logoImage": "img/candidateLogos/sandersLogo.png",
       "fullName": "Bernie Sanders",
@@ -73,6 +78,7 @@ var initialData = {
       "quote": "\"A political revolution is coming.\""
     },
     "6": {
+      "_id": 6,
       "headImage": "img/candidateHeads/trumpHead.jpg",
       "logoImage": "img/candidateLogos/trumpLogo.png",
       "fullName": "Donald Trump",
@@ -86,6 +92,7 @@ var initialData = {
       "quote": "\"Make America great again.\""
     },
     "7": {
+      "_id": 7,
       "headImage": "img/candidateHeads/kasichHead.jpg",
       "logoImage": "img/candidateLogos/kasichLogo.png",
       "fullName": "John Kasich",
@@ -99,6 +106,7 @@ var initialData = {
       "quote": "\"K for US.\""
     },
     "8": {
+      "_id": 8,
       "headImage": "img/candidateHeads/johnsonHead.jpg",
       "logoImage": "img/candidateLogos/johnsonLogo.jpg",
       "fullName": "Gary Johnson",
@@ -112,6 +120,7 @@ var initialData = {
       "quote": "\"Live free.\""
     },
     "9": {
+      "_id": 9,
       "headImage": "img/candidateHeads/steinHead.jpg",
       "logoImage": "img/candidateLogos/steinLogo.png",
       "fullName": "Jill Stein",
@@ -290,7 +299,7 @@ var initialData = {
       "PoliticalAffiliation":2,
       "Location":"Amherst, MA",
 
-      "EmailSettings": []
+      "emailsettings": [1,3,4,6]
     },
     "2":{
       "_id":2,
@@ -303,7 +312,7 @@ var initialData = {
       "PoliticalAffiliation":1,
       "Location":"Amherst, MA",
 
-      "EmailSettings": [2, 5, 6]
+      "emailsettings": [2, 5, 6]
     },
     "3":{
       "_id":3,
@@ -316,7 +325,7 @@ var initialData = {
       "PoliticalAffiliation":2,
       "Location":"Amherst, MA",
 
-      "EmailSettings": [8,9]
+      "emailsettings": [8,9]
     },
     "4":{
       "_id":4,
@@ -329,7 +338,7 @@ var initialData = {
       "PoliticalAffiliation":1,
       "Location":"Amherst, MA",
 
-      "EmailSettings": [4,2]
+      "emailsettings": [4,2]
     },
     "5":{
       "_id":5,
@@ -342,7 +351,7 @@ var initialData = {
       "PoliticalAffiliation":1,
       "Location":"Amherst, MA",
 
-      "EmailSettings": [1]
+      "emailsettings": [1]
     }
   },
 

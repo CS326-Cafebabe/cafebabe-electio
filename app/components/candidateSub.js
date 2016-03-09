@@ -1,5 +1,5 @@
 import React from 'react';
-import {getParty} from '../server';
+import {getParty, getEmailSettings} from '../server';
 
 export default class CandidateSub extends React.Component {
 
@@ -10,7 +10,8 @@ export default class CandidateSub extends React.Component {
         "name": "",
         "color": "",
         "logo": ""
-      }
+      },
+      emailsettings: []
     };
   }
 
@@ -36,18 +37,40 @@ export default class CandidateSub extends React.Component {
   //
   // }
 
+
+
   refresh() {
     getParty(this.props.data.party, (out) => {
       this.setState({party: out});
     })
+
+    getEmailSettings(1, (out) => {
+      this.setState({emailsettings: out});
+    })
+
    }
 
   componentDidMount() {
     this.refresh();
   }
 
-  render() {
+  didUserSub() {
+    var emailsettings = this.state.emailsettings;
+    var sub = false;
+    // Look for a likeCounter entry with userId 4 -- which is the
+    // current user.
+    for (var i = 0; i < emailsettings.length; i++) {
+      // console.log(this.props.data._id);
+      if (emailsettings[i] === this.props.data._id) {
+        sub = true;
+        break;
+      }
+    }
+    return sub;
+  }
 
+  render() {
+    // console.log(this.state.emailsettings);
     // var cssActive = "active canSubActive";
     var cssColor = this.props.data.cssType + "-panel";
     // console.log(this.state.party.name);
@@ -65,6 +88,9 @@ export default class CandidateSub extends React.Component {
                     <div className="media-body">
                       <h4>{this.props.data.fullName}</h4>
                       {this.state.party.name}
+                      {"    "+ this.state.emailsettings}
+
+                      {"    "+ this.didUserSub()}
                     </div>
                   </div>
                 </div>

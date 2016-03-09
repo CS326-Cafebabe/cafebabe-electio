@@ -49,7 +49,7 @@ export function getAllCandidates(cb) {
   emulateServerReturn(candidates, cb);
 }
 
-// export function getAllChat(){ 
+// export function getAllChat(){
 //
 // }
 
@@ -96,4 +96,10 @@ export function postMessage(chatBoxId, author, message, cb){
 export function getChat(chatId, cb) {
   var chat = readDocument('chatBox', chatId);
   emulateServerReturn(chat, cb)
+}
+
+export function getEmailSettings(userId, cb) {
+  var user = readDocument('users', userId);
+  var email = user.emailsettings;
+  emulateServerReturn(email, cb)
 }
