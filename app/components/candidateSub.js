@@ -71,10 +71,10 @@ export default class CandidateSub extends React.Component {
 
                 <div className="col-md-5">
                   <div className="btn-group pull-right " data-toggle="buttons">
-                    <label className="btn btn-primary">
+                    <label className={"btn btn-primary " + this.props.data.cssType}>
                       <input type="radio" name="options" id="onBernie" autoComplete="off"/> On
                     </label>
-                    <label className="btn btn-primary active">
+                    <label className={"btn btn-primary active " + this.props.data.cssType}>
                       <input type="radio" name="options" id="offBernie" autoComplete="off" defaultChecked/> Off
                     </label>
                   </div>
