@@ -41,22 +41,6 @@ export default class VoteDem extends React.Component {
     //console.log(this.state.candidates);
       return (
         <div>
-          <h1>Vote</h1>
-
-            <div className="row">
-              <ul className="nav nav-tabs">
-                <li role="presentation" className="active">
-                  <a href="#/vote/Democrat">Democrat</a>
-                </li>
-                <li role="presentation" className="inactive">
-                  <a href="#/vote/Republican">Republican</a>
-                </li>
-                <li role="presentation" className="inactive">
-                  <a href="#/vote/Independent">Independent</a>
-                </li>
-              </ul>
-            </div>
-
             <div className="row">
               <div className="col-md-4 col-md-offset-4">
                 <img src="img/partyLogos/democraticParty.png" width="100%"/>
