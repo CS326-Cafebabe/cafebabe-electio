@@ -15,9 +15,7 @@ class VotePage extends React.Component {
       //<p>This is the vote page for party {this.props.params.party}.</p>
     return (
       <div>
-
-        <Vote party={this.props.params.party}/>
-
+        <Vote/>
       </div>
 
     );
@@ -135,7 +133,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
       {/* Show the Feed at / */}
       <IndexRoute component={HomePage} />
-      <Route path="vote/:party" component={VotePage} />
+      <Route path="vote" component={VotePage} />
       <Route path="calendar" component={CalendarPage} />
       <Route path="archive" component={ArchivePage} />
       <Route path="archive/:spec" component={ArchivePage} />

@@ -9,40 +9,28 @@ export default class Vote extends React.Component {
 
 
   render() {
+    return(
+      <div>
+        <h1>Vote</h1>
+        <ul className="nav nav-tabs">
+          <li className="active"><a data-toggle="tab" href="#dem">Democrat</a></li>
+          <li><a data-toggle="tab" href="#rep">Republican</a></li>
+          <li><a data-toggle="tab" href="#ind">Independent</a></li>
+        </ul>
 
-    var partyId = -1;
-    if(this.props.party === 'Democrat'){
-      partyId = 1;
-    }
-    else if(this.props.party === 'Republican'){
-      partyId = 2;
-    }
-    else if(this.props.party === 'Independent'){
-      partyId = 3;
-    }
+        <div className="tab-content">
+          <div id="dem" className="tab-pane fade in active">
+            <VoteDem/>
+          </div>
+          <div id="rep" className="tab-pane fade">
+            <VoteRep/>
+          </div>
+          <div id="ind" className="tab-pane fade">
+            <VoteInd/>
+          </div>
+        </div>
+      </div>
 
-    if(partyId === 1){
-      return (
-        <VoteDem/>
-      );
-    }
-
-    else if(partyId === 2){
-      return (
-        <VoteRep/>
-      );
-    }
-
-    else if(partyId === 3){
-      return (
-        <VoteInd/>
-      );
-    }
-
-    else{
-      return(
-        <p>{this.props.party} is not a recognized party</p>
-      );
-    }
+    );
   }
 }
