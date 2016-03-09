@@ -53,7 +53,6 @@ export default class Trends extends React.Component{
                     </li>
                   </ul>
                 </div>
-
                 <div className="col-md-8 graphs">
                   <h3>Activity</h3>
                   <hr />

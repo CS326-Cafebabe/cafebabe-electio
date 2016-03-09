@@ -117,7 +117,6 @@ var initialData = {
       "location": "New Hampshire",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu commodo arcu, id volutpat diam. Suspendisse accumsan et ligula sed hendrerit. In volutpat ligula ut laoreet vulputate. Mauris a magna nec nisi scelerisque porta. Cras tellus lectus, bibendum eget enim id, consequat venenatis elit. Sed rutrum fermentum porttitor.",
       "party": "Republican",
-      //2D Array: First cell is user_id and second is candidate_id
       "ballotBox": [
         {
           "user": 4,
