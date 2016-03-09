@@ -29,7 +29,7 @@ var initialData = {
       "party": 2,
       "cssType": "republican",
       "description": "Rafael Edward 'Ted' Cruz (born December 22, 1970) is an American politician and the junior United States Senator from Texas. He is a candidate for the Republican nomination for President of the United States in the 2016 election. Cruz graduated from Princeton University in 1992, and from Harvard Law School in 1995. Between 1999 and 2003, Cruz was the director of the Office of Policy Planning at the Federal Trade Commission, an associate deputy attorney general at the United States Department of Justice, and domestic policy advisor to President George W. Bush on the 2000 George W. Bush presidential campaign. He served as Solicitor General of Texas from 2003 to 2008, appointed by Texas Attorney General Greg Abbott. He was the first Hispanic, and the longest-serving solicitor general, in Texas history. From 2004 to 2009, Cruz was also an adjunct professor of law at the University of Texas School of Law in Austin, where he taught U.S. Supreme Court litigation. Cruz began campaigning for the Republican presidential nomination in March 2015. During the primary campaign, his base of support has been mainly among social conservatives, though he has had crossover appeal to other factions within his party, including in particular libertarian conservatives. His victory in the February 1, 2016 Iowa caucuses marked the first time a Hispanic person won a presidential caucus.",
-      "twitterFeed": "",
+      "twitterFeed": "BernieSanders",
       "campaignWebsite": "https://www.tedcruz.org/",
       "wikipedia": "https://en.wikipedia.org/wiki/Ted_Cruz",
       "age": "45",

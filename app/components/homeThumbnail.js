@@ -1,4 +1,5 @@
 import React from 'react';
+import { Timeline } from 'react-twitter-widgets'
 import {getParty} from '../server'
 
 export default class HomeThumbnail extends React.Component {
@@ -36,6 +37,8 @@ export default class HomeThumbnail extends React.Component {
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
 
     var cssModal = (this.props.data.cssType + "-modal");
+
+    var twitterURL = ("https://twitter.com/hashtag/" + this.props.data.twitterFeed);
 
     return (
       <div className="col-xs-4 col-md-4">
@@ -85,7 +88,15 @@ export default class HomeThumbnail extends React.Component {
                           <h4><b>What people are saying about {this.props.data.fullName}</b></h4>
                         </div>
                         <div className="panel-body">
-                          <img src="img/temp/twitterFeed.jpg" width="100%" />
+
+                          <Timeline
+                              widgetId= {this.props.data.twitterID}
+                              options={{
+                                hashtag: this.props.data.twitter,
+                                height: '400'
+                              }}
+                            />
+
                         </div>
                       </div>
                     </div>

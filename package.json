@@ -23,6 +23,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "react-big-calendar": "^0.9.8"
+    "react-big-calendar": "^0.9.8",
+    "react-twitter-widgets": "^0.2.3"
   }
 }
