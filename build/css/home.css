@@ -643,18 +643,18 @@ font-family: 'Raleway', sans-serif;
 .candSubImg {
   width: 70px;
 }
-.panel-body {
+.panel-body.email {
   font-size: 13px;
 }
 
-.btn-group > .btn-primary.active {
+/*.btn-primary.active {
 	margin-top: 16px;
 
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(231, 231, 231) !important;
   color: rgb(0, 0, 0);
   border-color: rgb(111, 111, 111);
 
-}
+}*/
 
 .democrat-panel {
   background-color: #6194BC;
@@ -681,10 +681,20 @@ font-family: 'Raleway', sans-serif;
   text-align: right;
 }
 
-.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-    background-color: rgb(231, 231, 231);
-    color: rgb(0, 0, 0);
-    border-color: #122b40;
+.btn-primary.active.focus.democrat, .btn-primary.democrat.active:focus, .democrat.btn-primary.active:hover, .democrat.btn-primary:active.focus, .democrat.btn-primary:active:focus, .democrat.btn-primary:active:hover, .democrat.open>.democrat.dropdown-toggle.btn-primary.focus, .open>.democrat.dropdown-toggle.btn-primary:focus, .democrat.open>.democrat.dropdown-toggle.btn-primary:hover {
+	background-color: #31648C;
+	border-color: #31648C;
+
+}
+
+.btn-primary.active.focus.republican, .btn-primary.republican.active:focus, .republican.btn-primary.active:hover, .republican.btn-primary:active.focus, .republican.btn-primary:active:focus, .republican.btn-primary:active:hover, .republican.open>.republican.dropdown-toggle.btn-primary.focus, .open>.republican.dropdown-toggle.btn-primary:focus, .republican.open>.republican.dropdown-toggle.btn-primary:hover {
+	background-color: #CF1E1D;
+	border-color: #CF1E1D;
+}
+
+.btn-primary.active.focus.independent, .btn-primary.independent.active:focus, .independent.btn-primary.active:hover, .independent.btn-primary:active.focus, .independent.btn-primary:active:focus, .independent.btn-primary:active:hover, .independent.open>.independent.dropdown-toggle.btn-primary.focus, .open>.independent.dropdown-toggle.btn-primary:focus, .independent.open>.independent.dropdown-toggle.btn-primary:hover {
+	background-color: #502859;
+	border-color: #502859;
 }
 
 .btn-primary.democrat {
