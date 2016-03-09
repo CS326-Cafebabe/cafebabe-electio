@@ -8,6 +8,7 @@ import Trend from './components/trends';
 import {getUserName} from './server';
 import Chat from './components/chat';
 import EmailSettings from './components/emailsettings';
+import Settings from './components/settings';
 // import Calendar from './components/calendar';
 
 
@@ -39,7 +40,7 @@ class HomePage extends React.Component {
 class SettingsPage extends React.Component {
   render() {
     return (
-      <p>This is the settings page.</p>
+      <Settings/>
     );
   }
 }
@@ -139,7 +140,7 @@ ReactDOM.render((
       <Route path="archive" component={ArchivePage} />
       <Route path="archive/:page" component={ArchivePage} />
       <Route path="trends" component={TrendPage} />
-      <Route path="settings" component={SettingsPage} />
+      <Route path="usersettings" component={SettingsPage} />
       <Route path="chat" component={ChatPage} />
       <Route path="emailsettings" component={EmailSettingsPage}/>
 

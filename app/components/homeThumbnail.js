@@ -38,8 +38,6 @@ export default class HomeThumbnail extends React.Component {
 
     var cssModal = (this.props.data.cssType + "-modal");
 
-    var twitterURL = ("https://twitter.com/hashtag/" + this.props.data.twitterFeed);
-
     return (
       <div className="col-xs-4 col-md-4">
 
@@ -92,7 +90,7 @@ export default class HomeThumbnail extends React.Component {
                           <Timeline
                               widgetId= {this.props.data.twitterID}
                               options={{
-                                hashtag: this.props.data.twitter,
+                                hashtag: this.props.data.twitterHashtag,
                                 height: '400'
                               }}
                             />
