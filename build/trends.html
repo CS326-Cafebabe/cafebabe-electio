@@ -6,6 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {'packages':['corechart']});
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(drawChart);
+
+  // Callback that creates and populates a data table,
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawChart() {
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Candidate');
+    data.addColumn('number', 'Votes');
+    data.addRows([
+      ['Bernie', 10],
+      ['Trump', 35],
+      ['Jeb', 23],
+      ['Clinton', 9],
+      ['Alex CObian', 200]
+    ]);
+
+    // Set chart options
+    var options = {'title':'Presidential Election Stuff',
+                   'width':500,
+                   'height':500};
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+  </script>
   <title>Trends</title>
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -62,8 +97,18 @@
           <h3>Activity</h3>
           <hr>
           <!-- Right Half Upper -->
-          <div class="row" id="chart_div">
-
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default upper-graph">
+                <div class="panel-body" id="chart_div">
+                </div>
+              </div>
+              <p>Integer malesuada nibh eget sem vulputate varius.
+                Etiam venenatis, metus ac cursus elementum, dui leo hendrerit ipsum,
+                fermentum tincidunt mauris quam sit amet odio.
+                Integer eu aliquam sapien, vitae rhoncus tellus.
+                Suspendisse vitae leo ac ante tempus sodales sed egestas magna.</p>
+            </div>
           </div>
           <!-- Right Half Upper End -->
           <hr>
