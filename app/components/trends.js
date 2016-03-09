@@ -27,7 +27,7 @@ export default class Trends extends React.Component{
       return (
         <div>
           <div className="container-fluid">
-            <div className="col-md-11 content">
+            <div className="col-md-12 content">
               <div className="row">
                 <div className="col-md-12 trending">
                   <h2>TRENDS <small>Graphical Information on Voting Patterns</small></h2>
