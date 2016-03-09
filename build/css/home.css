@@ -656,28 +656,30 @@ font-family: 'Raleway', sans-serif;
   border-color: #286090;
 }
 
-.btn-group > .canSubActive {
+.btn-group > .btn-primary.active {
+	margin-top: 16px;
+
   background-color: rgb(231, 231, 231);
   color: rgb(0, 0, 0);
   border-color: rgb(111, 111, 111);
 
 }
 
-.dem-panel {
+.democrat-panel {
   background-color: #6194BC;
   color: #FFFFFF;
   border-color: #FFFFFF;
   border-width: thick;
 }
 
-.rep-panel {
+.republican-panel {
   background-color: #FF4E4D;
   color: #FFFFFF;
   border-color: #FFFFFF;
   border-width: thick;
 }
 
-.indep-panel {
+.independent-panel {
   background-color: #805889;
   color: #FFFFFF;
   border-color: #FFFFFF;
