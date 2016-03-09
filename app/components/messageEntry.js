@@ -1,6 +1,6 @@
 import React from 'react';
 
- export default class messageEntry extends React.Component {
+ export default class MessageEntry extends React.Component {
    constructor(props) {
      super(props);
      this.state = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {getChat, postMessage} from '../server';
-import {messageEntry} from './messageEntry'
+import {MessageEntry} from './messageEntry'
 // import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
@@ -30,6 +30,16 @@ export default class Chat extends React.Component {
 
   componentDidMount() {
     this.refresh();
+  }
+
+  onPost(postContents) {
+    // Send to server.
+    // We could use geolocation to get a location, but let's fix it to Amherst
+    // for now.
+    postMessage(1, 1, postContents, () => {
+      // Database is now updated. Refresh the feed.
+      this.refresh();
+    });
   }
 
   handleMessage(message) {
@@ -65,7 +75,8 @@ export default class Chat extends React.Component {
                 </div>
               </div>
             </div>
-                <messageEntry />
+            <div>
+                <MessageEntry onPost={(message) => this.onPost(message)} />
                 </div>
               </div>
             </div>
