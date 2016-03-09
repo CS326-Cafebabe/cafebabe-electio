@@ -41,10 +41,10 @@ export function getAllEvents(cb) {
   emulateServerReturn(events, cb);
 }
 
-export function getSomeEvents(spec, cb) {
+export function getSomeEvents(page, cb) {
   var events = [];
   var start = 0;
-  if (spec === "old") {
+  if (page === "2") {
     start = 3;
   }
   for (var i = start + 1; i <= start + numberOfEvents; i++) {
@@ -61,7 +61,7 @@ export function getAllCandidates(cb) {
   emulateServerReturn(candidates, cb);
 }
 
-// export function getAllChat(){ 
+// export function getAllChat(){
 //
 // }
 
