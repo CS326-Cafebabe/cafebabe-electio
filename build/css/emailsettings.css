@@ -10,12 +10,14 @@ img {
   border-color: #286090;
 }
 
+/*this one*/
 .btn-group > .active {
   background-color: rgb(231, 231, 231);
   color: rgb(0, 0, 0);
   border-color: rgb(111, 111, 111);
 }
 
+/*this one*/
 .btn-default {
   border: none;
   background-color: transparent;

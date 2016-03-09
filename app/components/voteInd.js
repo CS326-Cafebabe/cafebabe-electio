@@ -1,6 +1,6 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
-import {getAllCandidatesOfParty} from '../server';
+import {getIndCandidates} from '../server';
 
 
 export default class VoteInd extends React.Component {
@@ -27,9 +27,10 @@ export default class VoteInd extends React.Component {
   }
 
   refresh() {
-    getAllCandidatesOfParty(3, (out) => {
+    getIndCandidates((out) => {
       this.setState({candidates: out});
     })
+
    }
 
   componentDidMount() {
@@ -58,7 +59,10 @@ export default class VoteInd extends React.Component {
               <hr />
             </div>
           </div>
-        <h1>nothing yet!</h1>
+
+          {this.state.candidates.map((candidate, i) =>
+            <VoteThumbnail key={i} uid={i} data={candidate}/>
+          )}
       </div>
 
     );

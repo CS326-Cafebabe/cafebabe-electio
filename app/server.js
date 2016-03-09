@@ -1,6 +1,6 @@
 import {readDocument, writeDocument, addDocument} from './database.js';
 
-var numberOfCandidates = 6;
+var numberOfCandidates = 9;
 var numberOfEvents = 3;
 
 /**
@@ -16,6 +16,11 @@ function emulateServerReturn(data, cb) {
 export function  getUserData(userId, cb) {
   var userData = readDocument('users', userId);
   return emulateServerReturn(userData, cb);
+}
+
+export function getUserPoliticalAffiliation(userId){
+  var userPolAff = readDocument('users', userId).PoliticalAffiliation;
+  return userPolAff;
 }
 
 export function getUserName(userId, cb) {
@@ -55,6 +60,35 @@ export function getAllCandidates(cb) {
   }
   emulateServerReturn(candidates, cb);
 }
+
+// export function getAllChat(){ 
+//
+// }
+
+
+export function getAllCandidatesOfParty(partyId, cb) {
+  var candidates = [];
+  for (var i = 1; i<=numberOfCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if(partyId === candidate.party){
+      candidates.push(readDocument('candidates', i));
+    }
+    emulateServerReturn(candidates, cb);
+  }
+}
+
+//need new function because there are 2 party types for independents.
+export function getIndCandidates(cb) {
+  var candidates = [];
+  for (var i = 1; i<=numberOfCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if(candidate.party === 3 || candidate.party === 4){
+      candidates.push(readDocument('candidates', i));
+    }
+    emulateServerReturn(candidates, cb);
+  }
+}
+
 
 export function getParty(partyId, cb) {
   var party = readDocument('parties', partyId);
