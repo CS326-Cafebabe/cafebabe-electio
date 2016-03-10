@@ -16,7 +16,7 @@ function emulateServerReturn(data, cb) {
 
 export function  getUserData(userId, cb) {
   var userData = readDocument('users', userId);
-  return emulateServerReturn(userData, cb);
+  emulateServerReturn(userData, cb);
 }
 
 export function setUserData(userId, newData, cb) {
@@ -41,12 +41,12 @@ export function setUserData(userId, newData, cb) {
 
 export function getUserPoliticalAffiliation(userId, cb){
   var userData = readDocument('users', userId);
-  return emulateServerReturn(userData.politicalAffiliation, cb);
+  emulateServerReturn(userData.politicalAffiliation, cb);
 }
 
 export function getUserName(userId, cb) {
   var userData = readDocument('users', userId);
-  return emulateServerReturn(userData.fullName, cb);
+  emulateServerReturn(userData.fullName, cb);
 }
 
 export function getCandidate(candIndex, cb) {
