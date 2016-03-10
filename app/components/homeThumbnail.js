@@ -56,7 +56,7 @@ export default class HomeThumbnail extends React.Component {
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   </div>
 
-                  <div className="row">
+                  <div className="row hr">
                     <div className={"col-md-4 "+ cssModal}>
                         <img className="cand-pic" src={headImageText} width="100%" />
                         <hr/>

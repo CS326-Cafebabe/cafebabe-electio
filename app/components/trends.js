@@ -1,18 +1,21 @@
 import React from 'react';
 import {getAllEvents} from '../server';
+//import {Graph} from './trendGraph';
 
 export default class Trends extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-      "events": [{
-        "name": "",
-        "ballotBox": []
-      }]
+      "events": []
     }
   }
 
+  handleClick(clickEvent, event){
+    clickEvent.preventDefault;
+    document.getElementById("upper-summary").innerHTML = "The overall summary for the "+event.party+" "+event.name+" based on users votes. "+event.summary;
+    document.getElementById("mid-summary").innerHTML = "The distribution of votes based on user gender information for the "+event.party+" "+event.name;
+  }
   refresh() {
     getAllEvents( (out) => {
       this.setState({events: out});
@@ -41,7 +44,7 @@ export default class Trends extends React.Component{
                   <hr />
                   <ul>
                     {this.state.events.map((event, i) =>
-                      <li key={i}>{event.name}</li>
+                      <li key={i}><button className="btn btn-default event-btn" onClick={(e)=>this.handleClick(e, event)}>{event.party} {event.name}</button></li>
                     )}
                     <li className="media">
                       <div className="media-left media-top">
@@ -55,41 +58,34 @@ export default class Trends extends React.Component{
                 </div>
                 <div className="col-md-8 graphs">
                   <h3>Activity</h3>
-                  <hr />
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div className="panel panel-default upper-graph">
-                        <div className="panel-body">
-                          <img className="img-responsive" src="img/graphs/graph1.png" width="700px" />
+                    <hr />
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div className="panel panel-default upper-graph-panel">
+                            <div className="panel-body">
+                              <img className="img-responsive" src="img/graphs/graph1.png" id="upper-graph"/>
+                            </div>
+                          </div>
+                          <p id="upper-summary">Select an event</p>
                         </div>
                       </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse aliquam aliquet justo a porttitor.
-                        Cras felis enim, viverra vitae vestibulum sed, sagittis sit amet nibh.
-                        Phasellus non dui a purus accumsan egestas.
-                        Pellentesque laoreet ligula in libero fermentum mollis.</p>
-                    </div>
-                  </div>
-                  <hr />
-                  <div classNameName="row">
-                    <div className="col-md-12">
-                      <div className="panel panel-default mid-graph">
-                        <div className="panel-body">
-                          <img className="img-responsive" src="img/graphs/nhprimarygender.png" width="700px" />
+                    <hr />
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div className="panel panel-default mid-graph-panel">
+                            <div className="panel-body">
+                              <img className="img-responsive" src="img/graphs/nhprimarygender.png" id="mid-graph"/>
+                            </div>
+                          </div>
+                          <p id="mid-summary"></p>
                         </div>
                       </div>
-                      <p>Integer malesuada nibh eget sem vulputate varius.
-                        Etiam venenatis, metus ac cursus elementum, dui leo hendrerit ipsum,
-                        fermentum tincidunt mauris quam sit amet odio.
-                        Integer eu aliquam sapien, vitae rhoncus tellus.
-                        Suspendisse vitae leo ac ante tempus sodales sed egestas magna.</p>
-                    </div>
+                    <hr />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       );
     }
 }

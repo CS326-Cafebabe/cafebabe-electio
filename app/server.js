@@ -21,7 +21,6 @@ export function  getUserData(userId, cb) {
 
 export function getUserPoliticalAffiliation(userId, cb){
   var userData = readDocument('users', userId);
-  console.log(userData.PoliticalAffiliation);
   return emulateServerReturn(userData.PoliticalAffiliation, cb);
 }
 
@@ -102,4 +101,39 @@ export function postMessage(chatBoxId, author, message, cb){
 export function getChat(chatId, cb) {
   var chat = readDocument('chatBox', chatId);
   emulateServerReturn(chat, cb)
+}
+
+export function getEmailSettings(userId, cb) {
+  var user = readDocument('users', userId);
+  var email = user.emailsettings;
+  emulateServerReturn(email, cb)
+}
+
+export function subscribe(candId, userId, cb) {
+  var user = readDocument('users', userId);
+  // var email = user.emailsettings;
+
+  user.emailsettings.push(candId);
+  writeDocument('users', user);
+  //emulateServerReturn(user.emailsettings.map((id) => readDocument('candidates', id)), cb);
+  emulateServerReturn(user.emailsettings, cb);
+}
+
+export function unsubscribe(candId, userId, cb) {
+  var user = readDocument('users', userId);
+  //var email = user.emailsettings;
+
+  // (We didn't *resolve* the FeedItem object, so it is just an array of user IDs)
+  var candIndex = user.emailsettings.indexOf(candId);
+  // -1 means the user is *not* in the likeCounter, so we can simply avoid updating
+  // anything if that is the case: the user already doesn't like the item.
+  if (candIndex !== -1) {
+    // 'splice' removes items from an array. This removes 1 element starting from userIndex.
+    user.emailsettings.splice(candIndex, 1);
+    writeDocument('users', user);
+  }
+  // Return a resolved version of the likeCounter
+  //emulateServerReturn(user.emailsettings.map((id) => readDocument('candidates', id)), cb);
+  emulateServerReturn(user.emailsettings, cb);
+
 }

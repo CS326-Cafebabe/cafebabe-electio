@@ -1,25 +1,22 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Settings extends React.Component {
   render(){
     return(
       <div>
-      <body/>
-      <div className="container-fluid">
+
         <div className="row">
-          <div className="col-md-6">
             <h1>User Settings</h1>
-          </div>
-
         </div>
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <hr />
-          </div>
+        <div className="row hr">
+          <hr />
         </div>
 
         <div className="row">
-          <div className="col-md-4 col-md-offset-2">
+          <div className="col-md-1">
+          </div>
+          <div className="col-md-5">
             <h3>Name</h3>
             <h6 className="indent">John Doe</h6>
             <button className="btn btn-default footer indent">
@@ -40,7 +37,7 @@ export default class Settings extends React.Component {
                 <span className="input-group-addon">
                   <input type="radio" name="gender"/>
                 </span>
-                <input type="text" className="form-control" placeholder="Other"/>
+                <input type="text" className="form-control entry" placeholder="Other"/>
               </div>
 
             </form>
@@ -116,20 +113,9 @@ export default class Settings extends React.Component {
 
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-5">
 
             <div className="media">
-              <div className="media-left">
-
-                <img className="media-object" src="img/temp/userPlaceholder.png" width="100px"/>
-
-              </div>
-              <div className="media-body">
-                <h4 className="media-heading">Your Photo</h4>
-                <button className="btn btn-default footer">
-                  Edit <span className="glyphicon glyphicon-edit"></span>
-                </button>
-              </div>
             </div>
 
             <h3>Email and Password</h3>
@@ -185,20 +171,18 @@ export default class Settings extends React.Component {
             </form>
 
             <h3>Want Email Notifications?</h3>
-            <a href="emailsettings.html" className="indent">Notify me!</a>
+            <Link to={"/emailsettings"} className="indent">Notify Me!</Link>
+              <br/>
+              <br/>
+              <br/>
+              <button className="btn btn-default footer save">
+                Save
+              </button>
+          </div>
+          <div className="col-md-1">
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2 footer">
-            <button className="btn btn-default footer">
-              Save
-            </button>
-          </div>
-
-        </div>
-
-      </div>
       </div>
 
     );
