@@ -3,6 +3,7 @@ import HomeThumbnail from './homeThumbnail';
 //import StatusUpdateEntry from './statusupdateentry';
 //import {getFeedData, postStatusUpdate} from '../server';
 import {getAllCandidates} from '../server';
+import {Link} from 'react-router';
 
 
 export default class Home extends React.Component {
@@ -43,7 +44,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <h1>elect.io (n)</h1>
-        
+
         {this.state.candidates.map((candidate, i) =>
           <HomeThumbnail key={i} uid={i} data={candidate}/>
           )}
@@ -54,7 +55,7 @@ export default class Home extends React.Component {
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-md-12">
-                      <a href="vote.html" className="btn btn-default btn-block" id="vote-button">Vote now <span className="glyphicon glyphicon-pencil sidebar-glyph"></span></a>
+                      <Link to={"vote"} className="btn btn-default btn-block" id="vote-button">Vote now <span className="glyphicon glyphicon-pencil sidebar-glyph"></span></Link>
                     </div>
                   </div>
                   </div>
