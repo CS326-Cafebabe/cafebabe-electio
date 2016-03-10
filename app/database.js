@@ -306,7 +306,7 @@ var initialData = {
       "race":"White",
       "hispanic": "false",
       "registered": "false",
-      "age":21,
+      "age":"25-34",
       "politicalAffiliation":2,
       "location":"Amherst, MA",
 
@@ -321,7 +321,7 @@ var initialData = {
       "race":"African American/Black",
       "hispanic": "true",
       "registered": "true",
-      "age":21,
+      "age":"65+",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
 
@@ -336,7 +336,7 @@ var initialData = {
       "race":"Asian",
       "hispanic": "false",
       "registered": "false",
-      "age":21,
+      "age":"45-54",
       "politicalAffiliation":2,
       "location":"Amherst, MA",
 
@@ -351,7 +351,7 @@ var initialData = {
       "race":"Pacific Islander",
       "hispanic": "false",
       "registered": "true",
-      "age":21,
+      "age":"18-24",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
 
@@ -366,7 +366,7 @@ var initialData = {
       "race":"Native American/Alaskan",
       "hispanic": "true",
       "registered": "true",
-      "age":21,
+      "age":"Under 18",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
 

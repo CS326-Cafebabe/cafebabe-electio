@@ -19,6 +19,26 @@ export function  getUserData(userId, cb) {
   return emulateServerReturn(userData, cb);
 }
 
+export function setUserData(userId, newData, cb) {
+  var userData = {
+        "_id": newData.userId,
+        "email": newData.email,
+        "password": newData.password,
+        "fullName": newData.fullName,
+        "gender": newData.gender,
+        "race": newData.race,
+        "hispanic": newData.hispanic,
+        "registered": newData.registered,
+        "age": newData.age,
+        "politicalAffiliation": newData.politicalAffiliation,
+        "location": newData.location,
+
+        "emailsettings": newData.emailsettings
+  }
+  writeDocument('users', userData);
+  emulateServerReturn(userData, cb);
+}
+
 export function getUserPoliticalAffiliation(userId, cb){
   var userData = readDocument('users', userId);
   return emulateServerReturn(userData.politicalAffiliation, cb);
