@@ -1,11 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Settings extends React.Component {
   render(){
     return(
       <div>
-      <body/>
-      <div className="container-fluid">
+
         <div className="row">
             <h1>User Settings</h1>
         </div>
@@ -171,7 +171,7 @@ export default class Settings extends React.Component {
             </form>
 
             <h3>Want Email Notifications?</h3>
-            <a href="emailsettings.html" className="indent">Notify me!</a>
+            <Link to={"/emailsettings"} className="indent">Notify Me!</Link>
               <br/>
               <br/>
               <br/>
@@ -183,7 +183,6 @@ export default class Settings extends React.Component {
           </div>
         </div>
 
-      </div>
       </div>
 
     );
