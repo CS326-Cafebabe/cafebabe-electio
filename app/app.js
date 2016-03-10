@@ -6,7 +6,7 @@ import Vote from './components/vote';
 import Archive from './components/archive';
 import Trend from './components/trends';
 import {getUserName} from './server';
-import Chat from './components/chat';
+import ChatList from './components/chatList';
 import EmailSettings from './components/emailsettings';
 import Settings from './components/settings';
 // import Calendar from './components/calendar';
@@ -72,7 +72,7 @@ class CalendarPage extends React.Component {
 class ChatPage extends React.Component {
   render() {
     return (
-      <Chat />
+      <ChatList />
     );
   }
 }

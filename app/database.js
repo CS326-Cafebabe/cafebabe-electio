@@ -366,6 +366,7 @@ var initialData = {
 
   "chatBox":{
     "1":{
+      "active": true,
       "_id":1,
       "fullName":"Clinton Debate",
       "messages": [
@@ -378,8 +379,94 @@ var initialData = {
           "contents": "Test second message"
         }
       ],
-      "active": 1453668480000
+      "time": 1453668480000
+    },
+
+    "2":{
+      "active": true,
+      "_id":2,
+      "fullName":"Sanders Debate",
+      "messages": [
+        {
+          "author": 1,
+          "contents": "Debate Bernie Here"
+        },
+        {
+          "author": 1,
+          "contents": "Test second message"
+        }
+      ],
+      "time": 1453408480000
+    },
+
+    "3":{
+      "active": true,
+      "_id":3,
+      "fullName":"Trump Debate",
+      "messages": [
+        {
+          "author": 2,
+          "contents": "Debate Trump Here"
+        },
+        {
+          "author": 2,
+          "contents": "Test second message"
+        }
+      ],
+      "time": 1453408480000
+    },
+
+    "4":{
+      "active": true,
+      "_id":4,
+      "fullName":"Kasich Debate",
+      "messages": [
+        {
+          "author": 2,
+          "contents": "Debate Kasich Here"
+        },
+        {
+          "author": 2,
+          "contents": "Test second message"
+        }
+      ],
+      "time": 1453408480000
+    },
+
+    "5":{
+      "active": true,
+      "_id":5,
+      "fullName":"Scroggie Debate",
+      "messages": [
+        {
+          "author": 2,
+          "contents": "Debate Scroggie Here"
+        },
+        {
+          "author": 2,
+          "contents": "Test second message"
+        }
+      ],
+      "time": 1453408480000
+    },
+
+    "6":{
+      "active": true,
+      "_id":6,
+      "fullName":"Stein Debate",
+      "messages": [
+        {
+          "author": 3,
+          "contents": "Debate Stein Here"
+        },
+        {
+          "author": 3,
+          "contents": "Test second message"
+        }
+      ],
+      "time": 1453408480000
     }
+
   }
 
 };

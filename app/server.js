@@ -2,6 +2,7 @@ import {readDocument, writeDocument, addDocument} from './database.js';
 
 var numberOfCandidates = 9;
 var numberOfEvents = 3;
+var numberOfChats = 6;
 
 /**
 * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -18,9 +19,10 @@ export function  getUserData(userId, cb) {
   return emulateServerReturn(userData, cb);
 }
 
-export function getUserPoliticalAffiliation(userId){
-  var userPolAff = readDocument('users', userId).PoliticalAffiliation;
-  return userPolAff;
+export function getUserPoliticalAffiliation(userId, cb){
+  var userData = readDocument('users', userId);
+  console.log(userData.PoliticalAffiliation);
+  return emulateServerReturn(userData.PoliticalAffiliation, cb);
 }
 
 export function getUserName(userId, cb) {
@@ -35,19 +37,7 @@ export function getCandidate(candIndex, cb) {
 
 export function getAllEvents(cb) {
   var events = [];
-  for (var i = 1; i <= 6; i++) {
-    events.push(readDocument('events', i));
-  }
-  emulateServerReturn(events, cb);
-}
-
-export function getSomeEvents(page, cb) {
-  var events = [];
-  var start = 0;
-  if (page === "2") {
-    start = 3;
-  }
-  for (var i = start + 1; i <= start + numberOfEvents; i++) {
+  for (var i = 1; i <= numberOfEvents; i++) {
     events.push(readDocument('events', i));
   }
   emulateServerReturn(events, cb);
@@ -58,40 +48,16 @@ export function getAllCandidates(cb) {
   for (var i = 1; i<=numberOfCandidates; i++) {
     candidates.push(readDocument('candidates', i));
   }
-
-  //Sort the candidates
-
-  //Get surName connected to id
-  //Get surNames
-  var surNameIdDict = {};
-  var surNameArray = [];
-  for (var i = 0; i<candidates.length; i++) {
-    var split = candidates[i].fullName.split(" ");
-    var surName = (split)[split.length-1];
-
-    surNameIdDict[surName] = i;
-    surNameArray.push(surName);
-
-  }
-
-  //sort surNames
-  surNameArray.sort();
-
-  //push the candidate of the correct id into the right position
-  var sortedCandidates = [];
-  for (var i = 0; i<surNameArray.length; i++){
-    var oldId = surNameIdDict[surNameArray[i]];
-    sortedCandidates.push(candidates[oldId]);
-  }
-
-  //return
-  emulateServerReturn(sortedCandidates, cb);
-
+  emulateServerReturn(candidates, cb);
 }
 
-// export function getAllChat(){
-//
-// }
+export function getAllChat(cb){
+  var chatBoxes = [];
+  for(var i = 1; i <= numberOfChats; i++){
+    chatBoxes.push(readDocument('chatBox', i));
+  }
+  emulateServerReturn(chatBoxes, cb);
+}
 
 
 export function getAllCandidatesOfParty(partyId, cb) {
@@ -136,10 +102,4 @@ export function postMessage(chatBoxId, author, message, cb){
 export function getChat(chatId, cb) {
   var chat = readDocument('chatBox', chatId);
   emulateServerReturn(chat, cb)
-}
-
-export function getEmailSettings(userId, cb) {
-  var user = readDocument('users', userId);
-  var email = user.emailsettings;
-  emulateServerReturn(email, cb)
 }

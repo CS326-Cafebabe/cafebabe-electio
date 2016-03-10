@@ -7,10 +7,16 @@ export default class Messages extends React.Component {
   this.state = props;
 }
 
+  refresh(){
+    getUserPoliticalAffiliation(this.state.author, (aff) => {
+      this.setState({polAff: aff});
+    })
+  }
 
   render() {
+    console.log(this.state.polAff);
     var userParty;
-    if(getUserPoliticalAffiliation(this.props.author) == 1)
+    if(this.state.polAff === 1)
       userParty = "republican-text";
     else userParty = "democrat-text";
 

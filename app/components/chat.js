@@ -13,17 +13,21 @@ export default class Chat extends React.Component {
     super(props);
     this.state = {
       chatBox: {
+        "active": 1,
         "_id": "",
         "fullName": "",
         "messages": [],
-        "active": 0
-      }
+        "time": 0
+      },
+      render: this.props.toRender+1
     };
   }
 
   refresh() {
-    getChat(1, (cBox) => {
-      this.setState({chatBox: cBox});
+    getChat(this.state.render, (cBox) => {
+      this.setState({chatBox: cBox,
+        render: this.props.toRender+1
+      });
     })
   }
 
@@ -35,7 +39,7 @@ export default class Chat extends React.Component {
     // Send to server.
     // We could use geolocation to get a location, but let's fix it to Amherst
     // for now.
-    postMessage(1, 1, postContents, () => {
+    postMessage(this.state.render, 1, postContents, () => {
       // Database is now updated. Refresh the feed.
       this.refresh();
     });
@@ -65,7 +69,8 @@ export default class Chat extends React.Component {
                   {this.state.chatBox.messages.map((message, i) => {
                     return (
 
-                      <Messages key={i} author={1} contents={this.state.chatBox.messages[i].contents} />
+                      <Messages key={i} author={this.state.chatBox.messages[i].author}
+                         contents={this.state.chatBox.messages[i].contents} polAff={1}/>
                     )
                   })
                 }
@@ -77,93 +82,6 @@ export default class Chat extends React.Component {
                 </div>
               </div>
             </div>
-                      <div className="col-md-2 tight col-overflow">
-                        <div className="chat-box-discussion-div">
-                          <div className="chat-box-discussion-head">
-                            Pick a Discussion Topic
-                          </div>
-                          <div className="chat-box-discussion">
-                            <div className="list-group tight">
-                              <a href="#" className="list-group-item">
-                                Sanders
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item active">
-                                Clinton
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Cruz
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Trump
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Rubio
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Sanders
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Clinton
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Cruz
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Trump
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Rubio
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Sanders
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Clinton
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Cruz
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Trump
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                              <a href="#" className="list-group-item">
-                                Rubio
-                                <br/>
-                                <small>Last Active: 2 mins</small>
-                              </a>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
                     </div>
       )
     }
