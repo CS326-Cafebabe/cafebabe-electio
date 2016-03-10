@@ -439,7 +439,7 @@ body {
   margin-top: 40px;
 }
 
-.upper-graph {
+.upper-graph-panel, .mid-graph-panel {
   background-color: transparent;
   border: none;
 }
