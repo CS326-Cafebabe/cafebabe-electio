@@ -21,7 +21,7 @@ export function  getUserData(userId, cb) {
 
 export function getUserPoliticalAffiliation(userId, cb){
   var userData = readDocument('users', userId);
-  return emulateServerReturn(userData.PoliticalAffiliation, cb);
+  return emulateServerReturn(userData.politicalAffiliation, cb);
 }
 
 export function getUserName(userId, cb) {
