@@ -1,7 +1,7 @@
 import {readDocument, writeDocument, addDocument} from './database.js';
 
 var numberOfCandidates = 9;
-var numberOfEvents = 3;
+var numberOfEvents = 6;
 var numberOfChats = 6;
 
 /**

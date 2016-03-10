@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAllEvents } from '../server';
-import { Graph } from './trendGraph';
+//import { Graph } from './trendGraph';
 
 export default class Trends extends React.Component {
 
@@ -17,7 +17,7 @@ export default class Trends extends React.Component {
   }
 
   refresh() {
-    getAllEvents((out) => {
+    getAllEvents( (out) => {
       this.setState({events: out});
     })
   }
@@ -27,6 +27,7 @@ export default class Trends extends React.Component {
   }
 
   render() {
+    const events = this.state.events;
     return (
       <div>
         <div className="container-fluid">
@@ -45,7 +46,7 @@ export default class Trends extends React.Component {
                 <h3>Events</h3>
                 <hr/>
                 <ul>
-                  {this.state.events.map((event, i) =>
+                  {events.map((event, i) =>
                     <li key={i}>
                       <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, event)}>{event.party} {event.name}</button>
                     </li>)}
@@ -62,7 +63,7 @@ export default class Trends extends React.Component {
               <div className="col-md-8 graphs">
                 <h3>Activity</h3>
                 <hr/>
-                Graphs go here!
+                Graphs go here!!
               </div>
             </div>
           </div>

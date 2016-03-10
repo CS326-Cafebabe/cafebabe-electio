@@ -3,7 +3,7 @@ import React from 'react';
 export default class Graph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.data;
+    this.state = props.event;
   }
 
   render() {
@@ -38,7 +38,7 @@ export default class Graph extends React.Component {
                 <img className="img-responsive" src="img/graphs/graph1.png" id="lower-graph"/>
               </div>
             </div>
-            <p id="lower-summary">Literally why whon't this work</p>
+            <p id="lower-summary"></p>
           </div>
         </div>
         <hr/>
