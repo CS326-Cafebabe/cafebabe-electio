@@ -1,7 +1,45 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {getUserData} from '../server';
 
 export default class Settings extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "_id":1,
+      "email":"",
+      "password":"",
+      "fullName":"",
+      "gender":"",
+      "race":"",
+      "hispanic": "",
+      "registered": "",
+      "age":21,
+      "politicalAffiliation":2,
+      "location":"",
+
+      "emailsettings": []
+    }
+  }
+
+    refresh() {
+       getUserData(this.props.userId, (newUserData) => {
+         this.setState(newUserData);
+       })
+    }
+
+    componentDidMount() {
+      this.refresh();
+    }
+
+    passToStar(password) {
+      var star = "";
+      for(var i=0; i<password.length; i++){
+        star = star + "*";
+      }
+      return star;
+    }
+
   render(){
     return(
       <div>
@@ -18,7 +56,7 @@ export default class Settings extends React.Component {
           </div>
           <div className="col-md-5">
             <h3>Name</h3>
-            <h6 className="indent">John Doe</h6>
+            <h6 className="indent">{this.state.fullName}</h6>
             <button className="btn btn-default footer indent">
               Edit <span className="glyphicon glyphicon-edit"></span>
             </button>
@@ -119,8 +157,8 @@ export default class Settings extends React.Component {
             </div>
 
             <h3>Email and Password</h3>
-            <h6 className="indent">johndoe@cafebabe.com</h6>
-            <h6 className="indent">********</h6>
+            <h6 className="indent">{this.state.email}</h6>
+            <h6 className="indent">{this.passToStar(this.state.password)}</h6>
             <button className="btn btn-default footer indent">
               Edit <span className="glyphicon glyphicon-edit"></span>
             </button>

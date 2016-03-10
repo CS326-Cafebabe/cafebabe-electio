@@ -40,7 +40,7 @@ class HomePage extends React.Component {
 class SettingsPage extends React.Component {
   render() {
     return (
-      <Settings/>
+      <Settings userId={1}/>
     );
   }
 }
