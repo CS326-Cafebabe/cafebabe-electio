@@ -9,7 +9,7 @@ export default class Settings extends React.Component {
         <div className="row">
             <h1>User Settings</h1>
         </div>
-        <div className="row">
+        <div className="row hr">
           <hr />
         </div>
 
