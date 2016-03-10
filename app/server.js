@@ -47,7 +47,34 @@ export function getAllCandidates(cb) {
   for (var i = 1; i<=numberOfCandidates; i++) {
     candidates.push(readDocument('candidates', i));
   }
-  emulateServerReturn(candidates, cb);
+
+  //Sort the candidates
+   //Get surName connected to id
+   //Get surNames
+   var surNameIdDict = {};
+   var surNameArray = [];
+   for (var j = 0; j<candidates.length; j++) {
+     var split = candidates[j].fullName.split(" ");
+     var surName = (split)[split.length-1];
+
+     surNameIdDict[surName] = j;
+     surNameArray.push(surName);
+
+   }
+
+   //sort surNames
+   surNameArray.sort();
+
+   //push the candidate of the correct id into the right position
+   var sortedCandidates = [];
+   for (var k = 0; k<surNameArray.length; k++){
+     var oldId = surNameIdDict[surNameArray[k]];
+     sortedCandidates.push(candidates[oldId]);
+   }
+
+   //return
+   emulateServerReturn(sortedCandidates, cb);
+
 }
 
 export function getAllChat(cb){
