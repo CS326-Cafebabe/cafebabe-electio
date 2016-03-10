@@ -30,13 +30,18 @@ export default class HomeThumbnail extends React.Component {
     // - republican
     // - independent
 
+    //Defines CSS classes for dynamic components (so party colors show up)
     var csstext = ('thumbnail ' + this.props.data.cssType + "-thumb-home");
     var headImageText = (this.props.data.headImage);
 
+    //for setting and using the id of the modal
     var modalID = ("cand-modal-" + this.props.uid);
     var modalIDTarget = ("#cand-modal-" + this.props.uid);
 
+    //Class for the candidate popup
     var cssModal = (this.props.data.cssType + "-modal");
+
+    //Place debug logs here.
 
     return (
       <div className="col-xs-4 col-md-4">
@@ -88,6 +93,7 @@ export default class HomeThumbnail extends React.Component {
                         <div className="panel-body">
 
                           <Timeline
+
                               widgetId= {this.props.data.twitterID}
                               options={{
                                 hashtag: this.props.data.twitterHashtag,

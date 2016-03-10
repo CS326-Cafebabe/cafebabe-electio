@@ -11,21 +11,7 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      candidates: [
-        {
-          "headImage": "",
-          "logoImage": "",
-          "fullName": "",
-          "party": 1,
-          "thumbType": "",
-          "description": "",
-          "twitterFeed": "",
-          "campaignWebsite": "",
-          "wikipedia": "",
-          "age": "",
-          "quote": ""
-        }
-      ]
+      candidates: []
     };
   }
 
