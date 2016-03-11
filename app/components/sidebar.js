@@ -8,6 +8,7 @@ export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      fullName: ""
     };
   }
 
@@ -55,7 +56,7 @@ export default class Sidebar extends React.Component {
         {
           //We keep the ID as the CSS identifies this component using the id
         }
-        <div id="sidebar-username">{this.state.fullName}</div>
+        <div id="sidebar-username">{this.state.fullName.toUpperCase()}</div>
 
           <li >
             <a href="#/chat">Chat <span className="glyphicon glyphicon-comment sidebar-glyph"></span></a>

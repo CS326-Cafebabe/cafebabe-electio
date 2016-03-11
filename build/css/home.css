@@ -179,9 +179,10 @@ The main section of the page
 }
 
 #sidebar-username {
-	font-weight: bold;
 	padding-left: 20px;
 	padding-bottom: 5px;
+	font-family: 'Montserrat', sans-serif !important;
+	text-transform: uppercase;
 }
 
 /*Candidate page CSS */
