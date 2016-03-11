@@ -23,6 +23,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "chart.js": "1.0.2",
+    "react-chartjs": "0.7.3",
     "react-big-calendar": "^0.9.8",
     "react-twitter-widgets": "^0.2.3",
     "react-radio-group": "2.2.0"

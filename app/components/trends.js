@@ -1,19 +1,26 @@
 import React from 'react';
 import { getAllEvents } from '../server';
-//import { Graph } from './trendGraph';
+//import { Bar } from 'react-chartjs';
 
 export default class Trends extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      "events": []
+      "events": [],
+      "overall":[],
+      "gender":[],
+      "ethnic":[]
     }
   }
 
+  //<Bar data={this.state.genderData} id="Gender" redraw height="400px" width="900px"/>
+
   handleClick(clickEvent, event) {
     clickEvent.preventDefault;
-    document.getElementById("react-graphs").event = event;
+    document.getElementById("upper-summary").innerHTML = "Overall outcome of "+ event.party + " " +event.name + ". " + event.summary;
+    document.getElementById("mid-summary").innerHTML = "Gender outcome of "+ event.party + " " +event.name + ". ";
+    document.getElementById("lower-summary").innerHTML = "Ethnic outcome of "+ event.party + " " +event.name + ". ";
   }
 
   refresh() {
@@ -63,7 +70,39 @@ export default class Trends extends React.Component {
               <div className="col-md-8 graphs">
                 <h3>Activity</h3>
                 <hr/>
-                Graphs go here!!
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="panel panel-default upper-graph-panel">
+                        <div className="panel-body">
+                          Overall Stuffs
+                        </div>
+                      </div>
+                      <p id="upper-summary"></p>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="panel panel-default mid-graph-panel">
+                        <div className="panel-body">
+                          Gender Stuffs
+                        </div>
+                      </div>
+                      <p id="mid-summary"></p>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="panel panel-default lower-graph-panel">
+                        <div className="panel-body">
+                          Ethnic Stuffs
+                        </div>
+                      </div>
+                      <p id="lower-summary"></p>
+                    </div>
+                  </div>
+                  <hr/>
               </div>
             </div>
           </div>
