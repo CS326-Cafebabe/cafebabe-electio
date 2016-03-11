@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "react-big-calendar": "^0.9.8",
-    "react-twitter-widgets": "^0.2.3"
+    "react-twitter-widgets": "^0.2.3",
+    "react-radio-group": "2.2.0"
   }
 }

@@ -21,7 +21,7 @@ export function  getUserData(userId, cb) {
 
 export function setUserData(userId, newData, cb) {
   var userData = {
-        "_id": newData.userId,
+        "_id": userId,
         "email": newData.email,
         "password": newData.password,
         "fullName": newData.fullName,
