@@ -42,9 +42,9 @@ export default class EmailSettings extends React.Component {
     return (
       <div>
 
-        <div className="row">
-          <h1>Email Settings</h1>
-          <p>{this.state.emailsettings}</p>
+        <div className="col-md-12">
+          <h1>EMAIL SETTINGS <small>Subscribe to Your Favorite Candidates.</small></h1>
+          <hr className="emailHr"/>
         </div>
 
         <div className="row">

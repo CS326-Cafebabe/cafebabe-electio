@@ -715,3 +715,7 @@ font-family: 'Raleway', sans-serif;
   background-color: #502859;
   border-color: #502859;
 }
+
+.emailHr {
+	border-color: #A9A9A9;
+}

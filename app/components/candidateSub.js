@@ -93,9 +93,6 @@ export default class CandidateSub extends React.Component {
                     <div className="media-body">
                       <h4>{this.props.data.fullName}</h4>
                       {this.state.party.name}
-                      {console.log(this.state.emailsettings)}
-
-                      {"    "+ this.didUserSub()}
                     </div>
                   </div>
                 </div>
