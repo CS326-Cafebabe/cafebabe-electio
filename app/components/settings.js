@@ -56,15 +56,33 @@ export default class Settings extends React.Component {
   // I would have preferred this to be one function but es6-linter kept complaining
 
   fullNameEdited(e) {
-    this.setState({"input": {"fullName": e.target.value}});
+    this.setState({
+      "input": {
+        "fullName": e.target.value,
+        "email":this.state.input.email,
+        "password": this.state.input.password
+      }
+    })
   }
 
   emailEdited(e) {
-    this.setState({"input": {"email": e.target.value}})
+    this.setState({
+      "input": {
+        "fullName": this.state.input.fullName,
+        "email":e.target.value,
+        "password": this.state.input.password
+      }
+    })
   }
 
   passwordEdited(e) {
-    this.setState({"input": {"password": e.target.value}})
+    this.setState({
+      "input": {
+        "fullName": this.state.input.fullName,
+        "email":this.state.input.email,
+        "password": e.target.value
+      }
+    })
   }
 
   //----------------------------------------------
@@ -135,7 +153,7 @@ export default class Settings extends React.Component {
           <div className="col-md-1"></div>
           <div className="col-md-5">
             <h3>Name</h3>
-            <input type="text" value={this.state.input.fullName} onChange={(e) => {this.fullNameEdited(e)}} >
+            <input name="name" type="text" value={this.state.input.fullName} onChange={(e) => {this.fullNameEdited(e)}} >
             </input>
 
             <button className="btn btn-default footer indent" onClick={(e) => {this.optionChangeOnClick(e, this.state.input.fullName, "fullName")}}>
@@ -232,7 +250,7 @@ export default class Settings extends React.Component {
             <div className="media"></div>
 
             <h3>Email and Password</h3>
-              <input type="text" value={this.state.input.email} onChange={(e) => {this.emailEdited(e)}} >
+              <input name="email" type="text" value={this.state.input.email} onChange={(e) => {this.emailEdited(e)}} >
               </input>
 
               <button className="btn btn-default footer indent" onClick={(e) => {this.optionChangeOnClick(e, this.state.input.email, "email")}}>
@@ -244,7 +262,7 @@ export default class Settings extends React.Component {
               {//Password edit will probably require more work once we know how we're implementing it properly.
               //This placeholder will do for now.
             }
-              <input type="text" value={this.state.input.password} onChange={(e) => {this.passwordEdited(e)}} >
+              <input name="password" type="password" value={this.state.input.password} onChange={(e) => {this.passwordEdited(e)}} >
               </input>
 
               <button className="btn btn-default footer indent" onClick={(e) => {this.optionChangeOnClick(e, this.state.input.password, "password")}}>
