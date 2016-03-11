@@ -541,7 +541,7 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
+export class ResetDatabase extends React.Component {
   render() {
     return (
       <a className="btn" type="button" onClick={() => {
@@ -552,8 +552,3 @@ class ResetDatabase extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <ResetDatabase />,
-  document.getElementById('db-reset')
-);

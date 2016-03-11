@@ -46,18 +46,18 @@ body h3,
 	    border-right: 1px solid #eee;
 	  }
 }
-.sidebar>h2 {
+.sidebar h2 {
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
 }
-.sidebar>.nav-sidebar>strong {
+.sidebar .nav-sidebar strong {
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
-.sidebar>hr {
+.sidebar hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-top: 1px solid #CCC;
@@ -180,7 +180,9 @@ The main section of the page
 }
 
 #sidebar-username {
-	padding-left: 15px;
+	font-weight: bold;
+	padding-left: 20px;
+	padding-bottom: 5px;
 }
 
 /*Candidate page CSS */
