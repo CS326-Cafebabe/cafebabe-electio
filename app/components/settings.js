@@ -44,10 +44,8 @@ export default class Settings extends React.Component {
     return(
       <div>
 
-        <div className="row">
-            <h1>User Settings</h1>
-        </div>
-        <div className="row hr">
+        <div className="col-md-12 header">
+          <h1>USER SETTINGS</h1>
           <hr />
         </div>
 

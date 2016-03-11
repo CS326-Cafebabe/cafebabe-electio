@@ -28,7 +28,7 @@ export default class Home extends React.Component {
 //<p>{candidate.fullName}</p>
   render() {
     return (
-      <div>
+      <div className="title">
         <h1>elect.io (n)</h1>
 
         {this.state.candidates.map((candidate, i) =>

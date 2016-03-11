@@ -10,6 +10,13 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+.title > h1 {
+	margin-top: 0px;
+	padding-top: 0px;
+	font-size: 50px;
+	text-shadow:rgba(0,0,0,.2) 2px 6px 5px,rgba(255,255,255,.4) 0 -4px 30px;
+}
+
 body h1,
 body h2,
 body h3,
@@ -288,13 +295,10 @@ p.info {
   margin-top: 20px;
 }
 body {
+	margin-top: 40px;
   background-color: #ECECEC;
   color: #606060;
   font-family: 'Raleway', sans-serif;
-}
-.col-md-6>h1 {
-  text-align: center;
-  font-size: 100px;
 }
 .col-md-6 > h2 {
   text-align: center;
@@ -303,6 +307,9 @@ h1, h2, .caption > h3, h4.top-row, h5 {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   color: #606060;
+}
+h1, small {
+	text-transform: capitalize;
 }
 
 .democrat-thumb {
@@ -343,14 +350,16 @@ h1, h2, .caption > h3, h4.top-row, h5 {
 	text-align: center;
 }
 .nav-tabs  {
+	margin-top: 15px;
   border-color: #606060;
+	border-bottom: 1px solid #A9A9A9;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
   background-color: #ECECEC;
-	border-top-color: #606060;
-	border-left-color: #606060;
-	border-right-color: #606060;
+	border-top: 1px solid #A9A9A9;
+	border-left: 1px solid #A9A9A9;
+	border-right: 1px solid #A9A9A9;
 }
 
 /*Archive page CSS*/
@@ -368,12 +377,9 @@ h2 {
 }
 
 .archive-body > hr {
+	margin-top: 15px;
   border: 0;
   border-top: 1px solid #A9A9A9;
-}
-
-.archive-body {
-  margin-top: 40px;
 }
 
 .archive-body > h2 {
@@ -436,7 +442,6 @@ body {
 
 .content {
   padding: 0px;
-  margin-top: 40px;
 }
 
 .upper-graph-panel, .mid-graph-panel, .lower-graph-panel {
@@ -469,11 +474,10 @@ h1, h3, h4, {
   color: #606060;
 }
 
-.hr > hr{
-  color: #606060;
-  border-color: #606060;
-  background-color: #606060;
-
+.header > hr {
+	margin-top: 15px;
+  border: 0;
+  border-top: 1px solid #A9A9A9;
 }
 
 .input-group-addon {

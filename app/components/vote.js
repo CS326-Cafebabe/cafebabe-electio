@@ -10,8 +10,8 @@ export default class Vote extends React.Component {
 
   render() {
     return(
-      <div>
-        <h1>Vote</h1>
+      <div className="col-md-12">
+        <h1>VOTE <small>Choose Your Preferred Candidate</small></h1>
         <ul className="nav nav-tabs">
           <li className="active"><a data-toggle="tab" href="#dem">Democrat</a></li>
           <li><a data-toggle="tab" href="#rep">Republican</a></li>
