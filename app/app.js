@@ -24,7 +24,7 @@ class VotePage extends React.Component {
     //<p>This is the vote page for party {this.props.params.party}.</p>
     return (
       <div>
-        <Vote/>
+        <Vote userId={1}/>
       </div>
 
     );
