@@ -248,7 +248,7 @@ var initialData = {
         },
         {
           "user": 2,
-          "candidate": 0
+          "candidate": 1
         }
       ]
     },

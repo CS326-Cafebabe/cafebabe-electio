@@ -184,3 +184,8 @@ export function unsubscribe(candId, userId, cb) {
   emulateServerReturn(user.emailsettings, cb);
 
 }
+
+export function getInitBallotBox(cb) {
+  var ballotBox = readDocument('events', 1).ballotBox;
+  emulateServerReturn(ballotBox, cb);
+}

@@ -1,31 +1,36 @@
 import React from 'react';
-import { getAllEvents } from '../server';
-//import { Bar } from 'react-chartjs';
+import { getAllEvents, getAllCandidates } from '../server';
+import { Bar } from 'react-chartjs';
 
 export default class Trends extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       "events": [],
-      "overall":[],
-      "gender":[],
-      "ethnic":[]
+      "candidateNames": []
     }
   }
 
   //<Bar data={this.state.genderData} id="Gender" redraw height="400px" width="900px"/>
 
   handleClick(clickEvent, event) {
-    clickEvent.preventDefault;
-    document.getElementById("upper-summary").innerHTML = "Overall outcome of "+ event.party + " " +event.name + ". " + event.summary;
-    document.getElementById("mid-summary").innerHTML = "Gender outcome of "+ event.party + " " +event.name + ". ";
-    document.getElementById("lower-summary").innerHTML = "Ethnic outcome of "+ event.party + " " +event.name + ". ";
+    clickEvent.preventDefault();
+    //Change displayed info
+    document.getElementById("upper-summary").innerHTML = "Overall summary for " + event.party + " " + event.name + " based on user votes. " + event.summary;
+    document.getElementById("mid-summary").innerHTML = "Gender based summary for " + event.party + " " + event.name + " based on user votes. "
+    document.getElementById("lower-summary").innerHTML = "Ethnic based summary for " + event.party + " " + event.name + " based on user votes. "
+    //Update eventBallot to that of a clicked item and get the candidates voted for in the event
+    this.setState({eventBallot : event.ballotBox});
   }
 
   refresh() {
     getAllEvents( (out) => {
       this.setState({events: out});
+    })
+    getAllCandidates( (out) => {
+      var fullName = [];
+      out.map((cand) => fullName.push(cand.fullName));
+      this.setState({candidateNames: fullName})
     })
   }
 
@@ -34,7 +39,48 @@ export default class Trends extends React.Component {
   }
 
   render() {
-    const events = this.state.events;
+    var labels = this.state.candidateNames;
+
+    var OverallData = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Schlock",
+          fillColor: "#6194BC",
+          strokeColor: "#FF4E4E",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [1,4,1,0,6,0,10,0,6]
+        }
+      ]
+    };
+    var GenderData = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Women votes",
+          fillColor: "#6194BC",
+          strokeColor: "#FF4E4E",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [1,4,1,0,6,0,10,0,6]
+        },
+        {
+          label: "Men votes",
+          fillColor: "#FF4E4E",
+          strokeColor: "#6194BC",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [0,2,7,1,3,5,15,0,6]
+        }
+      ]
+    };
     return (
       <div>
         <div className="container-fluid">
@@ -53,7 +99,7 @@ export default class Trends extends React.Component {
                 <h3>Events</h3>
                 <hr/>
                 <ul>
-                  {events.map((event, i) =>
+                  {this.state.events.map((event, i) =>
                     <li key={i}>
                       <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, event)}>{event.party} {event.name}</button>
                     </li>)}
@@ -74,7 +120,8 @@ export default class Trends extends React.Component {
                     <div className="col-md-12">
                       <div className="panel panel-default upper-graph-panel">
                         <div className="panel-body">
-                          Overall Stuffs
+                          <Bar data={OverallData} ref="yoyoma" id="Overall" redraw height="400px" width="900px"/>
+                          <div id="legend"></div>
                         </div>
                       </div>
                       <p id="upper-summary"></p>
@@ -85,7 +132,7 @@ export default class Trends extends React.Component {
                     <div className="col-md-12">
                       <div className="panel panel-default mid-graph-panel">
                         <div className="panel-body">
-                          Gender Stuffs
+                          <Bar data={GenderData} id="Overall" redraw height="400px" width="900px"/>
                         </div>
                       </div>
                       <p id="mid-summary"></p>
@@ -96,7 +143,7 @@ export default class Trends extends React.Component {
                     <div className="col-md-12">
                       <div className="panel panel-default lower-graph-panel">
                         <div className="panel-body">
-                          Ethnic Stuffs
+                          <Bar data={OverallData} id="Overall" redraw height="400px" width="900px"/>
                         </div>
                       </div>
                       <p id="lower-summary"></p>
