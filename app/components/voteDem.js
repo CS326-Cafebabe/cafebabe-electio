@@ -26,8 +26,8 @@ export default class VoteDem extends React.Component {
           "quote": ""
         }
       ],
-      "votedFor": "",
-      "justVoted": false
+      "votedFor": ""//,
+      //"justVoted": false
     };
   }
 
@@ -45,7 +45,7 @@ export default class VoteDem extends React.Component {
 
     return () => {
       getCandidate(candId, (out) => this.setState({votedFor: out.fullName}));
-      this.setState({justVoted: true});
+      //this.setState({justVoted: true});
       this.props.onVote(candId);
     }
   }
@@ -53,7 +53,7 @@ export default class VoteDem extends React.Component {
   render() {
     var alertClassName = "";
     var alertText = "";
-    if (this.state.justVoted){
+    if (this.props.justVoted){
       alertClassName = ("alert alert-success")
       alertText = ("You Successfully Voted for " + this.state.votedFor);
     }
@@ -72,7 +72,6 @@ export default class VoteDem extends React.Component {
                 <h2>Democratic Party</h2>
                 <hr />
               </div>
-              
             </div>
             <div className={alertClassName} role="alert"><strong>{alertText}</strong></div>
 

@@ -26,7 +26,8 @@ export default class Vote extends React.Component {
         "emailSettings": []
       },
 
-      "votedFor": ""
+      "votedFor": "",
+      "justVoted": false
     }
   }
 
@@ -40,11 +41,6 @@ export default class Vote extends React.Component {
       }
 
     })
-    // console.log(this.state.user.vote);
-    // if(this.state.user.vote !== 0){
-    //   console.log("here");
-    //   getCandidate(this.state.user.vote, (out) => this.setState({votedFor: out.fullName}));
-    // }
   }
 
 
@@ -68,6 +64,11 @@ export default class Vote extends React.Component {
     //Call server function
     setUserData(this.state.user._id, copy, callbackFunction);
     getCandidate(this.state.user.vote, (out) => this.setState({votedFor: out.fullName}));
+    this.setState({justVoted: true});
+  }
+
+  tabSwitch() {
+    this.setState({justVoted: false});
   }
 
 
@@ -79,6 +80,7 @@ export default class Vote extends React.Component {
       votedFor = "You voted for " + this.state.votedFor;
       // console.log(this.state);
     }
+    var justVoted = this.state.justVoted;
     return(
       <div className="col-md-12">
         <div className="row">
@@ -93,20 +95,20 @@ export default class Vote extends React.Component {
         </div>
 
         <ul className="nav nav-tabs">
-          <li className="active"><a data-toggle="tab" href="#dem">Democrat</a></li>
-          <li><a data-toggle="tab" href="#rep">Republican</a></li>
-          <li><a data-toggle="tab" href="#ind">Independent</a></li>
+          <li className="active"><a data-toggle="tab" href="#dem" onClick={this.tabSwitch.bind(this)}>Democrat</a></li>
+          <li><a data-toggle="tab" href="#rep" onClick={this.tabSwitch.bind(this)}>Republican</a></li>
+          <li><a data-toggle="tab" href="#ind" onClick={this.tabSwitch.bind(this)}>Independent</a></li>
         </ul>
 
         <div className="tab-content">
           <div id="dem" className="tab-pane fade in active">
-            <VoteDem onVote={this.voteChange.bind(this)}/>
+            <VoteDem justVoted={justVoted} onVote={this.voteChange.bind(this)}/>
           </div>
           <div id="rep" className="tab-pane fade">
-            <VoteRep onVote={this.voteChange.bind(this)}/>
+            <VoteRep justVoted={justVoted} onVote={this.voteChange.bind(this)}/>
           </div>
           <div id="ind" className="tab-pane fade">
-            <VoteInd onVote={this.voteChange.bind(this)}/>
+            <VoteInd justVoted={justVoted} onVote={this.voteChange.bind(this)}/>
           </div>
         </div>
       </div>
