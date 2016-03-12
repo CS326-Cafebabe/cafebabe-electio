@@ -1,38 +1,41 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getAllEvents, getAllCandidates} from '../server';
+import {getInitBallotBox, getAllCandidates, getAllWeeks } from '../server';
 import {Bar} from 'react-chartjs';
 
 export default class Trends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "events": [],
+      "weeklyState": [],
+      "ballotBox": [],
       "candidateNames": []
     }
   }
 
   //<Bar data={this.state.genderData} id="Gender" redraw height="400px" width="900px"/>
 
-  handleClick(clickEvent, event) {
+  handleClick(clickEvent, week) {
     clickEvent.preventDefault();
-    //Change displayed info
-    document.getElementById("upper-summary").innerHTML = "Overall summary for " + event.party + " " + event.name + " based on user votes. " + event.summary;
-    document.getElementById("mid-summary").innerHTML = "Gender based summary for " + event.party + " " + event.name + " based on user votes. "
-    document.getElementById("lower-summary").innerHTML = "Ethnic based summary for " + event.party + " " + event.name + " based on user votes. "
-    //Update eventBallot to that of a clicked item and get the candidates voted for in the event
-    this.setState({eventBallot: event.ballotBox});
+    document.getElementById("info").innerHTML = "Displaying info for "+week.startDate;
+    document.getElementById("overallTitle").innerHTML = "Overall votes for the week of "+week.startDate;
+    document.getElementById("genderTitle").innerHTML = "Distribution of votes based on gender for the week of "+week.startDate;
+    document.getElementById("ethnicTitle").innerHTML = "Distribution of votes based on ethnicity for the week of "+week.startDate;
+    this.setState({ballotBox: week.ballotBox});
   }
 
   refresh() {
-    getAllEvents((out) => {
-      this.setState({events: out});
+    getInitBallotBox((out) => {
+      this.setState({ballotBox: out.ballotBox});
     })
     getAllCandidates((out) => {
       var fullName = [];
       out.map((cand) => fullName.push(cand.fullName));
       this.setState({candidateNames: fullName})
     })
+    getAllWeeks((out) => {
+      this.setState({weeklyState: out});
+    });
   }
 
   componentDidMount() {
@@ -104,8 +107,8 @@ export default class Trends extends React.Component {
                 <h3>Weekly Snapshots</h3>
                 <hr/>
                 <ul>
-                  {this.state.events.map((event, i) => <li key={i}>
-                    <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, event)}>{event.party} {event.name}</button>
+                  {this.state.weeklyState.map((week, i) => <li key={i}>
+                    <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, week)}>{week.startDate}</button>
                   </li>)}
                   <li className="media">
                     <div className="media-left media-top">
@@ -118,12 +121,12 @@ export default class Trends extends React.Component {
                 </ul>
               </div>
               <div className="col-md-8 graphs">
-                <h3>Activity <small>Data for week [date]</small></h3>
+                <h3>Activity <small id="info"></small></h3>
                 <hr/>
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-overall'>
-                      <div className='legend-title'>Overall Votes for week [insert week date here]</div>
+                      <div className='legend-title' id="overallTitle"></div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -144,7 +147,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-gender'>
-                      <div className='legend-title'>Votes based on Gender for week [insert week date here]</div>
+                      <div className='legend-title' id="genderTitle"></div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -171,7 +174,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-ethnic'>
-                      <div className='legend-title'>Votes based on Gender for week [insert week date here]</div>
+                      <div className='legend-title' id="ethnicTitle"></div>
                       <div className='legend-scale col-md-2'>
                         <ul className='legend-labels'>
                           <li>

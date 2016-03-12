@@ -4,6 +4,7 @@ var numberOfCandidates = 9;
 var numberOfEvents = 6;
 var numberOfPageEvents = 3;
 var numberOfChats = 6;
+var numberOfWeeks = 5;
 
 /**
 * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -199,7 +200,15 @@ export function unsubscribe(candId, userId, cb) {
 
 }
 
-export function getInitBallotBox(cb) {
-  var ballotBox = readDocument('events', 1).ballotBox;
+export function getAllWeeks(cb){
+  var weeks = [];
+  for(var i=1; i < numberOfWeeks; i++){
+    weeks.push(readDocument('weeklyState', i));
+  }
+  emulateServerReturn(weeks, cb);
+}
+
+export function getInitBallotBox(cb){
+  var ballotBox = readDocument('weeklyState', 1).ballotBox;
   emulateServerReturn(ballotBox, cb);
 }
