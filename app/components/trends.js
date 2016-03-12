@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { getAllEvents, getAllCandidates } from '../server';
 import { Bar } from 'react-chartjs';
 
@@ -108,7 +109,7 @@ export default class Trends extends React.Component {
                       <span className="caret"></span>
                     </div>
                     <div className="media-body">
-                      <a href="#/archive">More Past Events</a>
+                      <Link to="/archive">More Past Events</Link>
                     </div>
                   </li>
                 </ul>
