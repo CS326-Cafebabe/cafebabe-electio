@@ -23,7 +23,7 @@ export default class Vote extends React.Component {
         "location": "",
         "vote":0,
 
-        "emailsettings": []
+        "emailSettings": []
       },
 
       "votedFor": ""

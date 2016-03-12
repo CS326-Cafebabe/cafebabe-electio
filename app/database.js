@@ -311,7 +311,7 @@ var initialData = {
       "location":"Amherst, MA",
       "vote":0,
 
-      "emailsettings": [1,3,4,6]
+      "emailSettings": [1,3,4,6]
     },
     "2":{
       "_id":2,
@@ -327,7 +327,7 @@ var initialData = {
       "location":"Amherst, MA",
       "vote":6,
 
-      "emailsettings": [2, 5, 6]
+      "emailSettings": [2, 5, 6]
     },
     "3":{
       "_id":3,
@@ -343,7 +343,7 @@ var initialData = {
       "location":"Amherst, MA",
       "vote":4,
 
-      "emailsettings": [8,9]
+      "emailSettings": [8,9]
     },
     "4":{
       "_id":4,
@@ -359,7 +359,7 @@ var initialData = {
       "location":"Amherst, MA",
       "vote":3,
 
-      "emailsettings": [4,2]
+      "emailSettings": [4,2]
     },
     "5":{
       "_id":5,
@@ -375,7 +375,7 @@ var initialData = {
       "location":"Amherst, MA",
       "vote":1,
 
-      "emailsettings": [1]
+      "emailSettings": [1]
     }
   },
 

@@ -11,7 +11,7 @@ export default class CandidateSub extends React.Component {
         "color": "",
         "logo": ""
       },
-      emailsettings: []
+      emailSettings: []
     };
   }
 
@@ -27,7 +27,7 @@ export default class CandidateSub extends React.Component {
           // state, and will keep the other fields in-tact.
           // This is called a shallow merge:
           // https://facebook.github.io/react/docs/component-api.html#setstate
-          this.setState({emailsettings: updatedEmailSettings});
+          this.setState({emailSettings: updatedEmailSettings});
         };
 
         if (this.didUserSub()) {
@@ -46,7 +46,7 @@ export default class CandidateSub extends React.Component {
     })
 
     getEmailSettings(1, (out) => {
-      this.setState({emailsettings: out});
+      this.setState({emailSettings: out});
     })
 
    }
@@ -56,13 +56,13 @@ export default class CandidateSub extends React.Component {
   }
 
   didUserSub() {
-    var emailsettings = this.state.emailsettings;
+    var emailSettings = this.state.emailSettings;
     var sub = false;
     // Look for a likeCounter entry with userId 4 -- which is the
     // current user.
-    for (var i = 0; i < emailsettings.length; i++) {
+    for (var i = 0; i < emailSettings.length; i++) {
       // console.log(this.props.data._id);
-      if (emailsettings[i] === this.props.data._id) {
+      if (emailSettings[i] === this.props.data._id) {
         sub = true;
         break;
       }
@@ -71,7 +71,7 @@ export default class CandidateSub extends React.Component {
   }
 
   render() {
-    // console.log(this.state.emailsettings);
+    // console.log(this.state.emailSettings);
     // var cssActive = "active canSubActive";
     var cssColor = this.props.data.cssType + "-panel";
     var subscribeText = "Subscribe";

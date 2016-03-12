@@ -21,7 +21,7 @@ export default class Settings extends React.Component {
         "location": "",
         "vote":0,
 
-        "emailsettings": []
+        "emailSettings": []
       },
       "input": {
         "fullName": "",

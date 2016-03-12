@@ -35,7 +35,7 @@ export function setUserData(userId, newData, cb) {
         "location": newData.location,
         "vote": newData.vote,
 
-        "emailsettings": newData.emailsettings
+        "emailSettings": newData.emailSettings
   }
   writeDocument('users', userData);
   emulateServerReturn(userData, cb);
@@ -166,36 +166,36 @@ export function getChat(chatId, cb) {
 
 export function getEmailSettings(userId, cb) {
   var user = readDocument('users', userId);
-  var email = user.emailsettings;
+  var email = user.emailSettings;
   emulateServerReturn(email, cb)
 }
 
 export function subscribe(candId, userId, cb) {
   var user = readDocument('users', userId);
-  // var email = user.emailsettings;
+  // var email = user.emailSettings;
 
-  user.emailsettings.push(candId);
+  user.emailSettings.push(candId);
   writeDocument('users', user);
-  //emulateServerReturn(user.emailsettings.map((id) => readDocument('candidates', id)), cb);
-  emulateServerReturn(user.emailsettings, cb);
+  //emulateServerReturn(user.emailSettings.map((id) => readDocument('candidates', id)), cb);
+  emulateServerReturn(user.emailSettings, cb);
 }
 
 export function unsubscribe(candId, userId, cb) {
   var user = readDocument('users', userId);
-  //var email = user.emailsettings;
+  //var email = user.emailSettings;
 
   // (We didn't *resolve* the FeedItem object, so it is just an array of user IDs)
-  var candIndex = user.emailsettings.indexOf(candId);
+  var candIndex = user.emailSettings.indexOf(candId);
   // -1 means the user is *not* in the likeCounter, so we can simply avoid updating
   // anything if that is the case: the user already doesn't like the item.
   if (candIndex !== -1) {
     // 'splice' removes items from an array. This removes 1 element starting from userIndex.
-    user.emailsettings.splice(candIndex, 1);
+    user.emailSettings.splice(candIndex, 1);
     writeDocument('users', user);
   }
   // Return a resolved version of the likeCounter
-  //emulateServerReturn(user.emailsettings.map((id) => readDocument('candidates', id)), cb);
-  emulateServerReturn(user.emailsettings, cb);
+  //emulateServerReturn(user.emailSettings.map((id) => readDocument('candidates', id)), cb);
+  emulateServerReturn(user.emailSettings, cb);
 
 }
 
