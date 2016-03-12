@@ -1,13 +1,23 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
 import {getAllCandidatesOfParty} from '../server';
+import AlertContainer from 'react-alert';
+
 
 
 export default class VoteDem extends React.Component {
 
   constructor(props) {
     super(props);
+    this.alertOptions = {
+      offset: 14,
+      position: 'bottom left',
+      theme: 'dark',
+      time: 5000,
+      transition: 'scale'
+    };
     this.state = {
+
       candidates: [
         {
           "headImage": "",
@@ -36,10 +46,19 @@ export default class VoteDem extends React.Component {
     this.refresh();
   }
 
+  onVote(e){
+    e.preventDefault();
+    if (e.button === 0) {
+      //call server method
+      return true;
+    }
+    return false;
+  }
+
   render() {
     //this.refresh();
     //console.log(this.state.candidates);
-      return (
+    return (
         <div>
             <div className="row">
               <div className="col-md-4 col-md-offset-4">
@@ -55,6 +74,7 @@ export default class VoteDem extends React.Component {
                 <hr />
               </div>
             </div>
+
             {this.state.candidates.map((candidate, i) =>
               <VoteThumbnail key={i} uid={i} data={candidate}/>
             )}
