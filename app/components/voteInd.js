@@ -1,6 +1,6 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
-import {getIndCandidates} from '../server';
+import {getIndCandidates, getCandidate} from '../server';
 
 
 export default class VoteInd extends React.Component {
@@ -23,7 +23,9 @@ export default class VoteInd extends React.Component {
           "age": "",
           "quote": ""
         }
-      ]
+      ],
+      "votedFor": "",
+      "justVoted": false
     };
   }
 
@@ -39,12 +41,21 @@ export default class VoteInd extends React.Component {
   }
 
   onVote(candId) {
+
     return () => {
+      getCandidate(candId, (out) => this.setState({votedFor: out.fullName}));
+      this.setState({justVoted: true});
       this.props.onVote(candId);
     }
   }
 
   render() {
+    var alertClassName = "";
+    var alertText = "";
+    if (this.state.justVoted){
+      alertClassName = ("alert alert-success")
+      alertText = ("You Successfully Voted for " + this.state.votedFor);
+    }
     return (
       <div>
           <div className="row">
@@ -66,6 +77,8 @@ export default class VoteInd extends React.Component {
               <hr />
             </div>
           </div>
+          <div className={alertClassName} role="alert"><strong>{alertText}</strong></div>
+
 
           {this.state.candidates.map((candidate, i) =>
             <VoteThumbnail key={i} uid={i} data={candidate} onVote={this.onVote(candidate._id)}/>

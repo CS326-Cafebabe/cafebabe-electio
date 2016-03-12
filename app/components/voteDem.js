@@ -1,7 +1,6 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
-import {getAllCandidatesOfParty} from '../server';
-// import AlertContainer from 'react-alert';
+import {getAllCandidatesOfParty, getCandidate} from '../server';
 
 
 
@@ -9,13 +8,6 @@ export default class VoteDem extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.alertOptions = {
-    //   offset: 14,
-    //   position: 'bottom left',
-    //   theme: 'dark',
-    //   time: 5000,
-    //   transition: 'scale'
-    // };
     this.state = {
 
       candidates: [
@@ -33,7 +25,9 @@ export default class VoteDem extends React.Component {
           "age": "",
           "quote": ""
         }
-      ]
+      ],
+      "votedFor": "",
+      "justVoted": false
     };
   }
 
@@ -48,14 +42,21 @@ export default class VoteDem extends React.Component {
   }
 
   onVote(candId) {
+
     return () => {
+      getCandidate(candId, (out) => this.setState({votedFor: out.fullName}));
+      this.setState({justVoted: true});
       this.props.onVote(candId);
     }
   }
 
   render() {
-    //this.refresh();
-    //console.log(this.state.candidates);
+    var alertClassName = "";
+    var alertText = "";
+    if (this.state.justVoted){
+      alertClassName = ("alert alert-success")
+      alertText = ("You Successfully Voted for " + this.state.votedFor);
+    }
     return (
         <div>
             <div className="row">
@@ -71,7 +72,9 @@ export default class VoteDem extends React.Component {
                 <h2>Democratic Party</h2>
                 <hr />
               </div>
+              
             </div>
+            <div className={alertClassName} role="alert"><strong>{alertText}</strong></div>
 
             {this.state.candidates.map((candidate, i) =>
               <VoteThumbnail key={i} uid={i} data={candidate} onVote={this.onVote(candidate._id)}/>
