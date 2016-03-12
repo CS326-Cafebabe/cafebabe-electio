@@ -1,7 +1,7 @@
 import React from 'react';
 import VoteThumbnail from './voteThumbnail';
 import {getAllCandidatesOfParty} from '../server';
-import AlertContainer from 'react-alert';
+// import AlertContainer from 'react-alert';
 
 
 
