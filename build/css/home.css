@@ -411,56 +411,190 @@ h2 {
 .sidebar-list {
   list-style-type: none;
 }
-
 body {
   font-family: 'Raleway', sans-serif;
   background-color: #ECECEC;
   color: #606060;
 }
-
 .trending > hr {
   margin-top: 15px;
   margin-bottom: 0px;
   border: 0;
   border-top: 1px solid #A9A9A9;
 }
-
 .trending > hr, .articles > hr, .graphs > hr {
   border: 0;
   border-top: 1px solid #A9A9A9;
 }
-
 .articles > ul {
   list-style-type: decimal;
 }
-
 .articles > ul > li {
   padding-bottom: 10px;
 }
-
 .sidebar {
   padding: 0px;
 }
-
 .content {
   padding: 0px;
 }
-
 .upper-graph-panel, .mid-graph-panel, .lower-graph-panel {
   background-color: transparent;
   border: none;
 }
-
 h1, h2 {
   font-family: 'Montserrat', sans-serif;
 }
-
 .trending > h2 {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
-
 .articles > h3, .graphs > h3 {
-	font-family: 'Raleway', sans-serif!important;
+  font-family: 'Raleway', sans-serif!important;
+}
+.legend-item-overall {
+  background-color: #6194BC;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-gender-1 {
+  background-color: #6194BC;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-gender-2 {
+  background-color: #FF4E4E;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-gender-3 {
+  background-color: #805889;
+  height: 20px;
+  width: 20px;
+}
+.my-legend-overall .legend-title {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 90%;
+}
+.my-legend-overall .legend-scale ul {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  float: left;
+  list-style: none;
+}
+.my-legend-overall .legend-scale ul li {
+  font-size: 80%;
+  list-style: none;
+  margin-left: 0;
+  line-height: 18px;
+  margin-bottom: 2px;
+}
+.my-legend-overall ul.legend-labels li span {
+  display: inline-block;
+  float: left;
+  height: 16px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 0;
+}
+.my-legend-gender {
+  margin-bottom: 40px;
+}
+.my-legend-gender .legend-title {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 90%;
+}
+.my-legend-gender .legend-scale ul {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  float: left;
+  list-style: none;
+}
+.my-legend-gender .legend-scale ul li {
+  font-size: 80%;
+  list-style: none;
+  margin-left: 0;
+  line-height: 18px;
+  margin-bottom: 2px;
+}
+.my-legend-gender ul.legend-labels li span {
+  display: inline-block;
+  float: left;
+  height: 16px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 0;
+}
+.my-legend-ethnic {
+  margin-bottom: 40px;
+}
+.my-legend-ethnic .legend-title {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 90%;
+}
+.my-legend-ethnic .legend-scale ul {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  float: left;
+  list-style: none;
+}
+.my-legend-ethnic .legend-scale ul li {
+  font-size: 80%;
+  list-style: none;
+  margin-left: 0;
+  line-height: 18px;
+  margin-bottom: 2px;
+}
+.my-legend-ethnic ul.legend-labels>li>span {
+  display: inline-block;
+  float: left;
+  height: 16px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 0;
+}
+.legend-item-ethnic-1 {
+  background-color: #6194BC;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-2 {
+  background-color: #FF4E4E;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-3 {
+  background-color: #805889;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-4 {
+  background-color: #6194BC;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-5 {
+  background-color: #FF4E4E;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-6 {
+  background-color: #805889;
+  height: 20px;
+  width: 20px;
+}
+.legend-item-ethnic-7 {
+  background-color: #805889;
+  height: 20px;
+  width: 20px;
 }
 
 /*User Settings page CSS*/
