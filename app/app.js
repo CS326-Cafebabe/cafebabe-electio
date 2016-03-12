@@ -4,6 +4,7 @@ import {IndexRoute, Router, Route, hashHistory} from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
 import Archive from './components/archive';
+import Archive2 from './components/archive2';
 import Trend from './components/trends';
 import ChatList from './components/chatList';
 import EmailSettings from './components/emailsettings';
@@ -54,7 +55,13 @@ class TrendPage extends React.Component {
 
 class ArchivePage extends React.Component {
   render() {
-    return (<Archive page={this.props.params.page}/>);
+    return (<Archive page="1"/>);
+  }
+}
+
+class ArchivePage2 extends React.Component {
+  render() {
+    return (<Archive2 page="2"/>);
   }
 }
 
@@ -105,8 +112,8 @@ ReactDOM.render((
       <IndexRoute component={HomePage}/>
       <Route path="vote" component={VotePage}/>
       <Route path="calendar" component={CalendarPage}/>
-      <Route path="archive" component={ArchivePage}/>
-      <Route path="archive/:page" component={ArchivePage}/>
+      <Route path="archive/1" component={ArchivePage}/>
+      <Route path="archive/2" component={ArchivePage2}/>
       <Route path="trends" component={TrendPage}/>
       <Route path="usersettings" component={SettingsPage}/>
       <Route path="chat" component={ChatPage}/>
@@ -122,8 +129,8 @@ ReactDOM.render((
       <IndexRoute component={HomeSidebar}/>
       <Route path="vote" component={VoteSidebar}/>
       <Route path="calendar" component={CalendarSidebar}/>
-      <Route path="archive" component={ArchiveSidebar}/>
-      <Route path="archive/:page" component={ArchiveSidebar}/>
+      <Route path="archive/1" component={ArchiveSidebar}/>
+      <Route path="archive/2" component={ArchiveSidebar}/>
       <Route path="trends" component={TrendsSidebar}/>
       <Route path="usersettings" component={SettingsSidebar}/>
       <Route path="chat" component={ChatSidebar}/>

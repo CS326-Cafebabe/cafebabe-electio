@@ -87,7 +87,7 @@ class Sidebar extends React.Component {
 
           <li key="trends" className={this.isActivePage("trends")}> <Link to="/trends">Trends<span className="glyphicon glyphicon-stats sidebar-glyph"/></Link> </li>
 
-          <li key="archive" className={this.isActivePage("archive")}> <Link to="/archive">Archive <span className="glyphicon glyphicon-folder-open sidebar-glyph"/></Link> </li>
+          <li key="archive" className={this.isActivePage("archive")}> <Link to="/archive/1">Archive <span className="glyphicon glyphicon-folder-open sidebar-glyph"/></Link> </li>
 
           <li key="calendar" className={this.isActivePage("calendar")}> <Link to="/calendar">Calendar<span className="glyphicon glyphicon-calendar sidebar-glyph"/></Link> </li>
 

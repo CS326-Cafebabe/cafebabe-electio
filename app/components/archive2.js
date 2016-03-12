@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Event from './archiveEvent';
 import {getSomeEvents} from '../server';
 
-export default class Archive extends React.Component {
+export default class Archive2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

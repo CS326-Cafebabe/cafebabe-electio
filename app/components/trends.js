@@ -109,7 +109,7 @@ export default class Trends extends React.Component {
                       <span className="caret"></span>
                     </div>
                     <div className="media-body">
-                      <Link to="/archive">More Past Events</Link>
+                      <Link to="/archive/1">More Past Events</Link>
                     </div>
                   </li>
                 </ul>

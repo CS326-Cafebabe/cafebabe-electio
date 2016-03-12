@@ -2,6 +2,7 @@ import {readDocument, writeDocument, addDocument} from './database.js';
 
 var numberOfCandidates = 9;
 var numberOfEvents = 6;
+var numberOfPageEvents = 3;
 var numberOfChats = 6;
 
 /**
@@ -52,6 +53,18 @@ export function getUserName(userId, cb) {
 export function getCandidate(candIndex, cb) {
   var candidate = readDocument('candidates', candIndex);
   emulateServerReturn(candidate, cb);
+}
+
+export function getSomeEvents(page, cb) {
+  var events = [];
+  var start = 0;
+  if (page === "2") {
+    start = 3;
+  }
+  for (var i = start + 1; i <= numberOfPageEvents + start; i++) {
+    events.push(readDocument('events', i));
+  }
+  emulateServerReturn(events, cb);
 }
 
 export function getAllEvents(cb) {
