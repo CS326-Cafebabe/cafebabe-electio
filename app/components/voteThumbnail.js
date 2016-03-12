@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default class VoteThumbnail extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
   render() {
     var headImageText = (this.props.data.headImage);
@@ -14,7 +17,7 @@ export default class VoteThumbnail extends React.Component {
             <div className="caption">
               <h3>{this.props.data.fullName}</h3>
               <div className="btn-group">
-                <button type="button" className="btn long-btn">Vote</button>
+                <button type="button" className="btn long-btn" onClick={this.props.onVote}>Vote</button>
                 <button type="button" className="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span className="caret"></span>
                   <span className="sr-only">Toggle Dropdown</span>

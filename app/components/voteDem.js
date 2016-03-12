@@ -9,17 +9,18 @@ export default class VoteDem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.alertOptions = {
-      offset: 14,
-      position: 'bottom left',
-      theme: 'dark',
-      time: 5000,
-      transition: 'scale'
-    };
+    // this.alertOptions = {
+    //   offset: 14,
+    //   position: 'bottom left',
+    //   theme: 'dark',
+    //   time: 5000,
+    //   transition: 'scale'
+    // };
     this.state = {
 
       candidates: [
         {
+          "_id": 1,
           "headImage": "",
           "logoImage": "",
           "fullName": "",
@@ -46,13 +47,10 @@ export default class VoteDem extends React.Component {
     this.refresh();
   }
 
-  onVote(e){
-    e.preventDefault();
-    if (e.button === 0) {
-      //call server method
-      return true;
+  onVote(candId) {
+    return () => {
+      this.props.onVote(candId);
     }
-    return false;
   }
 
   render() {
@@ -76,7 +74,7 @@ export default class VoteDem extends React.Component {
             </div>
 
             {this.state.candidates.map((candidate, i) =>
-              <VoteThumbnail key={i} uid={i} data={candidate}/>
+              <VoteThumbnail key={i} uid={i} data={candidate} onVote={this.onVote(candidate._id)}/>
             )}
 
         </div>

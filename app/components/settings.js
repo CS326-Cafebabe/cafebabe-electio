@@ -19,6 +19,7 @@ export default class Settings extends React.Component {
         "age": 21,
         "politicalAffiliation": 2,
         "location": "",
+        "vote":0,
 
         "emailsettings": []
       },

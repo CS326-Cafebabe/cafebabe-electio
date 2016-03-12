@@ -309,6 +309,7 @@ var initialData = {
       "age":"25-34",
       "politicalAffiliation":2,
       "location":"Amherst, MA",
+      "vote":0,
 
       "emailsettings": [1,3,4,6]
     },
@@ -324,6 +325,7 @@ var initialData = {
       "age":"65+",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
+      "vote":6,
 
       "emailsettings": [2, 5, 6]
     },
@@ -339,6 +341,7 @@ var initialData = {
       "age":"45-54",
       "politicalAffiliation":2,
       "location":"Amherst, MA",
+      "vote":4,
 
       "emailsettings": [8,9]
     },
@@ -354,6 +357,7 @@ var initialData = {
       "age":"18-24",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
+      "vote":3,
 
       "emailsettings": [4,2]
     },
@@ -369,6 +373,7 @@ var initialData = {
       "age":"Under 18",
       "politicalAffiliation":1,
       "location":"Amherst, MA",
+      "vote":1,
 
       "emailsettings": [1]
     }

@@ -12,6 +12,7 @@ export default class VoteRep extends React.Component {
     this.state = {
       candidates: [
         {
+          "_id": 1,
           "headImage": "",
           "logoImage": "",
           "fullName": "",
@@ -38,6 +39,12 @@ export default class VoteRep extends React.Component {
     this.refresh();
   }
 
+  onVote(candId) {
+    return () => {
+      this.props.onVote(candId);
+    }
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +63,7 @@ export default class VoteRep extends React.Component {
             </div>
           </div>
           {this.state.candidates.map((candidate, i) =>
-            <VoteThumbnail key={i} uid={i} data={candidate}/>
+            <VoteThumbnail key={i} uid={i} data={candidate} onVote={this.onVote(candidate._id)}/>
           )}
       </div>
 

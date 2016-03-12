@@ -2,7 +2,7 @@ import React from 'react';
 import VoteDem from './voteDem';
 import VoteRep from './voteRep';
 import VoteInd from './voteInd';
-import {getUserData} from '../server';
+import {getUserData, setUserData, getCandidate} from '../server';
 
 
 export default class Vote extends React.Component {
@@ -21,16 +21,30 @@ export default class Vote extends React.Component {
         "age": 21,
         "politicalAffiliation": 2,
         "location": "",
+        "vote":0,
 
         "emailsettings": []
-      }
+      },
+
+      "votedFor": ""
     }
   }
 
   refresh() {
     getUserData(this.props.userId, (newUserData) => {
       this.setState({user: newUserData});
+      // console.log(newUserData.vote);
+      if(newUserData.vote !== 0){
+        // console.log("here");
+        getCandidate(newUserData.vote, (out) => this.setState({votedFor: out.fullName}));
+      }
+
     })
+    // console.log(this.state.user.vote);
+    // if(this.state.user.vote !== 0){
+    //   console.log("here");
+    //   getCandidate(this.state.user.vote, (out) => this.setState({votedFor: out.fullName}));
+    // }
   }
 
 
@@ -39,7 +53,32 @@ export default class Vote extends React.Component {
   }
 
 
+  voteChange(value) {
+    //make callback to change state on db return
+    //newUserData will be the db's version of the userData
+    var callbackFunction = (newUserData) => {
+      this.setState({user: newUserData});
+    }
+
+    //create a copy of the state (we don't want 2 refreshes)
+    var copy = this.state.user;
+    //Update selected value
+    copy["vote"] = value;
+
+    //Call server function
+    setUserData(this.state.user._id, copy, callbackFunction);
+    getCandidate(this.state.user.vote, (out) => this.setState({votedFor: out.fullName}));
+  }
+
+
+
+
   render() {
+    var votedFor = "You have not voted for anyone yet!";
+    if(this.state.user.vote !== 0){
+      votedFor = "You voted for " + this.state.votedFor;
+      // console.log(this.state);
+    }
     return(
       <div className="col-md-12">
         <div className="row">
@@ -49,7 +88,7 @@ export default class Vote extends React.Component {
 
           <div className="col-md-3">
             <h5>{this.state.user.fullName}</h5>
-            You are currently voting for ______
+            {votedFor}
           </div>
         </div>
 
@@ -61,13 +100,13 @@ export default class Vote extends React.Component {
 
         <div className="tab-content">
           <div id="dem" className="tab-pane fade in active">
-            <VoteDem/>
+            <VoteDem onVote={this.voteChange.bind(this)}/>
           </div>
           <div id="rep" className="tab-pane fade">
-            <VoteRep/>
+            <VoteRep onVote={this.voteChange.bind(this)}/>
           </div>
           <div id="ind" className="tab-pane fade">
-            <VoteInd/>
+            <VoteInd onVote={this.voteChange.bind(this)}/>
           </div>
         </div>
       </div>

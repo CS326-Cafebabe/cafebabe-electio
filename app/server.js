@@ -33,6 +33,7 @@ export function setUserData(userId, newData, cb) {
         "age": newData.age,
         "politicalAffiliation": newData.politicalAffiliation,
         "location": newData.location,
+        "vote": newData.vote,
 
         "emailsettings": newData.emailsettings
   }
