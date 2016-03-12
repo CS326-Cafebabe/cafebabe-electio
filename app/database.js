@@ -379,6 +379,81 @@ var initialData = {
     }
   },
 
+  "weeklyState": {
+    "1":{
+      "startDate": "March 13, 2016",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 2
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+
+    },
+    "2":{
+      "startDate": "March 6, 2016",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 1
+        },
+        {
+          "user": 5,
+          "candidate": 4
+        },
+        {
+          "user": 1,
+          "candidate": 3
+        }
+      ]
+
+    },
+    "3":{
+      "startDate": "February 28, 2016",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 3
+        },
+        {
+          "user": 5,
+          "candidate": 9
+        },
+        {
+          "user": 1,
+          "candidate": 8
+        }
+      ]
+
+    },
+    "4":{
+      "startDate": "February 21, 2016",
+      "ballotBox": [
+        {
+          "user": 4,
+          "candidate": 7
+        },
+        {
+          "user": 5,
+          "candidate": 1
+        },
+        {
+          "user": 1,
+          "candidate": 5
+        }
+      ]
+
+    }
+  },
+
   "chatBox":{
     "1":{
       "active": true,
