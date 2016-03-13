@@ -55,22 +55,24 @@ export default class Chat extends React.Component {
 
     return (
       <div>
+        <div className="row">
+          <div className="col-md-12 trending">
+            <h1>CHAT<small> Partake in the {this.state.chatBox.fullName}</small>
+            </h1>
+            <hr/>
+          </div>
+        </div>
 
         <div className="col-md-8 col-md-offset-2 extra-right-pad">
           <div className="panel chat-box-alignment">
-            <div className="panel-heading center chat-head">
-              <h4>
-                <b>{this.state.chatBox.fullName}</b>
-              </h4>
-            </div>
             <div className="panel-body chat-box">
               <div className="chat-box-div">
                 <div className="panel-body chat-box-main">
                   {this.state.chatBox.messages.map((message, i) => {
                     return (
 
-                      <Messages key={i} author={this.state.chatBox.messages[i].author}
-                         contents={this.state.chatBox.messages[i].contents} polAff={1}/>
+                      <Messages key={i} author={message.author}
+                         contents={message.contents} polAff={i%2}/>
                     )
                   })
                 }

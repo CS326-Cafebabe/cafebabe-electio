@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUserPoliticalAffiliation} from '../server';
+import {getUserPoliticalAffiliation, getUserName} from '../server';
 
 export default class Messages extends React.Component {
   constructor(props) {
@@ -11,6 +11,13 @@ export default class Messages extends React.Component {
     getUserPoliticalAffiliation(this.state.author, (aff) => {
       this.setState({polAff: aff});
     })
+    getUserName(this.state.author, (name) =>{
+      this.setState({author: name})
+    })
+  }
+
+  componentDidMount(){
+    this.refresh();
   }
 
   render() {
@@ -22,7 +29,7 @@ export default class Messages extends React.Component {
 
     return(
       <div className="chat-box-text">
-        <b className = {userParty}>User {this.props.author} </b>:
+        <b className = {userParty}>{this.state.author} </b>:
         {this.props.contents}
       </div>
     )

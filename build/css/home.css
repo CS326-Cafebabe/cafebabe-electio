@@ -648,7 +648,7 @@ h6{
 }
 
 .chat-box-main {
-    height:75vh;
+    height:72vh;
     overflow:auto;
     border: 1px solid lightgrey;
     border-radius: 5px;
@@ -667,7 +667,7 @@ h6{
 }
 .chat-box {
     width: 100%;
-    height: 80vh;
+    height: 75vh;
     padding: 15px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -701,6 +701,8 @@ padding: 10px 15px;
 background-color: lightgrey;
 color: black;
 text-align: center;
+margin-top: 20px !important;
+
 
 }
 
