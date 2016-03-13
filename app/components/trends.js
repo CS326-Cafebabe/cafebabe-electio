@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getInitBallotBox, getAllCandidates, getAllWeeks } from '../server';
+import {getInitBallotBox, getAllCandidates, getAllWeeks, getUserGender, getUserRace } from '../server';
 import {Bar} from 'react-chartjs';
 
 export default class Trends extends React.Component {
@@ -45,23 +45,45 @@ export default class Trends extends React.Component {
   }
 
   render() {
-    var labels = this.state.candidateNames;
-    var overallVotes = [];
+    var labels       = this.state.candidateNames;
+    var overallVotes = [0,0,0,0,0,0,0,0,0];
 
-    var femVotes = [];
-    var menVotes = [];
-    var otherVotes = [];
+    var femVotes     = [0,0,0,0,0,0,0,0,0];
+    var menVotes     = [0,0,0,0,0,0,0,0,0];
+    var otherVotes   = [0,0,0,0,0,0,0,0,0];
 
-    var whiteVotes   = [];
-    var blackVotes   = [];
-    var asianVotes   = [];
-    var nativeVotes  = [];
-    var alaskanVotes = [];
+    var whiteVotes   = [0,0,0,0,0,0,0,0,0];
+    var blackVotes   = [0,0,0,0,0,0,0,0,0];
+    var asianVotes   = [0,0,0,0,0,0,0,0,0];
+    var nativeVotes  = [0,0,0,0,0,0,0,0,0];
+    var pacificVotes = [0,0,0,0,0,0,0,0,0];
 
     if(this.state.loaded === true){
-      //Fill In Overall
+      //Fill In All Vote arrays
       this.state.ballotBox.map((vote) => {
-        overallVotes.push(vote.candidate);
+        overallVotes[vote.candidate-1]++;
+        // var userData =
+        // var userRace = "";
+        // getUserGender(vote.user, (out)=>{
+        //   userGen = out;
+        // });
+        // getUserRace(vote.user, (out)=>{
+        //   userRace = out;
+        // });
+        // switch(userGen) {
+        //   case "female":
+        //     femVotes[vote.candidate-1]++;
+        //     break;
+        //   case "male":
+        //     menVotes[vote.candidate-1]++;
+        //     break;
+        //   case "other":
+        //     otherVotes[vote.candidate-1]++;
+        //     break;
+        //   default:
+        //     //Debugging, its doing this instead of any of the others
+        //     overallVotes[2] = 10;
+        // }
       });
     }
 
@@ -151,7 +173,7 @@ export default class Trends extends React.Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: alaskanVotes
+          data: pacificVotes
         }
       ]
     };
@@ -259,7 +281,7 @@ export default class Trends extends React.Component {
                             Native</li>
                           <li>
                             <span className="legend-item-ethnic-5"></span>
-                            Alaskan</li>
+                            Pacific I.</li>
                         </ul>
                       </div>
                     </div>
