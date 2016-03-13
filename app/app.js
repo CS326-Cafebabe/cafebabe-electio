@@ -9,6 +9,7 @@ import Trend from './components/trends';
 import ChatList from './components/chatList';
 import EmailSettings from './components/emailsettings';
 import Settings from './components/settings';
+import CalendarExample from './components/calendar';
 import {HomeSidebar,
   TrendsSidebar,
   ArchiveSidebar,
@@ -18,6 +19,7 @@ import {HomeSidebar,
   SettingsSidebar
 } from './components/sidebar';
 // import Calendar from './components/calendar';
+
 
 class VotePage extends React.Component {
   render() {
@@ -68,8 +70,9 @@ class ArchivePage2 extends React.Component {
 class CalendarPage extends React.Component {
   render() {
     return (
-      <p>
-        Check the Calendar page please</p>
+      <div>
+        <CalendarExample />
+      </div>
     );
   }
 }
