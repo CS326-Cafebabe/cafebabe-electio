@@ -18,7 +18,7 @@ export default class Trends extends React.Component {
   handleClick(clickEvent, week) {
     clickEvent.preventDefault();
     document.getElementById("info").innerHTML = "Displaying info for "+week.startDate;
-    document.getElementById("overallTitle").innerHTML = "Overall votes for the week of "+week.startDate;
+    document.getElementById("overallTitle").innerHTML = "Distribution of votes overall for the week of "+week.startDate;
     document.getElementById("genderTitle").innerHTML = "Distribution of votes based on gender for the week of "+week.startDate;
     document.getElementById("ethnicTitle").innerHTML = "Distribution of votes based on ethnicity for the week of "+week.startDate;
     this.setState({ballotBox: week.ballotBox});
@@ -44,18 +44,29 @@ export default class Trends extends React.Component {
 
   render() {
     var labels = this.state.candidateNames;
+    var overallVotes = [];
+
+    var femVotes = [];
+    var menVotes = [];
+    var otherVotes = [];
+
+    var whiteVotes = [];
+    var blackVotes = [];
+    var asianVotes = [];
+    var nativeVotes = [];
+    var alaskanVotes = [];
 
     var OverallData = {
       labels: labels,
       datasets: [
         {
-          label: "Schlock",
+          label: "Overall Votes",
           fillColor: "#6194BC",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [1,4,1,0,6,0,10,0,6]
+          data: overallVotes
         }
       ]
     };
@@ -69,7 +80,7 @@ export default class Trends extends React.Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [1,4,1,0,6,0,10,0,6]
+          data: femVotes
         }, {
           label: "Men votes",
           fillColor: "#FF4E4E",
@@ -77,7 +88,7 @@ export default class Trends extends React.Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [0,2,7,1,3,5,15,0,6]
+          data: menVotes
         }, {
           label: "Other Votes",
           fillColor: "#805889",
@@ -85,7 +96,53 @@ export default class Trends extends React.Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [0,2,7,1,3,5,15,0,6]
+          data: otherVotes
+        }
+      ]
+    };
+    var EthnicData = {
+      labels: labels,
+      datasets: [
+        {
+          label: "White Votes",
+          fillColor: "#6194BC",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: whiteVotes
+        }, {
+          label: "Black Votes",
+          fillColor: "#FF4E4E",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: blackVotes
+        }, {
+          label: "Asian Votes",
+          fillColor: "#805889",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: asianVotes
+        }, {
+          label: "Native Votes",
+          fillColor: "#FF4E4E",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: nativeVotes
+        }, {
+          label: "Alaskan Votes",
+          fillColor: "#805889",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: alaskanVotes
         }
       ]
     };
@@ -121,12 +178,12 @@ export default class Trends extends React.Component {
                 </ul>
               </div>
               <div className="col-md-8 graphs">
-                <h3>Activity <small id="info"></small></h3>
+                <h3>Activity <small id="info"> Select a date to display information . . .</small></h3>
                 <hr/>
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-overall'>
-                      <div className='legend-title' id="overallTitle"></div>
+                      <div className='legend-title' id="overallTitle">Distribution of votes overall . . .</div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -147,7 +204,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-gender'>
-                      <div className='legend-title' id="genderTitle"></div>
+                      <div className='legend-title' id="genderTitle">Distribution of votes based on gender . . .</div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -164,7 +221,7 @@ export default class Trends extends React.Component {
                     </div>
                     <div className="panel panel-default mid-graph-panel">
                       <div className="panel-body">
-                        <Bar data={GenderData} id="Overall" redraw height="400px" width="900px"/>
+                        <Bar data={GenderData} id="Gender" redraw height="400px" width="900px"/>
                       </div>
                     </div>
                     <p id="mid-summary"></p>
@@ -174,7 +231,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-ethnic'>
-                      <div className='legend-title' id="ethnicTitle"></div>
+                      <div className='legend-title' id="ethnicTitle">Distribution of votes based on ethnicity . . .</div>
                       <div className='legend-scale col-md-2'>
                         <ul className='legend-labels'>
                           <li>
@@ -201,7 +258,7 @@ export default class Trends extends React.Component {
                     </div>
                     <div className="panel panel-default lower-graph-panel">
                       <div className="panel-body">
-                        <Bar data={OverallData} id="Overall" redraw height="400px" width="900px"/>
+                        <Bar data={EthnicData} id="Ethnic" redraw height="400px" width="900px"/>
                       </div>
                     </div>
                     <p id="lower-summary"></p>
