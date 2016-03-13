@@ -41,7 +41,6 @@ export default class CalendarExample extends Component {
     }
 
     checkEvents(date){
-      date.preventDefault();
       this.setState({dayPicked: date});
       var tempEvent = [];
       for(var i = 0; i < this.state.myEventsList.length; i++){
@@ -70,7 +69,7 @@ export default class CalendarExample extends Component {
         onPrevMonth={() => this.setState({ date: this.state.date.clone().subtract(1, 'months') }) }
         date={this.state.date}
         onPickDate={(date) => this.checkEvents(date)}
-        renderDay={(day) => day.format('MM DD')}
+        renderDay={(day) => day.format('D')}
       />
 
     <div className="alert alert-s" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>

@@ -21,7 +21,6 @@ export default class Messages extends React.Component {
   }
 
   render() {
-    console.log(this.state.polAff);
     var userParty;
     if(this.state.polAff === 1)
       userParty = "republican-text";
