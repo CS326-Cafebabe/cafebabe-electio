@@ -17,11 +17,6 @@ export default class Archive2 extends React.Component {
     })
   }
 
-   handleClick(event) {
-     event.preventDefault();
-     this.refresh();
-   }
-
   componentDidMount() {
     this.refresh();
   }
@@ -33,8 +28,8 @@ export default class Archive2 extends React.Component {
         <hr />
         <nav>
           <ul className="pager">
-            <li className="previous"><Link to="/archive/1"><span aria-hidden="true" onClick={(e) => this.handleClick(e)}>&larr;</span>Newer</Link></li>
-            <li className="next"><Link to="/archive/2">Older <span aria-hidden="true" onClick={(e) => this.handleClick(e)}>&rarr;</span></Link></li>
+            <li className="previous"><Link to="/archive/1"><span aria-hidden="true">&larr;</span>Newer</Link></li>
+            <li className="next"><Link to="/archive/2">Older<span aria-hidden="true">&rarr;</span></Link></li>
           </ul>
         </nav>
 
