@@ -39,14 +39,14 @@ export default class ChatList extends React.Component {
     this.refresh();
   }
 
-  getActiveChat(){
-    var data = this.state;
-    for(var i = 0; i < data.chatBoxes.length; i++){
-      if(data.chatBoxes[i].active === "true"){
-          this.setState({active : i});
-      }
-    }
-  }
+  // getActiveChat(){
+  //   var data = this.state;
+  //   for(var i = 0; i < data.chatBoxes.length; i++){
+  //     if(data.chatBoxes[i].active === "true"){
+  //         this.setState({active : i});
+  //     }
+  //   }
+  // }
 
   handleClick(e, i) {
     e.preventDefault();

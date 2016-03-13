@@ -442,11 +442,11 @@ var initialData = {
     "5":{
       "active": true,
       "_id":5,
-      "fullName":"Scroggie Debate",
+      "fullName":"Rubio Debate",
       "messages": [
         {
           "author": 2,
-          "contents": "Debate Scroggie Here"
+          "contents": "Debate Rubio Here"
         },
         {
           "author": 2,

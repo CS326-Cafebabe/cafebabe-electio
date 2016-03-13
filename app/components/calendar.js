@@ -8,7 +8,7 @@ export default class CalendarExample extends Component {
       super(props);
       this.state = {
         date: moment(),
-        myEventsList: {
+        myEventsList: [{
           "date": "",
           "name": "",
           "location": "",
@@ -16,8 +16,19 @@ export default class CalendarExample extends Component {
           "party": "",
           "ballotBox": []
         }
+      ],
+      dayPicked: moment(),
+      eventsOnDay: [{
+        "date": "",
+        "name": "",
+        "location": "",
+        "summary": "",
+        "party": "",
+        "ballotBox": []
+      }]
       };
     }
+
 
     refresh(){
       getAllEvents((out) => {
@@ -29,9 +40,21 @@ export default class CalendarExample extends Component {
       this.refresh();
     }
 
+    checkEvents(date){
+      date.preventDefault();
+      this.setState({dayPicked: date});
+      var tempEvent = [];
+      for(var i = 0; i < this.state.myEventsList.length; i++){
+        if(this.state.myEventsList[i].date === this.state.dayPicked.format('D. MMMM YYYY')){
+          tempEvent.push(this.state.myEventsList[i]);
+        }
+      }
+      this.setState({eventsOnDay: tempEvent})
 
+    }
 
   render() {
+
     return (
       <div>
         <div className="row">
@@ -46,9 +69,21 @@ export default class CalendarExample extends Component {
         onNextMonth={() => this.setState({ date: this.state.date.clone().add(1, 'months') }) }
         onPrevMonth={() => this.setState({ date: this.state.date.clone().subtract(1, 'months') }) }
         date={this.state.date}
-        onPickDate={(date) => console.log(date)}
-        renderDay={(day) => day.format('D')}
+        onPickDate={(date) => this.checkEvents(date)}
+        renderDay={(day) => day.format('MM DD')}
       />
+
+    <div className="alert alert-s" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
+      {this.state.eventsOnDay.map((events, i) => {
+        return(
+          <div key = {i}>
+            {events.name}
+          </div>
+        )
+      })
+    }
+    </div>
+
   </div>
     );
   }
