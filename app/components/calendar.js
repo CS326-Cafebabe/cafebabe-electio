@@ -49,7 +49,19 @@ export default class CalendarExample extends Component {
         }
       }
       this.setState({eventsOnDay: tempEvent})
+    }
 
+    dayContainsEvent(day){
+      for(var i = 0; i < this.state.myEventsList.length; i++){
+        if(this.state.myEventsList[i].date === day.format('D. MMMM YYYY')){
+          return(
+            <b>
+              day;
+            </b>
+          )
+        }
+        return day;
+      }
     }
 
   render() {
@@ -72,7 +84,7 @@ export default class CalendarExample extends Component {
         renderDay={(day) => day.format('D')}
       />
 
-    <div className="alert alert-s" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
+    <div className="alert alert-success" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
       {this.state.eventsOnDay.map((events, i) => {
         return(
           <div key = {i}>
