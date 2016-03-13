@@ -85,7 +85,7 @@ class ChatPage extends React.Component {
 
 class EmailSettingsPage extends React.Component {
   render() {
-    return (<EmailSettings/>);
+    return (<EmailSettings userId={1}/>);
   }
 }
 
