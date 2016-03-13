@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getInitBallotBox, getAllCandidates, getAllWeeks, getUserGender, getUserRace } from '../server';
+import {getInitBallotBox, getAllCandidates, getAllWeeks, getAllUserRaceGender } from '../server';
 import {Bar} from 'react-chartjs';
 
 export default class Trends extends React.Component {
@@ -9,6 +9,12 @@ export default class Trends extends React.Component {
     this.state = {
       "weeklyState": [],
       "ballotBox": [],
+      "users" : [
+        {
+        "race": "",
+        "gender": ""
+        }
+      ],
       "loaded": false,
       "candidateNames": []
     }
@@ -38,6 +44,9 @@ export default class Trends extends React.Component {
     getAllWeeks((out) => {
       this.setState({weeklyState: out});
     });
+    getAllUserRaceGender((out) => {
+      this.setState({users: out});
+    });
   }
 
   componentDidMount() {
@@ -62,28 +71,21 @@ export default class Trends extends React.Component {
       //Fill In All Vote arrays
       this.state.ballotBox.map((vote) => {
         overallVotes[vote.candidate-1]++;
-        // var userData =
-        // var userRace = "";
-        // getUserGender(vote.user, (out)=>{
-        //   userGen = out;
-        // });
-        // getUserRace(vote.user, (out)=>{
-        //   userRace = out;
-        // });
-        // switch(userGen) {
-        //   case "female":
-        //     femVotes[vote.candidate-1]++;
-        //     break;
-        //   case "male":
-        //     menVotes[vote.candidate-1]++;
-        //     break;
-        //   case "other":
-        //     otherVotes[vote.candidate-1]++;
-        //     break;
-        //   default:
-        //     //Debugging, its doing this instead of any of the others
-        //     overallVotes[2] = 10;
-        // }
+        var userGen = this.state.users[vote.user-1].gender;
+        switch(userGen){
+          case "female":
+            femVotes[vote.candidate-1]++;
+            break;
+          case "male":
+            menVotes[vote.candidate-1]++;
+            break;
+          case "other":
+            otherVotes[vote.candidate-1]++;
+            break;
+          default:
+            overallVotes[8] = 10;
+            break;
+        }
       });
     }
 

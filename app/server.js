@@ -5,6 +5,7 @@ var numberOfEvents = 6;
 var numberOfPageEvents = 3;
 var numberOfChats = 6;
 var numberOfWeeks = 5;
+var numberOfUsers = 5
 
 /**
 * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -198,6 +199,15 @@ export function unsubscribe(candId, userId, cb) {
   //emulateServerReturn(user.emailSettings.map((id) => readDocument('candidates', id)), cb);
   emulateServerReturn(user.emailSettings, cb);
 
+}
+
+export function getAllUserRaceGender(cb){
+  var userData = [];
+  for(var i = 1; i <= numberOfUsers; i++){
+    var data = {race : readDocument('users', i).race, gender: readDocument('users', i).gender};
+    userData.push(data);
+  }
+  emulateServerReturn(userData, cb);
 }
 
 export function getUserGender(userId, cb){

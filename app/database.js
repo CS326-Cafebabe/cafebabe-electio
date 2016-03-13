@@ -173,126 +173,42 @@ var initialData = {
       "name": "South Carolina Primary",
       "location": "South Carolina",
       "summary": "Hillary Clinton won over Bernie Sanders with 73.5% of the votes.",
-      "party": "Democrat",
-      "ballotBox": [
-        {
-          "user": 4,
-          "candidate": 1
-        },
-        {
-          "user": 5,
-          "candidate": 2
-        },
-        {
-          "user": 1,
-          "candidate": 3
-        }
-      ]
+      "party": "Democrat"
     },
     "2": {
       "date": "20. February 2016",
       "name": "South Carolina Primary",
       "location": "South Carolina",
       "summary": "Trump won over the other candidates with 32.5% of the votes.",
-      "party": "Republican",
-      "ballotBox": [
-        {
-          "user": 4,
-          "candidate": 1
-        },
-        {
-          "user": 5,
-          "candidate": 2
-        },
-        {
-          "user": 1,
-          "candidate": 3
-        }
-      ]
+      "party": "Republican"
     },
     "3": {
       "date": "13. February 2016",
       "name": "Ninth Republican Debate",
       "location": "South Carolina",
       "summary": "Aenean tempor faucibus mauris, nec porttitor nulla tincidunt at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas at libero quis libero accumsan interdum. Quisque nec ultrices eros, sed consequat nisl. Mauris efficitur velit id iaculis elementum. Integer condimentum, erat id rhoncus rutrum, erat quam pretium est, eu gravida urna dolor et erat. Pellentesque vulputate tortor quis magna faucibus, interdum hendrerit odio lobortis. Ut lacus nibh, auctor ac nulla a, auctor maximus tortor. Vivamus laoreet congue accumsan. Vivamus nec congue leo. Quisque id sollicitudin justo. Curabitur fringilla risus eget erat dignissim semper. Sed ipsum purus, sagittis vitae sapien non, lacinia pulvinar turpis. Ut aliquet dui libero, aliquam dignissim dolor dignissim at.",
-      "party": "Republican",
-      "ballotBox": [
-        {
-          "user": 4,
-          "candidate": 1
-        },
-        {
-          "user": 5,
-          "candidate": 2
-        },
-        {
-          "user": 1,
-          "candidate": 3
-        }
-      ]
+      "party": "Republican"
     },
     "4": {
       "date": "6. February 2016",
       "name": "Eighth Republican Debate",
       "location": "New Hampshire",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu commodo arcu, id volutpat diam. Suspendisse accumsan et ligula sed hendrerit. In volutpat ligula ut laoreet vulputate. Mauris a magna nec nisi scelerisque porta. Cras tellus lectus, bibendum eget enim id, consequat venenatis elit. Sed rutrum fermentum porttitor.",
-      "party": "Republican",
-      "ballotBox": [
-        {
-          "user": 4,
-          "candidate": 4
-        },
-        {
-          "user": 5,
-          "candidate": 5
-        },
-        {
-          "user": 2,
-          "candidate": 1
-        }
-      ]
+      "party": "Republican"
     },
     "5": {
       "date": "4. February 2016",
       "name": "Fifth Democratic Debate",
       "location": "New Hampshire",
       "summary": "Sed eu ligula eu enim rhoncus hendrerit eget nec dolor. Nunc imperdiet interdum dolor eu fringilla. Quisque luctus fermentum velit bibendum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce et dolor id tellus porttitor pretium ac non dolor. Fusce porta feugiat tellus, ut convallis ante varius a.",
-      "party": "Democrat",
-      "ballotBox": [
-        {
-          "user": 1,
-          "candidate": 1
-        },
-        {
-          "user": 2,
-          "candidate": 2
-        },
-        {
-          "user": 3,
-          "candidate": 3
-        }
-      ]
+      "party": "Democrat"
     },
     "6": {
       "date": "1. February 2016",
       "name": "Iowa Caucus",
       "location": "Iowa",
       "summary": " Iowa Democratic Caucus is won by Hillary Clinton. Iowa Republican Caucus is won by Ted Cruz. Martin O'Malley drops out of the Democratic race. Mike Huckabee drops out of the Republican race.",
-      "party": "",
-      "ballotBox": [
-        {
-          "user": 4,
-          "candidate": 1
-        },
-        {
-          "user": 5,
-          "candidate": 2
-        },
-        {
-          "user": 1,
-          "candidate": 3
-        }
-      ]
+      "party": ""
     }
   },
 
