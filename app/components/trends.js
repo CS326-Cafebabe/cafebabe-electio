@@ -9,6 +9,7 @@ export default class Trends extends React.Component {
     this.state = {
       "weeklyState": [],
       "ballotBox": [],
+      "loaded": false,
       "candidateNames": []
     }
   }
@@ -21,6 +22,7 @@ export default class Trends extends React.Component {
     document.getElementById("overallTitle").innerHTML = "Distribution of votes overall for the week of "+week.startDate;
     document.getElementById("genderTitle").innerHTML = "Distribution of votes based on gender for the week of "+week.startDate;
     document.getElementById("ethnicTitle").innerHTML = "Distribution of votes based on ethnicity for the week of "+week.startDate;
+    this.setState({loaded: true});
     this.setState({ballotBox: week.ballotBox});
   }
 
@@ -50,11 +52,18 @@ export default class Trends extends React.Component {
     var menVotes = [];
     var otherVotes = [];
 
-    var whiteVotes = [];
-    var blackVotes = [];
-    var asianVotes = [];
-    var nativeVotes = [];
+    var whiteVotes   = [];
+    var blackVotes   = [];
+    var asianVotes   = [];
+    var nativeVotes  = [];
     var alaskanVotes = [];
+
+    if(this.state.loaded === true){
+      //Fill In Overall
+      this.state.ballotBox.map((vote) => {
+        overallVotes.push(vote.candidate);
+      });
+    }
 
     var OverallData = {
       labels: labels,
@@ -129,7 +138,7 @@ export default class Trends extends React.Component {
           data: asianVotes
         }, {
           label: "Native Votes",
-          fillColor: "#FF4E4E",
+          fillColor: "#FFCD77",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
@@ -137,7 +146,7 @@ export default class Trends extends React.Component {
           data: nativeVotes
         }, {
           label: "Alaskan Votes",
-          fillColor: "#805889",
+          fillColor: "#47824E",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
@@ -197,7 +206,6 @@ export default class Trends extends React.Component {
                         <Bar data={OverallData} id="Overall" redraw height="400px" width="900px"/>
                       </div>
                     </div>
-                    <p id="upper-summary"></p>
                   </div>
                 </div>
                 <hr/>
@@ -224,7 +232,6 @@ export default class Trends extends React.Component {
                         <Bar data={GenderData} id="Gender" redraw height="400px" width="900px"/>
                       </div>
                     </div>
-                    <p id="mid-summary"></p>
                   </div>
                 </div>
                 <hr/>
@@ -261,7 +268,6 @@ export default class Trends extends React.Component {
                         <Bar data={EthnicData} id="Ethnic" redraw height="400px" width="900px"/>
                       </div>
                     </div>
-                    <p id="lower-summary"></p>
                   </div>
                 </div>
                 <hr/>
