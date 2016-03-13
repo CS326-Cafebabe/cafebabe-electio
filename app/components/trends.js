@@ -69,6 +69,7 @@ export default class Trends extends React.Component {
       this.state.ballotBox.map((vote) => {
         overallVotes[vote.candidate-1]++;
         var userGen = this.state.users[vote.user-1].gender;
+        var userRace = this.state.users[vote.user-1].race;
         switch(userGen){
           case "female":
             femVotes[vote.candidate-1]++;
@@ -81,6 +82,26 @@ export default class Trends extends React.Component {
             break;
           default:
             overallVotes[8] = 10;
+            break;
+        }
+        switch(userRace){
+          case "White":
+            whiteVotes[vote.candidate-1]++;
+            break;
+          case "African American/Black":
+            blackVotes[vote.candidate-1]++;
+            break;
+          case "Asian American":
+            asianVotes[vote.candidate-1]++;
+            break;
+          case "Native American/Alaskan":
+            nativeVotes[vote.candidate-1]++;
+            break;
+          case "Pacific Islander":
+            pacificVotes[vote.candidate-1]++;
+            break;
+          default:
+            overallVotes[8] = 20;
             break;
         }
       });
