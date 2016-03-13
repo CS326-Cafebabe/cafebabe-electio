@@ -45,7 +45,7 @@ export default class CandidateSub extends React.Component {
       this.setState({party: out});
     })
 
-    getEmailSettings(1, (out) => {
+    getEmailSettings(this.props.userId, (out) => {
       this.setState({emailSettings: out});
     })
 
