@@ -84,6 +84,7 @@ export default class CalendarExample extends Component {
         renderDay={(day) => day.format('D')}
       />
 
+    <p> Instructions: Double Click on a Day to see the events on that day!</p>
     <div className="alert alert-success" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
       {this.state.eventsOnDay.map((events, i) => {
         return(
