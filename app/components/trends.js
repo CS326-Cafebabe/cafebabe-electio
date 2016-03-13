@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getInitBallotBox, getAllCandidates, getAllWeeks, getAllUserRaceGender } from '../server';
+import { getAllCandidates, getAllWeeks, getAllUserRaceGender } from '../server';
 import {Bar} from 'react-chartjs';
 
 export default class Trends extends React.Component {
@@ -33,9 +33,6 @@ export default class Trends extends React.Component {
   }
 
   refresh() {
-    getInitBallotBox((out) => {
-      this.setState({ballotBox: out.ballotBox});
-    })
     getAllCandidates((out) => {
       var fullName = [];
       out.map((cand) => fullName.push(cand.fullName));
@@ -107,21 +104,21 @@ export default class Trends extends React.Component {
       labels: labels,
       datasets: [
         {
-          label: "Women votes",
+          label: "Men votes",
           fillColor: "#6194BC",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: femVotes
+          data: menVotes
         }, {
-          label: "Men votes",
+          label: "Women votes",
           fillColor: "#FF4E4E",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: menVotes
+          data: femVotes
         }, {
           label: "Other Votes",
           fillColor: "#805889",

@@ -210,28 +210,10 @@ export function getAllUserRaceGender(cb){
   emulateServerReturn(userData, cb);
 }
 
-export function getUserGender(userId, cb){
-  var userData = readDocument('users', userId);
-  var userGen = userData.gender;
-  emulateServerReturn(userGen, cb);
-}
-
-export function getUserRace(userId, cb){
-  var userData = readDocument('users', userId);
-  var userGen = userData.race;
-  emulateServerReturn(userGen, cb);
-}
-
-
 export function getAllWeeks(cb){
   var weeks = [];
   for(var i=1; i < numberOfWeeks; i++){
     weeks.push(readDocument('weeklyState', i));
   }
   emulateServerReturn(weeks, cb);
-}
-
-export function getInitBallotBox(cb){
-  var ballotBox = readDocument('weeklyState', 1).ballotBox;
-  emulateServerReturn(ballotBox, cb);
 }
