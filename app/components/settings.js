@@ -133,17 +133,36 @@ export default class Settings extends React.Component {
 
   render() {
 
+    //These are empty on load to ensure that the alert doesn't pop up when nothing's happened.
     var alertClassName = "";
-    var alertText = "";
+    var alertText = ["", "", ""];
+    var readableAlerts = {
+      "": "",
+      "fullName": "name",
+      "email": "email",
+      "password": "password",
+      "gender": "gender",
+      "race": "ethnic identity ",
+      "hispanic": "latino identity",
+      "registered": "registration status",
+      "age": "age range",
+      "politicalAffiliation": "political affiliation",
+      "location": "location",
+
+      "vote": "Vote ",
+      "emailSettings": "Email Settings",
+      "_id":"ID"
+    };
     if (this.state.lastUpdate !== ""){
       alertClassName = ("alert alert-success")
-      alertText = (this.state.lastUpdate + " was updated successfully.")
+      alertText = ["Your ", readableAlerts[this.state.lastUpdate], "was updated successfully."];
     }
+
 
     return (
       <div>
 
-        <div className={alertClassName} role="alert"><strong>{alertText}</strong></div>
+        <div className={alertClassName} role="alert">{alertText[0]} <strong>{alertText[1]}</strong> {alertText[2]} </div>
 
         <div className="col-md-12 header">
           <h1>USER SETTINGS</h1>
