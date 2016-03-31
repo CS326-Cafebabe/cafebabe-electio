@@ -41,15 +41,18 @@ export default class CalendarExample extends Component {
     }
 
     checkEvents(date){
-      this.setState({dayPicked: date});
       var tempEvent = [];
       for(var i = 0; i < this.state.myEventsList.length; i++){
-        if(this.state.myEventsList[i].date === this.state.dayPicked.format('D. MMMM YYYY')){
+        if(this.state.myEventsList[i].date === date.format('D. MMMM YYYY')){
           tempEvent.push(this.state.myEventsList[i]);
         }
       }
-      this.setState({eventsOnDay: tempEvent})
+      this.setState({eventsOnDay: tempEvent,
+        dayPicked: date
+      });
     }
+
+
 
     dayContainsEvent(day){
       for(var i = 0; i < this.state.myEventsList.length; i++){
@@ -65,6 +68,8 @@ export default class CalendarExample extends Component {
     }
 
   render() {
+
+    var events = this.state.eventsOnDay;
 
     return (
       <div>
@@ -86,7 +91,7 @@ export default class CalendarExample extends Component {
 
     <p> Instructions: Double Click on a Day to see the events on that day!</p>
     <div className="alert alert-success" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
-      {this.state.eventsOnDay.map((events, i) => {
+      {events.map((events, i) => {
         return(
           <div key = {i}>
             {events.name}
