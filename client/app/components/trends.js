@@ -7,7 +7,8 @@ export default class Trends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "weeklyState": [],
+      "weeklyStates": [],
+      "displayWeek": " . . . ",
       "ballotBox": [],
       "users" : [
         {
@@ -24,10 +25,7 @@ export default class Trends extends React.Component {
 
   handleClick(clickEvent, week) {
     clickEvent.preventDefault();
-    document.getElementById("info").innerHTML = "Displaying info for "+week.startDate;
-    document.getElementById("overallTitle").innerHTML = "Distribution of votes overall for the week of "+week.startDate;
-    document.getElementById("genderTitle").innerHTML = "Distribution of votes based on gender for the week of "+week.startDate;
-    document.getElementById("ethnicTitle").innerHTML = "Distribution of votes based on ethnicity for the week of "+week.startDate;
+    this.setState({displayWeek: "for "+week.startDate});
     this.setState({loaded: true});
     this.setState({ballotBox: week.ballotBox});
   }
@@ -39,7 +37,7 @@ export default class Trends extends React.Component {
       this.setState({candidateNames: fullName})
     })
     getAllWeeks((out) => {
-      this.setState({weeklyState: out});
+      this.setState({weeklyStates: out});
     });
     getAllUserRaceGender((out) => {
       this.setState({users: out});
@@ -215,7 +213,7 @@ export default class Trends extends React.Component {
                 <h3>Weekly Snapshots</h3>
                 <hr/>
                 <ul>
-                  {this.state.weeklyState.map((week, i) => <li key={i}>
+                  {this.state.weeklyStates.map((week, i) => <li key={i}>
                     <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, week)}>{week.startDate}</button>
                   </li>)}
                   <li className="media">
@@ -229,12 +227,12 @@ export default class Trends extends React.Component {
                 </ul>
               </div>
               <div className="col-md-8 graphs">
-                <h3>Activity <small id="info"> Select a date to display information . . .</small></h3>
+                <h3>Activity <small id="info"> Select a date to display information</small></h3>
                 <hr/>
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-overall'>
-                      <div className='legend-title' id="overallTitle">Distribution of votes overall . . .</div>
+                      <div className='legend-title' id="overallTitle">Distribution of votes overall {this.state.displayWeek}</div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -254,7 +252,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-gender'>
-                      <div className='legend-title' id="genderTitle">Distribution of votes based on gender . . .</div>
+                      <div className='legend-title' id="genderTitle">Distribution of votes based on gender {this.state.displayWeek}</div>
                       <div className='legend-scale'>
                         <ul className='legend-labels'>
                           <li>
@@ -280,7 +278,7 @@ export default class Trends extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className='my-legend-ethnic'>
-                      <div className='legend-title' id="ethnicTitle">Distribution of votes based on ethnicity . . .</div>
+                      <div className='legend-title' id="ethnicTitle">Distribution of votes based on ethnicity {this.state.displayWeek}</div>
                       <div className='legend-scale col-md-2'>
                         <ul className='legend-labels'>
                           <li>
