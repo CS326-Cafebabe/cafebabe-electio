@@ -254,18 +254,13 @@ export function unsubscribe(candId, userId, cb) {
 }
 
 export function getAllUserRaceGender(cb){
-  var userData = [];
-  for(var i = 1; i <= numberOfUsers; i++){
-    var data = {race : readDocument('users', i).race, gender: readDocument('users', i).gender};
-    userData.push(data);
-  }
-  emulateServerReturn(userData, cb);
+  sendXHR('GET', '/users/race/gender', undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  })
 }
 
 export function getAllWeeks(cb){
-  var weeks = [];
-  for(var i=1; i < numberOfWeeks; i++){
-    weeks.push(readDocument('weeklyState', i));
-  }
-  emulateServerReturn(weeks, cb);
+  sendXHR('GET', '/weeks', undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  })
 }

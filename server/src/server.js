@@ -20,6 +20,27 @@ app.listen(3000, function() {
   console.log('Listening on port 3000!');
 });
 
+//Trends getAllWeeks
+app.get('/weeks', function(req, res) {
+  var weeks = [];
+  for(var i=1; i < 5; i++){
+    weeks.push(readDocument('weeklyState', i));
+  }
+  res.status(200);
+  res.send(weeks);
+});
+
+//Trends getAllUserRaceGender
+app.get('/users/race/gender', function(req, res) {
+  var userData = [];
+  for(var i = 1; i <= 5; i++){
+    var data = {race : readDocument('users', i).race, gender: readDocument('users', i).gender};
+    userData.push(data);
+  }
+  res.status(200);
+  res.send(userData);
+});
+
 // get all events
 app.get('/events', function(req, res) {
   var allEvents = getCollection('events');
