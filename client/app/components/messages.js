@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUserPoliticalAffiliation, getUserName} from '../server';
+import {getUserData} from '../server';
 
 export default class Messages extends React.Component {
   constructor(props) {
@@ -8,11 +8,11 @@ export default class Messages extends React.Component {
 }
 
   refresh(){
-    getUserPoliticalAffiliation(this.state.author, (aff) => {
-      this.setState({polAff: aff});
+    getUserData(this.state.author, (aff) => {
+      this.setState({polAff: aff.politicalAffiliation});
     })
-    getUserName(this.state.author, (name) =>{
-      this.setState({author: name})
+    getUserData(this.state.author, (name) =>{
+      this.setState({author: name.fullName})
     })
   }
 
