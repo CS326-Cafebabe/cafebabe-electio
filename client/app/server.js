@@ -17,11 +17,7 @@ function emulateServerReturn(data, cb) {
   }, 4);
 }
 
-var token = ''; // <-- Put your base64'd JSON token here
-/**
- * Properly configure+send an XMLHttpRequest with error handling, authorization token,
- * and other needed properties.
- */
+var token = 'eyJpZCI6MX0=';
 function sendXHR(verb, resource, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.open(verb, resource);
@@ -138,7 +134,6 @@ export function getAllCandidates(cb) {
   for (var i = 1; i<=numberOfCandidates; i++) {
     candidates.push(readDocument('candidates', i));
   }
-
   //Sort the candidates
   //Get surName connected to id
   //Get surNames
@@ -244,7 +239,6 @@ export function unsubscribe(candId, userId, cb) {
   // Return a resolved version of the likeCounter
   //emulateServerReturn(user.emailSettings.map((id) => readDocument('candidates', id)), cb);
   emulateServerReturn(user.emailSettings, cb);
-
 }
 
 export function getAllUserRaceGender(cb){
