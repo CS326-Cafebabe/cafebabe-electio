@@ -39,7 +39,7 @@ var initialData = {
     },
     "3": {
       "_id": 3,
-      "headImage": "/img/candidateHeads/delafuenteHead.jpg",
+      "headImage": "img/candidateHeads/delafuenteHead.jpg",
       "logoImage": "img/candidateLogos/delafuenteLogo.png",
       "fullName": "Roque De La Fuente",
       "party": 1,
@@ -537,14 +537,14 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-export class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <a className="btn" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB <span className="glyphicon glyphicon-refresh sidebar-glyph"></span> </a>
-    );
-  }
-}
+// export class ResetDatabase extends React.Component {
+//   render() {
+//     return (
+//       <a className="btn" type="button" onClick={() => {
+//         resetDatabase();
+//         window.alert("Database reset! Refreshing the page now...");
+//         document.location.reload(false);
+//       }}>Reset Mock DB <span className="glyphicon glyphicon-refresh sidebar-glyph"></span> </a>
+//     );
+//   }
+// }
