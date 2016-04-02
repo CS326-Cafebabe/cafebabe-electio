@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {getUserData} from "../server";
-import {ResetDatabase} from "../database";
+import ResetDatabase from "./databaseReset";
 
 //HomeSidebar, TrendsSidebar, ArchiveSidebar, CalendarSidebar, VoteSidebar, ChatSidebar, SettingsSidebar
 
@@ -117,7 +117,7 @@ class Sidebar extends React.Component {
         <hr/>
         <ul className="nav nav-sidebar">
           <li role="presentation">
-          {<ResetDatabase />}
+          <ResetDatabase />
           </li>
         </ul>
         <hr />

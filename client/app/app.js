@@ -18,6 +18,7 @@ import {HomeSidebar,
   ChatSidebar,
   SettingsSidebar
 } from './components/sidebar';
+// import DatabaseReset from './components/databaseReset';
 // import Calendar from './components/calendar';
 
 

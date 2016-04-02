@@ -1,5 +1,5 @@
 import React from 'react';
-import messageEntry from './commententry';
+import MessageEntry from './messageEntry';
 
 export default class messageThread extends React.Component {
   render() {
@@ -13,7 +13,7 @@ export default class messageThread extends React.Component {
           )
         })}
         <li className="media">
-          <messageEntry onPost={this.props.onPost} />
+          <MessageEntry onPost={this.props.onPost} />
         </li>
       </ul>
     )
