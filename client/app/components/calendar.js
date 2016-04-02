@@ -66,21 +66,31 @@ export default class CalendarExample extends Component {
     }
 
     renderDay(day){
-      for(var i = 3; i < this.state.myEventsList.length; i++){
-        if(this.state.myEventsList[i].date === day.format('D. MMMM YYYY')){
-        console.log('bold');
-        return(
+      // var temp = day.format('D');
+        for(var i = 0; i < this.state.myEventsList.length; i++){
+
+          if(this.state.myEventsList[i].date === day.format('D. MMMM YYYY')){
+            console.log('bold');
+            return(
             day.format('D').bold()
-        )
+          )
       }
-      else{
-        console.log('not bold');
-        return(
-        day.format('D')
-      )
+
+      // if(this.state.myEventsList[i].date.indexOf(day.format('D. MMMM YYYY')) === -1){
+      //   return(
+      //     day.format('D')
+      //   )
+      // }
+      //
+
+
+
     }
-    }
+
+
+
   }
+
 
   render() {
 
@@ -101,7 +111,8 @@ export default class CalendarExample extends Component {
         onPrevMonth={() => this.setState({ date: this.state.date.clone().subtract(1, 'months') }) }
         date={this.state.date}
         onPickDate={(date) => this.checkEvents(date)}
-        renderDay={(day) => this.renderDay(day)}
+        renderDay={(day) => day.format('D')}
+        renderEvents={(events) => this.renderDay(events)}
       />
     <br/>
     <p> Instructions: Click on a Day to see the events on that day!</p>

@@ -22,14 +22,13 @@ export default class Messages extends React.Component {
 
   render() {
     var userParty;
-    if(this.state.polAff === 1)
+    if(this.state.polAff === 2)
       userParty = "republican-text";
     else userParty = "democrat-text";
 
     return(
       <div className="chat-box-text">
-        <b className = {userParty}>{this.state.author} </b>:
-        {this.props.contents}
+        <b className = {userParty}>{this.state.author}</b>: {this.props.contents}
       </div>
     )
   }
