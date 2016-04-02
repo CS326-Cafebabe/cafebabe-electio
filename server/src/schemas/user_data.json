@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "id": "_id",
+      "type": "integer"
+    },
+    "email": {
+      "id": "email",
+      "type": "string"
+    },
+    "password": {
+      "id": "password",
+      "type": "string"
+    },
+    "fullName": {
+      "id": "fullName",
+      "type": "string"
+    },
+    "gender": {
+      "id": "gender",
+      "type": "string"
+    },
+    "race": {
+      "id": "race",
+      "type": "string"
+    },
+    "hispanic": {
+      "id": "hispanic",
+      "type": "boolean"
+    },
+    "registered": {
+      "id": "registered",
+      "type": "boolean"
+    },
+    "age": {
+      "id": "age",
+      "type": "string"
+    },
+    "politicalAffiliation": {
+      "id": "politicalAffiliation",
+      "type": "integer"
+    },
+    "location": {
+      "id": "location",
+      "type": "string"
+    },
+    "vote": {
+      "id": "vote",
+      "type": "integer"
+    },
+    "emailSettings": {
+      "id": "emailSettings",
+      "type": "array"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "_id",
+    "email",
+    "password",
+    "fullName",
+    "gender",
+    "race",
+    "hispanic",
+    "registered",
+    "age",
+    "politicalAffiliation",
+    "location",
+    "vote",
+    "emailSettings"
+  ]
+}
