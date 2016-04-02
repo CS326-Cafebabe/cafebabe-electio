@@ -2,6 +2,9 @@
 This was modified from the bootstrap dashboard example:
 http://getbootstrap.com/examples/dashboard/
 */
+.container-fluid {
+	font-family: 'Raleway', sans-serif;
+}
 
 /*Home page CSS*/
 
