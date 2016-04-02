@@ -7,6 +7,7 @@ var database = require('./database');
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
+var getCollection = database.getCollection;
 
 var app = express();
 app.use(express.static('../client/build'));
@@ -16,6 +17,46 @@ app.use(bodyParser.json());
 
 app.listen(3000, function() {
   console.log('Listening on port 3000!');
+});
+
+// get all events
+app.get('/events', function(req, res) {
+  var allEvents = getCollection('events');
+  var numEvents = Object.keys(allEvents).length;
+
+  var events = [];
+  for (var i = 1; i <= numEvents; i++) {
+    events.push(readDocument('events', i));
+  }
+  res.send(events);
+})
+
+// get some events
+app.get('/events/:page', function(req, res) {
+  var pageNum = parseInt(req.params.page, 10);
+  var start = 0;
+  if (pageNum === 2) start = 3;
+
+  var events = [];
+  for (var i = start + 1; i <= start + 3; i++) {    // only need 3 events
+    events.push(readDocument('events', i));
+  }
+  res.send(events);
+});
+
+// get independent candidates
+app.get('/candidates/independent', function(req, res) {
+  var allCandidates = getCollection('candidates');
+  var numCandidates = Object.keys(allCandidates).length;
+
+  var candidates = [];
+  for (var i = 1; i <= numCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if (candidate.party === 3 || candidate.party === 4) {
+      candidates.push(candidate);
+    }
+  }
+  res.send(candidates);
 });
 
 // Reset database.
