@@ -11,6 +11,8 @@ var writeDocument = database.writeDocument;
 var getCollection = database.getCollection;
 var UserSchema = require('./schemas/user_data.json');
 
+var numberOfCandidates = 9;
+
 var app = express();
 app.use(express.static('../client/build'));
 app.use(bodyParser.text());
@@ -65,6 +67,44 @@ app.get('/events/:page', function(req, res) {
     events.push(readDocument('events', i));
   }
   res.send(events);
+});
+
+// get all candidates
+app.get('/candidates', function(req, res) {
+
+  var candidates = [];
+  for (var i = 1; i<=numberOfCandidates; i++) {
+    candidates.push(readDocument('candidates', i));
+  }
+  //Sort the candidates
+  //Get surName connected to id
+  //Get surNames
+  var surNameIdDict = {};
+  var surNameArray = [];
+  for (var j = 0; j<candidates.length; j++) {
+    var split = candidates[j].fullName.split(" ");
+    var surName = (split)[split.length-1];
+    surNameIdDict[surName] = j;
+    surNameArray.push(surName);
+  }
+  //sort surNames
+  surNameArray.sort();
+  //push the candidate of the correct id into the right position
+  var sortedCandidates = [];
+  for (var k = 0; k<surNameArray.length; k++){
+    var oldId = surNameIdDict[surNameArray[k]];
+    sortedCandidates.push(candidates[oldId]);
+  }
+
+  res.send(sortedCandidates);
+
+});
+
+app.get('/candidates/id/:candidateid', function(req, res) {
+
+  var candidate = readDocument('candidates', req.params.candidateid, 10);
+  res.send(candidate)
+
 });
 
 // get independent candidates

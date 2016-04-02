@@ -16,6 +16,7 @@ function emulateServerReturn(data, cb) {
 }
 
 var token = 'eyJpZCI6MX0=';
+
 function sendXHR(verb, resource, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.open(verb, resource);
@@ -105,8 +106,11 @@ export function setUserData(userId, newData, cb) {
 }
 
 export function getCandidate(candIndex, cb) {
-  var candidate = readDocument('candidates', candIndex);
-  emulateServerReturn(candidate, cb);
+
+  sendXHR('GET', ('/candidates/id/' + candIndex), undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
+
 }
 
 export function getSomeEvents(page, cb) {
@@ -122,30 +126,11 @@ export function getAllEvents(cb) {
 }
 
 export function getAllCandidates(cb) {
-  var candidates = [];
-  for (var i = 1; i<=numberOfCandidates; i++) {
-    candidates.push(readDocument('candidates', i));
-  }
-  //Sort the candidates
-  //Get surName connected to id
-  //Get surNames
-  var surNameIdDict = {};
-  var surNameArray = [];
-  for (var j = 0; j<candidates.length; j++) {
-    var split = candidates[j].fullName.split(" ");
-    var surName = (split)[split.length-1];
-    surNameIdDict[surName] = j;
-    surNameArray.push(surName);
-  }
-  //sort surNames
-  surNameArray.sort();
-  //push the candidate of the correct id into the right position
-  var sortedCandidates = [];
-  for (var k = 0; k<surNameArray.length; k++){
-    var oldId = surNameIdDict[surNameArray[k]];
-    sortedCandidates.push(candidates[oldId]);
-  }
-  emulateServerReturn(sortedCandidates, cb);
+
+  sendXHR('GET', '/candidates', undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
+
 }
 
 export function getAllChat(cb){
