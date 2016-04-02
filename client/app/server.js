@@ -149,11 +149,15 @@ export function getAllCandidates(cb) {
 }
 
 export function getAllChat(cb){
-  var chatBoxes = [];
-  for(var i = 1; i <= numberOfChats; i++){
-    chatBoxes.push(readDocument('chatBox', i));
-  }
-  emulateServerReturn(chatBoxes, cb);
+
+  sendXHR('GET', '/chat', undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  })
+  // var chatBoxes = [];
+  // for(var i = 1; i <= numberOfChats; i++){
+  //   chatBoxes.push(readDocument('chatBox', i));
+  // }
+  // emulateServerReturn(chatBoxes, cb);
 }
 
 
@@ -181,14 +185,20 @@ export function getParty(partyId, cb) {
   });
 }
 
-export function postMessage(chatBoxId, author, message, cb){
-  var chatBox = readDocument('chatBox', chatBoxId);
-  chatBox.messages.push({
-    "author": author,
-    "contents": message
+export function postMessage(chatBoxId, authorID, message, cb){
+  // var chatBox = readDocument('chatBox', chatBoxId);
+  // chatBox.messages.push({
+  //   "author": author,
+  //   "contents": message
+  // });
+  // writeDocument('chatBox', chatBox);
+  // emulateServerReturn(chatBox, cb);
+  sendXHR('POST', '/chat/' + chatBoxId + '/messages', {
+    author: authorID,
+    contents: message
+  }, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
   });
-  writeDocument('chatBox', chatBox);
-  emulateServerReturn(chatBox, cb);
 }
 
 export function getChat(chatId, cb) {

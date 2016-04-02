@@ -79,6 +79,35 @@ app.get('/users/:userid', function(req, res) {
   }
 })
 
+//Get All Chats
+app.get('/chat', function(req, res) {
+  var chatBoxes = [];
+  for(var i = 1; i <= 6; i++){
+    chatBoxes.push(readDocument('chatBox', i));
+  }
+  res.send(chatBoxes);
+})
+
+//postMessage
+app.post('/chat/:chatId/messages/', function(req, res) {
+  var author = getUserIdFromToken(req.get('Authorization'));
+  var body = req.body;
+  var chatBoxId = parseInt(req.params.chatId, 10);
+  if(author === body.author) {
+    var chatBox = readDocument('chatBox', chatBoxId);
+    chatBox.messages.push({
+      "author": body.author,
+      "contents": body.contents
+    });
+    writeDocument('chatBox', chatBoxId);
+    res.status(201);
+    res.set('Location', '/chat/' + chatBoxId + '/messages/')
+    res.send(chatBox);
+  }
+  else res.status(401).end();
+})
+
+
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
  */
@@ -97,9 +126,8 @@ function getUserIdFromToken(authorizationLine) {
     return -1;
   }
 }
-/*
- * Translate JSON Schema Validation failures into error 400s.
- *
+
+
 app.use(function(err, req, res, next) {
   if (err.name === 'JsonSchemaValidation') {
     res.status(400).end();
@@ -107,4 +135,3 @@ app.use(function(err, req, res, next) {
     next(err);
   }
 });
- */
