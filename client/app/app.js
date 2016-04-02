@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ErrorBanner from './components/errorbanner';
 import {IndexRoute, Router, Route, hashHistory} from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
@@ -104,7 +105,10 @@ class EmailSettingsPage extends React.Component {
 class App extends React.Component {
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div>
+        <ErrorBanner />
+        {this.props.children}
+      </div>
     )
   }
 }
