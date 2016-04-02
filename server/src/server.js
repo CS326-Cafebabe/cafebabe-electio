@@ -9,6 +9,7 @@ var addDocument = database.addDocument;
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var getCollection = database.getCollection;
+var UserSchema = require('./schemas/user_data.json');
 
 var app = express();
 app.use(express.static('../client/build'));
@@ -102,25 +103,26 @@ app.get('/users/:userid', function(req, res) {
 });
 
 //set user data
-app.put('/users/:userid', function(req, res) {
+app.put('/users/:userid', validate({ body: UserSchema }), function(req, res) {
   var fromUser = getUserIdFromToken(req.get('Authorization'));
   var userId = parseInt(req.params.userid, 10);
+  var body = req.body;
   if(fromUser === userId){
     var userData = {
       "_id": userId,
-      "email": newData.email,
-      "password": newData.password,
-      "fullName": newData.fullName,
-      "gender": newData.gender,
-      "race": newData.race,
-      "hispanic": newData.hispanic,
-      "registered": newData.registered,
-      "age": newData.age,
-      "politicalAffiliation": newData.politicalAffiliation,
-      "location": newData.location,
-      "vote": newData.vote,
+      "email": body.email,
+      "password": body.password,
+      "fullName": body.fullName,
+      "gender": body.gender,
+      "race": body.race,
+      "hispanic": body.hispanic,
+      "registered": body.registered,
+      "age": body.age,
+      "politicalAffiliation": body.politicalAffiliation,
+      "location": body.location,
+      "vote": body.vote,
 
-      "emailSettings": newData.emailSettings
+      "emailSettings": body.emailSettings
     }
     writeDocument('users', userData);
     res.send(userData);
@@ -210,7 +212,6 @@ function getUserIdFromToken(authorizationLine) {
     return -1;
   }
 }
-
 
 app.use(function(err, req, res, next) {
   if (err.name === 'JsonSchemaValidation') {
