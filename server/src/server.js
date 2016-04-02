@@ -190,8 +190,10 @@ app.get('/users/:userid/party', function(req, res) {
 
 //Get All Chats
 app.get('/chat', function(req, res) {
+  var allChats = getCollection('chatBox');
+  var numChats = Object.keys(allChats).length;
   var chatBoxes = [];
-  for(var i = 1; i <= 6; i++){
+  for(var i = 1; i <= numChats; i++){
     chatBoxes.push(readDocument('chatBox', i));
   }
   res.send(chatBoxes);

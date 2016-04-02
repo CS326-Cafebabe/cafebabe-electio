@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Calendar } from 'react-calendar-component';
+// import { hasEvents } from 'react-calendar-component';
 import moment from 'moment';
 import {getAllEvents} from '../server'
 
@@ -67,35 +68,26 @@ export default class CalendarExample extends Component {
 
     renderDay(day){
       // var temp = day.format('D');
-        for(var i = 0; i < this.state.myEventsList.length; i++){
 
-          if(this.state.myEventsList[i].date === day.format('D. MMMM YYYY')){
-            console.log('bold');
-            return(
-            day.format('D').bold()
-          )
+      var date = day.format('D');
+      for(var i = 0; i < this.state.myEventsList.length; i++){
+        if(this.state.myEventsList[i].date === day.format('D. MMMM YYYY')){
+          date = day.format('*D*');
+        }
       }
-
+      return(date);
       // if(this.state.myEventsList[i].date.indexOf(day.format('D. MMMM YYYY')) === -1){
       //   return(
       //     day.format('D')
       //   )
       // }
       //
-
-
-
-    }
-
-
-
-  }
-
+}
 
   render() {
 
     var events = this.state.eventsOnDay;
-
+    // console.log('hi')
     return (
       <div>
         <div className="row">
@@ -111,11 +103,10 @@ export default class CalendarExample extends Component {
         onPrevMonth={() => this.setState({ date: this.state.date.clone().subtract(1, 'months') }) }
         date={this.state.date}
         onPickDate={(date) => this.checkEvents(date)}
-        renderDay={(day) => day.format('D')}
-        renderEvents={(events) => this.renderDay(events)}
+        renderDay={(day) => this.renderDay(day)}
       />
     <br/>
-    <p> Instructions: Click on a Day to see the events on that day!</p>
+    <p> Dates with an asterisk have an Event! Click to see more info!</p>
     <div className="alert alert-success" role="alert"><strong>Events On {this.state.dayPicked.format('MM/DD/YYYY')}:</strong>
       {events.map((events, i) => {
         return(

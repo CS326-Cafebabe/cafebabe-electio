@@ -42,14 +42,14 @@ import React from 'react';
        <div>
          <div className="panel-footer">
            <div className="input-group">
-             <span className="input-group-btn">
-               <button className="btn btn-chat" type="button" onClick={(e) => this.handleClick(e)}>
-                 <span className="glyphicon glyphicon-pencil"></span>
-               </button>
-             </span>
              <input type="text" className="form-control" placeholder="Contribute to the Discussion..."
               value={this.state.value} onChange={(e) => this.handleChange(e)}
               onKeyUp={(e) => this.handleKeyUp(e)} />
+              <span className="input-group-btn">
+                <button className="btn btn-chat" type="button" onClick={(e) => this.handleClick(e)}>
+                  <span className="glyphicon glyphicon-pencil"></span>
+                </button>
+              </span>
              </div>
            </div>
        </div>
