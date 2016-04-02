@@ -25,9 +25,22 @@ app.post('/resetdb', function(req, res) {
   res.send();
 });
 
+//get User Settings page with Settings
+app.get('/users/:userid', function(req, res) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var userId = parseInt(req.params.userid, 10);
+  if(fromUser === userId){
+    var user = readDocument('users', userId);
+    res.send(user);
+  }
+  else{
+    res.status(401).end();
+  }
+})
+
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
- *
+ */
 function getUserIdFromToken(authorizationLine) {
   try {
     var token = authorizationLine.slice(7);
@@ -43,7 +56,7 @@ function getUserIdFromToken(authorizationLine) {
     return -1;
   }
 }
-
+/*
  * Translate JSON Schema Validation failures into error 400s.
  *
 app.use(function(err, req, res, next) {
