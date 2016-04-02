@@ -79,6 +79,22 @@ app.get('/users/:userid', function(req, res) {
   }
 })
 
+//get user Name
+app.get('/users/:userid/fullName', function(req, res) {
+  var userId = parseInt(req.params.userid, 10);
+  var name = readDocument('users', userId).fullName.toString();
+  res.status(200);
+  res.send(name);
+})
+
+//get user party
+app.get('/users/:userid/party', function(req, res) {
+  var userId = parseInt(req.params.userid, 10);
+  var userParty = readDocument('users', userId).politicalAffiliation.toString();
+  res.status(200);
+  res.send(userParty);
+})
+
 //Get All Chats
 app.get('/chat', function(req, res) {
   var chatBoxes = [];
@@ -88,18 +104,29 @@ app.get('/chat', function(req, res) {
   res.send(chatBoxes);
 })
 
+//Get Single Chat
+app.get('/chat/:chatId', function(req, res){
+  var chatId = parseInt(req.params.chatId, 10);
+  res.send(readDocument('chatBox', chatId));
+})
+
+function postMessage(chatBoxId, authorId, message){
+  var chatBox = readDocument('chatBox', chatBoxId);
+  chatBox.messages.push({
+    "author": authorId,
+    "contents": message
+  });
+  writeDocument('chatBox', chatBox);
+  return chatBox;
+}
+
 //postMessage
 app.post('/chat/:chatId/messages/', function(req, res) {
   var author = getUserIdFromToken(req.get('Authorization'));
   var body = req.body;
   var chatBoxId = parseInt(req.params.chatId, 10);
   if(author === body.author) {
-    var chatBox = readDocument('chatBox', chatBoxId);
-    chatBox.messages.push({
-      "author": body.author,
-      "contents": body.contents
-    });
-    writeDocument('chatBox', chatBoxId);
+    var chatBox = postMessage(chatBoxId, author, body.contents);
     res.status(201);
     res.set('Location', '/chat/' + chatBoxId + '/messages/')
     res.send(chatBox);

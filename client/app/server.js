@@ -202,8 +202,23 @@ export function postMessage(chatBoxId, authorID, message, cb){
 }
 
 export function getChat(chatId, cb) {
-  var chat = readDocument('chatBox', chatId);
-  emulateServerReturn(chat, cb)
+  // var chat = readDocument('chatBox', chatId);
+  // emulateServerReturn(chat, cb)
+  sendXHR('GET', '/chat/' + chatId, undefined, (xhr) =>{
+    cb(JSON.parse(xhr.responseText));
+  })
+}
+
+export function getUserName(userId, cb){
+  sendXHR('GET', '/users/' + userId + '/fullName', undefined, (xhr) => {
+    cb((xhr.responseText));
+  })
+}
+
+export function getUserParty(userId, cb){
+  sendXHR('GET', '/users/' + userId + '/party', undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  })
 }
 
 export function getEmailSettings(userId, cb) {
