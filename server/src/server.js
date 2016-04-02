@@ -88,7 +88,7 @@ app.post('/resetdb', function(req, res) {
   res.send();
 });
 
-//get User Settings page with Settings
+//get user data
 app.get('/users/:userid', function(req, res) {
   var fromUser = getUserIdFromToken(req.get('Authorization'));
   var userId = parseInt(req.params.userid, 10);
@@ -99,7 +99,36 @@ app.get('/users/:userid', function(req, res) {
   else{
     res.status(401).end();
   }
-})
+});
+
+//set user data
+app.put('/users/:userid', function(req, res) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var userId = parseInt(req.params.userid, 10);
+  if(fromUser === userId){
+    var userData = {
+      "_id": userId,
+      "email": newData.email,
+      "password": newData.password,
+      "fullName": newData.fullName,
+      "gender": newData.gender,
+      "race": newData.race,
+      "hispanic": newData.hispanic,
+      "registered": newData.registered,
+      "age": newData.age,
+      "politicalAffiliation": newData.politicalAffiliation,
+      "location": newData.location,
+      "vote": newData.vote,
+
+      "emailSettings": newData.emailSettings
+    }
+    writeDocument('users', userData);
+    res.send(userData);
+  }
+  else{
+    res.status(401).end();
+  }
+});
 
 //get user Name
 app.get('/users/:userid/fullName', function(req, res) {
@@ -156,6 +185,12 @@ app.post('/chat/:chatId/messages/', validate({body: MessageSchema }), function(r
   else res.status(401).end();
 })
 
+//get party
+app.get('/parties/:partyid', function(req, res) {
+  var partyId = parseInt(req.params.partyid, 10);
+  var party = readDocument('parties', partyId);
+  res.send(party);
+});
 
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
