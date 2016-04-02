@@ -1,8 +1,9 @@
 var express = require('express');
 
 var bodyParser = require('body-parser');
-//var validate = require('express-jsonschema').validate;
+var validate = require('express-jsonschema').validate;
 
+var MessageSchema = require('./schemas/message.json');
 var database = require('./database');
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
@@ -121,7 +122,7 @@ function postMessage(chatBoxId, authorId, message){
 }
 
 //postMessage
-app.post('/chat/:chatId/messages/', function(req, res) {
+app.post('/chat/:chatId/messages/', validate({body: MessageSchema }), function(req, res) {
   var author = getUserIdFromToken(req.get('Authorization'));
   var body = req.body;
   var chatBoxId = parseInt(req.params.chatId, 10);
