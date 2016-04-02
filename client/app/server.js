@@ -24,33 +24,22 @@ export function  getUserData(userId, cb) {
 
 export function setUserData(userId, newData, cb) {
   var userData = {
-        "_id": userId,
-        "email": newData.email,
-        "password": newData.password,
-        "fullName": newData.fullName,
-        "gender": newData.gender,
-        "race": newData.race,
-        "hispanic": newData.hispanic,
-        "registered": newData.registered,
-        "age": newData.age,
-        "politicalAffiliation": newData.politicalAffiliation,
-        "location": newData.location,
-        "vote": newData.vote,
-
-        "emailSettings": newData.emailSettings
+    "_id": userId,
+    "email": newData.email,
+    "password": newData.password,
+    "fullName": newData.fullName,
+    "gender": newData.gender,
+    "race": newData.race,
+    "hispanic": newData.hispanic,
+    "registered": newData.registered,
+    "age": newData.age,
+    "politicalAffiliation": newData.politicalAffiliation,
+    "location": newData.location,
+    "vote": newData.vote,
+    "emailSettings": newData.emailSettings
   }
   writeDocument('users', userData);
   emulateServerReturn(userData, cb);
-}
-
-export function getUserPoliticalAffiliation(userId, cb){
-  var userData = readDocument('users', userId);
-  emulateServerReturn(userData.politicalAffiliation, cb);
-}
-
-export function getUserName(userId, cb) {
-  var userData = readDocument('users', userId);
-  emulateServerReturn(userData.fullName, cb);
 }
 
 export function getCandidate(candIndex, cb) {
@@ -85,32 +74,25 @@ export function getAllCandidates(cb) {
   }
 
   //Sort the candidates
-   //Get surName connected to id
-   //Get surNames
-   var surNameIdDict = {};
-   var surNameArray = [];
-   for (var j = 0; j<candidates.length; j++) {
-     var split = candidates[j].fullName.split(" ");
-     var surName = (split)[split.length-1];
-
-     surNameIdDict[surName] = j;
-     surNameArray.push(surName);
-
-   }
-
-   //sort surNames
-   surNameArray.sort();
-
-   //push the candidate of the correct id into the right position
-   var sortedCandidates = [];
-   for (var k = 0; k<surNameArray.length; k++){
-     var oldId = surNameIdDict[surNameArray[k]];
-     sortedCandidates.push(candidates[oldId]);
-   }
-
-   //return
-   emulateServerReturn(sortedCandidates, cb);
-
+  //Get surName connected to id
+  //Get surNames
+  var surNameIdDict = {};
+  var surNameArray = [];
+  for (var j = 0; j<candidates.length; j++) {
+    var split = candidates[j].fullName.split(" ");
+    var surName = (split)[split.length-1];
+    surNameIdDict[surName] = j;
+    surNameArray.push(surName);
+  }
+  //sort surNames
+  surNameArray.sort();
+  //push the candidate of the correct id into the right position
+  var sortedCandidates = [];
+  for (var k = 0; k<surNameArray.length; k++){
+    var oldId = surNameIdDict[surNameArray[k]];
+    sortedCandidates.push(candidates[oldId]);
+  }
+  emulateServerReturn(sortedCandidates, cb);
 }
 
 export function getAllChat(cb){
@@ -175,7 +157,6 @@ export function getEmailSettings(userId, cb) {
 export function subscribe(candId, userId, cb) {
   var user = readDocument('users', userId);
   // var email = user.emailSettings;
-
   user.emailSettings.push(candId);
   writeDocument('users', user);
   //emulateServerReturn(user.emailSettings.map((id) => readDocument('candidates', id)), cb);
@@ -185,7 +166,6 @@ export function subscribe(candId, userId, cb) {
 export function unsubscribe(candId, userId, cb) {
   var user = readDocument('users', userId);
   //var email = user.emailSettings;
-
   // (We didn't *resolve* the FeedItem object, so it is just an array of user IDs)
   var candIndex = user.emailSettings.indexOf(candId);
   // -1 means the user is *not* in the likeCounter, so we can simply avoid updating
