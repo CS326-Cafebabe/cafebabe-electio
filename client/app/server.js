@@ -80,28 +80,30 @@ function sendXHR(verb, resource, body, cb) {
 }
 
 export function  getUserData(userId, cb) {
-  var userData = readDocument('users', userId);
-  emulateServerReturn(userData, cb);
+  sendXHR('GET', '/users/' + userId, undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 export function setUserData(userId, newData, cb) {
-  var userData = {
-    "_id": userId,
-    "email": newData.email,
-    "password": newData.password,
-    "fullName": newData.fullName,
-    "gender": newData.gender,
-    "race": newData.race,
-    "hispanic": newData.hispanic,
-    "registered": newData.registered,
-    "age": newData.age,
-    "politicalAffiliation": newData.politicalAffiliation,
-    "location": newData.location,
-    "vote": newData.vote,
-    "emailSettings": newData.emailSettings
-  }
-  writeDocument('users', userData);
-  emulateServerReturn(userData, cb);
+  sendXHR('PUT', '/users/' + userId, {
+    _id: userId,
+    email: newData.email,
+    password: newData.password,
+    fullName: newData.fullName,
+    gender: newData.gender,
+    race: newData.race,
+    hispanic: newData.hispanic,
+    registered: newData.registered,
+    age: newData.age,
+    politicalAffiliation: newData.politicalAffiliation,
+    location: newData.location,
+    vote: newData.vote,
+    emailSettings: newData.emailSettings
+  }, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 export function getCandidate(candIndex, cb) {
@@ -190,8 +192,9 @@ export function getIndCandidates(cb) {
 
 
 export function getParty(partyId, cb) {
-  var party = readDocument('parties', partyId);
-  emulateServerReturn(party, cb)
+  sendXHR('GET', '/parties/' + partyId, undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 export function postMessage(chatBoxId, author, message, cb){
