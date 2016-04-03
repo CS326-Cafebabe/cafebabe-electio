@@ -124,7 +124,7 @@ app.get('/candidates/independent', function(req, res) {
 
 // Reset database.
 app.post('/resetdb', function(req, res) {
-  console.log("Resetting database...");
+  console.log("Resetting database for " + req.ip + " (" + req.hostname + ")");
   database.resetDatabase();
   res.send();
 });
