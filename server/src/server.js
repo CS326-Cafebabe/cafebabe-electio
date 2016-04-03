@@ -250,6 +250,62 @@ app.get('/candidates/party/:partyid', function(req, res) {
   res.send(candidates);
 });
 
+//get user data
+app.get('/users/:userid/emailsettings', function(req, res) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var userId = parseInt(req.params.userid, 10);
+
+  //need to make sure user is authorized
+  if(fromUser === userId){
+    var user = readDocument('users', userId);
+    res.send(user.emailSettings);
+  }
+  else{
+    res.status(401).end();
+  }
+});
+
+//adds a candidate to the emailsettings of a user
+app.put('/users/:userid/emailsettings/:candid', function(req, res) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var userId = parseInt(req.params.userid, 10);
+  var candId = parseInt(req.params.candid, 10);
+
+  //need to make sure user is authorized
+  if(fromUser === userId){
+    var user = readDocument('users', userId);
+    user.emailSettings.push(candId);
+    writeDocument('users', user);
+    res.send(user.emailSettings);
+  }
+  else{
+    res.status(401).end();
+  }
+});
+
+//removes a candidate to the emailsettings of a user
+app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var userId = parseInt(req.params.userid, 10);
+  var candId = parseInt(req.params.candid, 10);
+
+  //need to make sure user is authorized
+  if(fromUser === userId){
+    var user = readDocument('users', userId);
+    var candIndex = user.emailSettings.indexOf(candId);
+
+    if (candIndex !== -1) {
+      // 'splice' removes items from an array. This removes 1 element starting from userIndex.
+      user.emailSettings.splice(candIndex, 1);
+      writeDocument('users', user);
+    }
+    res.send(user.emailSettings);
+  }
+  else{
+    res.status(401).end();
+  }
+});
+
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
  */
