@@ -147,14 +147,18 @@ export function getAllChat(cb){
 
 
 export function getAllCandidatesOfParty(partyId, cb) {
-  var candidates = [];
-  for (var i = 1; i<=numberOfCandidates; i++) {
-    var candidate = readDocument('candidates', i);
-    if(partyId === candidate.party){
-      candidates.push(readDocument('candidates', i));
-    }
-    emulateServerReturn(candidates, cb);
-  }
+  // var candidates = [];
+  // for (var i = 1; i<=numberOfCandidates; i++) {
+  //   var candidate = readDocument('candidates', i);
+  //   if(partyId === candidate.party){
+  //     candidates.push(readDocument('candidates', i));
+  //   }
+  //   emulateServerReturn(candidates, cb);
+  // }
+
+  sendXHR('GET', '/candidates/party/' + partyId, undefined, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 //need new function because there are 2 party types for independents.

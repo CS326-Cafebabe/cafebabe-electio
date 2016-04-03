@@ -234,6 +234,22 @@ app.get('/parties/:partyid', function(req, res) {
   res.send(party);
 });
 
+//get all candidates of a given party
+app.get('/candidates/party/:partyid', function(req, res) {
+  var allCandidates = getCollection('candidates');
+  var numberOfCandidates = Object.keys(allCandidates).length;
+  var partyId = parseInt(req.params.partyid, 10);
+
+  var candidates = [];
+  for (var i = 1; i <= numberOfCandidates; i++) {
+    var candidate = readDocument('candidates', i);
+    if (partyId === candidate.party) {
+      candidates.push(candidate);
+    }
+  }
+  res.send(candidates);
+});
+
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
  */
