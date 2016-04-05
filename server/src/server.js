@@ -388,7 +388,7 @@ makeTransporter(function(transporter, devRecipient) {
       // console.log(candEvent.unixTime - (new Date).getTime()/1000);
       //if the time differential is 2 weeks away or less and it hasnt been notified
       if((candEvent.unixTime - (new Date).getTime()/1000 < 1209600) && (candEvent.unixTime - (new Date).getTime()/1000 > 0) && (candEvent.emailSent === false)){
-        console.log(candEvent);
+        //console.log(candEvent);
 
         var subjectLine = 'Upcoming: ' + candEvent.name;
         var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event."
@@ -414,7 +414,7 @@ makeTransporter(function(transporter, devRecipient) {
 
 
 
-  }, 1000);
+  }, 30000);
 });
 
 
