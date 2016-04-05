@@ -10,6 +10,9 @@ var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var getCollection = database.getCollection;
 var UserSchema = require('./schemas/user_data.json');
+var nodemailer = require('nodemailer');
+var fs = require('fs');
+
 
 var numberOfCandidates = 9;
 
@@ -278,6 +281,29 @@ app.put('/users/:userid/emailsettings/:candid', function(req, res) {
     var user = readDocument('users', userId);
     user.emailSettings.push(candId);
     writeDocument('users', user);
+    var candidate = readDocument("candidates",candId);
+    var subMessage = 'You just subscribed to emails regarding events affiliated with ' + candidate.fullName + ". To unsubscribe please return to email settings.";
+
+
+    makeTransporter(function(transporter, devRecipient) {
+    // console.log('hi');
+      // console.log("here");
+      var mailOptions = {
+          from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+          to: devRecipient, // list of receivers
+          subject: 'Recent Subscription', // Subject line
+          text: subMessage // plaintext body
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+      });
+    });
+
+
     res.send(user.emailSettings);
   }
   else{
@@ -301,12 +327,96 @@ app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
       user.emailSettings.splice(candIndex, 1);
       writeDocument('users', user);
     }
+
+    var candidate = readDocument("candidates",candId);
+    var subMessage = 'You just unsubscribed to emails regarding events affiliated with ' + candidate.fullName + ". To subscribe again please return to email settings.";
+
+
+    makeTransporter(function(transporter, devRecipient) {
+    // console.log('hi');
+      // console.log("here");
+      var mailOptions = {
+          from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+          to: devRecipient, // list of receivers
+          subject: 'Recent Unsubscription', // Subject line
+          text: subMessage // plaintext body
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+      });
+    });
+
     res.send(user.emailSettings);
   }
   else{
     res.status(401).end();
   }
 });
+
+function makeTransporter(cb) {
+  fs.readFile('./src/emailaccount.json', function(err, data) {
+      if(err) console.error(err);
+      var emailaccount = JSON.parse(data);
+      var devRecipient = emailaccount.devRecipient
+      var transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+              user: emailaccount.email,
+              pass: emailaccount.password
+          }
+      });
+      cb(transporter, devRecipient)
+  });
+}
+
+
+//we call makeTransporter on an interval to send emails about upcoming events
+makeTransporter(function(transporter, devRecipient) {
+  // console.log('hi');
+  var timer = setInterval(function(){
+    var events = getCollection('events');
+    var numEvents = Object.keys(events).length;
+
+    for(var i = 1; i <= numEvents; i++){
+
+
+      var candEvent = readDocument('events', i);
+      // console.log(candEvent.unixTime - (new Date).getTime()/1000);
+      //if the time differential is 2 weeks away or less and it hasnt been notified
+      if((candEvent.unixTime - (new Date).getTime()/1000 < 1209600) && (candEvent.unixTime - (new Date).getTime()/1000 > 0) && (candEvent.emailSent === false)){
+        console.log(candEvent);
+
+        var subjectLine = 'Upcoming: ' + candEvent.name;
+        var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event."
+
+        var mailOptions = {
+            from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+            to: devRecipient, // list of receivers
+            subject: subjectLine, // Subject line
+            text: content// plaintext body
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+          if(error){
+              return console.log(error);
+          }
+          console.log('Message sent: ' + info.response);
+        });
+
+        candEvent.emailSent = true;
+        writeDocument('events', candEvent);
+      }
+    }
+
+
+
+  }, 1000);
+});
+
 
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.

@@ -163,46 +163,82 @@ var initialData = {
 
   "events": {
     "1": {
+      "_id": 1,
       "date": "27. February 2016",
       "name": "South Carolina Primary",
       "location": "South Carolina",
       "summary": "Hillary Clinton won over Bernie Sanders with 73.5% of the votes.",
-      "party": "Democrat"
+      "party": "Democrat",
+      "associatedCandidates": [1,3,5],
+      "emailSent": false,
+      "unixTime": 1456531200
     },
     "2": {
+      "_id": 2,
       "date": "20. February 2016",
       "name": "South Carolina Primary",
       "location": "South Carolina",
       "summary": "Trump won over the other candidates with 32.5% of the votes.",
-      "party": "Republican"
+      "party": "Republican",
+      "associatedCandidates": [2,4,6,7],
+      "emailSent": false,
+      "unixTime": 1455926400
     },
     "3": {
+      "_id": 3,
       "date": "13. February 2016",
       "name": "Ninth Republican Debate",
       "location": "South Carolina",
       "summary": "Aenean tempor faucibus mauris, nec porttitor nulla tincidunt at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas at libero quis libero accumsan interdum. Quisque nec ultrices eros, sed consequat nisl. Mauris efficitur velit id iaculis elementum. Integer condimentum, erat id rhoncus rutrum, erat quam pretium est, eu gravida urna dolor et erat. Pellentesque vulputate tortor quis magna faucibus, interdum hendrerit odio lobortis. Ut lacus nibh, auctor ac nulla a, auctor maximus tortor. Vivamus laoreet congue accumsan. Vivamus nec congue leo. Quisque id sollicitudin justo. Curabitur fringilla risus eget erat dignissim semper. Sed ipsum purus, sagittis vitae sapien non, lacinia pulvinar turpis. Ut aliquet dui libero, aliquam dignissim dolor dignissim at.",
-      "party": "Republican"
+      "party": "Republican",
+      "associatedCandidates": [2,4,6,7],
+      "emailSent": false,
+      "unixTime": 1455321600
     },
     "4": {
+      "_id": 4,
       "date": "6. February 2016",
       "name": "Eighth Republican Debate",
       "location": "New Hampshire",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu commodo arcu, id volutpat diam. Suspendisse accumsan et ligula sed hendrerit. In volutpat ligula ut laoreet vulputate. Mauris a magna nec nisi scelerisque porta. Cras tellus lectus, bibendum eget enim id, consequat venenatis elit. Sed rutrum fermentum porttitor.",
-      "party": "Republican"
+      "party": "Republican",
+      "associatedCandidates": [2,4,6,7],
+      "emailSent": false,
+      "unixTime": 1454716800
     },
     "5": {
+      "_id": 5,
       "date": "4. February 2016",
       "name": "Fifth Democratic Debate",
       "location": "New Hampshire",
       "summary": "Sed eu ligula eu enim rhoncus hendrerit eget nec dolor. Nunc imperdiet interdum dolor eu fringilla. Quisque luctus fermentum velit bibendum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce et dolor id tellus porttitor pretium ac non dolor. Fusce porta feugiat tellus, ut convallis ante varius a.",
-      "party": "Democrat"
+      "party": "Democrat",
+      "associatedCandidates": [1,3,5],
+      "emailSent": false,
+      "unixTime": 1454544000
     },
     "6": {
+      "_id": 6,
       "date": "1. February 2016",
       "name": "Iowa Caucus",
       "location": "Iowa",
       "summary": " Iowa Democratic Caucus is won by Hillary Clinton. Iowa Republican Caucus is won by Ted Cruz. Martin O'Malley drops out of the Democratic race. Mike Huckabee drops out of the Republican race.",
-      "party": ""
+      "party": "",
+      "associatedCandidates": [],
+      "emailSent": false,
+      "unixTime": 1454284800
+    },
+    "7": {
+      "_id": 7,
+      "date": "19. April 2016",
+      "name": "New York Primary",
+      "location": "New York",
+      "summary": "",
+      "party": "",
+      "associatedCandidates": [1,2,3,5,6,7],
+      "emailSent": false,
+      "unixTime": 1461024000
+
     }
   },
 

@@ -3,7 +3,8 @@ import {readDocument, writeDocument, addDocument} from './database.js';
 var numberOfCandidates = 9;
 var numberOfChats = 6;
 var numberOfWeeks = 5;
-var numberOfUsers = 5
+var numberOfUsers = 5;
+var numberOfEvents = 7;
 
 /**
 * Emulates how a REST call is *asynchronous* -- it calls your function back
