@@ -1,4 +1,4 @@
-import {readDocument, writeDocument, addDocument} from './database.js';
+// import {readDocument, writeDocument, addDocument} from './database.js';
 
 var numberOfCandidates = 9;
 var numberOfChats = 6;
