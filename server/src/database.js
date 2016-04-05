@@ -261,7 +261,7 @@ var initialData = {
     },
     "2":{
       "_id":2,
-      "email":"generic@email.com",
+      "email":"generic2@email.com",
       "password":"genericPass",
       "fullName":"Generic Name",
       "gender":"male",
@@ -277,7 +277,7 @@ var initialData = {
     },
     "3":{
       "_id":3,
-      "email":"generic@email.com",
+      "email":"generic3@email.com",
       "password":"genericPass",
       "fullName":"Generic Name",
       "gender":"female",
@@ -293,7 +293,7 @@ var initialData = {
     },
     "4":{
       "_id":4,
-      "email":"generic@email.com",
+      "email":"generic4@email.com",
       "password":"genericPass",
       "fullName":"Generic Name",
       "gender":"other",
@@ -309,7 +309,7 @@ var initialData = {
     },
     "5":{
       "_id":5,
-      "email":"generic@email.com",
+      "email":"generic5@email.com",
       "password":"genericPass",
       "fullName":"Generic Name",
       "gender":"male",

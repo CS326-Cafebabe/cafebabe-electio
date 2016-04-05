@@ -377,25 +377,44 @@ function makeTransporter(cb) {
 //we call makeTransporter on an interval to send emails about upcoming events
 makeTransporter(function(transporter, devRecipient) {
   // console.log('hi');
-  var timer = setInterval(function(){
+  setInterval(function(){
     var events = getCollection('events');
     var numEvents = Object.keys(events).length;
 
     for(var i = 1; i <= numEvents; i++){
 
-
       var candEvent = readDocument('events', i);
-      // console.log(candEvent.unixTime - (new Date).getTime()/1000);
       //if the time differential is 2 weeks away or less and it hasnt been notified
       if((candEvent.unixTime - (new Date).getTime()/1000 < 1209600) && (candEvent.unixTime - (new Date).getTime()/1000 > 0) && (candEvent.emailSent === false)){
-        //console.log(candEvent);
+        var users = getCollection('users');
+        var numUsers = Object.keys(users).length;
 
         var subjectLine = 'Upcoming: ' + candEvent.name;
-        var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event."
-
+        var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event. \n \n The event will take place on the " + candEvent.date + "."
+        //I would count the number of users here and iterate through all of them,
+        //creating a list of recipients who actually would receive the email
+        //based on their subscriptions.
+        //However for dev purposes I only send 1 email to a dev email, not an email
+        //actually in the db (which would be a quick change below in mailOptions)
+        var usersToReceive = [];
+        for(var j = 1; j <= numUsers; j ++){
+          var user = readDocument('users', j);
+          //iterate over the users subscriptions, check if associated with event
+          for(var c = 0; c < user.emailSettings.length; c ++){
+            //if the candId is shared, add to a list of users to receive the email, break to next user
+            if(candEvent.associatedCandidates.indexOf(user.emailSettings[c]) !== -1){
+              usersToReceive.push(user.email);
+              break;
+            }
+          }
+        }
+        console.log(usersToReceive);
+        //Note: in the actual implementation, I would use the above "usersToReceive"
+        //list of emails instead of devRecipient, sending to all users who are
+        //subscribed. The code is all in place...
         var mailOptions = {
             from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
-            to: devRecipient, // list of receivers
+            to: devRecipient, // list of receivers -- WOULD BE "usersToReceive"
             subject: subjectLine, // Subject line
             text: content// plaintext body
         };
