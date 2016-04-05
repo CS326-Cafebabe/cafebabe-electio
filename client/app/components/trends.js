@@ -10,8 +10,6 @@ export default class Trends extends React.Component {
       "classNames": [
         "loaded",
         "not-loaded",
-        "More",
-        "Less"
       ],
       "weeklyStates": [],
       "displayWeek": " . . . ",
@@ -39,16 +37,13 @@ export default class Trends extends React.Component {
   Rest(clickEvent){
     clickEvent.preventDefault();
     var currState = this.state.classNames;
-    console.log(this.state.classNames);
     var ind = currState.indexOf("not-loaded");
-    console.log(ind);
     if(ind !== -1){
       currState[ind] = "loaded";
     } else{
       currState[1] = "not-loaded";
     }
     this.setState({classNames: currState});
-    console.log(this.state.classNames);
   }
 
   refresh() {
