@@ -408,7 +408,7 @@ makeTransporter(function(transporter, devRecipient) {
             }
           }
         }
-        console.log(usersToReceive);
+        // console.log(usersToReceive);
         //Note: in the actual implementation, I would use the above "usersToReceive"
         //list of emails instead of devRecipient, sending to all users who are
         //subscribed. The code is all in place...
