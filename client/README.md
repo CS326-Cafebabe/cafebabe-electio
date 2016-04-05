@@ -5,8 +5,6 @@ side of your product runs in the browser.
 
 
 
-# Startup Submission 4 Work distribution
-Andrew:
-  1. Move navbar into index
-  2. Thumbnail Components
-  3. Thumbnail Mock data
+# Postman Tests:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/79087dd86e2a74a567d3)
