@@ -411,6 +411,15 @@ h2 {
 }
 
 /*Trends page CSS*/
+.dates {
+	cursor: pointer;
+}
+.loaded {
+	display: list-item;
+}
+.not-loaded {
+	display: none;
+}
 .sidebar-list {
   list-style-type: none;
 }

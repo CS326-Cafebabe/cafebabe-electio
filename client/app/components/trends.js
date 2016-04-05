@@ -7,6 +7,12 @@ export default class Trends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      "classNames": [
+        "loaded",
+        "not-loaded",
+        "More",
+        "Less"
+      ],
       "weeklyStates": [],
       "displayWeek": " . . . ",
       "ballotBox": [],
@@ -28,6 +34,21 @@ export default class Trends extends React.Component {
     this.setState({displayWeek: "for "+week.startDate});
     this.setState({loaded: true});
     this.setState({ballotBox: week.ballotBox});
+  }
+
+  Rest(clickEvent){
+    clickEvent.preventDefault();
+    var currState = this.state.classNames;
+    console.log(this.state.classNames);
+    var ind = currState.indexOf("not-loaded");
+    console.log(ind);
+    if(ind !== -1){
+      currState[ind] = "loaded";
+    } else{
+      currState[1] = "not-loaded";
+    }
+    this.setState({classNames: currState});
+    console.log(this.state.classNames);
   }
 
   refresh() {
@@ -213,15 +234,16 @@ export default class Trends extends React.Component {
                 <h3>Weekly Snapshots</h3>
                 <hr/>
                 <ul>
-                  {this.state.weeklyStates.map((week, i) => <li key={i}>
-                    <button className="btn btn-default event-btn" onClick={(e) => this.handleClick(e, week)}>{week.startDate}</button>
-                  </li>)}
+                  {this.state.weeklyStates.map((week, i) =>
+                    <li key={i} className={(i < 3) ? this.state.classNames[0] : this.state.classNames[1]}>
+                      <a className="dates" onClick={(e) => this.handleClick(e, week)}>{week.startDate}</a>
+                    </li>)}
                   <li className="media">
                     <div className="media-left media-top">
                       <span className="caret"></span>
                     </div>
                     <div className="media-body">
-                      <Link to="/archive/1">More Past Events</Link>
+                      <a className="dates" onClick={(e) => this.Rest(e)}> {(this.state.classNames.indexOf("not-loaded") === -1) ? "Less" : "More"} Weeks</a>
                     </div>
                   </li>
                 </ul>
