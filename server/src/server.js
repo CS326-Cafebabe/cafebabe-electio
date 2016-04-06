@@ -23,7 +23,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json());
 
 app.listen(3000, function() {
-  console.log("[" + new Date() + "] Started listening on port 3000!");
+  console.log("[" + new Date() + "]: Started listening on port 3000!");
 });
 
 //Trends getAllWeeks
@@ -127,7 +127,7 @@ app.get('/candidates/independent', function(req, res) {
 
 // Reset database.
 app.post('/resetdb', function(req, res) {
-  console.log("[" + new Date() + "] Resetting database for " + req.hostname);
+  console.log("[" + new Date() + "]: Resetting database for " + req.hostname);
   database.resetDatabase();
   res.send();
 });
@@ -299,7 +299,7 @@ app.put('/users/:userid/emailsettings/:candid', function(req, res) {
         if(error){
             return console.log(error);
         }
-        console.log("[" + new Date() + '] Message sent: ' + info.response);
+        console.log("[" + new Date() + ']: Message sent: ' + info.response);
       });
     });
 
@@ -346,7 +346,7 @@ app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
         if(error){
             return console.log(error);
         }
-        console.log("[" + new Date() + '] Message sent: ' + info.response);
+        console.log("[" + new Date() + ']: Message sent: ' + info.response);
       });
     });
 
@@ -423,7 +423,7 @@ makeTransporter(function(transporter, devRecipient) {
           if(error){
               return console.log(error);
           }
-          console.log("[" + new Date() + '] Message sent: ' + info.response);
+          console.log("[" + new Date() + ']: Message sent: ' + info.response);
         });
 
         candEvent.emailSent = true;
