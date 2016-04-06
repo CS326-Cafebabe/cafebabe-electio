@@ -23,7 +23,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json());
 
 app.listen(3000, function() {
-  console.log('Listening on port 3000!');
+  console.log("[" + new Date() + "] Started listening on port 3000!");
 });
 
 //Trends getAllWeeks
@@ -346,7 +346,7 @@ app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
         if(error){
             return console.log(error);
         }
-        console.log('Message sent: ' + info.response);
+        console.log("[" + new Date() + '] Message sent: ' + info.response);
       });
     });
 
