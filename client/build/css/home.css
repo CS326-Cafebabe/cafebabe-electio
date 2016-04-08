@@ -420,6 +420,10 @@ h2 {
 .not-loaded {
 	display: none;
 }
+.trendy-text{
+	padding-top: 250px;
+  padding-left: 105px;
+}
 .sidebar-list {
   list-style-type: none;
 }
