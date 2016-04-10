@@ -13,6 +13,10 @@ var UserSchema = require('./schemas/user_data.json');
 var nodemailer = require('nodemailer');
 var fs = require('fs');
 
+var mongo_express = require('mongo-express/lib/middleware');
+// Import the default Mongo Express configuration
+var mongo_express_config = require('mongo-express/config.default.js');
+var ResetDatabase = require('./resetdatabase');
 
 var numberOfCandidates = 9;
 
@@ -21,6 +25,7 @@ app.use(express.static('../client/build'));
 app.use(bodyParser.text());
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+app.use('/mongo_express', mongo_express(mongo_express_config));
 
 app.listen(3000, function() {
   console.log("[" + new Date() + "]: Started listening on port 3000!");
