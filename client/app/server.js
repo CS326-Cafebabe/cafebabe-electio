@@ -17,6 +17,9 @@ function emulateServerReturn(data, cb) {
 }
 
 var token = 'eyJpZCI6MX0=';
+//Once we move to the mongo database this is the new token to use:
+//var token = 'eyJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSJ9';
+
 
 function sendXHR(verb, resource, body, cb) {
   var xhr = new XMLHttpRequest();
