@@ -160,12 +160,23 @@ MongoClient.connect(url, function(err, db) {
 
   });
 
-});
+  });
 
   app.get('/candidates/id/:candidateid', function(req, res) {
 
-    var candidate = readDocument('candidates', req.params.candidateid, 10);
-    res.send(candidate)
+    var candidateID = new ObjectID(req.params.candidateid);
+
+    db.collection('candidates').findOne({_id: candidateID},
+      function(err, candidate) {
+        if (err) {
+          // An error occurred.
+          res.status(500).send("Database error: " + err);
+        } else if (candidate === null) {
+          // Candidate not found
+          res.status(400).send();
+        }
+        res.send(candidate);
+    });
 
   });
 
@@ -511,11 +522,13 @@ MongoClient.connect(url, function(err, db) {
       var regularString = new Buffer(token, 'base64').toString('utf8');
       var tokenObj = JSON.parse(regularString);
       var id = tokenObj['id'];
-      if (typeof id === 'number') {
-        return id;
-      } else {
-        return -1;
-      }
+      // Check that id is a string.
+       if (typeof id === 'string') {
+         return id;
+       } else {
+         // Not a number. Return "", an invalid ID.
+         return "";
+       }
     } catch (e) {
       return -1;
     }
