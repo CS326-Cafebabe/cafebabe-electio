@@ -5,7 +5,7 @@
   "properties": {
     "_id": {
       "id": "_id",
-      "type": "integer"
+      "type": "string"
     },
     "email": {
       "id": "email",
