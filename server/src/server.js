@@ -3,6 +3,14 @@ var MongoClient = MongoDB.MongoClient;
 var ObjectID = MongoDB.ObjectID;
 var url = 'mongodb://localhost:27017/electio';
 
+var logging = true;
+
+function serverLog(message){
+  if (logging = true){
+    console.log("[" + new Date() + "]: " + message);
+  }
+}
+
 MongoClient.connect(url, function(err, db) {
   // Put everything that uses `app` into this callback function.
   // from app.use(bodyParser.text());
@@ -32,7 +40,7 @@ MongoClient.connect(url, function(err, db) {
   var mongo_express_config = require('mongo-express/config.default.js');
   var ResetDatabase = require('./resetdatabase');
 
-  var numberOfCandidates = 9;
+  //var numberOfCandidates = 9;
 
   var app = express();
   app.use(express.static('../client/build'));
@@ -42,11 +50,12 @@ MongoClient.connect(url, function(err, db) {
   app.use('/mongo_express', mongo_express(mongo_express_config));
 
   app.listen(3000, function() {
-    console.log("[" + new Date() + "]: Started listening on port 3000!");
+    serverLog("Started listening on port 3000!")
   });
 
   //Trends getAllWeeks
   app.get('/weeks', function(req, res) {
+    serverLog("GET /weeks");
     var weeks = [];
     for(var i=1; i < 5; i++){
       weeks.push(readDocument('weeklyState', i));
@@ -57,6 +66,7 @@ MongoClient.connect(url, function(err, db) {
 
   //Trends getAllUserRaceGender
   app.get('/users/race/gender', function(req, res) {
+    serverLog("GET /users/race/gender");
     var userData = [];
     for(var i = 1; i <= 5; i++){
       var data = {race : readDocument('users', i).race, gender: readDocument('users', i).gender};
@@ -68,6 +78,7 @@ MongoClient.connect(url, function(err, db) {
 
   // get all events
   app.get('/events', function(req, res) {
+    serverLog("GET /events");
     var allEvents = getCollection('events');
     var numEvents = Object.keys(allEvents).length;
 
@@ -80,6 +91,7 @@ MongoClient.connect(url, function(err, db) {
 
   // get some events
   app.get('/events/:page', function(req, res) {
+    serverLog("GET /events/" + req.params.page);
     var pageNum = parseInt(req.params.page, 10);
     var start = 0;
     if (pageNum === 2) start = 3;
@@ -137,10 +149,7 @@ MongoClient.connect(url, function(err, db) {
 
   // get all candidates
   app.get('/candidates', function(req, res) {
-
-    // for (var i = 1; i<=numberOfCandidates; i++) {
-    //   candidates.push(readDocument('candidates', i));
-    // }
+    serverLog("GET /candidates");
 
     getCandidates( function (err, candidates){
 
@@ -163,7 +172,7 @@ MongoClient.connect(url, function(err, db) {
   });
 
   app.get('/candidates/id/:candidateid', function(req, res) {
-
+    serverLog("GET /candidates/id/" + req.params.candidateid);
     var candidateID = new ObjectID(req.params.candidateid);
 
     db.collection('candidates').findOne({_id: candidateID},
@@ -182,6 +191,7 @@ MongoClient.connect(url, function(err, db) {
 
   // get independent candidates
   app.get('/candidates/independent', function(req, res) {
+    serverLog("GET /candidates/independent");
     var allCandidates = getCollection('candidates');
     var numCandidates = Object.keys(allCandidates).length;
 
@@ -197,7 +207,7 @@ MongoClient.connect(url, function(err, db) {
 
   // Reset database.
   app.post('/resetdb', function(req, res) {
-    console.log("[" + new Date() + "]: Resetting database for " + req.hostname);
+    serverLog("POST /resetdb");
     //reset JSON db
     database.resetDatabase();
 
@@ -210,6 +220,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get user data
   app.get('/users/:userid', function(req, res) {
+    serverLog("GET /users/"+ req.params.userid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = parseInt(req.params.userid, 10);
     if(fromUser === userId){
@@ -223,6 +234,7 @@ MongoClient.connect(url, function(err, db) {
 
   //set user data
   app.put('/users/:userid', validate({ body: UserSchema }), function(req, res) {
+    serverLog("PUT /users/" + req.params.userid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = parseInt(req.params.userid, 10);
     var body = req.body;
@@ -253,6 +265,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get user Name
   app.get('/users/:userid/fullName', function(req, res) {
+    serverLog("GET /users/" + req.params.userid + "/fullName");
     var userId = parseInt(req.params.userid, 10);
     var name = readDocument('users', userId).fullName.toString();
     res.status(200);
@@ -261,6 +274,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get user party
   app.get('/users/:userid/party', function(req, res) {
+    serverLog("GET /users/" + req.params.userid + "/party");
     var userId = parseInt(req.params.userid, 10);
     var userParty = readDocument('users', userId).politicalAffiliation.toString();
     res.status(200);
@@ -269,6 +283,7 @@ MongoClient.connect(url, function(err, db) {
 
   //Get All Chats
   app.get('/chat', function(req, res) {
+    serverLog("GET /chat");
     var allChats = getCollection('chatBox');
     var numChats = Object.keys(allChats).length;
     var chatBoxes = [];
@@ -280,6 +295,7 @@ MongoClient.connect(url, function(err, db) {
 
   //Get Single Chat
   app.get('/chat/:chatId', function(req, res){
+    serverLog("GET /chat/" + req.params.chatId);
     var chatId = parseInt(req.params.chatId, 10);
     res.send(readDocument('chatBox', chatId));
   })
@@ -296,6 +312,7 @@ MongoClient.connect(url, function(err, db) {
 
   //postMessage
   app.post('/chat/:chatId/messages/', validate({body: MessageSchema }), function(req, res) {
+    serverLog("POST /chat/" + req.params.chatId + "/messages");
     var author = getUserIdFromToken(req.get('Authorization'));
     var body = req.body;
     var chatBoxId = parseInt(req.params.chatId, 10);
@@ -310,6 +327,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get party
   app.get('/parties/:partyid', function(req, res) {
+    serverLog("GET /parties/" + req.params.partyid);
     var partyId = parseInt(req.params.partyid, 10);
     var party = readDocument('parties', partyId);
     res.send(party);
@@ -317,6 +335,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get all candidates of a given party
   app.get('/candidates/party/:partyid', function(req, res) {
+    serverLog("GET /candidates/party/" + req.params.partyid);
     var allCandidates = getCollection('candidates');
     var numberOfCandidates = Object.keys(allCandidates).length;
     var partyId = parseInt(req.params.partyid, 10);
@@ -333,6 +352,7 @@ MongoClient.connect(url, function(err, db) {
 
   //get user data
   app.get('/users/:userid/emailsettings', function(req, res) {
+    serverLog("GET /users/" + req.params.userid + "/emailsettings");
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = parseInt(req.params.userid, 10);
 
@@ -348,6 +368,7 @@ MongoClient.connect(url, function(err, db) {
 
   //adds a candidate to the emailsettings of a user
   app.put('/users/:userid/emailsettings/:candid', function(req, res) {
+    serverLog("PUT /users/" + req.params.userid + "/emailsettings/" + req.params.candid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = parseInt(req.params.userid, 10);
     var candId = parseInt(req.params.candid, 10);
@@ -389,6 +410,7 @@ MongoClient.connect(url, function(err, db) {
 
   //removes a candidate to the emailsettings of a user
   app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
+    serverLog("DELETE /users/" + req.params.userid + "/emailsettings" + req.params.candid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = parseInt(req.params.userid, 10);
     var candId = parseInt(req.params.candid, 10);
@@ -541,9 +563,6 @@ MongoClient.connect(url, function(err, db) {
       next(err);
     }
   });
-
-
-
 
 
 
