@@ -82,9 +82,17 @@ MongoClient.connect(url, function(err, db) {
     }
 
     //Verify data we've been given:
+
+    //Email should be in this regex and less than or equal to 100 characters
     var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if ( !emailRegex.test(newUser.email) ){
+    if ( !emailRegex.test(newUser.email) || newUser.email.length > 100){
       res.status(400).end("Invalid email");
+      //password should also be less than 100 chars. I imagine this can be more
+      //specific when we implement password hashing, but this will do for now.
+    } else if (newUser.password.length > 100) {
+      res.status(400).end("Invalid password");
+    } else if (newUser.fullName.length > 100) {
+      res.status(400).end("Invalid fullName")
     } else {
 
       //check db does not have any users with that email yet...
@@ -131,6 +139,35 @@ MongoClient.connect(url, function(err, db) {
 
   });
 
+  app.delete('/users/:userid', function(req,res){
+    serverLog("DELETE /users/" + req.params.userid);
+
+    var userid = req.params.userid;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    //first check authentication
+    if (userid === fromUser){
+
+      //if that checks out, delete from db
+      db.collection("users").deleteOne({"_id": new ObjectID(userid)}, function (err, results){
+
+        if (err){
+          res.status(500).end();
+        }
+
+        //Send response with success
+        if (results.deletedCount > 0){
+          res.send();
+        } else {
+          res.status(400).end();
+        }
+
+      });
+
+    } else {
+      res.status(401).end();
+    }
+
+  });
 
   //Trends getAllWeeks
   app.get('/weeks', function(req, res) {
