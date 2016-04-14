@@ -81,46 +81,53 @@ MongoClient.connect(url, function(err, db) {
       newUser[i] = body[i];
     }
 
-    //check db does not have any users with that email yet...
-    db.collection('users').find().toArray(function(err, result){
+    //Verify data we've been given:
+    var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if ( !emailRegex.test(newUser.email) ){
+      res.status(400).end("Invalid email");
+    } else {
 
-        if (err){
-          res.status(500).end();
-        }
-        //check response is non zero
-        if (result != null) {
+      //check db does not have any users with that email yet...
+      db.collection('users').find().toArray(function(err, result){
 
-          var valid = true;
-          for (var i = 0; i<result.length; i++){
-            if (result[i].email === newUser.email){
-              valid = false;
-            }
+          if (err){
+            res.status(500).end();
           }
+          //check response is non zero
+          if (result != null) {
 
-          if (valid === false){
-            res.status(409).end("Email already registered.")
-          } else {
-
-            //otherwise add the new user
-            db.collection('users').insertOne(newUser, function(err, result) {
-              if (err) {
-                // Something bad happened, and the insertion failed.
-                res.status(500).end();
-              } else {
-                // Success!
-                res.status(201);
-                res.send(result.insertedId);
+            var valid = true;
+            for (var i = 0; i<result.length; i++){
+              if (result[i].email === newUser.email){
+                valid = false;
               }
-            });
+            }
 
+            if (valid === false){
+              res.status(409).end("Email already registered.")
+            } else {
+
+              //otherwise add the new user
+              db.collection('users').insertOne(newUser, function(err, result) {
+                if (err) {
+                  // Something bad happened, and the insertion failed.
+                  res.status(500).end();
+                } else {
+                  // Success!
+                  res.status(201);
+                  res.send(result.insertedId);
+                }
+              });
+
+            }
+
+          } else {
+            res.status(400).end();
           }
-
-        } else {
-          res.send(400).end();
-        }
 
       });
 
+    }
 
   });
 
