@@ -6,7 +6,7 @@ var url = 'mongodb://localhost:27017/electio';
 var logging = true;
 
 function serverLog(message){
-  if (logging = true){
+  if (logging === true){
     console.log("[" + new Date() + "]: " + message);
   }
 }
@@ -192,17 +192,27 @@ MongoClient.connect(url, function(err, db) {
   // get independent candidates
   app.get('/candidates/independent', function(req, res) {
     serverLog("GET /candidates/independent");
-    var allCandidates = getCollection('candidates');
-    var numCandidates = Object.keys(allCandidates).length;
-
-    var candidates = [];
-    for (var i = 1; i <= numCandidates; i++) {
-      var candidate = readDocument('candidates', i);
-      if (candidate.party === 3 || candidate.party === 4) {
-        candidates.push(candidate);
+    //uses find to get candidates of independent parties
+    //build the query using $or
+    var query = {
+      $or: [
+        { "party": new ObjectID("000000000000000000000003") },
+        { "party": new ObjectID("000000000000000000000004") }
+      ]
+    };
+    //find all candidates matching that query
+    db.collection('candidates').find(query).toArray(function(err, candidates) {
+      if (err){
+        res.status(500).send();
       }
-    }
-    res.send(candidates);
+      else if (candidates === null) {
+        // Didn't find any candidates
+        res.status(400).send();
+      } else {
+        //send em!
+         res.send(candidates);
+      }
+    });
   });
 
   // Reset database.
@@ -336,31 +346,43 @@ MongoClient.connect(url, function(err, db) {
   //get all candidates of a given party
   app.get('/candidates/party/:partyid', function(req, res) {
     serverLog("GET /candidates/party/" + req.params.partyid);
-    var allCandidates = getCollection('candidates');
-    var numberOfCandidates = Object.keys(allCandidates).length;
-    var partyId = parseInt(req.params.partyid, 10);
-
-    var candidates = [];
-    for (var i = 1; i <= numberOfCandidates; i++) {
-      var candidate = readDocument('candidates', i);
-      if (partyId === candidate.party) {
-        candidates.push(candidate);
+    var partyid = new ObjectID(req.params.partyid);
+    //look up the candidates of that party (find returns an array of them all)
+    db.collection('candidates').find({"party": partyid}).toArray(function(err, candidates) {
+      if (err){
+        res.status(500).send();
       }
-    }
-    res.send(candidates);
+      else if (candidates === null) {
+        // Didn't find any candidates
+        res.status(400).send();
+      } else {
+        //send back the candidates
+         res.send(candidates);
+      }
+    });
   });
 
   //get user data
   app.get('/users/:userid/emailsettings', function(req, res) {
     serverLog("GET /users/" + req.params.userid + "/emailsettings");
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    var userId = parseInt(req.params.userid, 10);
+    var userId = new ObjectID(req.params.userid);
 
-    //need to make sure user is authorized
-    if(fromUser === userId){
-      var user = readDocument('users', userId);
-      res.send(user.emailSettings);
-    }
+    //check the sender for authorization
+    if(fromUser === req.params.userid){
+      //look up the user with proper id
+      db.collection('users').findOne({_id: userId}, function(err, user){
+      if(err){
+        res.status(500).send();
+      }else if (user === null) {
+        // Didn't find any users
+        res.status(400).send();
+      } else {
+        //send back that user's email settings array
+         res.send(user.emailSettings);
+      }
+    });
+  }
     else{
       res.status(401).end();
     }
@@ -370,38 +392,64 @@ MongoClient.connect(url, function(err, db) {
   app.put('/users/:userid/emailsettings/:candid', function(req, res) {
     serverLog("PUT /users/" + req.params.userid + "/emailsettings/" + req.params.candid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    var userId = parseInt(req.params.userid, 10);
-    var candId = parseInt(req.params.candid, 10);
+    var userId = new ObjectID(req.params.userid);
+    var candId = new ObjectID(req.params.candid);
 
     //need to make sure user is authorized
-    if(fromUser === userId){
-      var user = readDocument('users', userId);
-      user.emailSettings.push(candId);
-      writeDocument('users', user);
-      var candidate = readDocument("candidates",candId);
-      var subMessage = 'You just subscribed to emails regarding events affiliated with ' + candidate.fullName + ". To unsubscribe please return to email settings.";
+    if(fromUser === req.params.userid){
 
+      //build the update to send
+      var update = { $addToSet: {} };
+      update.$addToSet["emailSettings"] = candId;
 
-      makeTransporter(function(transporter, devRecipient) {
-      // console.log('hi');
-        // console.log("here");
-        var mailOptions = {
-            from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
-            to: devRecipient, // list of receivers
-            subject: 'Recent Subscription', // Subject line
-            text: subMessage // plaintext body
-        };
+      //update the user object with the new added candid
+      db.collection('users').updateOne({ _id: userId }, update, function(err, user) {
+          if (err) {
+            res.status(500).send();
+          }else if (user === null) {
+            res.status(400).send();
+          } else {
+              //look up the candidate object so as to send the email
+              db.collection('candidates').findOne({_id: candId}, function(err, candidate){
+                if (err) {
+                  res.status(500).send();
+                }
+                else{
+                  var subMessage = 'You just subscribed to emails regarding events affiliated with ' + candidate.fullName + ". To unsubscribe please return to email settings.";
 
-        transporter.sendMail(mailOptions, function(error, info){
-          if(error){
-              return console.log(error);
-          }
-          console.log("[" + new Date() + ']: Message sent: ' + info.response);
-        });
+                  //send the email
+                  makeTransporter(function(transporter, devRecipient) {
+                    var mailOptions = {
+                        from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+                        to: devRecipient, // list of receivers
+                        subject: 'Recent Subscription', // Subject line
+                        text: subMessage // plaintext body
+                    };
+
+                    transporter.sendMail(mailOptions, function(error, info){
+                      if(error){
+                          return console.log(error);
+                      }
+                      console.log("[" + new Date() + ']: Message sent: ' + info.response);
+                    });
+                  });
+
+                  //find the user to send the array back
+                  db.collection('users').findOne({_id: userId}, function(err, user){
+                  if(err){
+                    res.status(500).send();
+                  }else if (user === null) {
+                    // Didn't find any users
+                    res.status(400).send();
+                  } else {
+                     res.send(user.emailSettings);
+                  }
+                  });
+                }
+              });
+
+            }
       });
-
-
-      res.send(user.emailSettings);
     }
     else{
       res.status(401).end();
@@ -412,43 +460,64 @@ MongoClient.connect(url, function(err, db) {
   app.delete('/users/:userid/emailsettings/:candid', function(req, res) {
     serverLog("DELETE /users/" + req.params.userid + "/emailsettings" + req.params.candid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    var userId = parseInt(req.params.userid, 10);
-    var candId = parseInt(req.params.candid, 10);
+    var userId = new ObjectID(req.params.userid);
+    var candId = new ObjectID(req.params.candid);
 
     //need to make sure user is authorized
-    if(fromUser === userId){
-      var user = readDocument('users', userId);
-      var candIndex = user.emailSettings.indexOf(candId);
+    if(fromUser === req.params.userid){
+      //update the users email settings, pull the candidateId
+      db.collection('users').updateOne({ _id: userId },
+            {
+              $pull: {
+                emailSettings: candId
+              }
+            }, function(err,user) {
+              if (err) {
+                res.status(500).send();
+              }else if (user === null) {
+                res.status(400).send();
+              }
+              else{
+                  db.collection('candidates').findOne({_id: candId}, function(err, candidate){
+                    //get the candidate info so it can send the email
+                    if (err) {
+                      res.status(500).send();
+                    }
+                    else{
+                      var subMessage = 'You just unsubscribed to emails regarding events affiliated with ' + candidate.fullName + ". To subscribe again please return to email settings.";
+                      //send the email
+                      makeTransporter(function(transporter, devRecipient) {
 
-      if (candIndex !== -1) {
-        // 'splice' removes items from an array. This removes 1 element starting from userIndex.
-        user.emailSettings.splice(candIndex, 1);
-        writeDocument('users', user);
-      }
+                        var mailOptions = {
+                            from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+                            to: devRecipient, // list of receivers
+                            subject: 'Recent Unsubscription', // Subject line
+                            text: subMessage // plaintext body
+                        };
 
-      var candidate = readDocument("candidates",candId);
-      var subMessage = 'You just unsubscribed to emails regarding events affiliated with ' + candidate.fullName + ". To subscribe again please return to email settings.";
+                        transporter.sendMail(mailOptions, function(error, info){
+                          if(error){
+                              return console.log(error);
+                          }
+                          console.log("[" + new Date() + ']: Message sent: ' + info.response);
+                        });
+                      });
 
-
-      makeTransporter(function(transporter, devRecipient) {
-      // console.log('hi');
-        // console.log("here");
-        var mailOptions = {
-            from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
-            to: devRecipient, // list of receivers
-            subject: 'Recent Unsubscription', // Subject line
-            text: subMessage // plaintext body
-        };
-
-        transporter.sendMail(mailOptions, function(error, info){
-          if(error){
-              return console.log(error);
-          }
-          console.log("[" + new Date() + ']: Message sent: ' + info.response);
-        });
-      });
-
-      res.send(user.emailSettings);
+                      //look up the user to send back the array of email settings
+                      db.collection('users').findOne({_id: userId}, function(err, user){
+                      if(err){
+                        res.status(500).send();
+                      }else if (user === null) {
+                        // Didn't find any users
+                        res.status(400).send();
+                      } else {
+                         res.send(user.emailSettings);
+                      }
+                      });
+                    }
+                  });
+                }
+            });
     }
     else{
       res.status(401).end();
