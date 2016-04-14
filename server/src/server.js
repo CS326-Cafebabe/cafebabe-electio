@@ -77,7 +77,7 @@ MongoClient.connect(url, function(err, db) {
     //For every key in body, update the key in the newUser object.
     //This means that everything that is included is updated.
     //(NOTE: In javascript, the for..in.. operation loops through every KEY in an object.)
-    for (i in body){s
+    for (i in body){
       newUser[i] = body[i];
     }
 
