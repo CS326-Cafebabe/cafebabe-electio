@@ -28,7 +28,7 @@ class VotePage extends React.Component {
     //<p>This is the vote page for party {this.props.params.party}.</p>
     return (
       <div>
-        <Vote userId={1}/>
+        <Vote userId={"000000000000000000000001"}/>
       </div>
 
     );
@@ -47,7 +47,7 @@ class HomePage extends React.Component {
 
 class SettingsPage extends React.Component {
   render() {
-    return (<Settings userId={1}/>);
+    return (<Settings userId={"000000000000000000000001"}/>);
   }
 }
 
@@ -87,7 +87,7 @@ class ChatPage extends React.Component {
 
 class EmailSettingsPage extends React.Component {
   render() {
-    return (<EmailSettings userId={1}/>);
+    return (<EmailSettings userId={"000000000000000000000001"}/>);
   }
 }
 

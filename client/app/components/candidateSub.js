@@ -31,9 +31,9 @@ export default class CandidateSub extends React.Component {
         };
 
         if (this.didUserSub()) {
-          unsubscribe(this.props.data._id, 1, callbackFunction);
+          unsubscribe(this.props.data._id, "000000000000000000000001", callbackFunction);
         } else {
-          subscribe(this.props.data._id, 1, callbackFunction);
+          subscribe(this.props.data._id, "000000000000000000000001", callbackFunction);
         }
       }
     }

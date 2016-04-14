@@ -32,7 +32,7 @@ export default class VoteDem extends React.Component {
   }
 
   refresh() {
-    getAllCandidatesOfParty(1, (out) => {
+    getAllCandidatesOfParty("000000000000000000000001", (out) => {
       this.setState({candidates: out});
     })
    }

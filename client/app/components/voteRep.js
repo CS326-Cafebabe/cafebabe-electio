@@ -32,7 +32,7 @@ export default class VoteRep extends React.Component {
   }
 
   refresh() {
-    getAllCandidatesOfParty(2, (out) => {
+    getAllCandidatesOfParty("000000000000000000000002", (out) => {
       this.setState({candidates: out});
     })
    }
