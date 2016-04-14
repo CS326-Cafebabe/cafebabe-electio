@@ -22,7 +22,7 @@ export default class Messages extends React.Component {
 
   render() {
     var userParty;
-    if(this.state.polAff === 2)
+    if(this.state.polAff === '000000000000000000000002')
       userParty = "republican-text";
     else userParty = "democrat-text";
 

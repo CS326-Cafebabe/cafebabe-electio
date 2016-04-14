@@ -39,7 +39,7 @@ export default class Chat extends React.Component {
     // Send to server.
     // We could use geolocation to get a location, but let's fix it to Amherst
     // for now.
-    postMessage(this.state.render, 1, postContents, () => {
+    postMessage(this.state.render, '000000000000000000000001', postContents, () => {
       // Database is now updated. Refresh the feed.
       this.refresh();
     });

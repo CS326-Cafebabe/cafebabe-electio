@@ -392,19 +392,36 @@ MongoClient.connect(url, function(err, db) {
   //get user Name
   app.get('/users/:userid/fullName', function(req, res) {
     serverLog("GET /users/" + req.params.userid + "/fullName");
-    var userId = parseInt(req.params.userid, 10);
-    var name = readDocument('users', userId).fullName.toString();
-    res.status(200);
-    res.send(name);
+    var userID = new ObjectID(req.params.userid);
+
+    db.collection('users').findOne({_id: userID},
+      function(err, user) {
+        if (err) {
+          // An error occurred.
+          res.status(500).send("Database error: " + err);
+        } else if (user === null) {
+          // Candidate not found
+          res.status(400).send();
+        }
+        res.send(user.fullName);
+    });
   })
 
   //get user party
   app.get('/users/:userid/party', function(req, res) {
     serverLog("GET /users/" + req.params.userid + "/party");
-    var userId = parseInt(req.params.userid, 10);
-    var userParty = readDocument('users', userId).politicalAffiliation.toString();
-    res.status(200);
-    res.send(userParty);
+    var userID = new ObjectID(req.params.userid);
+    db.collection('users').findOne({_id: userID},
+      function(err, user) {
+        if (err) {
+          // An error occurred.
+          res.status(500).send("Database error: " + err);
+        } else if (user === null) {
+          // Candidate not found
+          res.status(400).send();
+        }
+        res.send(user.politicalAffiliation);
+    });
   })
 
   //Get All Chats
@@ -454,9 +471,18 @@ MongoClient.connect(url, function(err, db) {
   //get party
   app.get('/parties/:partyid', function(req, res) {
     serverLog("GET /parties/" + req.params.partyid);
-    var partyId = parseInt(req.params.partyid, 10);
-    var party = readDocument('parties', partyId);
-    res.send(party);
+    var partyID = new ObjectID(req.params.partyid);
+    db.collection('parties').findOne({_id: partyID },
+      function(err, party) {
+        if (err) {
+          // An error occurred.
+          res.status(500).send("Database error: " + err);
+        } else if (party === null) {
+          // Candidate not found
+          res.status(400).send();
+        }
+        res.send(party);
+    });
   });
 
   //get all candidates of a given party
