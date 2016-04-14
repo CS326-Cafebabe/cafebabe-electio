@@ -262,6 +262,12 @@ export function getAllUserRaceGender(cb){
   })
 }
 
+export function postNewUser(userData, cb){
+  sendXHR('POST', '/user/newUser', {userData}, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  })
+}
+
 export function getAllWeeks(cb){
   sendXHR('GET', '/weeks', undefined, (xhr) => {
     cb(JSON.parse(xhr.responseText));

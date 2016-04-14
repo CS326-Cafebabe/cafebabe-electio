@@ -32,6 +32,7 @@ MongoClient.connect(url, function(err, db) {
   var writeDocument = database.writeDocument;
   var getCollection = database.getCollection;
   var UserSchema = require('./schemas/user_data.json');
+  var NewUserSchema = require('./schemas/newUser_data.json')
   var nodemailer = require('nodemailer');
   var fs = require('fs');
 
@@ -52,6 +53,77 @@ MongoClient.connect(url, function(err, db) {
   app.listen(3000, function() {
     serverLog("Started listening on port 3000!")
   });
+
+  //post a new user
+  app.post('/users/newuser', validate({ body: NewUserSchema }), function(req, res){
+    serverLog("POST user/newUser");
+
+    var body = req.body;
+    var newUser = {
+      email: body.email,
+      password: body.password,
+      fullName: body.fullName,
+      gender: null,
+      race: null,
+      hispanic: null,
+      registered: null,
+      age: null,
+      politicalAffiliation: null,
+      location: null,
+      vote: null,
+      emailSettings: []
+    }
+
+    //For every key in body, update the key in the newUser object.
+    //This means that everything that is included is updated.
+    //(NOTE: In javascript, the for..in.. operation loops through every KEY in an object.)
+    for (i in body){s
+      newUser[i] = body[i];
+    }
+
+    //check db does not have any users with that email yet...
+    db.collection('users').find().toArray(function(err, result){
+
+        if (err){
+          res.status(500).end();
+        }
+        //check response is non zero
+        if (result != null) {
+
+          var valid = true;
+          for (var i = 0; i<result.length; i++){
+            if (result[i].email === newUser.email){
+              valid = false;
+            }
+          }
+
+          if (valid === false){
+            res.status(409).end("Email already registered.")
+          } else {
+
+            //otherwise add the new user
+            db.collection('users').insertOne(newUser, function(err, result) {
+              if (err) {
+                // Something bad happened, and the insertion failed.
+                res.status(500).end();
+              } else {
+                // Success!
+                res.status(201);
+                res.send(result.insertedId);
+              }
+            });
+
+          }
+
+        } else {
+          res.send(400).end();
+        }
+
+      });
+
+
+  });
+
 
   //Trends getAllWeeks
   app.get('/weeks', function(req, res) {
