@@ -8,43 +8,43 @@ import ResetDatabase from "./databaseReset";
 //Actual use sidebars with active component highlighted
 export class HomeSidebar extends React.Component {
   render() {
-    return (<Sidebar active="home" userId={1}/>);
+    return (<Sidebar active="home" userId="000000000000000000000001"/>);
   }
 }
 
 export class TrendsSidebar extends React.Component {
   render() {
-    return (<Sidebar active="trends" userId={1}/>);
+    return (<Sidebar active="trends" userId="000000000000000000000001"/>);
   }
 }
 
 export class ArchiveSidebar extends React.Component {
   render() {
-    return (<Sidebar active="archive" userId={1}/>);
+    return (<Sidebar active="archive" userId="000000000000000000000001"/>);
   }
 }
 
 export class CalendarSidebar extends React.Component {
   render() {
-    return (<Sidebar active="calendar" userId={1}/>);
+    return (<Sidebar active="calendar" userId="000000000000000000000001"/>);
   }
 }
 
 export class VoteSidebar extends React.Component {
   render() {
-    return (<Sidebar active="vote" userId={1}/>);
+    return (<Sidebar active="vote" userId="000000000000000000000001"/>);
   }
 }
 
 export class ChatSidebar extends React.Component {
   render() {
-    return (<Sidebar active="chat" userId={1}/>);
+    return (<Sidebar active="chat" userId="000000000000000000000001"/>);
   }
 }
 
 export class SettingsSidebar extends React.Component {
   render() {
-    return (<Sidebar active="settings" userId={1}/>);
+    return (<Sidebar active="settings" userId="000000000000000000000001"/>);
   }
 }
 

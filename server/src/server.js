@@ -54,6 +54,10 @@ MongoClient.connect(url, function(err, db) {
     serverLog("Started listening on port 3000!")
   });
 
+  function buildAuthToken(userid){
+    return new Buffer(JSON.stringify({ id: userid })).toString('base64');
+  }
+
   //post a new user
   app.post('/users/newuser', validate({ body: NewUserSchema }), function(req, res){
     serverLog("POST user/newUser");
