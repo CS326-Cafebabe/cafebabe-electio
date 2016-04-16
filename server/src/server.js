@@ -215,6 +215,7 @@ MongoClient.connect(url, function(err, db) {
   // get all events
   app.get('/events', function(req, res) {
     serverLog("GET /events");
+    /*
     var allEvents = getCollection('events');
     var numEvents = Object.keys(allEvents).length;
 
@@ -222,21 +223,27 @@ MongoClient.connect(url, function(err, db) {
     for (var i = 1; i <= numEvents; i++) {
       events.push(readDocument('events', i));
     }
+    */
+
+    var events = db.collection('events');
     res.send(events);
   })
 
   // get some events
   app.get('/events/:page', function(req, res) {
-    serverLog("GET /events/" + req.params.page);
     var pageNum = parseInt(req.params.page, 10);
     var start = 0;
     if (pageNum === 2) start = 3;
 
-    var events = [];
-    for (var i = start + 1; i <= start + 3; i++) {    // only need 3 events
-      events.push(readDocument('events', i));
-    }
+    var events = db.collection('events').find(
+      { $or: [
+        { "_id": new ObjectID(start) },
+        { "_id": new ObjectID(start + 1) },
+        { "_id": new ObjectID(start + 2) }
+      ] }).toArray
+
     res.send(events);
+    serverLog("GET /events/" + pageNum);
   });
 
   function getCandidates(callback){
