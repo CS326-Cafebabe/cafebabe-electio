@@ -37,11 +37,8 @@ MongoClient.connect(url, function(err, db) {
   var fs = require('fs');
 
   var mongo_express = require('mongo-express/lib/middleware');
-  // Import the default Mongo Express configuration
   var mongo_express_config = require('mongo-express/config.default.js');
   var ResetDatabase = require('./resetdatabase');
-
-  //var numberOfCandidates = 9;
 
   var app = express();
   app.use(express.static('../client/build'));
@@ -828,11 +825,11 @@ MongoClient.connect(url, function(err, db) {
     });
   }
 
-
   //we call makeTransporter on an interval to send emails about upcoming events
   makeTransporter(function(transporter, devRecipient) {
     // console.log('1');
     setInterval(function(){
+<<<<<<< 5eeaa8735b9b2e32bf4c00c61421f00cb454a260
       //var events = getCollection('events');
       //var numEvents = Object.keys(events).length;
 
@@ -954,7 +951,6 @@ MongoClient.connect(url, function(err, db) {
     }, 10000);
   });
 
-
   /**
    * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
    */
@@ -983,9 +979,4 @@ MongoClient.connect(url, function(err, db) {
       next(err);
     }
   });
-
-
-
-
 });
-// The file ends here. Nothing should be after this.
