@@ -176,25 +176,41 @@ MongoClient.connect(url, function(err, db) {
   //Trends getAllWeeks
   app.get('/weeks', function(req, res) {
     serverLog("GET /weeks");
-    var weeks = [];
-    for(var i=1; i < 5; i++){
-      weeks.push(readDocument('weeklyState', i));
-    }
-    res.status(200);
-    res.send(weeks);
+    db.collection('weeklyState').find().toArray(function(err, weeks){
+      if(err){
+        res.status(500);
+        res.send("Database err " + err);
+      }
+      else{
+        res.status(200);
+        res.send(weeks);
+      }
+    });
   });
 
   //Trends getAllUserRaceGender
   app.get('/users/race/gender', function(req, res) {
     serverLog("GET /users/race/gender");
-    var userData = [];
-    for(var i = 1; i <= 5; i++){
-      var data = {race : readDocument('users', i).race, gender: readDocument('users', i).gender};
-      userData.push(data);
-    }
-    res.status(200);
-    res.send(userData);
+    db.collection('users').find().toArray(function(err, users){
+      if(err){
+        res.status(500);
+        res.send("Database err " + err);
+      }
+      else{
+        res.status(200);
+        res.send(userRaceGender(users));
+      }
+    });
   });
+
+  function userRaceGender(users){
+    var userData = [];
+    for(var i = 0; i < users.length; i++){
+      var raceGen = {race: users[i].race, gender: users[i].gender}
+      userData.push(raceGen);
+    }
+    return userData;
+  }
 
   // get all events
   app.get('/events', function(req, res) {
