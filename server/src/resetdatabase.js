@@ -247,6 +247,18 @@ var initialData = {
       "emailSent": false,
       "unixTime": 1461024000
 
+    },
+    "8": {
+      "_id": new ObjectID("000000000000000000000008"),
+      "date": "3. May 2016",
+      "name": "Indiana Primary",
+      "location": "Indiana",
+      "summary": "",
+      "party": "",
+      "associatedCandidates": [new ObjectID("000000000000000000000001"),new ObjectID("000000000000000000000002"),new ObjectID("000000000000000000000003"),new ObjectID("000000000000000000000005"),new ObjectID("000000000000000000000006"),new ObjectID("000000000000000000000007")],
+      "emailSent": false,
+      "unixTime": 1462248000
+
     }
   },
 
@@ -263,7 +275,7 @@ var initialData = {
       "age":"25-34",
       "politicalAffiliation":new ObjectID("000000000000000000000002"),
       "location":"Amherst, MA",
-      "vote": "00000000000000000001",
+      "vote": new ObjectID("000000000000000000000001"),
 
       "emailSettings": [new ObjectID("000000000000000000000001"),new ObjectID("000000000000000000000003"),new ObjectID("000000000000000000000004"),new ObjectID("000000000000000000000006")]
     },
