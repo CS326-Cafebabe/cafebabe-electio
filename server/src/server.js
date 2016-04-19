@@ -368,7 +368,31 @@ MongoClient.connect(url, function(err, db) {
   app.get('/users/:userid', function(req, res) {
     serverLog("GET /users/"+ req.params.userid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    var userId = parseInt(req.params.userid, 10);
+    var userId = new ObjectID(req.params.userid);
+    if(fromUser === req.params.userid){
+      db.collection('users').findOne({_id: userId},
+        function(err, user) {
+          if (err) {
+            // An error occurred.
+            res.status(500).send("Database error: " + err);
+          } else if (user === null) {
+            // user not found
+            res.status(400).send();
+          }
+          res.send(user);
+      });
+    }
+    else{
+      res.status(401).end();
+    }
+  });
+
+  /*
+  //get user data
+  app.get('/users/:userid', function(req, res) {
+    serverLog("GET /users/"+ req.params.userid);
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    var userId = req.params.userid;
     if(fromUser === userId){
       var user = readDocument('users', userId);
       res.send(user);
@@ -377,12 +401,65 @@ MongoClient.connect(url, function(err, db) {
       res.status(401).end();
     }
   });
+  */
 
   //set user data
   app.put('/users/:userid', validate({ body: UserSchema }), function(req, res) {
     serverLog("PUT /users/" + req.params.userid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    var userId = parseInt(req.params.userid, 10);
+    var userId = new ObjectID(req.params.userid);
+    var body = req.body;
+    console.log("here");
+    if(fromUser === req.params.userid){
+      var update =   { $set: {
+          "_id": userId,
+          "email": body.email,
+          "password": body.password,
+          "fullName": body.fullName,
+          "gender": body.gender,
+          "race": body.race,
+          "hispanic": body.hispanic,
+          "registered": body.registered,
+          "age": body.age,
+          "politicalAffiliation": body.politicalAffiliation,
+          "location": body.location,
+          "vote": body.vote,
+
+          "emailSettings": body.emailSettings
+        }}
+      db.collection('users').updateOne({_id: userId}, update, function(err, result) {
+          if(err) {
+            // An error occurred.
+            res.status(500).send("Database error: " + err);
+          } else if (result.modifiedCount === 0) {
+              console.log("not modified");
+              res.status(400).send();
+          }
+          db.collection('users').findOne({_id: userId},
+            function(err, user) {
+              if (err) {
+                // An error occurred.
+                res.status(500).send("Database error: " + err);
+              } else if (user === null) {
+                // user not found
+                console.log("user not found")
+                res.status(400).send();
+              }
+              res.send(user);
+          });
+        });
+    }
+    else {
+      res.status(401).end();
+    }
+  });
+
+  /*
+  //set user data
+  app.put('/users/:userid', validate({ body: UserSchema }), function(req, res) {
+    serverLog("PUT /users/" + req.params.userid);
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    var userId = new ObjectID(req.params.userid);
     var body = req.body;
     if(fromUser === userId){
       var userData = {
@@ -408,6 +485,7 @@ MongoClient.connect(url, function(err, db) {
       res.status(401).end();
     }
   });
+  */
 
   //get user Name
   app.get('/users/:userid/fullName', function(req, res) {

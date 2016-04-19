@@ -263,7 +263,7 @@ var initialData = {
       "age":"25-34",
       "politicalAffiliation":new ObjectID("000000000000000000000002"),
       "location":"Amherst, MA",
-      "vote":null,
+      "vote": "00000000000000000001",
 
       "emailSettings": [new ObjectID("000000000000000000000001"),new ObjectID("000000000000000000000003"),new ObjectID("000000000000000000000004"),new ObjectID("000000000000000000000006")]
     },

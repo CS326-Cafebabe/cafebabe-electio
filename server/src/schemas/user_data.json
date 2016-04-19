@@ -41,7 +41,7 @@
     },
     "politicalAffiliation": {
       "id": "politicalAffiliation",
-      "type": "integer"
+      "type": "string"
     },
     "location": {
       "id": "location",
@@ -49,7 +49,7 @@
     },
     "vote": {
       "id": "vote",
-      "type": "integer"
+      "type": "string"
     },
     "emailSettings": {
       "id": "emailSettings",
