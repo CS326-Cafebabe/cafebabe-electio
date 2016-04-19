@@ -409,7 +409,6 @@ MongoClient.connect(url, function(err, db) {
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = new ObjectID(req.params.userid);
     var body = req.body;
-    console.log("here");
     if(fromUser === req.params.userid){
       var update =   { $set: {
           "_id": userId,
@@ -421,7 +420,7 @@ MongoClient.connect(url, function(err, db) {
           "hispanic": body.hispanic,
           "registered": body.registered,
           "age": body.age,
-          "politicalAffiliation": body.politicalAffiliation,
+          "politicalAffiliation": new ObjectID(body.politicalAffiliation),
           "location": body.location,
           "vote": body.vote,
 
@@ -432,7 +431,6 @@ MongoClient.connect(url, function(err, db) {
             // An error occurred.
             res.status(500).send("Database error: " + err);
           } else if (result.modifiedCount === 0) {
-              console.log("not modified");
               res.status(400).send();
           }
           db.collection('users').findOne({_id: userId},
@@ -442,7 +440,6 @@ MongoClient.connect(url, function(err, db) {
                 res.status(500).send("Database error: " + err);
               } else if (user === null) {
                 // user not found
-                console.log("user not found")
                 res.status(400).send();
               }
               res.send(user);

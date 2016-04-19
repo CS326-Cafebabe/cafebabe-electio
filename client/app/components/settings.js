@@ -206,16 +206,16 @@ export default class Settings extends React.Component {
               {Radio => (
                 <div>
                   <label>
-                    <Radio value={1}/> Democratic Party
+                    <Radio value={"000000000000000000000001"}/> Democratic Party
                   </label><br/>
                   <label>
-                    <Radio value={2}/> Republican Party
+                    <Radio value={"000000000000000000000002"}/> Republican Party
                   </label><br/>
                   <label>
-                    <Radio value={3}/> Green Party
+                    <Radio value={"000000000000000000000003"}/> Green Party
                   </label><br/>
                   <label>
-                    <Radio value={4}/> Libertarian
+                    <Radio value={"000000000000000000000004"}/> Libertarian
                   </label><br/>
                 </div>
               )}
