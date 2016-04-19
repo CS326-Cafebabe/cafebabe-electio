@@ -10,11 +10,11 @@ export default class EmailSettings extends React.Component {
     this.state = {
       candidates: [
         {
-          "_id": 1,
+          "_id": "",
           "headImage": "",
           "logoImage": "",
           "fullName": "",
-          "party": 1,
+          "party":   "000000000000000000000001",
           "thumbType": "",
           "description": "",
           "twitterFeed": "",
