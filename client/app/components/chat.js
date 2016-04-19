@@ -13,20 +13,20 @@ export default class Chat extends React.Component {
     super(props);
     this.state = {
       chatBox: {
-        "active": 1,
+        "active": '000000000000000000000001',
         "_id": "",
         "fullName": "",
         "messages": [],
         "time": 0
       },
-      render: this.props.toRender+1
+      render: this.props.toRender
     };
   }
 
   refresh() {
     getChat(this.state.render, (cBox) => {
       this.setState({chatBox: cBox,
-        render: this.props.toRender+1
+        render: this.props.toRender
       });
     })
   }

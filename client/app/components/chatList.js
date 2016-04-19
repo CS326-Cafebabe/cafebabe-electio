@@ -9,7 +9,7 @@ export default class ChatList extends React.Component {
     this.state = {
       chatBoxes: [{
           "active": true,
-          "_id":1,
+          "_id": '000000000000000000000001',
           "fullName":"Clinton Debate",
           "messages": [
             {
@@ -55,10 +55,11 @@ export default class ChatList extends React.Component {
   }
 
   render(){
+    console.log(typeof(this.state.chatBoxes[this.state.active - 1]._id));
     return(
       <div>
         <div id={this.state.chatBoxes[this.state.active - 1]._id} className="tab-pane fade in active">
-          <Chat key={this.state.active-1} toRender = {this.state.active - 1}/>
+          <Chat key={this.state.active-1} toRender = {this.state.chatBoxes[this.state.active - 1]._id}/>
         </div>
       <div className="col-md-2 tight col-overflow">
         <div className="chat-box-discussion-div">

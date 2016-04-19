@@ -447,20 +447,35 @@ MongoClient.connect(url, function(err, db) {
   //Get All Chats
   app.get('/chat', function(req, res) {
     serverLog("GET /chat");
-    var allChats = getCollection('chatBox');
-    var numChats = Object.keys(allChats).length;
-    var chatBoxes = [];
-    for(var i = 1; i <= numChats; i++){
-      chatBoxes.push(readDocument('chatBox', i));
-    }
-    res.send(chatBoxes);
-  })
+    db.collection('chatBox').find().toArray(function(err, chats){
+      if(err){
+        res.status(500);
+        res.send("Database err " + err);
+      }
+      else{
+        res.status(200);
+        res.send(chats);
+      }
+    });  })
 
   //Get Single Chat
   app.get('/chat/:chatId', function(req, res){
     serverLog("GET /chat/" + req.params.chatId);
-    var chatId = parseInt(req.params.chatId, 10);
-    res.send(readDocument('chatBox', chatId));
+    var chatID = new ObjectID(req.params.chatId);
+    db.collection('chatBox').findOne({_id: chatID},
+      function(err, chatBox) {
+        if (err) {
+          // An error occurred.
+          res.status(500).send("Database error: " + err);
+        } else if (chatBox === null) {
+          // ChatBox not found
+          res.status(400).send();
+        }
+        res.send(chatBox);
+    });
+
+    // var chatId = parseInt(req.params.chatId, 10);
+    // res.send(readDocument('chatBox', chatId));
   })
 
   function postMessage(chatBoxId, authorId, message){
