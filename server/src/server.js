@@ -478,30 +478,56 @@ MongoClient.connect(url, function(err, db) {
     // res.send(readDocument('chatBox', chatId));
   })
 
-  function postMessage(chatBoxId, authorId, message){
-    var chatBox = readDocument('chatBox', chatBoxId);
-    chatBox.messages.push({
-      "author": authorId,
-      "contents": message
-    });
-    writeDocument('chatBox', chatBox);
-    return chatBox;
-  }
+  // function postMessage(chatBoxId, authorId, message){
+  //   var chatBox = readDocument('chatBox', chatBoxId);
+  //   chatBox.messages.push({
+  //     "author": authorId,
+  //     "contents": message
+  //   });
+  //   writeDocument('chatBox', chatBox);
+  //   return chatBox;
+  // }
 
   //postMessage
   app.post('/chat/:chatId/messages/', validate({body: MessageSchema }), function(req, res) {
     serverLog("POST /chat/" + req.params.chatId + "/messages");
-    var author = getUserIdFromToken(req.get('Authorization'));
-    var body = req.body;
-    var chatBoxId = parseInt(req.params.chatId, 10);
-    if(author === body.author) {
-      var chatBox = postMessage(chatBoxId, author, body.contents);
-      res.status(201);
-      res.set('Location', '/chat/' + chatBoxId + '/messages/')
-      res.send(chatBox);
-    }
-    else res.status(401).end();
-  })
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    var message = req.body;
+    var author = req.body.author;
+    var chatID = new ObjectID(req.params.chatId);
+    var newMessage = ({
+      "author": new ObjectID(author),
+      "contents": message.contents,
+    });
+    if (fromUser === author) {
+      db.collection('chatBox').updateOne({ _id: chatID },
+        {
+          $push: {
+            "messages": newMessage
+              }
+          }, function(err, chatBox) {
+            if (err) {
+              res.status(500).send("Database error: " + err);
+            }
+          else if (chatBox === null) {
+            // ChatBox not found
+            res.status(400).send();
+          }
+          res.send(chatBox);
+      // var author = getUserIdFromToken(req.get('Authorization'));
+      // var body = req.body;
+      // var chatBoxId = parseInt(req.params.chatId, 10);
+      // if(author === body.author) {
+      //   var chatBox = postMessage(chatBoxId, author, body.contents);
+      //   res.status(201);
+      //   res.set('Location', '/chat/' + chatBoxId + '/messages/')
+      //   res.send(chatBox);
+      // }
+      // else res.status(401).end();
+  });
+  }
+})
+
 
   //get party
   app.get('/parties/:partyid', function(req, res) {
