@@ -1,0 +1,17 @@
+{
+	"id": "df66deb2-a77f-c3ae-42c2-42ca3b97dae8",
+	"name": "localhost:3000",
+	"values": [
+		{
+			"key": "url",
+			"value": "localhost:3000",
+			"type": "text",
+			"enabled": true
+		}
+	],
+	"team": null,
+	"timestamp": 1461037586039,
+	"synced": false,
+	"syncedFilename": "",
+	"isDeleted": false
+}
