@@ -842,43 +842,48 @@ MongoClient.connect(url, function(err, db) {
           console.log(err);
         }
         else {
-          console.log(events);
+          // console.log(events);
 
           //iterate over events
           for(var i = 0; i < events.length; i++){
 
             var candEvent = events[i];
-            console.log(candEvent);
+            // console.log(candEvent);
             var subjectLine = 'Upcoming: ' + candEvent.name;
             var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event. \n \n The event will take place on the " + candEvent.date + "."
+
+            var userQuery = {"emailSettings": {$in: candEvent.associatedCandidates}};
             //get users who want an email for that event
-            // db.collection('users').find({}).toArray(function(err, events) {
-            //   if (err){
-            //     res.status(500).send();
-            //   }
-            //   else {
-            //
-            //   }
-            // });
-
-            var mailOptions = {
-                from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
-                to: devRecipient, // list of receivers -- WOULD BE "usersToReceive"
-                subject: subjectLine, // Subject line
-                text: content// plaintext body
-            };
-
-            transporter.sendMail(mailOptions, function(error, info){
-              if(error){
-                  return console.log(error);
-              }
-              console.log("[" + new Date() + ']: Message sent: ' + info.response);
-            });
-
-            //update the current candEvent to no longer send an email
-            db.collection('events').updateOne({"_id": candEvent._id}, {"emailSent": true}, function(err){
-              if (err){
+            db.collection('users').find(userQuery).toArray(function(err, users){ //ignore the ESlint...sorry
+              if(err){
                 console.log(err);
+              }
+              else{
+                // console.log(users);
+
+                //Note: in the actual implementation, I would use the above "usersToReceive"
+                //list of emails instead of devRecipient, sending to all users who are
+                //subscribed. The code is all in place...
+                var mailOptions = {
+                    from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
+                    to: devRecipient, // list of receivers -- WOULD BE "usersToReceive"
+                    subject: subjectLine, // Subject line
+                    text: content// plaintext body
+                };
+
+                transporter.sendMail(mailOptions, function(error, info){
+                  if(error){
+                      return console.log(error);
+                  }
+                  console.log("[" + new Date() + ']: Message sent: ' + info.response);
+                });
+
+                //update the current candEvent to no longer send an email
+                db.collection('events').updateOne({"_id": candEvent._id}, {"emailSent": true}, function(err){
+                  if (err){
+                    console.log(err);
+                  }
+                });
               }
             });
           }
