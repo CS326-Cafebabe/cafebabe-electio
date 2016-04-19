@@ -282,12 +282,12 @@
 			"tests": "//Verify response arrives in less than a second\ntests[\"Response time is less than 1 second\"] = responseTime < 1000;\n\n//Test response code\ntests[\"Status code is 200\"] = responseCode.code === 200;\n\n//Verify JSON keys\nvar schema = {\n\"type\": \"object\",\n\"properties\": {\n    \"_id\": \"integer\",\n    \"email\": \"string\",\n    \"password\": \"string\",\n    \"fullName\": \"string\",\n    \"gender\": \"string\",\n    \"hispanic\": \"boolean\",\n    \"registered\": \"boolean\",\n    \"age\": \" string\",\n    \"politicalAffiliation\": \"integer\",\n    \"location\": \"string\",\n    \"vote\": \"integer\",\n    \"emailSettings\": \"array\"\n},\n\"required\": [\"_id\", \"email\", \"password\", \"fullName\", \"gender\", \"hispanic\", \"registered\", \"age\", \"politicalAffiliation\", \"location\", \"vote\", \"emailSettings\"]\n};\n \nif (responseBody === \"\"){\n    tests[\"Valid JSON\"] = 0===1;\n    tests[\"Values updated\"] = 0===1;\n} else {\n    var data = JSON.parse(responseBody);\n     \n    result = tv4.validateResult(data, schema)\n    tests[\"Valid JSON\"] = result.valid;\n    \n    //Test that new email is correct\n    tests[\"Values updated\"] = data.email === \"amccluskey@umass.edu\";\n}\n\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461021433540,
+			"time": 1461089020815,
 			"name": "/users/:userid (authorized)",
 			"description": "",
 			"collectionId": "9d835673-13f6-dde1-ec99-9c5eda5be129",
 			"responses": [],
-			"rawModeData": "{\n  \"_id\": \"000000000000000000000001\",\n  \"email\": \"amccluskey@umass.edu\",\n  \"password\": \"Timmy1234\",\n  \"fullName\": \"Tim Richards\",\n  \"gender\": \"male\",\n  \"race\": \"White\",\n  \"hispanic\": false,\n  \"registered\": false,\n  \"age\": \"25-34\",\n  \"politicalAffiliation\": 2,\n  \"location\": \"Amherst, MA\",\n  \"vote\": 0,\n  \"emailSettings\": [\n    1,\n    3,\n    4,\n    6\n  ]\n}"
+			"rawModeData": "{\n  \"_id\": \"000000000000000000000001\",\n  \"email\": \"amccluskey@umass.edu\",\n  \"password\": \"Timmy1234\",\n  \"fullName\": \"Tim Richards\",\n  \"gender\": \"male\",\n  \"race\": \"White\",\n  \"hispanic\": false,\n  \"registered\": false,\n  \"age\": \"25-34\",\n  \"politicalAffiliation\": \"000000000000000000000002\",\n  \"location\": \"Amherst, MA\",\n  \"vote\": null,\n  \"emailSettings\": [\n    \"000000000000000000000001\",\n    \"000000000000000000000003\",\n    \"000000000000000000000004\",\n    \"000000000000000000000006\"\n  ]\n}"
 		},
 		{
 			"id": "4720f823-630b-7c30-5e35-cc794e9ff9db",
@@ -563,12 +563,12 @@
 			"tests": "//Verify response arrives in less than a second\ntests[\"Response time is less than 1 second\"] = responseTime < 1000;\n\ntests[\"Status code is 401: Unauthorized\"] = responseCode.code === 401;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460606738904,
+			"time": 1461089028630,
 			"name": "/users/:userid (unauthorized)",
 			"description": "",
 			"collectionId": "9d835673-13f6-dde1-ec99-9c5eda5be129",
 			"responses": [],
-			"rawModeData": "{\n  \"_id\": \"000000000000000000000001\",\n  \"email\": \"amccluskey@umass.edu\",\n  \"password\": \"Timmy1234\",\n  \"fullName\": \"Tim Richards\",\n  \"gender\": \"male\",\n  \"race\": \"White\",\n  \"hispanic\": false,\n  \"registered\": false,\n  \"age\": \"25-34\",\n  \"politicalAffiliation\": 2,\n  \"location\": \"Amherst, MA\",\n  \"vote\": 0,\n  \"emailSettings\": [\n    1,\n    3,\n    4,\n    6\n  ]\n}"
+			"rawModeData": "{\n  \"_id\": \"000000000000000000000001\",\n  \"email\": \"amccluskey@umass.edu\",\n  \"password\": \"Timmy1234\",\n  \"fullName\": \"Tim Richards\",\n  \"gender\": \"male\",\n  \"race\": \"White\",\n  \"hispanic\": false,\n  \"registered\": false,\n  \"age\": \"25-34\",\n  \"politicalAffiliation\": \"000000000000000000000002\",\n  \"location\": \"Amherst, MA\",\n  \"vote\": null,\n  \"emailSettings\": [\n    \"000000000000000000000001\",\n    \"000000000000000000000003\",\n    \"000000000000000000000004\",\n    \"000000000000000000000006\"\n  ]\n}"
 		},
 		{
 			"id": "af140b77-b1e3-947f-92cc-a89d92991f4a",
