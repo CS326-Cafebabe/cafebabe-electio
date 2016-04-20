@@ -823,7 +823,7 @@ MongoClient.connect(url, function(err, db) {
 
   //this setInterval will be to create new weeklyStates. In the real site,
   //this should create one every week, but for dev purposes (and grading purposes)
-  //I set the interval to 30 secs instead of 1 week.
+  //I set the interval to 20 secs instead of 1 week.
   setInterval(function(){
 
     var newWeeklyState = {
@@ -858,7 +858,7 @@ MongoClient.connect(url, function(err, db) {
                 console.log(err);
               }
               else{
-                console.log("it has been done, my lord");
+                console.log("You Have a New Weekly State!");
               }
             });
           }
