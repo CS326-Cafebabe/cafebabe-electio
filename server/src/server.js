@@ -818,7 +818,7 @@ MongoClient.connect(url, function(err, db) {
           }
         }
       });
-    }, 10000);
+    }, 30000);
   });
 
   //this setInterval will be to create new weeklyStates. In the real site,
