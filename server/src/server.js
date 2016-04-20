@@ -572,7 +572,7 @@ MongoClient.connect(url, function(err, db) {
     var chatID = new ObjectID(req.params.chatId);
     var newMessage = ({
       "author": new ObjectID(author),
-      "contents": message.contents,
+      "contents": message.contents
     });
     if (fromUser === author) {
       db.collection('chatBox').updateOne({ _id: chatID },
@@ -600,6 +600,9 @@ MongoClient.connect(url, function(err, db) {
       // }
       // else res.status(401).end();
   });
+  }
+  else {
+    res.status(401).send();
   }
 })
 
