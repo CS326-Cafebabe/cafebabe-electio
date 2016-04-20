@@ -54,14 +54,11 @@ MongoClient.connect(url, function(err, db) {
     }
 
     //For every key in body, update the key in the newUser object.
-    //This means that everything that is included is updated.
-    //(NOTE: In javascript, the for..in.. operation loops through every KEY in an object.)
     for (var i in body){
       newUser[i] = body[i];
     }
 
     //Verify data we've been given:
-
     //Email should be in this regex and less than or equal to 100 characters
     var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if ( !emailRegex.test(newUser.email) || newUser.email.length > 100){
@@ -73,49 +70,37 @@ MongoClient.connect(url, function(err, db) {
     } else if (newUser.fullName.length > 100) {
       res.status(400).end("Invalid fullName")
     } else {
-
       //check db does not have any users with that email yet...
       db.collection('users').find().toArray(function(err, result){
-
-          if (err){
-            res.status(500).end();
+        if (err){
+          res.status(500).end();
+        }
+        //check response is non zero
+        if (result != null) {
+          var valid = true;
+          for (var i = 0; i<result.length; i++){
+            if (result[i].email === newUser.email){
+              valid = false;
+            }
           }
-          //check response is non zero
-          if (result != null) {
-
-            var valid = true;
-            for (var i = 0; i<result.length; i++){
-              if (result[i].email === newUser.email){
-                valid = false;
-              }
-            }
-
-            if (valid === false){
-              res.status(409).end("Email already registered.")
-            } else {
-
-              //otherwise add the new user
-              db.collection('users').insertOne(newUser, function(err, result) {
-                if (err) {
-                  // Something bad happened, and the insertion failed.
-                  res.status(500).end();
-                } else {
-                  // Success!
-                  res.status(201);
-                  res.send(result.insertedId);
-                }
-              });
-
-            }
-
+          if (valid === false){
+            res.status(409).end("Email already registered.")
           } else {
-            res.status(400).end();
+            // Otherwise add the new user
+            db.collection('users').insertOne(newUser, function(err, result) {
+              if (err) {
+                res.status(500).end();
+              } else {
+                res.status(201);
+                res.send(result.insertedId);
+              }
+            });
           }
-
+        } else {
+          res.status(400).end();
+        }
       });
-
     }
-
   });
 
   app.delete('/users/:userid', function(req,res){
@@ -123,29 +108,23 @@ MongoClient.connect(url, function(err, db) {
 
     var userid = req.params.userid;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
-    //first check authentication
-    if (userid === fromUser){
 
+    if (userid === fromUser){
       //if that checks out, delete from db
       db.collection("users").deleteOne({"_id": new ObjectID(userid)}, function (err, results){
-
         if (err){
           res.status(500).end();
         }
 
-        //Send response with success
         if (results.deletedCount > 0){
           res.send();
         } else {
           res.status(400).end();
         }
-
       });
-
     } else {
       res.status(401).end();
     }
-
   });
 
   //Trends getAllWeeks
@@ -227,28 +206,20 @@ MongoClient.connect(url, function(err, db) {
   });
 
   function getCandidates(callback){
-
-    // Peform a simple find and return all the documents
     db.collection('candidates').find().toArray(function(err, candidates) {
       if (err){
         return callback(err, null)
       }
       //check response is non zero
       if (candidates != null) {
-         //console.dir(doc);
-         callback(null, candidates)
+        callback(null, candidates)
       } else {
-         return callback(null, null);
+        return callback(null, null);
       }
-
     });
-
   }
 
   function sortCandidates(candidates){
-    //Sort the candidates
-    //Get surName connected to id
-    //Get surNames
     var surNameIdDict = {};
     var surNameArray = [];
     for (var j = 0; j<candidates.length; j++) {
@@ -259,14 +230,12 @@ MongoClient.connect(url, function(err, db) {
     }
     //sort surNames
     surNameArray.sort();
-    //push the candidate of the correct id into the right position
-    var sortedCandidates = [];
 
-    for (var k = 0; k<surNameArray.length; k++){
+    var sortedCandidates = [];
+    for (var k = 0; k < surNameArray.length; k++){
       var oldId = surNameIdDict[surNameArray[k]];
       sortedCandidates.push(candidates[oldId]);
     }
-    //Return data
     return sortedCandidates;
   }
 
@@ -275,23 +244,14 @@ MongoClient.connect(url, function(err, db) {
     serverLog("GET /candidates");
 
     getCandidates( function (err, candidates){
-
-
       if (err) {
-        // A database error happened.
-        // Internal Error: 500.
         res.status(500).send();
       } else if (candidates === null) {
-        // Couldn't find the feed in the database.
         res.status(400).send();
       } else {
-
-        // Send data.
         res.send(sortCandidates(candidates));
       }
-
-  });
-
+    });
   });
 
   app.get('/candidates/id/:candidateid', function(req, res) {
@@ -301,39 +261,31 @@ MongoClient.connect(url, function(err, db) {
     db.collection('candidates').findOne({_id: candidateID},
       function(err, candidate) {
         if (err) {
-          // An error occurred.
           res.status(500).send("Database error: " + err);
         } else if (candidate === null) {
-          // Candidate not found
           res.status(400).send();
         }
         res.send(candidate);
+      });
     });
-
-  });
 
   // get independent candidates
   app.get('/candidates/independent', function(req, res) {
     serverLog("GET /candidates/independent");
-    //uses find to get candidates of independent parties
-    //build the query using $or
+
     var query = {
       $or: [
         { "party": new ObjectID("000000000000000000000003") },
         { "party": new ObjectID("000000000000000000000004") }
       ]
     };
-    //find all candidates matching that query
     db.collection('candidates').find(query).toArray(function(err, candidates) {
       if (err){
         res.status(500).send();
-      }
-      else if (candidates === null) {
-        // Didn't find any candidates
+      } else if (candidates === null) {
         res.status(400).send();
       } else {
-        //send em!
-         res.send(candidates);
+        res.send(candidates);
       }
     });
   });
@@ -341,14 +293,10 @@ MongoClient.connect(url, function(err, db) {
   // Reset database.
   app.post('/resetdb', function(req, res) {
     serverLog("POST /resetdb");
-    //reset JSON db
     database.resetDatabase();
-
-    //Reset Mongo DB
     ResetDatabase(db, function() {
       res.send();
     });
-
   });
 
   //get user data
@@ -367,15 +315,14 @@ MongoClient.connect(url, function(err, db) {
             res.status(400).send();
           }
           res.send(user);
-      });
-    }
-    else{
-      res.status(401).end();
+        });
+    } else {
+        res.status(401).end();
     }
   });
 
   /*
-  //get user data
+  // get user data
   app.get('/users/:userid', function(req, res) {
     serverLog("GET /users/"+ req.params.userid);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
@@ -383,8 +330,7 @@ MongoClient.connect(url, function(err, db) {
     if(fromUser === userId){
       var user = readDocument('users', userId);
       res.send(user);
-    }
-    else{
+    } else {
       res.status(401).end();
     }
   });
@@ -396,47 +342,44 @@ MongoClient.connect(url, function(err, db) {
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     var userId = new ObjectID(req.params.userid);
     var body = req.body;
-    if(fromUser === req.params.userid){
-      var update =   { $set: {
-          "_id": userId,
-          "email": body.email,
-          "password": body.password,
-          "fullName": body.fullName,
-          "gender": body.gender,
-          "race": body.race,
-          "hispanic": body.hispanic,
-          "registered": body.registered,
-          "age": body.age,
-          "politicalAffiliation": new ObjectID(body.politicalAffiliation),
-          "location": body.location,
-          "vote": body.vote,
+    if (fromUser === req.params.userid) {
+      var update = { $set: {
+        "_id": userId,
+        "email": body.email,
+        "password": body.password,
+        "fullName": body.fullName,
+        "gender": body.gender,
+        "race": body.race,
+        "hispanic": body.hispanic,
+        "registered": body.registered,
+        "age": body.age,
+        "politicalAffiliation": new ObjectID(body.politicalAffiliation),
+        "location": body.location,
+        "vote": body.vote,
+        "emailSettings": body.emailSettings
+      } }
 
-          "emailSettings": body.emailSettings
-        }}
       db.collection('users').updateOne({_id: userId}, update, function(err, result) {
-          if(err) {
-            // An error occurred.
-            res.status(500).send("Database error: " + err);
-          } else if (result.modifiedCount === 0) {
+        if(err) {
+          res.status(500).send("Database error: " + err);
+        } else if (result.modifiedCount === 0) {
+          res.status(400).send();
+        }
+
+        db.collection('users').findOne({_id: userId},
+          function(err, user) {
+            if (err) {
+              res.status(500).send("Database error: " + err);
+            } else if (user === null) {
               res.status(400).send();
-          }
-          db.collection('users').findOne({_id: userId},
-            function(err, user) {
-              if (err) {
-                // An error occurred.
-                res.status(500).send("Database error: " + err);
-              } else if (user === null) {
-                // user not found
-                res.status(400).send();
-              }
-              res.send(user);
+            }
+            res.send(user);
           });
         });
-    }
-    else {
-      res.status(401).end();
-    }
-  });
+      } else {
+        res.status(401).end();
+      }
+    });
 
   /*
   //set user data
@@ -476,7 +419,7 @@ MongoClient.connect(url, function(err, db) {
     serverLog("GET /users/" + req.params.userid + "/fullName");
     var userID = new ObjectID(req.params.userid);
 
-    db.collection('users').findOne({_id: userID},
+    db.collection('users').findOne({ _id: userID },
       function(err, user) {
         if (err) {
           // An error occurred.
@@ -486,7 +429,8 @@ MongoClient.connect(url, function(err, db) {
           res.status(400).send();
         }
         res.send(user.fullName);
-    });
+      }
+    );
   })
 
   //get user party
