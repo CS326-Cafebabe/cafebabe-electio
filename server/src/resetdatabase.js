@@ -347,46 +347,30 @@ var initialData = {
 
   "weeklyState": {
     "1":{
-      "_id": new ObjectID("000000000000000000000001"),
-      "startDate": "March 13, 2016",
+      "_id": new ObjectID("000000000000000000000004"),
+      "startDate": "February 21, 2016",
+      "unixTime": 1456012800,
       "ballotBox": [
         {
           "user": new ObjectID("000000000000000000000004"),
-          "candidate": new ObjectID("000000000000000000000001")
+          "candidate": new ObjectID("000000000000000000000007")
         },
         {
           "user": new ObjectID("000000000000000000000005"),
-          "candidate": new ObjectID("000000000000000000000002")
+          "candidate": new ObjectID("000000000000000000000001")
         },
         {
           "user": new ObjectID("000000000000000000000001"),
-          "candidate": new ObjectID("000000000000000000000003")
+          "candidate": new ObjectID("000000000000000000000005")
         }
       ]
 
     },
+
     "2":{
-      "_id": new ObjectID("000000000000000000000002"),
-      "startDate": "March 6, 2016",
-      "ballotBox": [
-        {
-          "user": new ObjectID("000000000000000000000004"),
-          "candidate": new ObjectID("000000000000000000000001")
-        },
-        {
-          "user": new ObjectID("000000000000000000000005"),
-          "candidate": new ObjectID("000000000000000000000004")
-        },
-        {
-          "user": new ObjectID("000000000000000000000001"),
-          "candidate": new ObjectID("000000000000000000000003")
-        }
-      ]
-
-    },
-    "3":{
       "_id": new ObjectID("000000000000000000000003"),
       "startDate": "February 28, 2016",
+      "unixTime": 1456617600,
       "ballotBox": [
         {
           "user": new ObjectID("000000000000000000000004"),
@@ -403,21 +387,44 @@ var initialData = {
       ]
 
     },
-    "4":{
-      "_id": new ObjectID("000000000000000000000004"),
-      "startDate": "February 21, 2016",
+
+    "3":{
+      "_id": new ObjectID("000000000000000000000002"),
+      "startDate": "March 6, 2016",
+      "unixTime": 1457222400,
       "ballotBox": [
         {
           "user": new ObjectID("000000000000000000000004"),
-          "candidate": new ObjectID("000000000000000000000007")
-        },
-        {
-          "user": new ObjectID("000000000000000000000005"),
           "candidate": new ObjectID("000000000000000000000001")
         },
         {
+          "user": new ObjectID("000000000000000000000005"),
+          "candidate": new ObjectID("000000000000000000000004")
+        },
+        {
           "user": new ObjectID("000000000000000000000001"),
-          "candidate": new ObjectID("000000000000000000000005")
+          "candidate": new ObjectID("000000000000000000000003")
+        }
+      ]
+
+    },
+
+    "4":{
+      "_id": new ObjectID("000000000000000000000001"),
+      "startDate": "March 13, 2016",
+      "unixTime": 1457827200,
+      "ballotBox": [
+        {
+          "user": new ObjectID("000000000000000000000004"),
+          "candidate": new ObjectID("000000000000000000000001")
+        },
+        {
+          "user": new ObjectID("000000000000000000000005"),
+          "candidate": new ObjectID("000000000000000000000002")
+        },
+        {
+          "user": new ObjectID("000000000000000000000001"),
+          "candidate": new ObjectID("000000000000000000000003")
         }
       ]
 

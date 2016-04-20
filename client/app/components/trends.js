@@ -26,7 +26,7 @@ export default class Trends extends React.Component {
 
   handleClick(clickEvent, week) {
     clickEvent.preventDefault();
-    this.setState({displayWeek: week.startDate});
+    this.setState({displayWeek: new Date(week.unixTime*1000).toLocaleString()});
     this.setState({loaded: true});
     this.setState({ballotBox: week.ballotBox});
   }
@@ -48,7 +48,7 @@ export default class Trends extends React.Component {
       this.setState({candidateNames: fullName})
     })
     getAllWeeks((out) => {
-      this.setState({weeklyStates: out});
+      this.setState({weeklyStates: out.reverse()});
     });
     getAllUserRaceGender((out) => {
       this.setState({users: out});
@@ -58,6 +58,8 @@ export default class Trends extends React.Component {
   componentDidMount() {
     this.refresh();
   }
+
+
 
   render() {
     //Data to be passed down through GraphSection to graphs
@@ -85,8 +87,8 @@ export default class Trends extends React.Component {
                 <hr/>
                 <ul>
                   {this.state.weeklyStates.map((week, i) =>
-                    <li key={i} className={(i < 3) ? "loaded" : this.state.classNames}>
-                      <a className="dates" onClick={(e) => this.handleClick(e, week)}>{week.startDate}</a>
+                    <li key={i} className={(i < 4) ? "loaded" : this.state.classNames}>
+                      <a className="dates" onClick={(e) => this.handleClick(e, week)}>{new Date(week.unixTime*1000).toLocaleString()}</a>
                     </li>)}
                   <li className="media">
                     <div className="media-left media-top">

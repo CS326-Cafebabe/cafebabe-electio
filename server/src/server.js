@@ -816,59 +816,57 @@ MongoClient.connect(url, function(err, db) {
               }
             });
           }
-
         }
       });
-
-      //   //var candEvent = readDocument('events', i);
-      //   //if the time differential is 2 weeks away or less and it hasnt been notified
-      //   //if((candEvent.unixTime - (new Date).getTime()/1000 < 1209600) && (candEvent.unixTime - (new Date).getTime()/1000 > 0) && (candEvent.emailSent === false)){
-      //     var users = getCollection('users');
-      //     var numUsers = Object.keys(users).length;
-      //
-      //     var subjectLine = 'Upcoming: ' + candEvent.name;
-      //     var content = "This is a notification that " + candEvent.name + " is upcoming because you subscribed to a candidate affiliated with this event. \n \n The event will take place on the " + candEvent.date + "."
-      //     //I would count the number of users here and iterate through all of them,
-      //     //creating a list of recipients who actually would receive the email
-      //     //based on their subscriptions.
-      //     //However for dev purposes I only send 1 email to a dev email, not an email
-      //     //actually in the db (which would be a quick change below in mailOptions)
-      //     var usersToReceive = [];
-      //     for(var j = 1; j <= numUsers; j ++){
-      //       var user = readDocument('users', j);
-      //       //iterate over the users subscriptions, check if associated with event
-      //       for(var c = 0; c < user.emailSettings.length; c ++){
-      //         //if the candId is shared, add to a list of users to receive the email, break to next user
-      //         if(candEvent.associatedCandidates.indexOf(user.emailSettings[c]) !== -1){
-      //           usersToReceive.push(user.email);
-      //           break;
-      //         }
-      //       }
-      //     }
-      //     // console.log(usersToReceive);
-      //     //Note: in the actual implementation, I would use the above "usersToReceive"
-      //     //list of emails instead of devRecipient, sending to all users who are
-      //     //subscribed. The code is all in place...
-      //     var mailOptions = {
-      //         from: '"Elect.io" <electio.notifications@gmail.com>', // sender address
-      //         to: devRecipient, // list of receivers -- WOULD BE "usersToReceive"
-      //         subject: subjectLine, // Subject line
-      //         text: content// plaintext body
-      //     };
-      //
-      //     transporter.sendMail(mailOptions, function(error, info){
-      //       if(error){
-      //           return console.log(error);
-      //       }
-      //       console.log("[" + new Date() + ']: Message sent: ' + info.response);
-      //     });
-      //
-      //     candEvent.emailSent = true;
-      //     writeDocument('events', candEvent);
-      //   }
-      // }
     }, 10000);
   });
+
+  //this setInterval will be to create new weeklyStates. In the real site,
+  //this should create one every week, but for dev purposes (and grading purposes)
+  //I set the interval to 30 secs instead of 1 week.
+  setInterval(function(){
+
+    var newWeeklyState = {
+      "startDate": new Date().toLocaleString(),
+      "unixTime": new Date().getTime()/1000,
+      "ballotBox": []
+    }
+    db.collection('weeklyState').insertOne(newWeeklyState, function(err, result){
+      if(err){
+        console.log(err);
+      }
+      else{
+        //update the ballotBox of the recently inserted weeklyState
+        //find all votes that are nonzero (user has voted)
+        var notVoted = new ObjectID("000000000000000000000000");
+        db.collection('users').find({'vote': {$ne: notVoted}}).toArray(function(err, users){
+          if(err){
+            console.log(err);
+          }
+          else{
+            var newBallotBox = [];
+            for(var i = 0; i < users.length; i++){
+              newBallotBox.push({
+                "user": users[i]._id,
+                "candidate": new ObjectID(users[i].vote)
+              });
+            }
+
+            //update the new weeklyState with the newBallotBox
+            db.collection('weeklyState').updateOne({"_id": result.insertedId}, {$set: {"ballotBox": newBallotBox}}, function(err){
+              if(err){
+                console.log(err);
+              }
+              else{
+                console.log("it has been done, my lord");
+              }
+            });
+          }
+        });
+        // console.log(result);
+      }
+    });
+  }, 20000);
 
   /**
   * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
