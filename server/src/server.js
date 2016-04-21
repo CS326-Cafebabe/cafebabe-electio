@@ -362,13 +362,10 @@ MongoClient.connect(url, function(err, db) {
 
       } }
 
-      db.collection('users').updateOne({_id: userId}, update, function(err, result) {
+      db.collection('users').updateOne({_id: userId}, update, function(err) {
         if(err) {
           res.status(500).send("Database error: " + err);
-        } else if (result.modifiedCount === 0) {
-          console.log("ok");
-        }
-
+        } 
         db.collection('users').findOne({_id: userId},
           function(err, user) {
             if (err) {
