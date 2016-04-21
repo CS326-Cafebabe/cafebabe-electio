@@ -144,6 +144,7 @@ The main section of the page
 .democrat-thumb-home:hover,
 .democrat-thumb-home:focus {
 	border-color: #31648C !important;
+	text-decoration: none;
 }
 
 .republican-thumb-home {
@@ -157,6 +158,7 @@ The main section of the page
 .republican-thumb-home:hover,
 .republican-thumb-home:focus {
 	border-color: #CF1E1D !important;
+	text-decoration: none;
 
 }
 
@@ -166,6 +168,7 @@ The main section of the page
 .independent-thumb-home:hover,
 .independent-thumb-home:focus {
 	border-color: #502859 !important;
+	text-decoration: none;
 }
 
 

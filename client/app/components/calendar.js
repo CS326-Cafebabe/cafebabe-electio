@@ -95,6 +95,7 @@ export default class CalendarExample extends Component {
             <h1>CALENDAR<small>  See when important events are</small>
             </h1>
             <hr/>
+            <br/>
           </div>
         </div>
 

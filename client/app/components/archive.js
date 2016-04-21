@@ -24,7 +24,7 @@ export default class Archive extends React.Component {
   render() {
     return (
       <div className="archive-body col-md-12">
-        <h2>ARCHIVE <small>Past Events in the Election Race</small></h2>
+        <h1>ARCHIVE <small>Past Events in the Election Race</small></h1>
         <hr />
         <nav>
           <ul className="pager">

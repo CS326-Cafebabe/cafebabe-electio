@@ -41,7 +41,7 @@ export default class Home extends React.Component {
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link to={"vote"} className="btn btn-default btn-block" id="vote-button">Vote now <span className="glyphicon glyphicon-pencil sidebar-glyph"></span></Link>
+                      <Link to={"vote"} className="btn btn-default btn-block" id="vote-button"><b>VOTE NOW</b><span className="glyphicon glyphicon-pencil sidebar-glyph"></span></Link>
                     </div>
                   </div>
                   </div>
