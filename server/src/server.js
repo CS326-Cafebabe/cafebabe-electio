@@ -183,17 +183,14 @@ MongoClient.connect(url, function(err, db) {
 
   // get some events
   app.get('/events/:page', function(req, res) {
-    serverLog("GET /events/" + pageNum);
-
     var pageNum = parseInt(req.params.page, 10);
-    var start = 0;
-    if (pageNum === 2) start = 3;
+    var start = pageNum * 3 - 2;
 
     db.collection('events').find(
       { $or: [
+        { "_id": new ObjectID("00000000000000000000000" + (start)) },
         { "_id": new ObjectID("00000000000000000000000" + (start + 1)) },
-        { "_id": new ObjectID("00000000000000000000000" + (start + 2)) },
-        { "_id": new ObjectID("00000000000000000000000" + (start + 3)) }
+        { "_id": new ObjectID("00000000000000000000000" + (start + 2)) }
       ] }).toArray(function(err, events) {
         if (err) {
           res.status(500);

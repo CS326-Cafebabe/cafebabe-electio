@@ -5,7 +5,6 @@ import {IndexRoute, Router, Route, hashHistory} from 'react-router';
 import Home from './components/home';
 import Vote from './components/vote';
 import Archive from './components/archive';
-import Archive2 from './components/archive2';
 import Trend from './components/trends';
 import ChatList from './components/chatList';
 import EmailSettings from './components/emailsettings';
@@ -22,7 +21,6 @@ import {HomeSidebar,
 // import DatabaseReset from './components/databaseReset';
 // import Calendar from './components/calendar';
 
-
 class VotePage extends React.Component {
   render() {
     //<p>This is the vote page for party {this.props.params.party}.</p>
@@ -37,11 +35,9 @@ class VotePage extends React.Component {
 
 class HomePage extends React.Component {
   render() {
-
     return (
-    //<p>This is the home page.</p> < Home />);
-    <Home />
-  )
+      <Home />
+    )
   }
 }
 
@@ -59,13 +55,7 @@ class TrendPage extends React.Component {
 
 class ArchivePage extends React.Component {
   render() {
-    return (<Archive page="1"/>);
-  }
-}
-
-class ArchivePage2 extends React.Component {
-  render() {
-    return (<Archive2 page="2"/>);
+    return (<Archive page={this.props.params.page}/>);
   }
 }
 
@@ -90,9 +80,6 @@ class EmailSettingsPage extends React.Component {
     return (<EmailSettings userId={"000000000000000000000001"}/>);
   }
 }
-
-
-
 
 /**
  * The primary component in our application.
@@ -120,13 +107,11 @@ ReactDOM.render((
       <IndexRoute component={HomePage}/>
       <Route path="vote" component={VotePage}/>
       <Route path="calendar" component={CalendarPage}/>
-      <Route path="archive/1" component={ArchivePage}/>
-      <Route path="archive/2" component={ArchivePage2}/>
+      <Route path="archive/:page" component={ArchivePage}/>
       <Route path="trends" component={TrendPage}/>
       <Route path="usersettings" component={SettingsPage}/>
       <Route path="chat" component={ChatPage}/>
       <Route path="emailsettings" component={EmailSettingsPage}/>
-
     </Route>
   </Router>
 ), document.getElementById('renderPage'));
@@ -137,13 +122,11 @@ ReactDOM.render((
       <IndexRoute component={HomeSidebar}/>
       <Route path="vote" component={VoteSidebar}/>
       <Route path="calendar" component={CalendarSidebar}/>
-      <Route path="archive/1" component={ArchiveSidebar}/>
-      <Route path="archive/2" component={ArchiveSidebar}/>
+      <Route path="archive/:page" component={ArchiveSidebar}/>
       <Route path="trends" component={TrendsSidebar}/>
       <Route path="usersettings" component={SettingsSidebar}/>
       <Route path="chat" component={ChatSidebar}/>
       <Route path="emailsettings" component={SettingsSidebar}/>
-
     </Route>
   </Router>
 ), document.getElementById('renderSidebar'));

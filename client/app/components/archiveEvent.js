@@ -6,6 +6,10 @@ export default class ArchiveEvent extends React.Component {
     this.state = props.data;
   }
 
+  componentDidMount() {
+    this.refresh();
+  }
+
   getPartyPanel() {
     var panelType = "";
     var check = this.state.party;
