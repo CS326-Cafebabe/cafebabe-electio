@@ -1,7 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
 import { getAllCandidates, getAllWeeks, getAllUserRaceGender } from '../server';
-import {Bar} from 'react-chartjs';
 import GraphSection from './graphSection';
 
 export default class Trends extends React.Component {
@@ -44,8 +42,8 @@ export default class Trends extends React.Component {
   refresh() {
     getAllCandidates((out) => {
       var fullName = [];
-      out.map((cand) => fullName.push(cand.fullName));
-      this.setState({candidateNames: fullName})
+      out.map((cand) => fullName.push({id: parseInt(cand._id,10), fullName: cand.fullName}));
+      this.setState({candidateNames: fullName});
     })
     getAllWeeks((out) => {
       this.setState({weeklyStates: out.reverse()});
@@ -63,8 +61,21 @@ export default class Trends extends React.Component {
 
   render() {
     //Data to be passed down through GraphSection to graphs
+
+    //Sorts the array of candidate names by id number instead of name
+    var cands = this.state.candidateNames.sort(function(a, b){
+      if(a.id > b.id){
+        return 1;
+      }
+      else{
+        return -1;
+      }
+    });
+    var labels = [];
+    cands.map((cand)=>labels.push(cand.fullName));
+
     var data = {
-      labels: this.state.candidateNames,
+      labels: labels,
       ballot: this.state.ballotBox,
       voters: this.state.users
     }

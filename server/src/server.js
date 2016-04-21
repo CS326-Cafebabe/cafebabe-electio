@@ -343,6 +343,8 @@ MongoClient.connect(url, function(err, db) {
     var userId = new ObjectID(req.params.userid);
     var body = req.body;
     if (fromUser === req.params.userid) {
+      var objectIDemail = body.emailSettings.map((id) => {return new ObjectID(id)});
+      console.log(objectIDemail);
       var update = { $set: {
         "_id": userId,
         "email": body.email,
@@ -355,8 +357,9 @@ MongoClient.connect(url, function(err, db) {
         "age": body.age,
         "politicalAffiliation": new ObjectID(body.politicalAffiliation),
         "location": body.location,
-        "vote": body.vote,
-        "emailSettings": body.emailSettings
+        "vote": new ObjectID(body.vote),
+        "emailSettings": objectIDemail
+
       } }
 
       db.collection('users').updateOne({_id: userId}, update, function(err, result) {
