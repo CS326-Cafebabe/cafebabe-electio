@@ -363,7 +363,7 @@ MongoClient.connect(url, function(err, db) {
         if(err) {
           res.status(500).send("Database error: " + err);
         } else if (result.modifiedCount === 0) {
-          res.status(400).send();
+          console.log("ok");
         }
 
         db.collection('users').findOne({_id: userId},
