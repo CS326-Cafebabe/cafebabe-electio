@@ -503,11 +503,11 @@ var initialData = {
     "5":{
       "active": true,
       "_id":new ObjectID("000000000000000000000005"),
-      "fullName":"Rubio Debate",
+      "fullName":"Supreme Debate",
       "messages": [
         {
           "author": new ObjectID("000000000000000000000002"),
-          "contents": "Debate Rubio Here"
+          "contents": "Debate Vermin Supreme Here"
         },
         {
           "author": new ObjectID("000000000000000000000002"),

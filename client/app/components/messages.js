@@ -24,7 +24,12 @@ export default class Messages extends React.Component {
     var userParty;
     if(this.state.polAff === '000000000000000000000002')
       userParty = "republican-text";
-    else userParty = "democrat-text";
+    else if(this.state.polAff === '000000000000000000000001'){
+      userParty = "democrat-text";
+    }
+    else {
+      userParty = "independent-purple";
+    }
 
     return(
       <div className="chat-box-text">
