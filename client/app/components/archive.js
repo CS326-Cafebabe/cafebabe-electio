@@ -56,18 +56,6 @@ export default class Archive extends React.Component {
             <li className={nextClass} onClick={(e) => this.handleClick(e, String(next))}><Link to={nextLink}>Older<span aria-hidden="true">&rarr;</span></Link></li>
           </ul>
         </nav>
-        /*
-        <div id="1"></div>
-        <div id="2"></div>
-        <div id="3"></div>
-        {this.state.events.forEach((i) =>
-          React.unmountComponentAtNode(document.getElementById(i))
-        )}
-
-        {this.state.events.map((event, i) =>
-          //ReactDOM.render(<Event key={i} uid={i} data={event} />, document.getElementById(i))
-        )}
-        */
 
         {this.state.events.map((event, i) =>
           <Event key={i} uid={i} data={event} />
