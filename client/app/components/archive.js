@@ -7,29 +7,53 @@ export default class Archive extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "events": []
+      "events": [],
+      "page": this.props.page
     }
   }
 
-  refresh() {
+  componentDidMount() {
     getSomeEvents(this.props.page, (out) => {
       this.setState({events: out});
     })
   }
 
-  componentDidMount() {
-    this.refresh();
+  handleClick(e, newPage) {
+    e.preventDefault();
+    this.setState({ "page": newPage });
+    getSomeEvents(this.state.page, (out) => {
+      this.setState({events: out});
+    })
   }
 
   render() {
+    var page = Number(this.state.page);
+    var previous = page - 1;
+    var next = page + 1;
+
+    var previousClass = "previous";
+    if (page <= 1) {
+      previous = 1;
+      previousClass += " disabled"
+    }
+
+    var nextClass = "next";
+    if (page >= 3) {
+      next = 3;
+      nextClass += " disabled";
+    }
+
+    var prevLink = "/archive/" + previous;
+    var nextLink = "/archive/" + next;
+
     return (
       <div className="archive-body col-md-12">
         <h1>ARCHIVE <small>Past Events in the Election Race</small></h1>
         <hr />
         <nav>
           <ul className="pager">
-            <li className="previous"><Link to="/archive/1"><span aria-hidden="true">&larr;</span>Newer</Link></li>
-            <li className="next"><Link to="/archive/2">Older<span aria-hidden="true">&rarr;</span></Link></li>
+            <li className={previousClass} onClick={(e) => this.handleClick(e, String(previous))}><Link to={prevLink}><span aria-hidden="true">&larr;</span>Newer</Link></li>
+            <li className={nextClass} onClick={(e) => this.handleClick(e, String(next))}><Link to={nextLink}>Older<span aria-hidden="true">&rarr;</span></Link></li>
           </ul>
         </nav>
 
