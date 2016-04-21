@@ -22,14 +22,21 @@ export default class Archive extends React.Component {
   }
 
   render() {
+    var previousClass = "previous";
+    if (this.props.page === 1) {
+      previousClass += " disabled"
+    }
+
+    var previous = "/archive/" + (this.props.page - 1);
+    var next = "/archive/" + (this.props.page + 1);
     return (
       <div className="archive-body col-md-12">
         <h2>ARCHIVE <small>Past Events in the Election Race</small></h2>
         <hr />
         <nav>
           <ul className="pager">
-            <li className="previous"><Link to="/archive/1"><span aria-hidden="true">&larr;</span>Newer</Link></li>
-            <li className="next"><Link to="/archive/2">Older<span aria-hidden="true">&rarr;</span></Link></li>
+            <li className={previousClass}><Link to={previous}><span aria-hidden="true">&larr;</span>Newer</Link></li>
+            <li className="next"><Link to={next}>Older<span aria-hidden="true">&rarr;</span></Link></li>
           </ul>
         </nav>
 
