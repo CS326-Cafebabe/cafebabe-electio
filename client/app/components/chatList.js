@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Chat from './chat';
 import {getAllChat} from '../server';
@@ -55,7 +56,6 @@ export default class ChatList extends React.Component {
   }
 
   render(){
-    console.log(typeof(this.state.chatBoxes[this.state.active - 1]._id));
     return(
       <div>
         <div id={this.state.chatBoxes[this.state.active - 1]._id} className="tab-pane fade in active">

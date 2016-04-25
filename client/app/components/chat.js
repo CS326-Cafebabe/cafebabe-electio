@@ -23,6 +23,7 @@ export default class Chat extends React.Component {
     };
   }
 
+
   refresh() {
     getChat(this.state.render, (cBox) => {
       this.setState({chatBox: cBox,
@@ -52,7 +53,7 @@ export default class Chat extends React.Component {
   }
 
   render() {
-
+    var intervalID = window.setInterval(this.refresh(), 10000);
     return (
       <div>
         <div className="row">

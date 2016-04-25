@@ -12,21 +12,28 @@ export default class Archive extends React.Component {
     }
   }
 
-  componentDidMount() {
-    getSomeEvents(this.props.page, (out) => {
-      this.setState({events: out});
-    })
-  }
-
-  handleClick(e, newPage) {
-    e.preventDefault();
-    this.setState({ "page": newPage });
+  refresh() {
     getSomeEvents(this.state.page, (out) => {
       this.setState({events: out});
     })
   }
 
+  componentDidMount(){
+    this.refresh();
+  }
+
+  handleClick(e, newPage) {
+    e.preventDefault();
+    getSomeEvents(this.state.page, (out) => {
+      this.setState({events: out, page: newPage});
+    })
+    this.refresh();
+    this.forceUpdate();
+    // console.log(this.state.events + ' ' + this.state.page);
+  }
+
   render() {
+    // console.log(this.state.page + ' ' + this.state.events);
     var page = Number(this.state.page);
     var previous = page - 1;
     var next = page + 1;
@@ -57,8 +64,10 @@ export default class Archive extends React.Component {
           </ul>
         </nav>
 
-        {this.state.events.map((event, i) =>
-          <Event key={i} uid={i} data={event} />
+        {this.state.events.map((events, i) => {
+          return(
+          <Event key={i} uid={i} data={events} />
+          )}
         )}
       </div>
     );
