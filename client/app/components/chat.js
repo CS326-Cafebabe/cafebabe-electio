@@ -43,6 +43,7 @@ export default class Chat extends React.Component {
     postMessage(this.state.render, '000000000000000000000001', postContents, () => {
       // Database is now updated. Refresh the feed.
       this.refresh();
+
     });
   }
 

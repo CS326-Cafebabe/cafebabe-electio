@@ -14,18 +14,18 @@ export default class ChatList extends React.Component {
           "fullName":"Clinton Debate",
           "messages": [
             {
-              "author": 1,
+              "author": '000000000000000000000001',
               "contents": "Debate Hillary Here"
             },
             {
-              "author": 1,
+              "author": '000000000000000000000001',
               "contents": "Test second message"
             }
           ],
           "time": 1453668480000
         }
       ],
-      active: 1
+      active: '000000000000000000000001'
       }
 
   }
@@ -52,7 +52,15 @@ export default class ChatList extends React.Component {
   handleClick(e, i) {
     e.preventDefault();
     this.setState({ active: i });
+  }
 
+  isActiveChat(page){
+    console.log(this.state.active === page);
+    // console.log(page);
+    if (page === this.state.active) {
+      return "active-text"
+    }
+    return ""
   }
 
   render(){
@@ -71,7 +79,7 @@ export default class ChatList extends React.Component {
               {this.state.chatBoxes.map((chatBoxes, i) => {
                 return (
                   <a data-toggle="tab" href={this.state.chatBoxes[i]._id}
-                     className="list-group-item" key={i} onClick={(e) => this.handleClick(e, this.state.chatBoxes[i]._id)}>
+                     className={this.isActiveChat(this.state.chatBoxes[i]._id) +  " list-group-item electio"} key={i} onClick={(e) => this.handleClick(e, this.state.chatBoxes[i]._id)}>
                     {this.state.chatBoxes[i].fullName}
                     <br/>
                     <small>Last Active: 2 mins</small>

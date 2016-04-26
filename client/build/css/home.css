@@ -6,6 +6,16 @@ http://getbootstrap.com/examples/dashboard/
 	font-family: 'Raleway', sans-serif;
 }
 
+.electio {
+	color: #337ab7 !important;
+	background-color: #e0e0e0;
+	display: block;
+}
+
+.active-text{
+	background-color: #A5D1F3 !important;
+}
+
 /*Home page CSS*/
 
 body {
