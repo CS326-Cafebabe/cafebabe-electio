@@ -55,7 +55,7 @@ export default class ChatList extends React.Component {
   }
 
   isActiveChat(page){
-    console.log(this.state.active === page);
+    // console.log(this.state.active === page);
     // console.log(page);
     if (page === this.state.active) {
       return "active-text"
