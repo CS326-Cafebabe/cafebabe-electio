@@ -362,7 +362,7 @@ MongoClient.connect(url, function(err, db) {
       db.collection('users').updateOne({_id: userId}, update, function(err) {
         if(err) {
           res.status(500).send("Database error: " + err);
-        } 
+        }
         db.collection('users').findOne({_id: userId},
           function(err, user) {
             if (err) {
@@ -855,7 +855,7 @@ MongoClient.connect(url, function(err, db) {
                 console.log(err);
               }
               else{
-                console.log("You Have a New Weekly State!");
+                serverLog("New weekly state recorded: " + result.insertedId);
               }
             });
           }
